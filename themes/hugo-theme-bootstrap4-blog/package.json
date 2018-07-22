@@ -1,0 +1,27 @@
+{
+  "name": "hugo-theme-bootstrap4-blog",
+  "version": "1.1.2",
+  "description": "A Bootstrap v4 theme for the Hugo static site generator.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alanorth/hugo-theme-bootstrap4-blog.git"
+  },
+  "scripts": {
+    "build:css": "node-sass --output-style expanded --precision 6 source/scss/style.scss static/css/style.css.tmp && cleancss --level 1 static/css/style.css.tmp -o static/css/style.css",
+    "build:fonts": "cp node_modules/font-awesome/fonts/* static/fonts",
+    "build:cookieconsent": "cp node_modules/cookieconsent/build/cookieconsent.min.css static/css && cp node_modules/cookieconsent/build/cookieconsent.min.js static/js",
+    "build:generatesri": "node build/sri.js > data/sri.toml",
+    "build": "npm run build:css && npm run build:fonts && npm run build:cookieconsent && npm run build:generatesri && npm run clean",
+    "clean": "rm static/css/style.css.tmp"
+  },
+  "keywords": "hugo",
+  "author": "Alan Orth",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "bootstrap": "4.1.2",
+    "clean-css-cli": "^4.1.11",
+    "cookieconsent": "^3.0.4",
+    "font-awesome": "^4.7.0",
+    "node-sass": "^4.9.1"
+  }
+}

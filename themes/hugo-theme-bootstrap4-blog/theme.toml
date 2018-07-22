@@ -1,0 +1,18 @@
+name = "Hugo Bootstrap v4 Blog"
+license = "GPL-3.0"
+licenselink = "https://github.com/alanorth/hugo-theme-bootstrap4/blob/master/LICENSE.txt"
+description = "A simple Hugo theme based on the Bootstrap v4 blog example."
+homepage = "https://github.com/alanorth/hugo-theme-bootstrap4"
+tags = ["bootstrap", "blog", "font awesome"]
+features = ["responsive", "blog"]
+min_version = 0.25
+
+[author]
+  name = "Alan Orth"
+  homepage = "https://englishbulgaria.net"
+
+[original]
+  author = "mdo"
+  homepage = "https://v4-alpha.getbootstrap.com/examples/blog/"
+
+# vim: ts=2 sw=2 et

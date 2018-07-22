@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="{{ .Lang }}">
+
+  <head>
+    {{ partial "head-meta.html" . }}
+
+    {{ block "schema-dot-org" . }}
+      <!-- schema.org metadata differs for Nodes and Pages -->
+    {{ end }}
+
+    <link rel="canonical" href="{{ .Permalink }}">
+
+    <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+
+    {{ "<!-- combined, minified CSS -->" | safeHTML }}
+    <link href="{{ .Site.BaseURL }}css/style.css" rel="stylesheet"{{ if not .Site.Params.disable_sri }} integrity="{{ .Site.Data.sri.style}}" crossorigin="anonymous"{{ end }}>
+
+    {{ if .RSSLink }}
+    {{ "<!-- RSS 2.0 feed -->" | safeHTML }}
+    <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+    {{ end }}
+
+    {{ template "_internal/google_analytics_async.html" . }}
+
+    {{ if .Site.Params.cookie_consent_info_url }}
+    {{ partial "cookie-consent.html" . }}
+    {{ end }}
+
+    {{ partial "head-custom.html" . }}
+  </head>
+
+  <body>
+
+    {{ block "masthead" . }}
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link {{ if .IsHome }}active{{ end }}" href="{{ .Site.BaseURL | absLangURL }}">{{ i18n "home" }}</a>
+          {{- $currentPage := . -}}
+          {{ range .Site.Menus.navbar }}
+          {{ $menuURL := .URL | absLangURL }}
+          <a class="nav-link{{ if or ($currentPage.IsMenuCurrent "navbar" .) ($currentPage.HasMenuCurrent "navbar" .) }} active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+          {{ end }}
+        </nav>
+      </div>
+    </div>
+    {{ end }}
+
+    {{ block "header" . }}
+    <header class="blog-header">
+      <div class="container">
+        <h1 class="blog-title"><a href="{{ .Site.BaseURL }}" rel="home">{{ .Site.Title | safeHTML }}</a></h1>
+        {{ if .Site.Params.description }}<p class="lead blog-description">{{ .Site.Params.description | markdownify }}</p>{{ end }}
+      </div>
+    </header>
+    {{ end }}
+
+    {{ block "body" . }}
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+
+          {{ block "main" . }}
+          <!-- The part of the page that begins to differ between templates -->
+          {{ end }}
+
+        </div> {{ "<!-- /.blog-main -->" | safeHTML }}
+
+        {{ partial "sidebar.html" . }}
+
+      </div> {{ "<!-- /.row -->" | safeHTML }}
+    </div> {{ "<!-- /.container -->" | safeHTML }}
+    {{ end }}
+
+    {{ block "footer" . }}
+    <footer class="blog-footer">
+      <p>
+      {{ if .Site.Copyright }}
+      {{ .Site.Copyright | markdownify }}
+      {{ else }}
+      Website template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>. Website proudly powered by <a href="https://github.com/rstudio/blogdown" target="_blank">Blogdown</a> for <a href="http://r-project.org" target="_blank"><strong>R</strong></a>.
+      {{ end }}
+      </p>
+      <p>
+      <a href="#">{{ i18n "backToTop" }}</a>
+      </p>
+    </footer>
+    {{ end }}
+
+  </body>
+
+</html>
+
+{{- /* vim: set ts=2 sw=2 et: */}}
