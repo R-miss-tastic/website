@@ -1,24 +1,30 @@
 # Using the website
 
-- pre-requisites
+## pre-requisites
 
 In R, install the R package blogdown
 
+```r
   install.packages("blogdown")
+```
 
 start it:
 
-  library(blogdown)
+```r
+library(blogdown)
+```
   
 and install hugo using blogdown
 
-  install_hugo()
+```r
+install_hugo()
+```
 
-- use website
+To use the website, open the R project that you have just cloned from github and start
 
-open the R project that you have just cloned from github and start
-
-  library(blogdown)
-  serve_site()
+```r
+library(blogdown)
+serve_site()
+```
 
 That will display the website via your localhost.
