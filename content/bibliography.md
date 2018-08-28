@@ -7,5 +7,4 @@ menu:
     parent: bibliography
 ---
 
-
 I don't quite understand how the structure of this website work...

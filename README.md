@@ -5,7 +5,7 @@
 In R, install the R package blogdown
 
 ```r
-  install.packages("blogdown")
+install.packages("blogdown")
 ```
 
 start it:
