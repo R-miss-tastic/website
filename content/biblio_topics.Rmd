@@ -1,0 +1,654 @@
+---
+output: md_document
+author: "Imke Mayer"
+date: 2018-10-24
+title: Bibliography by topics
+weight: 2
+url: "/bibliography/biblio_topics/"
+---
+
+
+
+Inspired by [CRAN Task View on Missing Data](https://cran.r-project.org/web/views/MissingData.html) we organized our selection of relevant references on missing values by different topics. 
+
+*The full list of references can be found [here](../biblio_complete).*
+
+```{r, load_refs, echo=FALSE, message=FALSE}
+  require(dplyr)
+  require(RefManageR)
+  bibfile <- "../resources/rmisstastic_biblio.bib"
+  bib   <- ReadBib(bibfile, check = "warn", .Encoding = "UTF-8")
+  refs <- as.data.frame(bib)
+  keys <- rownames(refs)
+  refs["key"] <- keys
+  
+  # assign "categories" to the different types of publications
+  refs <- refs %>%
+      dplyr::mutate(
+        pubtype = dplyr::case_when(bibtype == "Article" ~ "2",
+                                 bibtype == "Article in Press" ~ "2",
+                                 bibtype == "InProceedings" ~ "1",
+                                 bibtype == "Proceedings" ~ "1",
+                                 bibtype == "Conference" ~ "1",
+                                 bibtype == "Conference Paper" ~ "1",
+                                 bibtype == "MastersThesis" ~ "3",
+                                 bibtype == "PhdThesis" ~ "3",
+                                 bibtype == "Manual" ~ "4",
+                                 bibtype == "TechReport" ~ "4",
+                                 bibtype == "Book" ~ "5",
+                                 bibtype == "InCollection" ~ "6",
+                                 bibtype == "InBook" ~ "6",
+                                 bibtype == "Misc" ~ "0",
+                                 TRUE ~ "0"))
+  
+  ui <- "- "
+  
+  correct_topic <- function(x, tags_list){
+    tags <- unlist(strsplit(x,"; "))
+    return(length(intersect(tags_list,tags))>0)
+  }
+  select_refs <- function(refs, tags_list){
+    bool_select <- apply(refs, FUN = function(x) correct_topic(unlist(x["topics"]), tags_list), MARGIN = 1)
+    refs_selected <- refs %>%
+      dplyr::mutate(select = bool_select) %>%
+      filter(select)
+    return(refs_selected)
+  }
+  print_ref <- function(ref, ui="- "){
+    # e.g. pubtype == 5 means bibtype == "Book"
+      writeLines(ui)
+      print(bib[key = ref["key"]], 
+          .opts = list(check.entries = FALSE, 
+                       style = "html", 
+                       bib.style = "authortitle",
+                       no.print.fields = "doi"))
+  }
+    
+```
+
+### General references and reviews
+These general references and reviews are helpful to get started with the huge field of missing values as they provide an introduction to the main concepts and methods or give an overview of the diversity of topics in statistical analysis related to missing values. They discuss different mechanisms that generated the missing values, necessary conditions for working consistently on the observed values alone and ways to impute, i.e. complete, the missing values to end up with complete datasets allowing the use of standard statistical analysis methods.
+```{r, gen_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+tags <- c("general")
+selected_refs <- select_refs(refs,tags)
+```
+
+<!-- Books and book chapters -->
+
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#gen_books">
+`r paste0("Books and book chapters (", sum(selected_refs$pubtype %in% c(5,6)),")")`
+</button>
+  <div id="gen_books" class="collapse">
+```{r, gen_print_books, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(5,6) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(5,6)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN=1))
+}
+```
+  </div>
+</div>
+
+
+<!-- Journal articles -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#gen_journals">
+`r paste0("Journal articles (", sum(selected_refs$pubtype %in% c(2)),")")`
+  </button>
+  <div id="gen_journals" class="collapse">
+```{r, gen_print_journal, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(2) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(2)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
+<!-- Conference papers -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#gen_conf">
+`r paste0("Conference papers (", sum(selected_refs$pubtype %in% c(1)),")")`
+  </button>
+  <div id="gen_conf" class="collapse">
+```{r, gen_print_conference, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(1) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(1)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
+<!-- Reports, theses, etc. -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#gen_reports">
+`r paste0("Reports, theses, etc. (", sum(selected_refs$pubtype %in% c(0,3,4)),")")`
+  </button>
+  <div id="gen_reports" class="collapse">
+```{r, gen_print_misc, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(0,3,4) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(0,3,4)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
+<br>
+
+### Weighting methods
+The first intuitive and probably most applied solution in data analyses to deal with missing values is to delete the partial observations and to work excusively on the individuals with complete information. This has several drawbacks, among others it introduces an estimation bias in most cases (more precisely in cases where the missingness is not independent of the data). In order to reduce this bias one can reweight the complete observations to compensate for the deletion of incomplete individuals in the dataset. The weights are defined by inverse probabilities, for instance the inverse of the probability for each individual of being fully observed. This method is known as _inverse probability weighting_ and is described in detail in the publications below.
+```{r, weight_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+tags <- c("ipw")
+selected_refs <- select_refs(refs,tags)
+```
+
+<!-- Books and book chapters -->
+
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#weight_books">
+`r paste0("Books and book chapters (", sum(selected_refs$pubtype %in% c(5,6)),")")`
+</button>
+  <div id="weight_books" class="collapse">
+```{r, weight_print_books, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(5,6) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(5,6)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN=1))
+}
+```
+  </div>
+</div>
+
+
+<!-- Journal articles -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#weight_journals">
+`r paste0("Journal articles (", sum(selected_refs$pubtype %in% c(2)),")")`
+  </button>
+  <div id="weight_journals" class="collapse">
+```{r, weight_print_journal, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(2) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(2)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
+<!-- Conference papers -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#weight_conf">
+`r paste0("Conference papers (", sum(selected_refs$pubtype %in% c(1)),")")`
+  </button>
+  <div id="weight_conf" class="collapse">
+```{r, weight_print_conference, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(1) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(1)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
+<!-- Reports, theses, etc. -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#weight_reports">
+`r paste0("Reports, theses, etc. (", sum(selected_refs$pubtype %in% c(0,3,4)),")")`
+  </button>
+  <div id="weight_reports" class="collapse">
+```{r, weight_print_misc, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(0,3,4) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(0,3,4)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
+<br>
+
+### Hot-deck and kNN approaches
+Let $x_i$ be an observation with missing values, e.g. each entry of $x_i$ could be the temperature at a certain day for one given place and unfortunately for some days the temperature was not measured. An intuitive idea to replace this missing information could be: take other observations $\{x_j\}_j$ which are similar to $x_i$ at the observed values and use this information to _fill in_ the gaps. This idea of taking observed values from _neighbours_ or _donors_ based on some similarity measure is implemented in the so-called _hot-deck_ and _k-nearest-neighbors_ (kNN) approaches.
+```{r, hot_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+tags <- c("hot-deck")
+selected_refs <- select_refs(refs,tags)
+```
+
+<!-- Books and book chapters -->
+
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#hot_books">
+`r paste0("Books and book chapters (", sum(selected_refs$pubtype %in% c(5,6)),")")`
+</button>
+  <div id="hot_books" class="collapse">
+```{r, hot_print_books, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(5,6) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(5,6)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN=1))
+}
+```
+  </div>
+</div>
+
+
+<!-- Journal articles -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#hot_journals">
+`r paste0("Journal articles (", sum(selected_refs$pubtype %in% c(2)),")")`
+  </button>
+  <div id="hot_journals" class="collapse">
+```{r, hot_print_journal, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(2) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(2)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
+<!-- Conference papers -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#hot_conf">
+`r paste0("Conference papers (", sum(selected_refs$pubtype %in% c(1)),")")`
+  </button>
+  <div id="hot_conf" class="collapse">
+```{r, hot_print_conference, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(1) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(1)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
+<!-- Reports, theses, etc. -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#hot_reports">
+`r paste0("Reports, theses, etc. (", sum(selected_refs$pubtype %in% c(0,3,4)),")")`
+  </button>
+  <div id="hot_reports" class="collapse">
+```{r, hot_print_misc, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(0,3,4) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(0,3,4)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
+<br>
+
+### Likelihood-based approaches
+Instead of defining similariy measures on the observed values to fill in the missing information, likelihood-based approaches in the presence of missing values are designed for statistical inference on the observed values. More precisely, if the missingness is ignorable (in a certain cense that is explained in the _Missing values mechanisms_ section) and one assumes a certain model on the data generation mechanism, then one can attempt to infer the model parameters by maximizing the likelihood on the observed values. There exist frequentist and Bayesian approaches to do statistical inference and the main algorithm which is discussed in various forms in the following publications is called _Expectation Maximization_ (EM) algorithm.
+Once the model parameters are estimated, one can impute the missing values using this estimated information on the data model.
+```{r, ml_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+tags <- c("ml","fiml")
+selected_refs <- select_refs(refs,tags)
+```
+
+<!-- Books and book chapters -->
+
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#ml_books">
+`r paste0("Books and book chapters (", sum(selected_refs$pubtype %in% c(5,6)),")")`
+</button>
+  <div id="ml_books" class="collapse">
+```{r, ml_print_books, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(5,6) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(5,6)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN=1))
+}
+```
+  </div>
+</div>
+
+
+<!-- Journal articles -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#ml_journals">
+`r paste0("Journal articles (", sum(selected_refs$pubtype %in% c(2)),")")`
+  </button>
+  <div id="ml_journals" class="collapse">
+```{r, ml_print_journal, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(2) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(2)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
+<!-- Conference papers -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#ml_conf">
+`r paste0("Conference papers (", sum(selected_refs$pubtype %in% c(1)),")")`
+  </button>
+  <div id="ml_conf" class="collapse">
+```{r, ml_print_conference, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(1) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(1)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
+<!-- Reports, theses, etc. -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#ml_reports">
+`r paste0("Reports, theses, etc. (", sum(selected_refs$pubtype %in% c(0,3,4)),")")`
+  </button>
+  <div id="ml_reports" class="collapse">
+```{r, ml_print_misc, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(0,3,4) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(0,3,4)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
+
+---
+# <br>
+# 
+# ### Single imputation
+# 
+# ```{r, imp_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+# tags <- c("imputation")
+# selected_refs <- select_refs(refs,tags)
+# 
+# ```
+# 
+# <!-- Books and book chapters -->
+# 
+# <div class="container">
+#   <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#imp_books">
+# `r paste0("Books and book chapters (", sum(selected_refs$pubtype %in% c(5,6)),")")`
+# </button>
+#   <div id="imp_books" class="collapse">
+# ```{r, imp_print_books, results='asis', echo=FALSE}
+# if (sum(selected_refs$pubtype %in% c(5,6) > 0)){
+# invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(5,6)),], FUN = function(x) print_ref(x,ui), MARGIN=1))
+# }
+# ```
+#   </div>
+# </div>
+# 
+# 
+# <!-- Journal articles -->
+# <div class="container">
+#   <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#imp_journals">
+# `r paste0("Journal articles (", sum(selected_refs$pubtype %in% c(2)),")")`
+#   </button>
+#   <div id="imp_journals" class="collapse">
+# ```{r, imp_print_journal, results='asis', echo=FALSE}
+# if (sum(selected_refs$pubtype %in% c(2) > 0)){
+#   invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(2)),], 
+#                   FUN = function(x) print_ref(x,ui), MARGIN = 1))
+# }
+# ```
+#   </div>
+# </div>
+# 
+# <!-- Conference papers -->
+# <div class="container">
+#   <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#imp_conf">
+# `r paste0("Conference papers (", sum(selected_refs$pubtype %in% c(1)),")")`
+#   </button>
+#   <div id="imp_conf" class="collapse">
+# ```{r, imp_print_conference, results='asis', echo=FALSE}
+# if (sum(selected_refs$pubtype %in% c(1) > 0)){
+#   invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(1)),], 
+#                   FUN = function(x) print_ref(x,ui), MARGIN = 1))
+# }
+# ```
+#     </div>
+# </div>
+# 
+# <!-- Reports, theses, etc. -->
+# <div class="container">
+#   <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#imp_reports">
+# `r paste0("Reports, theses, etc. (", sum(selected_refs$pubtype %in% c(0,3,4)),")")`
+#   </button>
+#   <div id="imp_reports" class="collapse">
+# ```{r, imp_print_misc, results='asis', echo=FALSE}
+# if (sum(selected_refs$pubtype %in% c(0,3,4) > 0)){
+#   invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(0,3,4)),], 
+#                   FUN = function(x) print_ref(x,ui), MARGIN = 1))
+# }
+# ```
+#    </div>
+# </div>
+---
+
+<br>
+
+### Multiple imputation
+A major drawback of single imputation, i.e. where every missing value is replace by a single most plausible value, consists in the underestimation of the overall variance of the data and infered parameters. Indeed, by replacing every missing value by a given _plausible_ one and by applying generic statistical methods on the completed dataset, one makes no difference between initially observed and unobserved data anymore. Therefore the variability due to the uncertainty of the missing values is not reflected in future statistical analyses which treat the dataset as if it had been fully observed from the beginning. A nice and conceptually simple workaround for this problem is _multiple imputation_: instead of generating a sinlge complete dataset by a given imputation method one imputes every missing value by several possible values. Statistical analysis is then applied on each of the imputed datasets and the resulting estimations are aggregated and used to estimate the sample variance and the variance due to the uncertainty in the missing values.
+```{r, mi_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+tags <- c("multiple imputation")
+selected_refs <- select_refs(refs,tags)
+```
+
+<!-- Books and book chapters -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#mi_books">
+`r paste0("Books and book chapters (", sum(selected_refs$pubtype %in% c(5,6)),")")`
+  </button>
+  <div id="mi_books" class="collapse">
+```{r, mi_print_books, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(5,6) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(5,6)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN=1))
+}
+
+```
+    </div>
+</div>
+
+<!-- Journal articles -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#mi_journals">
+`r paste0("Journal articles (", sum(selected_refs$pubtype %in% c(2)),")")`
+  </button>
+  <div id="mi_journals" class="collapse">
+```{r, mi_print_journal, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(2) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(2)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}  
+```
+    </div>
+</div>
+
+<!-- Conference papers -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#mi_conf">
+`r paste0("Conference papers (", sum(selected_refs$pubtype %in% c(1)),")")`
+  </button>
+  <div id="mi_conf" class="collapse">
+```{r, mi_print_conference, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(1) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(1)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
+<!-- Reports, theses, etc. -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#mi_reports">
+`r paste0("Reports, theses, etc. (", sum(selected_refs$pubtype %in% c(0,3,4)),")")`
+  </button>
+  <div id="mi_reports" class="collapse">
+```{r, mi_print_misc, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(0,3,4) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(0,3,4)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
+
+<br>
+
+### Trees and forests
+```{r, tree_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+tags <- c("random forests", "random forest", "random trees", "random tree", "decision trees", "decision tree", "classification tree", "classification trees", "regression tree", "regression trees")
+selected_refs <- select_refs(refs,tags)
+```
+
+<!-- Books and book chapters -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#tree_books">
+`r paste0("Books and book chapters (", sum(selected_refs$pubtype %in% c(5,6)),")")`
+  </button>
+  <div id="tree_books" class="collapse">
+```{r, tree_print_books, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(5,6) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(5,6)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN=1))
+}
+
+```
+  </div>
+</div>
+
+
+<!-- Journal articles -->
+
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#tree_journals">
+`r paste0("Journal articles (", sum(selected_refs$pubtype %in% c(2)),")")`
+  </button>
+  <div id="tree_journals" class="collapse">
+```{r, tree_print_journal, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(2) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(2)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}  
+```
+  </div>
+</div>
+
+
+<!-- Conference papers -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#tree_conf">
+`r paste0("Conference papers (", sum(selected_refs$pubtype %in% c(1)),")")`
+  </button>
+  <div id="tree_conf" class="collapse">
+```{r, tree_print_conference, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(1) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(1)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
+
+<!-- Reports, theses, etc. -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#tree_reports">
+`r paste0("Reports, theses, etc. (", sum(selected_refs$pubtype %in% c(0,3,4)),")")`
+  </button>
+  <div id="tree_reports" class="collapse">
+```{r, tree_print_misc, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(0,3,4) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(0,3,4)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
+
+<br>
+
+### Deep Learning
+
+<br>
+
+### Missing values mechanisms
+As mentioned in the above sections, it is necessary to make assumptions on the mechanism generating the missing values in order to work with missing values. Broadly speaking, these assumptions indicate how much the missingness is related to the data itself. The assumptions made on the mechanism impact further steps in the data analysis and are therefore crucial for valid analyses of data in the presence of missing values. 
+```{r, mnar_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+tags <- c("mnar")
+selected_refs <- select_refs(refs,tags)
+```
+
+<!-- Books and book chapters -->
+
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#mnar_books">
+`r paste0("Books and book chapters (", sum(selected_refs$pubtype %in% c(5,6)),")")`
+</button>
+  <div id="mnar_books" class="collapse">
+```{r, mnar_print_books, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(5,6) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(5,6)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN=1))
+}
+```
+  </div>
+</div>
+
+
+<!-- Journal articles -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#mnar_journals">
+`r paste0("Journal articles (", sum(selected_refs$pubtype %in% c(2)),")")`
+  </button>
+  <div id="mnar_journals" class="collapse">
+```{r, mnar_print_journal, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(2) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(2)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
+<!-- Conference papers -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#mnar_conf">
+`r paste0("Conference papers (", sum(selected_refs$pubtype %in% c(1)),")")`
+  </button>
+  <div id="mnar_conf" class="collapse">
+```{r, mnar_print_conference, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(1) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(1)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
+<!-- Reports, theses, etc. -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#mnar_reports">
+`r paste0("Reports, theses, etc. (", sum(selected_refs$pubtype %in% c(0,3,4)),")")`
+  </button>
+  <div id="mnar_reports" class="collapse">
+```{r, mnar_print_misc, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(0,3,4) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(0,3,4)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
+
+
+<br>
+
+### Specific application fields
+
+
+
+
