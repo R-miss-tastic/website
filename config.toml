@@ -67,7 +67,7 @@ paginate = 1
   author = "R miss tastic team <r-miss-tastic[AT]clementine.wf>"
 
   # Description/subtitle for homepage (can be Markdown)
-  description = "A ressource website on missing data"
+  description = "A resource website on missing data"
 
   # Format dates with Go's time formatting
   date_format = "Mon Jan 02, 2006"
