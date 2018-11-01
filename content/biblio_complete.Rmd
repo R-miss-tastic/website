@@ -1,0 +1,126 @@
+---
+output: md_document
+author: "Imke Mayer"
+date: 2018-10-24
+title: Complete list of selected references
+weight: 2
+url: "/bibliography/biblio_complete/"
+---
+
+
+```{r, load_refs, echo=FALSE, message=FALSE}
+  require(dplyr)
+  require(RefManageR)
+  bibfile <- "../resources/rmisstastic_biblio.bib"
+  bib   <- ReadBib(bibfile, check = "warn", .Encoding = "UTF-8")
+  refs <- as.data.frame(bib)
+  keys <- rownames(refs)
+  refs["key"] <- keys
+  
+  # assign "categories" to the different types of publications
+  refs <- refs %>%
+      dplyr::mutate(
+        pubtype = dplyr::case_when(bibtype == "Article" ~ "2",
+                                 bibtype == "Article in Press" ~ "2",
+                                 bibtype == "InProceedings" ~ "1",
+                                 bibtype == "Proceedings" ~ "1",
+                                 bibtype == "Conference" ~ "1",
+                                 bibtype == "Conference Paper" ~ "1",
+                                 bibtype == "MastersThesis" ~ "3",
+                                 bibtype == "PhdThesis" ~ "3",
+                                 bibtype == "Manual" ~ "4",
+                                 bibtype == "TechReport" ~ "4",
+                                 bibtype == "Book" ~ "5",
+                                 bibtype == "InCollection" ~ "6",
+                                 bibtype == "InBook" ~ "6",
+                                 bibtype == "Misc" ~ "0",
+                                 TRUE ~ "0"))
+  
+  ui <- "- "
+  
+  correct_topic <- function(x, tags_list){
+    tags <- unlist(strsplit(x,"; "))
+    return(length(intersect(tags_list,tags))>0)
+  }
+  select_refs <- function(refs, tags_list){
+    bool_select <- apply(refs, FUN = function(x) correct_topic(unlist(x["topics"]), tags_list), MARGIN = 1)
+    refs_selected <- refs %>%
+      dplyr::mutate(select = bool_select) %>%
+      filter(select)
+    return(refs_selected)
+  }
+  print_ref_list_item <- function(ref, ui="- "){
+      s <- paste(utils::capture.output(print(bib[key = ref["key"]], 
+          .opts = list(check.entries = FALSE, 
+                       style = "html", 
+                       bib.style = "authortitle",
+                       no.print.fields = "doi"))),collapse='')
+      li_plus_datatype <- paste0('<li class="list-group-item" data-type="',
+                            ref["bibtype"],
+                            '">')
+      s <- gsub('<p>', li_plus_datatype, s)
+      s <- gsub("</p>", "</li>", s)
+      writeLines(s)
+  }
+  
+  pubtype_downsampled <- function(bibtype){
+    pubtype = dplyr::case_when(bibtype == "Article" ~ "Article",
+                                 bibtype == "Article in Press" ~ "Article",
+                                 bibtype == "InProceedings" ~ "Paper",
+                                 bibtype == "Proceedings" ~ "Paper",
+                                 bibtype == "Conference" ~ "Paper",
+                                 bibtype == "Conference Paper" ~ "Paper",
+                                 bibtype == "MastersThesis" ~ "Misc",
+                                 bibtype == "PhdThesis" ~ "Misc",
+                                 bibtype == "Manual" ~ "Misc",
+                                 bibtype == "TechReport" ~ "Misc",
+                                 bibtype == "Book" ~ "Book",
+                                 bibtype == "InCollection" ~ "Book",
+                                 bibtype == "InBook" ~ "Book",
+                                 bibtype == "Misc" ~ "Misc",
+                                 TRUE ~ "Misc")
+    return(pubtype)
+  }
+  
+  print_ref_table_item <- function(ref){
+      s <- paste(utils::capture.output(print(bib[key = ref["key"]], 
+          .opts = list(check.entries = FALSE, 
+                       style = "html", 
+                       bib.style = "authortitle",
+                       no.print.fields = "doi"))),collapse='')
+      pubtype <- pubtype_downsampled(ref["bibtype"])                
+      table_row <- paste0('<tr class="task-list-row" ',
+                          'data-year="',ref["year"],'" ',
+                          'data-pubtype="',pubtype,'"> ',
+                          '<td>')
+      s <- gsub('<p>', table_row, s)
+      s <- gsub("</p>", paste0("</td> <td>",ref["year"],
+                               "</td> <td>",pubtype,"</td>"), s)
+      writeLines(s)
+  }
+```
+
+<!-- TODO: how to do search/filter by publication type and non-adjacent keywords -->
+<div class="container">
+  <p>Filter by publication type:</p>
+  <input class="form-control" id="filter" type="text" placeholder="Search..">
+  <br>
+  <ul class="list-group" id="references">
+```{r, print_all, results='asis', echo=FALSE}
+invisible(apply(refs, FUN = function(x) print_ref_list_item(x,ui), MARGIN=1))
+```
+  </ul>
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#filter").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#references li").filter(function() {
+      $(this).toggle($(this).data('type').toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+

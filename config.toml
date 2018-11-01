@@ -23,14 +23,37 @@ paginate = 1
 [[menu.navbar]]
     name = "Bibliography"
     url = "/bibliography/"
+    weight = 2
+
+[[menu.navbar]]
+    parent = "Bibliography"
+    name = "Bibliography by topics"
+    url = "/bibliography/biblio_topics/"
+
+[[menu.navbar]]
+    parent = "Bibliography"
+    name = "Bibliography (complete)"
+    url = "/bibliography/biblio_complete/"
     
 [[menu.navbar]]
     name = "Tutorials"
     url = "/tutorials/"
+    weight = 3
     
 [[menu.navbar]]
     name = "R packages"
     url = "/rpkg/"
+    weight = 4
+
+[[menu.navbar]]
+    name = "People"
+    url = "/people/"
+    weight = 5
+
+[[menu.navbar]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 100
 
 #[[menu.navbar]]
 #  name = "Link 1"
@@ -44,7 +67,7 @@ paginate = 1
   author = "R miss tastic team <r-miss-tastic[AT]clementine.wf>"
 
   # Description/subtitle for homepage (can be Markdown)
-  description = "A ressource website on missing data"
+  description = "A resource website on missing data"
 
   # Format dates with Go's time formatting
   date_format = "Mon Jan 02, 2006"
