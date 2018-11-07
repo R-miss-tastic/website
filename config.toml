@@ -18,7 +18,7 @@ paginate = 1
 
 [[menu.sidebar]]
   name = "GitHub"
-  url = "https://github.com/rstudio/blogdown"
+  url = "https://github.com/R-miss-tastic"
 
 [[menu.navbar]]
     name = "Bibliography"
