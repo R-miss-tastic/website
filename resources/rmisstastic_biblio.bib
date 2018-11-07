@@ -18,7 +18,7 @@
   Owner                    = {alyssa},
   Publisher                = {Blackwell Publishing Ltd},
   Timestamp                = {2017.11.08},
-  Topics                   = {diagnosis}
+  Topics                   = {diagnosis; mi}
 }
 
 @Article{albert_follmann_B2000,
@@ -222,9 +222,10 @@
   Publisher                = {Chapman and Hall/CRC},
   Year                     = {2012},
 
-  Address                  = {Leiden, The Netherlands},
+  Address                  = {Boca Raton, FL},
 
   Abstract                 = {Missing data form a problem in every scientific discipline, yet the techniques required to handle them are complicated and often lacking. One of the great ideas in statistical science-multiple imputation-fills gaps in the data with plausible values, the uncertainty of which is coded in the data itself. It also solves other problems, many of which are missing data problems in disguise. Flexible Imputation of Missing Data is supported by many examples using real data taken from the author's vast experience of collaborative research, and presents a practical guide for handling missing data under the framework of multiple imputation. Furthermore, detailed guidance of implementation in R using the author's package MICE is included throughout the book. Assuming familiarity with basic statistical concepts and multivariate methods, Flexible Imputation of Missing Data is intended for two audiences: (Bio)statisticians, epidemiologists, and methodologists in the social and health sciences; Substantive researchers who do not call themselves statisticians, but who possess the necessary skills to understand the principles and to follow the recipes. This graduate-tested book avoids mathematical and technical details as much as possible: formulas are accompanied by a verbal statement that explains the formula in layperson terms. Readers less concerned with the theoretical underpinnings will be able to pick up the general idea, and technical material is available for those who desire deeper understanding. The analyses can be replicated in R using a dedicated package developed by the author.},
+  Url                      = {https://stefvanbuuren.name/fimd/},
   Owner                    = {alyssa},
   Timestamp                = {2017.04.11},
   Topics                   = {general}
@@ -366,7 +367,7 @@
   Doi                      = {10.1037/1082-989X.6.4.330},
   Owner                    = {nathalie},
   Timestamp                = {2018.06.06},
-  Topics                   = {multiple imputation; ML}
+  Topics                   = {multiple imputation; ml}
 }
 
 @Article{cranmer_gill_BJPS2012,
@@ -397,6 +398,23 @@
   Owner                    = {nathalie},
   Timestamp                = {2017.10.09},
   Topics                   = {knn; imputation}
+}
+
+@Article{dax_2014,
+  Title                    = {Imputing Missing Entries of a Data Matrix: A review},
+  Author                   = {Dax, A.},
+  Journal                  = {Journal of Advanced Computing},
+  Year                     = {2014},
+  Pages                    = {98-222},
+  Volume                   = {3},
+  Number                   = {3},
+
+  Abstract                 = {This review presents a practical summary of the missing data literature, including a sketch of missing data theory and descriptions of normal-model multiple imputation (MI) and maximum likelihood methods. Practical missing data analysis issues are discussed, most notably the inclusion of auxiliary variables for improving power and reducing bias. Solutions are given for missing data challenges such as handling longitudinal, categorical, and clustered data with normal-model MI; including interactions in the missing data model; and handling large numbers of variables. The discussion of attrition and nonignorable missingness emphasizes the need for longitudinal diagnostics and for reducing the uncertainty about the missing data mechanism under attrition. Strategies suggested for reducing attrition bias include using auxiliary variables, collecting follow-up data on a sample of those initially missing, and collecting data on intent to drop out. Suggestions are given for moving forward with research on missing data and attrition.},
+  Doi                      = {10.7726/jac.2014.1007},
+  Keywords                 = {imputation; missing data; matrix completion problems; low-rank approximations; nearest neighbors; iterative SVD; least squares methods; rank minimization; nuclear norm minimization; error assessment; training set; probe set; cross-validation; rank determination},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.07},
+  Topics                   = {general; knn; imputation}
 }
 
 @Article{dempster_etal_JRSSB1977,
@@ -706,7 +724,6 @@
   Volume                   = {16},
 
   Abstract                 = {Many long-term clinical trials collect both a vector of repeated measurements and an event time on each subject; often, the two outcomes are dependent. One example is the use of surrogate markers to predict disease onset or survival. Another is longitudinal trials which have outcome-related dropout. We describe a mixture model for the joint distribution which accommodates incomplete repeated measures and right-censored event times, and provide methods for full maximum likelihood estimation. The methods are illustrated through analysis of data from a clinical trial for a new schizophrenia therapy; in the trial, dropout time is closely related to outcome, and the dropout process differs between treatments. The parameter estimates from the model are used to make a treatment comparison after adjusting for the effects of dropout. An added benefit of the analysis is that it permits using the repeated measures to increase efficiency of estimates of the event time distribution.},
-  Doi                      = {10.1002/(SICI)1097-0258(19970215)16:3<239::AID-SIM483>3.0.CO;2-X},
   Owner                    = {alyssa},
   Timestamp                = {2017.08.07},
   Topics                   = {mnar}
@@ -750,6 +767,24 @@
   Topics                   = {regression trees; variable selection}
 }
 
+@Article{horton_kleinman_2007,
+  Title                    = {Much Ado About Nothing - A Comparison of Missing Data Methods and Software to Fit Incomplete Data Regression Models},
+  Author                   = {Horton, N.J. and Kleinman, K.P.},
+  Journal                  = {The American Statistician},
+  Year                     = {2017},
+  Number                   = {1},
+  Pages                    = {79-90},
+  Volume                   = {61},
+  Shorttitle               = {Much Ado About Nothing},
+
+  Abstract                 = {Missing data are a recurring problem that can cause bias or lead to inefficient analyses. Statistical methods to address missingness have been actively pursued in recent years, including imputation, likelihood, and weighting approaches. Each approach is more complicated when there are many patterns of missing values, or when both categorical and continuous random variables are involved. Implementations of routines to incorporate observations with incomplete variables in regression models are now widely available. We review these routines in the context of a motivating example from a large health services research dataset. While there are still limitations to the current implementations, and additional efforts are required of the analyst, it is feasible to incorporate partially observed values, and these methods should be used in practice.},
+  Doi                      = {10.1198/000313007X172556},
+  Keywords                 = {multiple imputation; conditional gaussian; health services research; maximum likelihood; psychiatric epidemiology},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.07},
+  Topics                   = {general; multiple imputation}
+}
+
 @Article{huisman_QQ2000,
   Title                    = {Imputation of missing item responses: some simple techniques},
   Author                   = {Huisman, M.},
@@ -781,6 +816,27 @@
   Timestamp                = {2016.09.28},
   Topics                   = {factorial data analysis; imputation}
 }
+
+@Article{ibrahim_etal_RSS1999,
+  Title                    = {Missing Covariates in Generalized Linear Models When the Missing Data Mechanism is Non-Ignorable},
+  Author                   = {Ibrahim, J.G. and Lipsitz, S.R. and Chen, M.},
+  Journal                  = {Journal of the Royal Statistical Society},
+  Year                     = {1999},
+  Number                   = {1},
+  Pages                    = {173-190},
+  Volume                   = {61},
+  Series                   = {Series B (Statistical Methodology)},
+  Publisher                = {Wiley for the Royal Statistical Society},
+
+  Abstract                 = {We propose a method for estimating parameters in generalized linear models with missing covariates and a non‐ignorable missing data mechanism. We use a multinomial model for the missing data indicators and propose a joint distribution for them which can be written as a sequence of one‐dimensional conditional distributions, with each one‐dimensional conditional distribution consisting of a logistic regression. We allow the covariates to be either categorical or continuous. The joint covariate distribution is also modelled via a sequence of one‐dimensional conditional distributions, and the response variable is assumed to be completely observed. We derive the E‐ and M‐steps of the EM algorithm with non‐ignorable missing covariate data. For categorical covariates, we derive a closed form expression for the E‐ and M‐steps of the EM algorithm for obtaining the maximum likelihood estimates (MLEs). For continuous covariates, we use a Monte Carlo version of the EM algorithm to obtain the MLEs via the Gibbs sampler. Computational techniques for Gibbs sampling are proposed and implemented. The parametric form of the assumed missing data mechanism itself is not `testable' from the data, and thus the non‐ignorable modelling considered here can be viewed as a sensitivity analysis concerning a more complicated model. Therefore, although a model may have `passed' the tests for a certain missing data mechanism, this does not mean that we have captured, even approximately, the correct missing data mechanism. Hence, model checking for the missing data mechanism and sensitivity analyses play an important role in this problem and are discussed in detail. Several simulations are given to demonstrate the methodology. In addition, a real data set from a melanoma cancer clinical trial is presented to illustrate the methods proposed.},
+  Url                      = {http://www.jstor.org/stable/2680744},
+  Doi                      = {10.1111/1467-9868.00170},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.07},
+  Keywords                 = {EM algorithm; Gibbs sampling; Logistic regression; Maximum lieklihood estimation; Missing data mechanism; Monte Carlo EM algorithm},
+  Topics                   = {em; mnar; glm; mcem; ml}
+}
+
 
 @Article{ilin_raiko_JMLR2010,
   Title                    = {Practical approaches to {P}rincipal {C}omponent {A}nalysis in the presence of missing values},
@@ -890,6 +946,8 @@
 
   Abstract                 = {Methods for dealing with missing data in the context of large surveys or data mining projects are limited by the computational complexity that they may exhibit. Hot deck imputation methods are computationally simple, yet effective for creating complete data sets from which correct inferences may be drawn. All hot deck methods draw values for the imputation of missing values from the data matrix that will later be analyzed. The object, from which these available values are taken for imputation within another, is called the donor. This duplication of values may lead to the problem that using any donor ``too often'' will induce incorrect estimates. To mitigate this dilemma some hot deck methods limit the amount of times any one donor may be selected. This study answers which conditions influence whether or not any such limitation is sensible for six different hot deck methods. In addition, five factors that influence the strength of any such advantage are identified and possibilities for further research are discussed.},
   Keywords                 = {hot deck imputation; missing data; non-response; imputation; simulation},
+  ISSN                     = {2299-2634},
+  Url                      = {http://www.jtacs.org/archive/2012/3/6},
   Owner                    = {aimbert},
   Timestamp                = {2017.02.21},
   Topics                   = {imputation; hot-deck}
@@ -1242,8 +1300,12 @@
   Pages                    = {337-359},
   Volume                   = {42},
 
+  Abstract                 = {To model ecosystem functioning for landscape design, analysts would like detailed data about each parcel of land in the landscape. Usually, only information of low resolution is available for the entire area, supplemented by detailed information for a sample of the parcels. These sample data, usually obtained through two-phase sampling, provide initial values of important design elements for dynamic, often nonlinear, models of ecosystem functioning. However, to represent the contribution of the nonsampled portions of the landscape to ecosystem functioning, it would be convenient to be able to operate as if the detailed design information were available for each and every parcel in the analysis. Inference procedures to complete the design information for the unsampled parcels have usually followed the techniques of stratified or regression sampling. These procedures have been developed with regard to their efficiency for estimating population means and totals rather than for their utility to model ecosystem functioning and response to intervention. Stratified sampling or regression estimates therefore do not retain the complex relationships between multivariate design attributes. We present a new multivariate inference procedure for use in such circumstances. In place of estimating design attributes element-by-element in a traditional sense for each first-phase observation, the procedure simply chooses the most similar parcel from the set of parcels with detailed examinations to act as its stand-in. The stand-in is chosen on the basis of a similarity measure that summarizes the multivariate relationships between the set of low resolution indicator attributes and the set of detailed design attributes derived from the second-phase sample. Canonical correlation analysis is used to derive a similarity function for this procedure, which we call "Most Similar Neighbor Inference." We compared most similar neighbor estimates for a multivariate forest inventory to estimates from regression, stratified sampling, and a Swedish National Forest Survey method. The indicator attributes were recorded from stand records, maps, and aerial photographs, while the design attributes were stand yield characteristics derived from on-the-ground inventories. The most similar neighbor estimates have prediction errors that are comparable in magnitude to the traditional estimates for easy-to-predict design attributes. Thus, most similar neighbor inference should be expected to perform almost as well as regression in sampling contexts requiring estimates of population means or totals. More importantly, the most similar neighbor procedure more closely reproduces the covariance structure of the design attributes. Preserving the relationships among design attributes is a vital feature when the purpose of the modeling is to evaluate management options. Furthermore, because most similar neighbor is an exact interpolator, estimates derived from it are consistent in a finite population sense.},
+
+  Keywords                 = {Canonical correlation analysis; retaining sample variability; preserving covariance; data-splitting; jackknifing},
   Owner                    = {nathalie},
   Timestamp                = {2017.10.12},
+  Doi                      = {10.1093/forestscience/41.2.337},
   Topics                   = {knn; imputation}
 }
 
@@ -1339,7 +1401,8 @@
   Owner                    = {nathalie},
   Timestamp                = {2017.07.13},
   Topics                   = {imputation; time series},
-  Url                      = {https://arxiv.org/abs/1510.03924}
+  Url                      = {https://arxiv.org/abs/1510.03924},
+  Topics                   = {time series; imputation}
 }
 
 @Book{national_research_council_2010,
@@ -1351,6 +1414,7 @@
   Address                  = {Washington (DC), USA},
    
   Abstract                 = {Randomized clinical trials are the primary tool for evaluating new medical interventions. Randomization provides for a fair comparison between treatment and control groups, balancing out, on average, distributions of known and unknown factors among the participants. Unfortunately, these studies often lack a substantial percentage of data. This missing data reduces the benefit provided by the randomization and introduces potential biases in the comparison of the treatment groups. Missing data can arise for a variety of reasons, including the inability or unwillingness of participants to meet appointments for evaluation. And in some studies, some or all of data collection ceases when participants discontinue study treatment. Existing guidelines for the design and conduct of clinical trials, and the analysis of the resulting data, provide only limited advice on how to handle missing data. Thus, approaches to the analysis of data with an appreciable amount of missing values tend to be ad hoc and variable. The Prevention and Treatment of Missing Data in Clinical Trials concludes that a more principled approach to design and analysis in the presence of missing data is both needed and possible. Such an approach needs to focus on two critical elements: (1) careful design and conduct to limit the amount and impact of missing data and (2) analysis that makes full use of information on all randomized participants and is based on careful attention to the assumptions about the nature of the missing data underlying estimates of treatment effects. In addition to the highest priority recommendations, the book offers more detailed recommendations on the conduct of clinical trials and techniques for analysis of trial data.},
+  Doi                      = {10.17226/12955},
   ISBN                     = {9780309158145},
   Owner                    = {imke},
   Timestamp                = {2018.10.26},
@@ -1431,6 +1495,7 @@
 
   Abstract                 = {In Random Forests several trees are constructed from bootstrap- or subsamples of the original data. Random Forests have become very popular, e.g., in the fields of genetics and bioinformatics, because they can deal with high-dimensional problems including complex interaction effects. Conditional Inference Forests provide an implementation of Random Forests with unbiased variable selection. Like the original Random Forests, they employ surrogate variables to handle missing values in the predictor variables. In this paper we report the results of an extensive simulation study covering both classification and regression problems under a variety of scenarios, including different missing value generating processes as well as different correlation structures between the variables. Moreover, a high dimensional setting with a high number of noise variables was considered in each case. The results compare the performance of Conditional Inference Forests with surrogate variables to that of knn imputation prior to fitting. The results show that while in some settings one or the other approach is slightly superior, there is no overall difference in the performance of Conditional Inference Forests with surrogate variables and with prior knn-imputation.},
   Keywords                 = {surrogate variables; knn; imputation; missing at random; MAR},
+  Url                      = {https://epub.ub.uni-muenchen.de/11481/1/techreport.pdf},
   Owner                    = {imke},
   Timestamp                = {2018.10.30},
   Topics                   = {knn; random forests; imputation}
@@ -1699,6 +1764,7 @@
   Volume                   = {53},
 
   Abstract                 = {Imputation is applied for two quite different purposes: to supply missing data to complete a data set for subsequent modeling analyses or to estimate subpopulation totals. Error properties of the imputed values have different effects in these two contexts. We partition errors of imputation derived from similar observation units as arising from three sources: observation error, the distribution of observation units with respect to their similarity, and pure error given a particular choice of variables known for all observation units. Two new statistics based on this partitioning measure the accuracy of the imputations, facilitating comparison of imputation to alternative methods of estimation such as regression and comparison of alternative methods of imputation generally. Knowing the relative magnitude of the errors arising from these partitions can also guide efficient investment in obtaining additional data. We illustrate this partitioning using three extensive data sets from western North America. Application of this partitioning to compare near-neighbor imputation is illustrated for Mahalanobis- and two canonical correlation-based measures of similarity.},
+  Doi                      = {10.1093/forestscience/53.1.62},
   ISBN                     = {0015-749X},
   ISSN                     = {0015749X},
   Keywords                 = {landscape modeling; missing data; most similar neighbor; k-nn inference},
@@ -2014,6 +2080,28 @@
   Owner                    = {alyssa},
   Timestamp                = {2017.10.25},
   Topics                   = {mnar}
+}
+
+@InProceedings{yoon_etal_2018,
+  Title                    = {{GAIN}: Missing Data Imputation using Generative Adversarial Nets},
+  Author                   = {Yoon, J. and Jordon, J. and van der Schaar, M.},
+  Booktitle                = {Proceedings of the 35th International Conference on Machine Learning},
+  Pages                    = {5689--5698},
+  Year                     = {2018},
+  Editor                   = {Dy, J. and Krause, A.},
+  Volume                   = {80},
+  Series                   = {Proceedings of Machine Learning Research},
+  Address                  = {Stockholmsm\"assan, Stockholm Sweden},
+  Eventdate                = {2018-07-10/2018-07-15},
+  Publisher                = {PMLR},
+
+  Abstract                 = {We propose a novel method for imputing missing data by adapting the well-known Generative Adversarial Nets (GAN) framework. Accordingly, we call our method Generative Adversarial Imputation Nets (GAIN). The generator (G) observes some components of a real data vector, imputes the missing components conditioned on what is actually observed, and outputs a completed vector. The discriminator (D) then takes a completed vector and attempts to determine which components were actually observed and which were imputed. To ensure that D forces G to learn the desired distribution, we provide D with some additional information in the form of a hint vector. The hint reveals to D partial information about the missingness of the original sample, which is used by D to focus its attention on the imputation quality of particular components. This hint ensures that G does in fact learn to generate according to the true data distribution. We tested our method on various datasets and found that GAIN significantly outperforms state-of-the-art imputation methods.},
+  Pdf                      = {http://proceedings.mlr.press/v80/yoon18a/yoon18a.pdf},
+  Url                      = {http://proceedings.mlr.press/v80/yoon18a.html},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.07},
+  Keywords                 = {machine learning; statistics; deep learning; GAN},
+  Topics                   = {deep learning; gan}
 }
 
 @Article{zhang_JSS2012,
