@@ -304,7 +304,7 @@ if (sum(selected_refs$pubtype %in% c(0,3,4) > 0)){
 Instead of defining similariy measures on the observed values to fill in the missing information, likelihood-based approaches in the presence of missing values are designed for statistical inference on the observed values. More precisely, if the missingness is ignorable (in a certain cense that is explained in the _Missing values mechanisms_ section) and one assumes a certain model on the data generation mechanism, then one can attempt to infer the model parameters by maximizing the likelihood on the observed values. There exist frequentist and Bayesian approaches to do statistical inference and the main algorithm which is discussed in various forms in the following publications is called _Expectation Maximization_ (EM) algorithm.
 Once the model parameters are estimated, one can impute the missing values using this estimated information on the data model.
 ```{r, ml_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-tags <- c("ml","fiml")
+tags <- c("ml","fiml","em", "mcem", "mle")
 selected_refs <- select_refs(refs,tags)
 ```
 
@@ -449,7 +449,7 @@ if (sum(selected_refs$pubtype %in% c(0,3,4) > 0)){
 ### Multiple imputation
 A major drawback of single imputation, i.e. where every missing value is replace by a single most plausible value, consists in the underestimation of the overall variance of the data and infered parameters. Indeed, by replacing every missing value by a given _plausible_ one and by applying generic statistical methods on the completed dataset, one makes no difference between initially observed and unobserved data anymore. Therefore the variability due to the uncertainty of the missing values is not reflected in future statistical analyses which treat the dataset as if it had been fully observed from the beginning. A nice and conceptually simple workaround for this problem is _multiple imputation_: instead of generating a sinlge complete dataset by a given imputation method one imputes every missing value by several possible values. Statistical analysis is then applied on each of the imputed datasets and the resulting estimations are aggregated and used to estimate the sample variance and the variance due to the uncertainty in the missing values.
 ```{r, mi_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-tags <- c("multiple imputation")
+tags <- c("multiple imputation", "mi")
 selected_refs <- select_refs(refs,tags)
 ```
 
@@ -518,6 +518,7 @@ if (sum(selected_refs$pubtype %in% c(0,3,4) > 0)){
 <br>
 
 ### Trees and forests
+Decision trees are models based on recursive executions of elementary rules. This architecture grants them a variety of simple options to deal with missing values, without requiring prior imputation. A popular class of decision tree models is called _random trees_ (or more generally _random forests_) and allows data analyses such as causal inference in the presence of missing values without the need of having to impute these missing values. TBC.
 ```{r, tree_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 tags <- c("random forests", "random forest", "random trees", "random tree", "decision trees", "decision tree", "classification tree", "classification trees", "regression tree", "regression trees")
 selected_refs <- select_refs(refs,tags)
@@ -592,13 +593,82 @@ if (sum(selected_refs$pubtype %in% c(0,3,4) > 0)){
 <br>
 
 ### Deep Learning
+The advance and success of _deep networks_ (also known as _neural networks_) in many research and application areas such as computer vision and natural language processing has also arrived at the problem of handling missing values. TBC.
+
+```{r, dl_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+tags <- c("deep learning", "gan", "neural networks", "neural network")
+selected_refs <- select_refs(refs,tags)
+```
+
+<!-- Books and book chapters -->
+
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#dl_books">
+`r paste0("Books and book chapters (", sum(selected_refs$pubtype %in% c(5,6)),")")`
+</button>
+  <div id="dl_books" class="collapse">
+```{r, dl_print_books, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(5,6) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(5,6)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN=1))
+}
+```
+  </div>
+</div>
+
+
+<!-- Journal articles -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#dl_journals">
+`r paste0("Journal articles (", sum(selected_refs$pubtype %in% c(2)),")")`
+  </button>
+  <div id="dl_journals" class="collapse">
+```{r, dl_print_journal, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(2) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(2)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
+<!-- Conference papers -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#dl_conf">
+`r paste0("Conference papers (", sum(selected_refs$pubtype %in% c(1)),")")`
+  </button>
+  <div id="dl_conf" class="collapse">
+```{r, dl_print_conference, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(1) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(1)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
+<!-- Reports, theses, etc. -->
+<div class="container">
+  <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#dl_reports">
+`r paste0("Reports, theses, etc. (", sum(selected_refs$pubtype %in% c(0,3,4)),")")`
+  </button>
+  <div id="dl_reports" class="collapse">
+```{r, dl_print_misc, results='asis', echo=FALSE}
+if (sum(selected_refs$pubtype %in% c(0,3,4) > 0)){
+  invisible(apply(selected_refs[which(selected_refs$pubtype %in% c(0,3,4)),], 
+                  FUN = function(x) print_ref(x,ui), MARGIN = 1))
+}
+```
+  </div>
+</div>
+
 
 <br>
 
 ### Missing values mechanisms
 As mentioned in the above sections, it is necessary to make assumptions on the mechanism generating the missing values in order to work with missing values. Broadly speaking, these assumptions indicate how much the missingness is related to the data itself. The assumptions made on the mechanism impact further steps in the data analysis and are therefore crucial for valid analyses of data in the presence of missing values. 
 ```{r, mnar_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-tags <- c("mnar")
+tags <- c("mnar","mar")
 selected_refs <- select_refs(refs,tags)
 ```
 
