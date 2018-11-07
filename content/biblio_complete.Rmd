@@ -54,13 +54,32 @@ url: "/bibliography/biblio_complete/"
           .opts = list(check.entries = FALSE, 
                        style = "html", 
                        bib.style = "authortitle",
-                       no.print.fields = "doi"))),collapse='')
+                       no.print.fields = c("issn","url","doi")))),collapse='')
       li_plus_datatype <- paste0('<li class="list-group-item" data-type="',
                             ref["bibtype"],
                             '">')
       s <- gsub('<p>', li_plus_datatype, s)
-      s <- gsub("</p>", "</li>", s)
-      writeLines(s)
+      s <- gsub("</p>", "", s)
+      doi_url_button <- ""
+      if (!is.na(ref["doi"])){
+        doi_url_button <- paste0(doi_url_button,
+                                 '<a href="https://doi.org/',
+                                 ref["doi"],
+                                 '" ',
+                                 'role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>')
+      }
+      if (!is.na(ref["url"])){
+        doi_url_button <- paste0(doi_url_button,
+                                 '<a href="https://doi.org/',
+                                 ref["url"],
+                                 '" ',
+                                 'role="button" class="btn btn-outline-secondary btn-sm" >URL</a>')
+      }
+      if (doi_url_button != ""){
+        writeLines(paste0(s,"<div>",doi_url_button,"</div></li>"))
+      } else {
+        writeLines(s)
+      }
   }
   
   pubtype_downsampled <- function(bibtype){
@@ -87,16 +106,37 @@ url: "/bibliography/biblio_complete/"
           .opts = list(check.entries = FALSE, 
                        style = "html", 
                        bib.style = "authortitle",
-                       no.print.fields = "doi"))),collapse='')
+                       no.print.fields = c("doi","issn","url")))),collapse='')
       pubtype <- pubtype_downsampled(ref["bibtype"])                
       table_row <- paste0('<tr class="task-list-row" ',
                           'data-year="',ref["year"],'" ',
                           'data-pubtype="',pubtype,'"> ',
                           '<td>')
       s <- gsub('<p>', table_row, s)
-      s <- gsub("</p>", paste0("</td> <td>",ref["year"],
-                               "</td> <td>",pubtype,"</td>"), s)
-      writeLines(s)
+      s <- gsub("</p>", "",s)
+      doi_url_button <- ""
+      if (!is.na(ref["doi"])){
+        doi_url_button <- paste0(doi_url_button,
+                                 '<a href="https://doi.org/',
+                                 ref["doi"],
+                                 '" ',
+                                 'role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>')
+      }
+      if (!is.na(ref["url"])){
+        doi_url_button <- paste0(doi_url_button,
+                                 '<a href="https://doi.org/',
+                                 ref["url"],
+                                 '" ',
+                                 'role="button" class="btn btn-outline-secondary btn-sm" >URL</a>')
+      }
+      if (doi_url_button != ""){
+        writeLines(paste0(s,'<div>',doi_url_button,'</div>',
+                          '</td> <td>',ref["year"],
+                          '</td> <td>',pubtype,'</td>'))
+      } else {
+        writeLines(paste0(s,'</td> <td>',ref["year"],
+                          '</td> <td>',pubtype,'</td>'))
+      }
   }
 ```
 
