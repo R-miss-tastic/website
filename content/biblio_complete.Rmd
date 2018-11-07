@@ -140,27 +140,104 @@ url: "/bibliography/biblio_complete/"
   }
 ```
 
-<!-- TODO: how to do search/filter by publication type and non-adjacent keywords -->
 <div class="container">
-  <p>Filter by publication type:</p>
-  <input class="form-control" id="filter" type="text" placeholder="Search..">
-  <br>
-  <ul class="list-group" id="references">
+<div class="row">
+<table class="table table-hover">
+<thead>
+<tr class="filters">
+<th>Publication type
+<select id="pub-type-filter" class="form-control">
+<option>All</option>
+<option>Book</option>
+<option>Article</option>
+<option>Paper</option>
+<option>Misc</option>
+</select>
+</th>
+<th>Year
+<select id="year-filter" class="form-control">
+</select>
+</th>
+</tr>
+</thead>
+</table>
+<div class="card bg-light filterable">
+<table id="references-list-tbl" class="table table-hover">
+<thead>
+<tr>
+<th>Citation</th>
+<th>Year</th>
+<th>Publication type</th>
+</tr>
+</thead>
+<tbody>
 ```{r, print_all, results='asis', echo=FALSE}
-invisible(apply(refs, FUN = function(x) print_ref_list_item(x,ui), MARGIN=1))
+invisible(apply(refs, FUN = function(x) print_ref_table_item(x), MARGIN=1))
 ```
-  </ul>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 
 <script>
-$(document).ready(function(){
-  $("#filter").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#references li").filter(function() {
-      $(this).toggle($(this).data('type').toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
+{
+var start = 1960;
+var end = new Date().getFullYear();
+var options = "<option>All</option>";
+for(var year = start ; year <=end; year++){
+  options += "<option>"+ year +"</option>";
+}
+document.getElementById("year-filter").innerHTML = options;
+}
 </script>
 
+<script>
+{
+var
+  filters = {
+    pubtype: null,
+    year: null
+  };
+
+function updateFilters() {
+  $('.task-list-row').hide().filter(function() {
+    var
+      self = $(this),
+      result = true; // not guilty until proven guilty
+      Object.keys(filters).forEach(function (filter) {
+      if (filters[filter] && (filters[filter] != 'None') && (filters[filter] != 'All')) {
+        result = result && ((filters[filter] === self.data(filter)) || (filters[filter] === self.data(filter).toString()));
+      }
+    });
+
+    return result;
+  }).show();
+}
+
+function changeFilter(filterName) {
+  filters[filterName] = this.value;
+  updateFilters();
+}
+
+// Assigned User Dropdown Filter
+$('#pub-type-filter').on('change', function() {
+  changeFilter.call(this, 'pubtype');
+});
+
+// Year Dropdown Filter
+$('#year-filter').on('change', function() {
+  changeFilter.call(this, 'year');
+});
+
+
+/*
+future use for a text input filter
+$('#search').on('click', function() {
+    $('.box').hide().filter(function() {
+        return $(this).data('order-number') == $('#search-criteria').val().trim();
+    }).show();
+});*/
+}
+</script>
 
