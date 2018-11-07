@@ -54,13 +54,32 @@ url: "/bibliography/biblio_complete/"
           .opts = list(check.entries = FALSE, 
                        style = "html", 
                        bib.style = "authortitle",
-                       no.print.fields = "doi"))),collapse='')
+                       no.print.fields = c("issn","url","doi")))),collapse='')
       li_plus_datatype <- paste0('<li class="list-group-item" data-type="',
                             ref["bibtype"],
                             '">')
       s <- gsub('<p>', li_plus_datatype, s)
-      s <- gsub("</p>", "</li>", s)
-      writeLines(s)
+      s <- gsub("</p>", "", s)
+      doi_url_button <- ""
+      if (!is.na(ref["doi"])){
+        doi_url_button <- paste0(doi_url_button,
+                                 '<a href="https://doi.org/',
+                                 ref["doi"],
+                                 '" ',
+                                 'role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>')
+      }
+      if (!is.na(ref["url"])){
+        doi_url_button <- paste0(doi_url_button,
+                                 '<a href="https://doi.org/',
+                                 ref["url"],
+                                 '" ',
+                                 'role="button" class="btn btn-outline-secondary btn-sm" >URL</a>')
+      }
+      if (doi_url_button != ""){
+        writeLines(paste0(s,"<div>",doi_url_button,"</div></li>"))
+      } else {
+        writeLines(s)
+      }
   }
   
   pubtype_downsampled <- function(bibtype){
@@ -87,40 +106,138 @@ url: "/bibliography/biblio_complete/"
           .opts = list(check.entries = FALSE, 
                        style = "html", 
                        bib.style = "authortitle",
-                       no.print.fields = "doi"))),collapse='')
+                       no.print.fields = c("doi","issn","url")))),collapse='')
       pubtype <- pubtype_downsampled(ref["bibtype"])                
       table_row <- paste0('<tr class="task-list-row" ',
                           'data-year="',ref["year"],'" ',
                           'data-pubtype="',pubtype,'"> ',
                           '<td>')
       s <- gsub('<p>', table_row, s)
-      s <- gsub("</p>", paste0("</td> <td>",ref["year"],
-                               "</td> <td>",pubtype,"</td>"), s)
-      writeLines(s)
+      s <- gsub("</p>", "",s)
+      doi_url_button <- ""
+      if (!is.na(ref["doi"])){
+        doi_url_button <- paste0(doi_url_button,
+                                 '<a href="https://doi.org/',
+                                 ref["doi"],
+                                 '" ',
+                                 'role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>')
+      }
+      if (!is.na(ref["url"])){
+        doi_url_button <- paste0(doi_url_button,
+                                 '<a href="https://doi.org/',
+                                 ref["url"],
+                                 '" ',
+                                 'role="button" class="btn btn-outline-secondary btn-sm" >URL</a>')
+      }
+      if (doi_url_button != ""){
+        writeLines(paste0(s,'<div>',doi_url_button,'</div>',
+                          '</td> <td>',ref["year"],
+                          '</td> <td>',pubtype,'</td>'))
+      } else {
+        writeLines(paste0(s,'</td> <td>',ref["year"],
+                          '</td> <td>',pubtype,'</td>'))
+      }
   }
 ```
 
-<!-- TODO: how to do search/filter by publication type and non-adjacent keywords -->
 <div class="container">
-  <p>Filter by publication type:</p>
-  <input class="form-control" id="filter" type="text" placeholder="Search..">
-  <br>
-  <ul class="list-group" id="references">
+<div class="row">
+<table class="table table-hover">
+<thead>
+<tr class="filters">
+<th>Publication type
+<select id="pub-type-filter" class="form-control">
+<option>All</option>
+<option>Book</option>
+<option>Article</option>
+<option>Paper</option>
+<option>Misc</option>
+</select>
+</th>
+<th>Year
+<select id="year-filter" class="form-control">
+</select>
+</th>
+</tr>
+</thead>
+</table>
+<div class="card bg-light filterable">
+<table id="references-list-tbl" class="table table-hover">
+<thead>
+<tr>
+<th>Citation</th>
+<th>Year</th>
+<th>Publication type</th>
+</tr>
+</thead>
+<tbody>
 ```{r, print_all, results='asis', echo=FALSE}
-invisible(apply(refs, FUN = function(x) print_ref_list_item(x,ui), MARGIN=1))
+invisible(apply(refs, FUN = function(x) print_ref_table_item(x), MARGIN=1))
 ```
-  </ul>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 
 <script>
-$(document).ready(function(){
-  $("#filter").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#references li").filter(function() {
-      $(this).toggle($(this).data('type').toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
+{
+var start = 1960;
+var end = new Date().getFullYear();
+var options = "<option>All</option>";
+for(var year = start ; year <=end; year++){
+  options += "<option>"+ year +"</option>";
+}
+document.getElementById("year-filter").innerHTML = options;
+}
 </script>
 
+<script>
+{
+var
+  filters = {
+    pubtype: null,
+    year: null
+  };
+
+function updateFilters() {
+  $('.task-list-row').hide().filter(function() {
+    var
+      self = $(this),
+      result = true; // not guilty until proven guilty
+      Object.keys(filters).forEach(function (filter) {
+      if (filters[filter] && (filters[filter] != 'None') && (filters[filter] != 'All')) {
+        result = result && ((filters[filter] === self.data(filter)) || (filters[filter] === self.data(filter).toString()));
+      }
+    });
+
+    return result;
+  }).show();
+}
+
+function changeFilter(filterName) {
+  filters[filterName] = this.value;
+  updateFilters();
+}
+
+// Assigned User Dropdown Filter
+$('#pub-type-filter').on('change', function() {
+  changeFilter.call(this, 'pubtype');
+});
+
+// Year Dropdown Filter
+$('#year-filter').on('change', function() {
+  changeFilter.call(this, 'year');
+});
+
+
+/*
+future use for a text input filter
+$('#search').on('click', function() {
+    $('.box').hide().filter(function() {
+        return $(this).data('order-number') == $('#search-criteria').val().trim();
+    }).show();
+});*/
+}
+</script>
 
