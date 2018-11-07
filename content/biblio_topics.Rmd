@@ -73,7 +73,7 @@ Inspired by [CRAN Task View on Missing Data](https://cran.r-project.org/web/view
     }
     if (!is.na(ref["url"])){
       doi_url_button <- paste0(doi_url_button,
-                               '<a href="https://doi.org/',
+                               '<a href="',
                                ref["url"],
                                '" ',
                                'role="button" class="btn btn-outline-secondary btn-sm" >URL</a>')
