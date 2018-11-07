@@ -55,13 +55,34 @@ Inspired by [CRAN Task View on Missing Data](https://cran.r-project.org/web/view
     return(refs_selected)
   }
   print_ref <- function(ref, ui="- "){
-    # e.g. pubtype == 5 means bibtype == "Book"
-      writeLines(ui)
-      print(bib[key = ref["key"]], 
-          .opts = list(check.entries = FALSE, 
-                       style = "html", 
-                       bib.style = "authortitle",
-                       no.print.fields = "doi"))
+    writeLines(ui)
+    s <- paste(utils::capture.output(print(bib[key = ref["key"]], 
+                                           .opts = list(check.entries = FALSE, 
+                                           style = "html", 
+                                           bib.style = "authortitle",
+                                           no.print.fields = c("issn","doi","url")))),collapse='')
+    s <- gsub("<p>","<pref>",s)
+    s <- gsub("</p>","</pref>",s)
+    doi_url_button <- ""
+    if (!is.na(ref["doi"])){
+      doi_url_button <- paste0(doi_url_button,
+                               '<a href="https://doi.org/',
+                               ref["doi"],
+                               '" ',
+                               'role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>')
+    }
+    if (!is.na(ref["url"])){
+      doi_url_button <- paste0(doi_url_button,
+                               '<a href="https://doi.org/',
+                               ref["url"],
+                               '" ',
+                               'role="button" class="btn btn-outline-secondary btn-sm" >URL</a>')
+    }
+    if (doi_url_button != ""){
+      writeLines(paste0(s,"<div>",doi_url_button,"</div>"))
+    } else {
+      writeLines(s)
+    }
   }
     
 ```
