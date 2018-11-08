@@ -187,6 +187,26 @@
   Topics                   = {knn; imputation}
 }
 
+@InProceedings{bengio_gingras_1995,
+  Title                    = {Recurrent neural networks for missing or asynchronous data},
+  Author                   = {Bengio, Y. and Gingras, F.},
+  Booktitle                = {Proceedings of the 8th International Conference on Neural Information Processing Systems},
+  Pages                    = {395-401},
+  Year                     = {1995},
+  Editor                   = {-},
+  Address                  = {Cambridge, MA, USA},
+  Eventdate                = {1995-11-27/1995-12-02},
+  Publisher                = {MIT Press},
+
+  Abstract                 = {In this paper we propose recurrent neural networks with feedback into the input units for handling two types of data analysis problems. On the one hand, this scheme can be used for static data when some of the input variables are missing. On the other hand, it can also be used for sequential data, when some of the input variables are missing or are available at different frequencies. Unlike in the case of probabilistic models (e.g. Gaussian) of the missing variables, the network does not attempt to model the distribution of the missing variables given the observed variables. Instead it is a more "discriminant" approach that fills in the missing variables for the sole purpose of minimizing a learning criterion (e.g., to minimize an output error).},
+
+  Url                      = {http://papers.nips.cc/paper/1126-recurrent-neural-networks-for-missing-or-asynchronous-data.pdf},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.08},
+  Keywords                 = {machine learning; deep learning; rnn; sequential data},
+  Topics                   = {deep learning; rnn}
+}
+
 @Article{buck_JRSSB1960,
   Title                    = {A method of estimation of missing values in multivariate data suitable for use with an electronic computer},
   Author                   = {Buck, S.F.},
@@ -615,6 +635,50 @@
   Timestamp                = {2017.08.07},
   Topics                   = {mnar},
   Url                      = {http://pubs.sciepub.com/ajams/1/2/3}
+}
+
+@InProceedings{gondara_wang_2018,
+  Title                    = {MIDA: Multiple Imputation using Denoising Autoencoders},
+  Author                   = {Gondara, L. and Wang, K.},
+  Booktitle                = {Proceedings of the 22nd Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD 2018)},
+  Series                   = {Lecture Notes in Computer Science},
+  Year                     = {2018},
+  Editor                   = {Phung, D. and Tseng, V. and Webb, G. and Ho, B. and Ganji, M. and Rashidi, L.},
+
+  Pages                    = {260-272},
+  Publisher                = {Springer International Publishing},
+
+  Eventdate                = {2018-06-03/2018-06-06},
+  ISBN                     = {3319930404},
+
+  Abstract                 = {Missing data is a significant problem impacting all domains. State-of-the-art framework for minimizing missing data bias is multiple imputation, for which the choice of an imputation model remains nontrivial. We propose a multiple imputation model based on overcomplete deep denoising autoencoders. Our proposed model is capable of handling different data types, missingness patterns, missingness proportions and distributions. Evaluation on several real life datasets show our proposed model significantly outperforms current state-of-the-art methods under varying conditions while simultaneously improving end of the line analytics.},
+  Doi                      = {10.1007/978-3-319-93040-4_21},
+  Url                      = {https://arxiv.org/abs/1705.02737},
+  Keywords                 = {Multiple imputation; denoising autoencoders; DAE},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.08},
+  Topics                   = {multiple imputation; deep learning}
+}
+
+@InProceedings{goodfellow_etal_2013,
+  Title                    = {Multi-Prediction Deep Boltzmann Machines},
+  Author                   = {Goodfellow, I. and Mirza, M. and Courville, A. and Bengio, Y.},
+  Booktitle                = {Proceedings of the 26th International Conference on Neural Information Processing Systems},
+  Series                   = {Advances in Neural Information Processing Systems 26},
+  Editor                   = {Burges, C.J.C. and Bottou, L. and Welling, M. and Ghahramani, Z. and Weinberger, K.Q.},
+  Pages                    = {548--556},
+  Year                     = {2013},
+  Publisher                = {Curran Associates, Inc.},
+  Eventdate                = {2013-12-05/2013-12-10},
+
+  Abstract                 = {We introduce the Multi-Prediction Deep Boltzmann Machine (MP-DBM). The MP-DBM can be seen as a single probabilistic model trained to maximize a variational approximation to the generalized pseudolikelihood, or as a family of recurrent nets that share parameters and approximately solve different inference problems. Prior methods of training DBMs either do not perform well on classification tasks or require an initial learning pass that trains the DBM greedily, one layer at a time. The MP-DBM does not require greedy layerwise pretraining, and outperforms the standard DBM at classification, classification with missing inputs, and mean field prediction tasks.},
+
+  Url                      = {http://papers.nips.cc/paper/5024-multi-prediction-deep-boltzmann-machines.pdf},
+
+  Keywords                 = {Classification; deep Boltzmann Machines; DBM; pseudolikelihood},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.08},
+  Topics                   = {classification; deep learning}
 }
 
 @Article{graham_ARP2009,
@@ -1421,6 +1485,27 @@
   Topics                   = {general; diagnosis}
 }
 
+@InProceedings{nowicki_etal_2016,
+  Title                    = {Novel rough neural network for classification with missing data},
+  Author                   = {Nowicki, R.K. and Scherer, R. and Rutkowski, L.},
+  Booktitle                = {21st International Conference on Methods and Models in Automation and Robotics (MMAR)},
+ 
+  Pages                    = {820--825},
+  Year                     = {2016},
+  Publisher                = {IEEE},
+  Eventdate                = {2016-09-29/2016-09-01},
+  Editor                   = {-},
+
+  Abstract                 = {The paper presents a new feedforward neural network architecture. Thanks to incorporating the rough set theory, the new network is able to process imperfect input data, i.e. in the form of intervals or with missing values. The paper focuses on the last case. In contrast to imputation, marginalisation and similar solutions, the proposed architecture is able to give an imprecise answer as the result of input data imperfection. In the extreme case, the answer can be indefinite contrary to a confabulation specific for the aforementioned methods. The results of experiments performed on three classification benchmark datasets for every possible combination of missing attribute values showed the proposed solution works well with missing data with accuracy dependent on the level of missing data.},
+
+  Doi                      = {10.1109/MMAR.2016.7575243},
+
+  Keywords                 = {Classification; rough set theory; rough neural network; imperfect input data; feedforward neural network architecture; missing data},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.08},
+  Topics                   = {classification; deep learning; neural network}
+}
+
 @Article{peugh_enders_RER2004,
   Title                    = {Missing data in educational research: a review of reporting practices and suggestions for improvement},
   Author                   = {Peugh, J. L. and Enders, C. K.},
@@ -1721,6 +1806,26 @@
   Topics                   = {ipw}
 }
 
+@Article{sharpe_solly_1995,
+  Title                    = {Dealing with missing values in neural network-based diagnostic systems},
+  Author                   = {Sharpe, P.K. and Solly, R.J.},
+  Journal                  = {Neural Computing \& Applications},
+  Year                     = {1995},
+  Number                   = {2},
+  Pages                    = {73-77},
+  Volume                   = {3},
+
+  Publisher                = {Springer-Verlag},
+  ISSN                     = {1433-3058},
+
+  Abstract                 = {Backpropagation neural networks have been applied to prediction and classification problems in many real world situations. However, a drawback of this type of neural network is that it requires a full set of input data, and real world data is seldom complete. We have investigated two ways of dealing with incomplete data — network reduction using multiple neural network classifiers, and value substitution using estimated values from predictor networks — and compared their performance with an induction method. On a thyroid disease database collected in a clinical situation, we found that the network reduction method was superior. We conclude that network reduction can be a useful method for dealing with missing values in diagnostic systems based on backpropagation neural networks.},
+  Doi                      = {10.1007/BF01421959},
+  Keywords                 = {Backpropagation; classification; decision support; neural networks; incomplete data},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.08},
+  Topics                   = {deep learning; neural networks}
+}
+
 @Article{simon_simonoff_JASA1986,
   Title                    = {Diagnostic plots for missing data in least squares regression},
   Author                   = {Simon, G.A. and Simonoff, J.S.},
@@ -1736,6 +1841,41 @@
   Owner                    = {nathalie},
   Timestamp                = {2018.04.16},
   Topics                   = {diagnosis}
+}
+
+@Article{smieja_etal_2018,
+  Title                    = {Processing of missing data by neural networks},
+  Author                   = {\'Smieja, M. and Struski, \L{}. and Tabor, J. and Zieli\'nski, B. and Spurek, P.},
+  Journal                  = {Computing Research Repository},
+  Year                     = {2018},
+  Volume                   = {abs/1805.07405},
+
+  Abstract                 = {We propose a general, theoretically justified mechanism for processing missing data by neural networks. Our idea is to replace typical neuron response in the first hidden layer by its expected value. This approach can be applied for various types of networks at minimal cost in their modification. Moreover, in contrast to recent approaches, it does not require complete data for training. Experimental results performed on different types of architectures show that our method gives better results than typical imputation strategies and other methods dedicated for incomplete data.},
+  Archiveprefix            = {arXiv},
+  Arxivid                  = {1805.07405},
+  Eprint                   = {1805.07405},
+  Url                      = {https://arxiv.org/abs/1805.07405},
+  Keywords                 = {missing data; neural networks; incomplete samples; probability density estimation},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.08},
+  Topics                   = {deep learning}
+}
+
+@Article{sovilj_etal_2016,
+  Title                    = {Extreme learning machine for missing data using multiple imputations},
+  Author                   = {Sovilj, D. and Eirola, E. and Miche, Y. and Bj\"ork, J.M. and Nian, R. and Akusok, A. and Lendasse, A.},
+  Journal                  = {Neurocomputing},
+  Year                     = {2016},
+  Number                   = {A},
+  Pages                    = {220-231},
+  Volume                   = {174},
+
+  Abstract                 = {In the paper, we examine the general regression problem under the missing data scenario. In order to provide reliable estimates for the regression function (approximation), a novel methodology based on Gaussian Mixture Model and Extreme Learning Machine is developed. Gaussian Mixture Model is used to model the data distribution which is adapted to handle missing values, while Extreme Learning Machine enables to devise a multiple imputation strategy for final estimation. With multiple imputation and ensemble approach over many Extreme Learning Machines, final estimation is improved over the mean imputation performed only once to complete the data. The proposed methodology has longer running times compared to simple methods, but the overall increase in accuracy justifies this trade-off.},
+  Doi                      = {10.1016/j.neucom.2015.03.108},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.08},
+  Keywords                 = {Extreme Learning Machine; Missing data; Multiple imputation; Gaussian mixture model; Mixture of Gaussians; Conditional distribution},
+  Topics                   = {multiple imputation}
 }
 
 @Article{stacklies_etal_B2007,
@@ -1921,6 +2061,27 @@
   Topics                   = {diagnosis}
 }
 
+@InProceedings{tran_etal_2017,
+  Title                    = {Missing Modalities Imputation via Cascaded Residual Autoencoder},
+  Author                   = {Tran, L. and Liu, X. and Zhou, J. and Jin, R.},
+  Booktitle                = {2017 IEEE Conference on Computer Vision and PAttern Recognition (CVPR)},
+  Year                     = {2017},
+  Editor                   = {-},
+
+  Pages                    = {4971-4980},
+  Publisher                = {IEEE}
+
+  Eventdate                = {2017-07-21/2017-07-26},
+  ISSN                     = {31063-6919},
+
+  Abstract                 = {Affordable sensors lead to an increasing interest in acquiring and modeling data with multiple modalities. Learning from multiple modalities has shown to significantly improve performance in object recognition. However, in practice it is common that the sensing equipment experiences unforeseeable malfunction or configuration issues, leading to corrupted data with missing modalities. Most existing multi-modal learning algorithms could not handle missing modalities, and would discard either all modalities with missing values or all corrupted data. To leverage the valuable information in the corrupted data, we propose to impute the missing data by leveraging the relatedness among different modalities. Specifically, we propose a novel Cascaded Residual Autoencoder (CRA) to impute missing modalities. By stacking residual autoencoders, CRA grows iteratively to model the residual between the current prediction and original data. Extensive experiments demonstrate the superior performance of CRA on both the data imputation and the object recognition task on imputed data.},
+  Doi                      = {10.1109/CVPR.2017.528},
+  Keywords                 = {Encoding; missing modalities imputation; missing data; corrupted data; data imputation; cascaded residual autoencoder; multimodla learning algorithms},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.08},
+  Topics                   = {imputation; deep learning}
+}
+
 @Article{troyanskaya_etal_B2001,
   Title                    = {Missing value estimation methods for {DNA} microarrays},
   Author                   = {Troyanskaya, O. and Cantor, M. and Sherlock, G. and Brown, P. and Hastie, T. and Tibshirani, R. and Botstein, D. and Altman, R.B.},
@@ -2102,6 +2263,23 @@
   Timestamp                = {2018.11.07},
   Keywords                 = {machine learning; statistics; deep learning; GAN},
   Topics                   = {deep learning; gan}
+}
+
+@Article{zhang_etal_2018,
+  Title                    = {Missing Value Imputation Based on Deep Generative Models},
+  Author                   = {Zhang, H. and Xie, P. and Xing, E.},
+  Journal                  = {Computing Research Repository},
+  Year                     = {2018},
+  Volume                   = {abs/1808.01684},
+
+  Abstract                 = {Missing values widely exist in many real-world datasets, which hinders the performing of advanced data analytics. Properly filling these missing values is crucial but challenging, especially when the missing rate is high. Many approaches have been proposed for missing value imputation (MVI), but they are mostly heuristics-based, lacking a principled foundation and do not perform satisfactorily in practice. In this paper, we propose a probabilistic framework based on deep generative models for MVI. Under this framework, imputing the missing entries amounts to seeking a fixed-point solution between two conditional distributions defined on the missing entries and latent variables respectively. These distributions are parameterized by deep neural networks (DNNs) which possess high approximation power and can capture the nonlinear relationships between missing entries and the observed values. The learning of weight parameters of DNNs is performed by maximizing an approximation of the log-likelihood of observed values. We conducted extensive evaluation on 13 datasets and compared with 11 baselines methods, where our methods largely outperforms the baselines.},
+  Archiveprefix            = {arXiv},
+  Arxivid                  = {1808.01684},
+  Url                      = {https://arxiv.org/abs/1808.01684},
+  Keywords                 = {Missing data; imputation; neural networks; mvi; fixed-point problem},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.08},
+  Topics                   = {imputation; deep learning}
 }
 
 @Article{zhang_JSS2012,
