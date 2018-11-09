@@ -42,6 +42,7 @@ url: "/bibliography/biblio_complete/"
     tags <- unlist(strsplit(x,"; "))
     return(length(intersect(tags_list,tags))>0)
   }
+  
   select_refs <- function(refs, tags_list){
     bool_select <- apply(refs, FUN = function(x) correct_topic(unlist(x["topics"]), tags_list), MARGIN = 1)
     refs_selected <- refs %>%
@@ -49,6 +50,7 @@ url: "/bibliography/biblio_complete/"
       filter(select)
     return(refs_selected)
   }
+  
   print_ref_list_item <- function(ref, ui="- "){
       s <- paste(utils::capture.output(print(bib[key = ref["key"]], 
           .opts = list(check.entries = FALSE, 
@@ -60,6 +62,16 @@ url: "/bibliography/biblio_complete/"
                             '">')
       s <- gsub('<p>', li_plus_datatype, s)
       s <- gsub("</p>", "", s)
+      
+      # change font colour for publication name
+      s <- gsub("&ldquo;", '&ldquo;<font color="#428bca">',s)
+      s <- gsub("&rdquo;", '</font>&rdquo;',s)
+      
+      if (ref["pubtype"] %in% c(0,3,4,5,6)) {
+        s <- gsub("<em>", '<em><font color="#428bca">',s)
+        s <- gsub("</em>", '</font></em>',s)
+      }
+    
       doi_url_button <- ""
       if (!is.na(ref["doi"])){
         doi_url_button <- paste0(doi_url_button,
@@ -106,7 +118,7 @@ url: "/bibliography/biblio_complete/"
           .opts = list(check.entries = FALSE, 
                        style = "html", 
                        bib.style = "authortitle",
-                       no.print.fields = c("doi","issn","url")))),collapse='')
+                       no.print.fields = c("doi","issn","url")))),collapse=' ')
       pubtype <- pubtype_downsampled(ref["bibtype"])                
       table_row <- paste0('<tr class="task-list-row" ',
                           'data-year="',ref["year"],'" ',
@@ -114,6 +126,16 @@ url: "/bibliography/biblio_complete/"
                           '<td>')
       s <- gsub('<p>', table_row, s)
       s <- gsub("</p>", "",s)
+      
+      # change font colour for publication name
+      s <- gsub("&ldquo;", '<font color="#428bca">',s)
+      s <- gsub("&rdquo;", '</font>',s)
+      
+      if (ref["pubtype"] %in% c(0,3,4,5,6)) {
+        s <- gsub("<em>", '<em><font color="#428bca">',s)
+        s <- gsub("</em>", '</font></em>',s)
+      }
+    
       doi_url_button <- ""
       if (!is.na(ref["doi"])){
         doi_url_button <- paste0(doi_url_button,
@@ -140,9 +162,11 @@ url: "/bibliography/biblio_complete/"
   }
 ```
 
+*A commented and structured version of this bibliography can be found [here](../biblio_topics/).*
+
 <div class="container">
 <div class="row">
-<table class="table table-hover">
+<table class="table">
 <thead>
 <tr class="filters">
 <th>Publication type
@@ -161,6 +185,7 @@ url: "/bibliography/biblio_complete/"
 </tr>
 </thead>
 </table>
+
 <div class="card bg-light filterable">
 <table id="references-list-tbl" class="table table-hover">
 <thead>
@@ -182,10 +207,10 @@ invisible(apply(refs, FUN = function(x) print_ref_table_item(x), MARGIN=1))
 
 <script>
 {
-var start = 1960;
-var end = new Date().getFullYear();
+var start = new Date().getFullYear();
+var end = `r min(as.integer(refs$year))`;
 var options = "<option>All</option>";
-for(var year = start ; year <=end; year++){
+for(var year = start ; year >=end; year--){
   options += "<option>"+ year +"</option>";
 }
 document.getElementById("year-filter").innerHTML = options;
