@@ -537,6 +537,25 @@
   Topics                   = {ml}
 }
 
+@article{fang_etal_2018,
+  Title                    = {Imputation-based adjusted score equations in generalized linear models with nonignorable missing covariate values},
+  Author                   = {Fang, F. and Zhao, J.i and Shao, J.},
+  Journal                  = {Statistica Sinica},
+  Volume                   = {28},
+  Year                     = {2018},
+  Number                   = {4},
+  Pages                    = {1677--1701},
+  Publisher                = {Institute of Statistical Science},
+
+  Abstract                 = {We consider the estimation of unknown parameters in a generalized linear model when some covariates have nonignorable missing values. When an instrument, a covariate that helps identifying parameters under nonignorable missingness, is appropriately specified, a pseudo likelihood approach similar to that in Tang, Little and Raghunathan (2003) or Zhao and Shao (2015) can be applied. However, this approach does not work well when the instrument is a weak predictor of the response given other covariates. We show that the asymptotic variances of the pseudo likelihood estimators for the regression coefficients of covariates other than the instrument diverge to infinity as the regression coefficient of the instrument goes to 0. By an imputation-based adjustment for the score equations, we propose a new estimator for the regression coefficients of the covariates other than the instrument. This works well even if the instrument is a weak predictor. It is semiparametric since the propensity of missing covariate data is completely unspecified. To solve the adjusted score equation, we develop an iterative algorithm that can be applied by using standard softwares at each iteration. We establish some theoretical results on the convergence of the proposed iterative algorithm and asymptotic normality of the resulting estimators. A variance estimation formula is also derived. Some simulation results and a data example are presented for illustration.},
+  Doi                      = {10.5705/ss.202015.0437},
+  Keywords                 = {Adjusted likelihood; Identifiability; Nonignorable missing covariate data; Pseudo-likelihood; Semiparametric},
+
+  Owner                    = {imke},
+  Timestamp                = {2018.11.11},
+  Topics                   = {mnar}
+}
+
 @Article{fay_JASA1996,
   Title                    = {Alternative paradigms for the analysis of imputed survey data},
   Author                   = {Fay, R.E.},
@@ -897,7 +916,25 @@
   Doi                      = {10.1111/1467-9868.00170},
   Owner                    = {imke},
   Timestamp                = {2018.11.07},
-  Keywords                 = {EM algorithm; Gibbs sampling; Logistic regression; Maximum lieklihood estimation; Missing data mechanism; Monte Carlo EM algorithm},
+  Keywords                 = {EM algorithm; Gibbs sampling; Logistic regression; Maximum likelihood estimation; Missing data mechanism; Monte Carlo EM algorithm},
+  Topics                   = {em; mnar; glm; mcem; ml}
+}
+
+@Article{ibrahim_etal_2001,
+  Title                    = {Missing responses in generalised linear mixed models when the missing data mechanism is nonignorable},
+  Author                   = {Ibrahim, J.G. and Chen, M. and Lipsitz, S.R.},
+  Journal                  = {Biometrika},
+  Year                     = {2001},
+  Number                   = {2},
+  Pages                    = {551-564},
+  Volume                   = {88},
+  Publisher                = {Oxford University Press},
+
+  Abstract                 = {We propose a method for estimating parameters in the generalised linear mixed model with nonignorable missing response data and with nonmonotone patterns of missing data in the response variable. We develop a Monte Carlo EM algorithm for estimating the parameters in the model via the Gibbs sampler. For the normal random effects model, we derive a novel analytical form for the E‐ and M‐steps, which is facilitated by integrating out the random effects. This form leads to a computationally feasible and extremely efficient Monte Carlo EM algorithm for computing maximum likelihood estimates and standard errors. In addition, we propose a very general joint multinomial model for the missing data indicators, which can be specified via a sequence of one‐dimensional conditional distributions. This multinomial model allows for an arbitrary correlation structure between the missing data indicators, and has the potential of reducing the number of nuisance parameters. Real datasets from the International Breast Cancer Study Group and an environmental study involving dyspnoea in cotton workers are presented to illustrate the proposed methods.},
+  Doi                      = {10.1093/biomet/88.2.551},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.11},
+  Keywords                 = {EM algorithm; Gibbs sampling; Maximum likelihood estimation; Missing data mechanism; Monte Carlo EM algorithm; Random effects model},
   Topics                   = {em; mnar; glm; mcem; ml}
 }
 
@@ -1206,6 +1243,25 @@
   Topics                   = {diagnosis; imputation; general}
 }
 
+@Article{lee_etal_2018,
+  Title                    = {Optimal design when outcome values are not missing at random},
+  Author                   = {Lee, K.M. and Mitra, R. and Biedermann, S.},
+  Journal                  = {Statistica Sinica},
+  Year                     = {2018},
+  Number                   = {4},
+  Pages                    = {1821--1838},
+  Volume                   = {28},
+  Publisher                = {Institute of Statistical Science},
+
+  Abstract                 = {The presence of missing values complicates statistical analyses. In design of experiments, missing values are particularly problematic when constructing optimal designs, as it is not known which values are missing at the design stage. When data are missing at random it is possible to incorporate this information into the optimality criterion that is used to find designs; Imhof, Song and Wong (2002) develop such a framework. However, when data are not missing at random this framework can lead to inefficient designs. We investigate and address the specific challenges that not missing at random values present when finding optimal designs for linear regression models. We show that the optimality criteria depend on model parameters that traditionally do not affect the design, such as regression coefficients and the residual variance. We also develop a framework that improves efficiency of designs over those found when values are missing at random.},
+  Doi                      = {10.5705/ss.202016.0526},
+  Keywords                 = {Covariance matrix; information matrix; linear regression model; missing observations; not missing at random; optimal design},
+
+  Owner                    = {imke},
+  Timestamp                = {2018.11.11},
+  Topics                   = {mnar}
+}
+
 @Article{little_JASA1995,
   Title                    = {Modeling the drop-out mechanism in repeated-measures studies},
   Author                   = {Little, R.J.A.},
@@ -1353,6 +1409,25 @@
   Pmid                     = {298},
   Timestamp                = {2017.10.25},
   Topics                   = {ml}
+}
+
+@Article{miao_tchetgen_2018,
+  Title                    = {Identification and inference with nonignorable missing covariate data},
+  Author                   = {Miao, W. and Tchetgen Tchetgen, E.J.},
+  Journal                  = {Statistica Sinica},
+  Year                     = {2018},
+  Number                   = {4},
+  Pages                    = {2049--2067},
+  Volume                   = {28},
+  Publisher                = {Institute of Statistical Science},
+
+  Abstract                 = {We study identification of parametric and semiparametric models with missing covariate data. When covariate data are missing not at random, identification is not guaranteed even under fairly restrictive parametric assumptions, a fact that is illustrated with several examples. We propose a general approach to establish identification of parametric and semiparametric models when a covariate is missing not at random. Without auxiliary information about the missingness process, identification of parametric models is strongly dependent on model specification. However, in the presence of a fully observed shadow variable that is correlated with the missing covariate but otherwise independent of the missingness conditional on the covariate, identification is more broadly achievable, including in fairly large semiparametric models. Special consideration is given to the generalized linear models with the missingness process unrestricted. Under such a setting, the outcome model is identified for a number of familiar generalized linear models, and we provide counterexamples when identification fails. For estimation, we describe an inverse probability weighted estimator that incorporates the shadow variable to estimate the propensity score model, and we evaluate its performance via simulations. We further illustrate the shadow variable approach with a data example about home prices in China.},
+  Doi                      = {10.5705/ss.202016.0322},
+  Keywords                 = {Identification; missing covariate data; missing not at random; shadow variable},
+
+  Owner                    = {imke},
+  Timestamp                = {2018.11.11},
+  Topics                   = {mnar}
 }
 
 @Article{moeur_stage_FS1995,
@@ -1723,6 +1798,25 @@
   Topics                   = {ml}
 }
 
+@Article{sadinle_reiter_2018,
+  Title                    = {Sequential Identification of Nonignorable Missing Data Mechanisms},
+  Author                   = {Sadinle, M. and Reiter, J.P.},
+  Journal                  = {Statistica Sinica},
+  Year                     = {2018},
+  Number                   = {4},
+  Pages                    = {1741--1759},
+  Volume                   = {28},
+  Publisher                = {Institute of Statistical Science},
+
+  Abstract                 = {With nonignorable missing data, likelihood-based inference should be based on the joint distribution of the study variables and their missingness indicators. These joint models cannot be estimated from the data alone, thus requiring the analyst to impose restrictions that make the models uniquely obtainable from the distribution of the observed data. We present an approach for constructing classes of identifiable nonignorable missing data models. The main idea is to use a sequence of carefully set up identifying assumptions, whereby we specify potentially different missingness mechanisms for different blocks of variables. We show that the procedure results in models with the desirable property of being non-parametric saturated.},
+  Doi                      = {10.5705/ss.202016.0328},
+  Keywords                 = {Identification; Non-parametric saturated; Missing not at random; Partial ignorability; Sensitivity analysis},
+
+  Owner                    = {imke},
+  Timestamp                = {2018.11.11},
+  Topics                   = {mnar; sensitivity analysis}
+}
+
 @Article{schafer_SMMR1999,
   Title                    = {Multiple imputation: a primer},
   Author                   = {Schafer, J.L.},
@@ -1804,6 +1898,24 @@
   Owner                    = {alyssa},
   Timestamp                = {2017.03.06},
   Topics                   = {ipw}
+}
+
+@Article{shao_zhang_2015,
+  Title                    = {A transformation approach in linear mixed-effects models with informative missing responses},
+  Author                   = {Shao, J. and Zhang, J.},
+  Journal                  = {Biometrika},
+  Volume                   = {102},
+  Number                   = {1},
+  Pages                    = {107-119},
+  Year                     = {2015},
+  Doi                      = {10.1093/biomet/asu069},
+
+  Abstract                 = {We consider a linear mixed-effects model in which the response panel vector has missing components and the missing data mechanism depends on observed data as well as missing responses through unobserved random effects. Using a transformation of the data that eliminates the random effects, we derive asymptotically unbiased and normally distributed estimators of certain model parameters. Estimators of model parameters that cannot be estimated using the transformed data are also constructed, and their asymptotic unbiasedness and normality are established. Simulation results are presented to examine the finite sample performance of the proposed estimators and a real data example is discussed.},
+
+  Keywords                 = {nonignorable missing data; panel data; random effect dependent missingness; unbiasedness; unspecified missing data mechanism},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.11},
+  Topics                   = {mnar; nonignorable}
 }
 
 @Article{sharpe_solly_1995,
@@ -1976,6 +2088,46 @@
   Topics                   = {multiple imputation; chained equations}
 }
 
+@Article{stubbendick_ibrahim_2003,
+  Title                    = {Maximum Likelihood Methods for Nonignorable Missing Responses and Covariates in Random Effects Models},
+  Author                   = {Stubbendick, A.L. and Ibrahim, J.G.},
+  Journal                  = {Biometrics},
+  Pages                    = {1140--1150},
+  Year                     = {2003},
+  Publisher                = {Wiley-Blackwell},
+  Volume                   = {59},
+  Number                   = {4},
+
+  Abstract                 = {This article analyzes quality of life (QOL) data from an Eastern Cooperative Oncology Group (ECOG) melanoma trial that compared treatment with ganglioside vaccination to treatment with high‐dose interferon. The analysis of this data set is challenging due to several difficulties, namely, nonignorable missing longitudinal responses and baseline covariates. Hence, we propose a selection model for estimating parameters in the normal random effects model with nonignorable missing responses and covariates. Parameters are estimated via maximum likelihood using the Gibbs sampler and a Monte Carlo expectation maximization (EM) algorithm. Standard errors are calculated using the bootstrap. The method allows for nonmonotone patterns of missing data in both the response variable and the covariates. We model the missing data mechanism and the missing covariate distribution via a sequence of one‐dimensional conditional distributions, allowing the missing covariates to be either categorical or continuous, as well as time‐varying. We apply the proposed approach to the ECOG quality‐of‐life data and conduct a small simulation study evaluating the performance of the maximum likelihood estimates. Our results indicate that a patient treated with the vaccine has a higher QOL score on average at a given time point than a patient treated with high‐dose interferon.},
+  Keywords                 = {Nonignorabe missing data mechanism; Gibbs sampling; Monte Carlo EM algorithm; Normal random effects model; Selection model},
+  Doi                      = {10.1111/j.0006-341X.2003.00131.x},
+  ISSN                     = {0006341X},
+
+  Owner                    = {imke},
+  Timestamp                = {2018.11.11},
+  Topics                   = {mnar; ml}
+}
+
+@Article{stubbendick_ibrahim_2006,
+  Title                    = {Likelihood-based inference with nonignorable missing responses and covariates in models for discrete longitudinal data},
+  Author                   = {Stubbendick, A.L. and Ibrahim, J.G.},
+  Journal                  = {Statistica Sinica},
+  Pages                    = {1143--1167},
+  Year                     = {2006},
+  Publisher                = {Institute of Statistical Science},
+  Volume                   = {16},
+  Number                   = {4},
+
+  Abstract                 = {We propose methods for estimating parameters in two types of models for discrete longitudinal data in the presence of nonignorable missing responses and covariates. We first present the generalized linear model with random effects, also known as the the generalized linear mixed model. We specify a missing data mechanism and a missing covariate distribution and incorporate them into the complete data log-likelihood. Parameters are estimated via maximum likelihood using the Gibbs sampler and a Monte Carlo EM algorithm. The second model is a marginal model for correlated binary responses and discrete covariates with finite range, both of which may be nonignorably missing. We incorporate the missing data mechanism and the missing covariate distribution into the multivariate probit model defined by Chib and Greenberg (1998). We use the EM by method of weights (Ibrahim, 1990) and sample the latent normal variables conditional on a particular response and covariate pattern. The M-steps for each model are like a complete data maximization problem, and standard methods are used. Standard errors for the parameter estimates are computed using the multiple imputation method of Goetghebeur and Ryan (2000). We discuss the advantages and disadvantages of each model and give some guidance as to when one model might be chosen over the other. We illustrate both models using data from an environmental study of dyspnea in Chinese cotton factory workers.},
+  Keywords                 = {generalized linear mixed model; Gibbs sampling; Monte Carlo EM algorithm; multivariate probit model; nonignorable missing data; sensitivity analysis},
+  Url                      = {https://www.jstor.org/stable/24307781},
+  ISSN                     = {10170405},
+
+  Owner                    = {imke},
+  Timestamp                = {2018.11.11},
+  Topics                   = {mnar; ml; longitudinal}
+}
+
 @Article{su_etal_JSS2011,
   Title                    = {Multiple imputation with diagnostics (mi) in {R}: opening windows into the black box},
   Author                   = {Su, Y.S. and Gelman, A. and Hill, J. and Yajima, M.},
@@ -2008,6 +2160,25 @@
   Timestamp                = {2017.08.31},
   Topics                   = {ML},
   Url                      = {http://www.jstor.org/stable/2289457}
+}
+
+@Article{tchetgen_etal_2018,
+  Title                    = {Discrete choice models for nonmonotone nonignorable missing data: identification and inference},
+  Author                   = {Tchetgen Tchetgen, E.J. and Wang, L. and Sun, B.},
+  Journal                  = {Statistica Sinica},
+  Year                     = {2018},
+  Number                   = {4},
+  Pages                    = {2069--2088},
+  Volume                   = {28},
+  Publisher                = {Institute of Statistical Science},
+
+  Abstract                 = {Nonmonotone missing data arise routinely in empirical studies of the social and health sciences and, when ignored, can induce selection bias and loss of efficiency. It is common to account for nonresponse under a missing-at-random assumption which, although convenient, is rarely appropriate when nonresponse is nonmonotone. Likelihood and Bayesian missing data methodologies often require specification of a parametric model for the full data law, thus a priori ruling out any prospect for semiparametric inference. In this paper, we propose an all-purpose approach which delivers semiparametric inferences when missing data are nonmonotone and not at random. The approach is based on a discrete choice model (DCM) as a means to generate a large class of nonmonotone nonresponse mechanisms that are nonignorable. Sufficient conditions for nonparametric identification are given, and a general framework for fully parametric and semiparametric inference under an arbitrary DCM is proposed. Special consideration is given to the case of logit discrete choice nonresponse model (LDCM) for which we describe generalizations of inverse-probability weighting, pattern-mixture estimation, doubly robust estimation, and multiply robust estimation.},
+  Doi                      = {10.5705/ss.202016.0325},
+  Keywords                 = {Doubly robust; inverse probability weighting; missing not at random; nonmonotone missing data; pattern mixture},
+
+  Owner                    = {imke},
+  Timestamp                = {2018.11.11},
+  Topics                   = {mnar; ipw}
 }
 
 @Article{templ_etal_ADAC2012,
@@ -2211,6 +2382,24 @@
   Topics                   = {ipw}
 }
 
+@Article{vansteelandt_etal_2007,
+  Title                    = {Estimation of regression models for the mean of repeated outcomes under nonignorable nonmonotone nonresponse},
+  Author                   = {Vansteelandt, S. and Rotnitzky, A. and Robins, J.},
+  Journal                  = {Biometrika},
+  Volume                   = {94},
+  Number                   = {4},
+  Pages                    = {841--860},
+  Year                     = {2007},
+  Publisher                = {Oxford University Press},
+
+  Abstract                 = {We propose a new class of models for making inference about the mean of a vector of repeated outcomes when the outcome vector is incompletely observed in some study units and missingness is nonmonotone. Each model in our class is indexed by a set of unidentified selection-bias functions which quantify the residual association of the outcome at each occasion t and the probability that this outcome is missing after adjusting for variables observed prior to time t and for the past nonresponse pattern. In particular, selection-bias functions equal to zero encode the investigator's a priori belief that nonresponse of the next outcome does not depend on that outcome after adjusting for the observed past. We call this assumption sequential explainability. Since each model in our class is nonparametric, it fits the data perfectly well. As such, our models are ideal for conducting sensitivity analyses aimed at evaluating the impact that different degrees of departure from sequential explainability have on inference about the marginal means of interest. Although the marginal means are identified under each of our models, their estimation is not feasible in practice because it requires the auxiliary estimation of conditional expectations and probabilities given high-dimensional variables. We henceforth discuss the estimation of the marginal means under each model in our class assuming, additionally, that at each occasion either one of the following two models holds: a parametric model for the conditional probability of nonresponse given current outcomes and past recorded data or a parametric model for the conditional mean of the outcome on the nonrespondents given the past recorded data. We call the resulting procedure 2^T-multiply robust as it protects at each of the T time points against misspecification of one of these two working models, although not against simultaneous misspecification of both. We extend our proposed class of models and estimators to incorporate data configurations which include baseline covariates and a parametric model for the conditional mean of the vector of repeated outcomes given the baseline covariates.},
+  Doi                      = {10.1093/biomet/asm070},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.11},
+  Keywords                 = {double robustness; generalized estimating equations; intermittent missingness; longitudinal study; missing at random; semiparametric inference},
+  Topics                   = {mar; longitudinal}
+}
+
 @Book{wainer_1986,
   Title                    = {Drawing Inferences from Self-Selected Samples},
   Publisher                = {Springer},
@@ -2224,6 +2413,25 @@
   Owner                    = {imke},
   Timestamp                = {2018.10.26},
   Topics                   = {mnar}
+}
+
+@Article{white_etal_2018,
+  Title                    = {A mean score method for sensitivity analysis to departures from the missing at random assumption in randomised trials},
+  Author                   = {White, I.R. and Carpenter, J. and Horton, N.J.},
+  Journal                  = {Statistica Sinica},
+  Year                     = {2018},
+  Number                   = {4},
+  Pages                    = {1985--2003},
+  Volume                   = {28},
+  Publisher                = {Institute of Statistical Science},
+
+  Abstract                 = {Most analyses of randomised trials with incomplete outcomes make untestable assumptions and should therefore be subjected to sensitivity analyses. However, methods for sensitivity analyses are not widely used. We propose a mean score approach for exploring global sensitivity to departures from missing at random or other assumptions about incomplete outcome data in a randomised trial. We assume a single outcome analysed under a generalised linear model. One or more sensitivity parameters, specified by the user, measure the degree of departure from missing at random in a pattern mixture model. Advantages of our method are that its sensitivity parameters are relatively easy to interpret and so can be elicited from subject matter experts; it is fast and non-stochastic; and its point estimate, standard error and confidence interval agree perfectly with standard methods when particular values of the sensitivity parameters make those standard methods appropriate. We illustrate the method using data from a mental health trial.},
+  Doi                      = {10.5705/ss.202016.0308},
+  Keywords                 = {Intention-to-treat analysis; longitudinal data analysis; mean score; missing data; randomised triaals; sensitivity analysis},
+
+  Owner                    = {imke},
+  Timestamp                = {2018.11.11},
+  Topics                   = {mnar; sensitivity analysis; longitudinal}
 }
 
 @Article{wu_carroll_B1988,
@@ -2297,5 +2505,24 @@
   Owner                    = {alyssa},
   Timestamp                = {2017.02.20},
   Topics                   = {imputation; knn}
+}
+
+@Article{zhou_etal_2010,
+  Title                    = {Block-conditional missing at random models for missing data},
+  Author                   = {Zhou, Y. and Little, R.J.A. and Kalbfleisch, J.D.},
+  Journal                  = {Statistical Science},
+  Volume                   = {25},
+  Number                   = {4},
+  Pages                    = {517--532},
+  Year                     = {2010},
+  Publisher                = {Institute of Mathematical Statistics},
+
+  Abstract                 = {Two major ideas in the analysis of missing data are (a) the EM algorithm [Dempster, Laird and Rubin, J. Roy. Statist. Soc. Ser. B 39 (1977) 1–38] for maximum likelihood (ML) estimation, and (b) the formulation of models for the joint distribution of the data Z and missing data indicators M, and associated "missing at random" (MAR) condition under which a model for M is unnecessary [Rubin, Biometrika 63 (1976) 581–592]. Most previous work has treated Z and M as single blocks, yielding selection or pattern-mixture models depending on how their joint distribution is factorized. This paper explores "block-sequential" models that interleave subsets of the variables and their missing data indicators, and then make parameter restrictions based on assumptions in each block. These include models that are not MAR. We examine a subclass of block-sequential models we call block-conditional MAR (BCMAR) models, and an associated block-monotone reduced likelihood strategy that typically yields consistent estimates by selectively discarding some data. Alternatively, full ML estimation can often be achieved via the EM algorithm. We examine in some detail BCMAR models for the case of two multinomially distributed categorical variables, and a two block structure where the first block is categorical and the second block arises from a (possibly multivariate) exponential family distribution.},
+  Doi                      = {10.1214/10-STS344},
+
+  Keywords                 = {block-sequential missing data models; block-conditional MAR models; EM algorithm; categorical data},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.11},
+  Topics                   = {mar; em}
 }
 

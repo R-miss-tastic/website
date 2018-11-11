@@ -136,7 +136,7 @@ Journal articles (12)
 <!-- Journal articles -->
 <div class="container">
 <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#weight_journals">
-Journal articles (5)
+Journal articles (6)
 </button>
 <div id="weight_journals" class="collapse">
 <ul>
@@ -155,6 +155,10 @@ Journal articles (5)
 <li><pref><cite>Seaman, S. and I. White. <font color="#428bca">Review of inverse probability weighting for dealing with missing data</font>. In: <em>Statistical Methods in Medical Research</em> 22.3 (2011), pp. 278-295.</cite></pref>
 <div>
 <a href="https://doi.org/10.1177/0962280210395740" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Tchetgen Tchetgen, E., L. Wang and B. Sun. <font color="#428bca">Discrete choice models for nonmonotone nonignorable missing data: identification and inference</font>. In: <em>Statistica Sinica</em> 28.4 (2018), pp. 2069–2088.</cite></pref>
+<div>
+<a href="https://doi.org/10.5705/ss.202016.0325" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
 </div></li>
 <li><pref><cite>Wal, W. M. van der and R. B. Geskus. <font color="#428bca">ipw: an R package for inverse probability weighting</font>. In: <em>Journal of Statistical Software</em> 43.13 (2011).</cite></pref>
 <div>
@@ -215,7 +219,7 @@ Journal articles (7)
 </div>
 <div id="likelihood-based-approaches" class="section level3">
 <h3>Likelihood-based approaches</h3>
-<p>Instead of defining similariy measures on the observed values to fill in the missing information, likelihood-based approaches in the presence of missing values are designed for statistical inference on the observed values. More precisely, if the missingness is ignorable (in a certain cense that is explained in the <em>Missing values mechanisms</em> section) and one assumes a certain model on the data generation mechanism, then one can attempt to infer the model parameters by maximizing the likelihood on the observed values. There exist frequentist and Bayesian approaches to do statistical inference and the main algorithm which is discussed in various forms in the following publications is called <em>Expectation Maximization</em> (EM) algorithm. Once the model parameters are estimated, one can impute the missing values using this estimated information on the data model. TBC</p>
+<p>Instead of defining similariy measures on the observed values to fill in the missing information, likelihood-based approaches in the presence of missing values are designed for statistical inference on the observed values. More precisely, if the missingness is ignorable (in a certain cense that is explained in the <em>Missing values mechanisms</em> section) and one assumes a certain parametrized model on the data generation mechanism, then one can attempt to infer the model parameters by maximizing the likelihood on the observed values. There exist frequentist and Bayesian approaches to do statistical inference and the main algorithm which is discussed in various forms in the following publications is called <em>Expectation Maximization</em> (EM) algorithm. This algorithm requires the knowledge of the joint distribution of <span class="math inline">\(X = (X_{obs}, X_{mis})\)</span> and is not straightforward since it involves integrals which cannot always be computed easily. Once the model parameters are estimated, one can impute the missing values using this estimated information on the data model. TBC.</p>
 <!-- Books and book chapters -->
 <div class="container">
 <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#ml_books">
@@ -234,7 +238,7 @@ Books and book chapters (2)
 <!-- Journal articles -->
 <div class="container">
 <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#ml_journals">
-Journal articles (14)
+Journal articles (18)
 </button>
 <div id="ml_journals" class="collapse">
 <ul>
@@ -261,6 +265,10 @@ Journal articles (14)
 <li><pref><cite>Ibrahim, J., S. Lipsitz and M. Chen. <font color="#428bca">Missing Covariates in Generalized Linear Models When the Missing Data Mechanism is Non-Ignorable</font>. In: <em>Journal of the Royal Statistical Society</em>. Series B (Statistical Methodology) 61.1 (1999), pp. 173-190.</cite></pref>
 <div>
 <a href="https://doi.org/10.1111/1467-9868.00170" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a><a href="http://www.jstor.org/stable/2680744" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
+</div></li>
+<li><pref><cite>Ibrahim, J., M. Chen and S. Lipsitz. <font color="#428bca">Missing responses in generalised linear mixed models when the missing data mechanism is nonignorable</font>. In: <em>Biometrika</em> 88.2 (2001), pp. 551-564.</cite></pref>
+<div>
+<a href="https://doi.org/10.1093/biomet/88.2.551" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
 </div></li>
 <li><pref><cite>Little, R. J. <font color="#428bca">Regression with missing X’s: a review</font>. In: <em>Journal of the American Statistical Association</em> 87.420 (1992), pp. 1227-1237.</cite></pref>
 <div>
@@ -290,9 +298,21 @@ Journal articles (14)
 <div>
 <a href="https://doi.org/10.1093/biomet/63.3.581" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
 </div></li>
+<li><pref><cite>Stubbendick, A. and J. Ibrahim. <font color="#428bca">Maximum Likelihood Methods for Nonignorable Missing Responses and Covariates in Random Effects Models</font>. In: <em>Biometrics</em> 59.4 (2003), pp. 1140–1150.</cite></pref>
+<div>
+<a href="https://doi.org/10.1111/j.0006-341X.2003.00131.x" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Stubbendick, A. and J. Ibrahim. <font color="#428bca">Likelihood-based inference with nonignorable missing responses and covariates in models for discrete longitudinal data</font>. In: <em>Statistica Sinica</em> 16.4 (2006), pp. 1143–1167.</cite></pref>
+<div>
+<a href="https://www.jstor.org/stable/24307781" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
+</div></li>
 <li><pref><cite>Twala, B., M. Jones and D. Hand. <font color="#428bca">Good methods for coping with missing data in decision trees</font>. In: <em>Pattern Recognition Letters</em> 29.7 (2008), pp. 950-956.</cite></pref>
 <div>
 <a href="https://doi.org/10.1016/j.patrec.2008.01.010" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Zhou, Y., R. Little and J. Kalbfleisch. <font color="#428bca">Block-conditional missing at random models for missing data</font>. In: <em>Statistical Science</em> 25.4 (2010), pp. 517–532.</cite></pref>
+<div>
+<a href="https://doi.org/10.1214/10-STS344" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
 </div></li>
 </ul>
 </div>
@@ -620,7 +640,7 @@ Books and book chapters (1)
 <!-- Journal articles -->
 <div class="container">
 <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#mnar_journals">
-Journal articles (16)
+Journal articles (28)
 </button>
 <div id="mnar_journals" class="collapse">
 <ul>
@@ -631,6 +651,10 @@ Journal articles (16)
 <li><pref><cite>Diggle, P. and M. Kenward. <font color="#428bca">Informative drop-out in longitudinal data analysis</font>. In: <em>Journal of the Royal Statistical Society, Series C (Applied Statistics)</em> 43.1 (1994), pp. 49-93.</cite></pref>
 <div>
 <a href="https://doi.org/10.2307/2986113" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Fang, F., J. Zhao and J. Shao. <font color="#428bca">Imputation-based adjusted score equations in generalized linear models with nonignorable missing covariate values</font>. In: <em>Statistica Sinica</em> 28.4 (2018), pp. 1677–1701.</cite></pref>
+<div>
+<a href="https://doi.org/10.5705/ss.202015.0437" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
 </div></li>
 <li><pref><cite>Follmann, D. and M. Wu. <font color="#428bca">An approximate generalized linear model with random effects for informative missing data</font>. In: <em>Biometrics</em> 51.1 (1995), pp. 151-168.</cite></pref>
 <div>
@@ -653,6 +677,14 @@ Journal articles (16)
 <div>
 <a href="https://doi.org/10.1111/1467-9868.00170" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a><a href="http://www.jstor.org/stable/2680744" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
 </div></li>
+<li><pref><cite>Ibrahim, J., M. Chen and S. Lipsitz. <font color="#428bca">Missing responses in generalised linear mixed models when the missing data mechanism is nonignorable</font>. In: <em>Biometrika</em> 88.2 (2001), pp. 551-564.</cite></pref>
+<div>
+<a href="https://doi.org/10.1093/biomet/88.2.551" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Lee, K., R. Mitra and S. Biedermann. <font color="#428bca">Optimal design when outcome values are not missing at random</font>. In: <em>Statistica Sinica</em> 28.4 (2018), pp. 1821–1838.</cite></pref>
+<div>
+<a href="https://doi.org/10.5705/ss.202016.0526" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
 <li><pref><cite>Little, R. <font color="#428bca">Modeling the drop-out mechanism in repeated-measures studies</font>. In: <em>Journal of the American Statistical Association</em> 90.431 (1995), pp. 1112-1121.</cite></pref>
 <div>
 <a href="https://doi.org/10.2307/2291350" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
@@ -660,6 +692,10 @@ Journal articles (16)
 <li><pref><cite>Little, R. <font color="#428bca">Pattern-mixture models for multivariate incomplete data</font>. In: <em>Journal of the American Statistical Association</em> 88.421 (1993), pp. 125-134.</cite></pref>
 <div>
 <a href="https://doi.org/10.2307/2290705" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Miao, W. and E. Tchetgen Tchetgen. <font color="#428bca">Identification and inference with nonignorable missing covariate data</font>. In: <em>Statistica Sinica</em> 28.4 (2018), pp. 2049–2067.</cite></pref>
+<div>
+<a href="https://doi.org/10.5705/ss.202016.0322" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
 </div></li>
 <li><pref><cite>Molenberghs, G., B. Michiels, M. Kenward, et al. <font color="#428bca">Monotone missing data and pattern-mixture models</font>. In: <em>Statistica Neerlandica</em> 52.2 (1998), pp. 153-161.</cite></pref>
 <div>
@@ -673,6 +709,26 @@ Journal articles (16)
 <div>
 <a href="https://doi.org/10.2307/2670049" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
 </div></li>
+<li><pref><cite>Sadinle, M. and J. Reiter. <font color="#428bca">Sequential Identification of Nonignorable Missing Data Mechanisms</font>. In: <em>Statistica Sinica</em> 28.4 (2018), pp. 1741–1759.</cite></pref>
+<div>
+<a href="https://doi.org/10.5705/ss.202016.0328" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Shao, J. and J. Zhang. <font color="#428bca">A transformation approach in linear mixed-effects models with informative missing responses</font>. In: <em>Biometrika</em> 102.1 (2015), pp. 107-119.</cite></pref>
+<div>
+<a href="https://doi.org/10.1093/biomet/asu069" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Stubbendick, A. and J. Ibrahim. <font color="#428bca">Maximum Likelihood Methods for Nonignorable Missing Responses and Covariates in Random Effects Models</font>. In: <em>Biometrics</em> 59.4 (2003), pp. 1140–1150.</cite></pref>
+<div>
+<a href="https://doi.org/10.1111/j.0006-341X.2003.00131.x" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Stubbendick, A. and J. Ibrahim. <font color="#428bca">Likelihood-based inference with nonignorable missing responses and covariates in models for discrete longitudinal data</font>. In: <em>Statistica Sinica</em> 16.4 (2006), pp. 1143–1167.</cite></pref>
+<div>
+<a href="https://www.jstor.org/stable/24307781" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
+</div></li>
+<li><pref><cite>Tchetgen Tchetgen, E., L. Wang and B. Sun. <font color="#428bca">Discrete choice models for nonmonotone nonignorable missing data: identification and inference</font>. In: <em>Statistica Sinica</em> 28.4 (2018), pp. 2069–2088.</cite></pref>
+<div>
+<a href="https://doi.org/10.5705/ss.202016.0325" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
 <li><pref><cite>Thijs, H., G. Molenberghs, B. Michiels, et al. <font color="#428bca">Strategies to fit pattern-mixture models</font>. In: <em>Biostatistics</em> 3.2 (2002), pp. 245-265.</cite></pref>
 <div>
 <a href="https://doi.org/10.1093/biostatistics/3.2.245" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
@@ -681,9 +737,21 @@ Journal articles (16)
 <div>
 <a href="https://doi.org/10.1111/j.0006-341X.2001.00007.x" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
 </div></li>
+<li><pref><cite>Vansteelandt, S., A. Rotnitzky and J. Robins. <font color="#428bca">Estimation of regression models for the mean of repeated outcomes under nonignorable nonmonotone nonresponse</font>. In: <em>Biometrika</em> 94.4 (2007), pp. 841–860.</cite></pref>
+<div>
+<a href="https://doi.org/10.1093/biomet/asm070" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>White, I., J. Carpenter and N. Horton. <font color="#428bca">A mean score method for sensitivity analysis to departures from the missing at random assumption in randomised trials</font>. In: <em>Statistica Sinica</em> 28.4 (2018), pp. 1985–2003.</cite></pref>
+<div>
+<a href="https://doi.org/10.5705/ss.202016.0308" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
 <li><pref><cite>Wu, M. and R. Carroll. <font color="#428bca">Estimation and comparison of changes in the presence of informative right censoring by modeling the censoring process</font>. In: <em>Biometrics</em> 44.1 (1988), pp. 175-188.</cite></pref>
 <div>
 <a href="https://doi.org/10.2307/2531905" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Zhou, Y., R. Little and J. Kalbfleisch. <font color="#428bca">Block-conditional missing at random models for missing data</font>. In: <em>Statistical Science</em> 25.4 (2010), pp. 517–532.</cite></pref>
+<div>
+<a href="https://doi.org/10.1214/10-STS344" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
 </div></li>
 </ul>
 </div>
