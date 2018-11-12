@@ -100,7 +100,7 @@ paginate = 1
 
   [params.sidebar]
     # Optional about block for sidebar (can be Markdown)
-    about = "This website is proudly sponsored by R Consortium and maintained by Julie Josse, Nicolas Tierney and Nathalie Vialaneix."
+    about = "This website is proudly sponsored by R Consortium and maintained by Julie Josse, Nicholas Tierney and Nathalie Vialaneix."
 
     # How many posts to show on the sidebar (Default: 5)
     #num_recent_posts = 2
