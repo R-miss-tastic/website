@@ -6,13 +6,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <meta property="og:title" content="" />
-<meta property="og:description" content="Describe the purpose of the website." />
+<meta property="og:description" content="This page is still under construction.
+On this page we aim at providing a selection of high-quality tutorials on different aspects of missing values. If you wish to contribute some of your own material to this platform, please feel free to contact us via the Contact form.
+Missing values imputation  Special focus on principal component methods   (Julie Josse, course at École Polytechnique, fall 2018)
+ Analysis of Missing data  Introduction Likelihood-based approach Computation Imputation Multiple imputation Propensity Score approach Nonignorable missing data   (Jae-Kwang Kim, course at Iowa State University, fall 2015)" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/" />
+
+
+
+<meta property="article:published_time" content="2018-07-22T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-07-22T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Describe the purpose of the website."/>
-<meta name="generator" content="Hugo 0.47.1" />
+<meta name="twitter:description" content="This page is still under construction.
+On this page we aim at providing a selection of high-quality tutorials on different aspects of missing values. If you wish to contribute some of your own material to this platform, please feel free to contact us via the Contact form.
+Missing values imputation  Special focus on principal component methods   (Julie Josse, course at École Polytechnique, fall 2018)
+ Analysis of Missing data  Introduction Likelihood-based approach Computation Imputation Multiple imputation Propensity Score approach Nonignorable missing data   (Jae-Kwang Kim, course at Iowa State University, fall 2015)"/>
+<meta name="generator" content="Hugo 0.44" />
 
 
     
@@ -22,8 +45,9 @@
   "@type": "BlogPosting",
   "headline": "",
   "url": "/tutorials/",
-  "wordCount": "6",
-  "datePublished": "0001-01-01T00:00:00&#43;00:00",
+  "wordCount": "90",
+  "datePublished": "2018-07-22T00:00:00&#43;00:00",
+  "dateModified": "2018-07-22T00:00:00&#43;00:00",
   "author": {
     "@type": "Person",
     "name": "Nathalie Vialaneix"
@@ -48,6 +72,45 @@
 
     
 
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> 
+
+<style>
+   
+  #filterInput {
+    padding: 20px;
+    margin-top: -6px;
+    border: 0;
+    border-radius: 0;
+    background: #f1f1f1;
+  }
+</style>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    });
+</script>
+<script type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<style>
+pref {
+    display: block;
+    margin-top: 0.6rem;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+</style>
+
   </head>
 
   <body>
@@ -61,10 +124,16 @@
           <a class="nav-link" href="/bibliography/" title="">Bibliography</a>
           
           
+          <a class="nav-link" href="/tutorials/" title="">Tutorials</a>
+          
+          
           <a class="nav-link" href="/rpkg/" title="">R packages</a>
           
           
-          <a class="nav-link" href="/tutorials/" title="">Tutorials</a>
+          <a class="nav-link" href="/people/" title="">People</a>
+          
+          
+          <a class="nav-link" href="/contact/" title="">Contact</a>
           
         </nav>
       </div>
@@ -75,7 +144,7 @@
     <header class="blog-header">
       <div class="container">
         <h1 class="blog-title"><a href="/" rel="home">R-miss-tastic</a></h1>
-        <p class="lead blog-description">A ressource website on missing data</p>
+        <p class="lead blog-description">A resource website on missing data</p>
       </div>
     </header>
     
@@ -91,9 +160,42 @@
 <article class="blog-post">
   <header>
     <h2 class="blog-post-title"><a href="/tutorials/"></a></h2>
-    <p class="blog-post-meta"><time datetime="0001-01-01T00:00:00Z">Mon Jan 01, 0001</time> by Nathalie Vialaneix</p>
+    <p class="blog-post-meta"><time datetime="2018-07-22T00:00:00Z">Sun Jul 22, 2018</time> by Nathalie Vialaneix</p>
   </header>
-  <p>Describe the purpose of the website.</p>
+  <p>This page is still under construction.</p>
+
+<p>On this page we aim at providing a selection of high-quality tutorials on different aspects of missing values.
+<em>If you wish to contribute some of your own material to this platform, please feel free to contact us via the <a href="/contact/">Contact form</a>.</em></p>
+
+<div class="container">
+  <div class="dropdown">
+    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+      Missing values imputation
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="/tutorials/Josse_slides_imputation_PCA_2018.pdf">Special focus on principal component methods</a>
+    </div>
+  </div>
+  <p>(Julie Josse, course at École Polytechnique, fall 2018)</p>
+</div>
+
+<div class="container">                                        
+  <div class="dropdown">
+    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+      Analysis of Missing data
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch1.pdf">Introduction</a>
+      <a class="dropdown-item" href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch2.pdf">Likelihood-based approach</a>
+      <a class="dropdown-item" href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch3.pdf">Computation</a>
+      <a class="dropdown-item" href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch4.pdf">Imputation</a>
+      <a class="dropdown-item" href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch4b.pdf">Multiple imputation</a>
+      <a class="dropdown-item" href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch5.pdf">Propensity Score approach</a>
+      <a class="dropdown-item" href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch6.pdf">Nonignorable missing data</a>
+    </div>
+  </div>
+  <p>(Jae-Kwang Kim, course at Iowa State University, fall 2015)</p>
+</div>
 
 
   
@@ -129,7 +231,7 @@
   
   <section class="sidebar-module sidebar-module-inset">
     <h4>About</h4>
-    <p>This website is proudly sponsored by R Consortium and maintained by Julie Josse, Nicolas Tierney and Nathalie Vialaneix.</p>
+    <p>This website is proudly sponsored by R Consortium and maintained by Julie Josse, Nicholas Tierney and Nathalie Vialaneix.</p>
   </section>
   
 
@@ -140,7 +242,7 @@
     <h4>Follow us!</h4>
     <ol class="list-unstyled">
       
-      <li><a href="https://github.com/rstudio/blogdown">GitHub</a></li>
+      <li><a href="https://github.com/R-miss-tastic">GitHub</a></li>
       
     </ol>
   </section>

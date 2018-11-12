@@ -6,35 +6,81 @@
     <description>Recent content on R-miss-tastic</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Wed, 24 Oct 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Bibliography by topics</title>
+      <link>/bibliography/biblio_topics/</link>
+      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/bibliography/biblio_topics/</guid>
+      <description>Inspired by CRAN Task View on Missing Data and a review of Imbert &amp;amp; Villa-Vialaneix on handling missing values (2018, written in French) we organized our selection of relevant references on missing values by different topics.
+The full list of references can be found here.
+Notations In order to provide a more formal introduction for the problem of missing values and the existing methods to handle them (e.g. diagnose/describe the missingness or perform statistical analysis on the incomplete data), we introduce some farely standard definitions and notations used in the remainder of this article.</description>
+    </item>
+    
+    <item>
+      <title>Complete list of selected references</title>
+      <link>/bibliography/biblio_complete/</link>
+      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/bibliography/biblio_complete/</guid>
+      <description>A commented and structured version of this bibliography can be found here.
+  Publication type All Book Article Paper Misc    Year         Citation   Year   Publication type      Abayomi, K., A. Gelman and M. Levy. Diagnostics for multivariate imputations. In: Journal of the Royal Statistical Society, Series C (Applied Statistics) 57.3 (2008), pp.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/people/</link>
+      <pubDate>Tue, 30 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/people/</guid>
+      <description>People The community of people and research teams working on missing values is constantly growing but there are some researchers whose work can be considered as key contributions to the community and who provide a lot of material to different groups of interested people. Here we provide the links to their personal/group websites (in alphabetical order).
+If you think you or your reaserch group should also figure on the list below feel free to contact us via the Contact form.</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>/contact/</link>
+      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/contact/</guid>
+      <description>This page is still under construction. The form below is not activated yet but if you want to contact us in the meantime, just send us an e-mail to the following address: r-miss-tastic [at] clementine [dot] wf
+If you have comments, questions or suggestions about our platform, send us a message using the form below.
+Email  Message   Send</description>
+    </item>
+    
+    <item>
       <title></title>
       <link>/bibliography/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/bibliography/</guid>
-      <description>I don&amp;rsquo;t quite understand how the structure of this website work&amp;hellip;</description>
+      <description>On this platform we attempt to give you an overview of main references on missing values. We do not claim to gather all available references on the subject but rather to offer a peak into different fields of active research on handling missing values, allowing for an introdcutory reading as well as a starting point for further bibliographical research. You can either explore the bibliography throughout different topics or consult the complete list of selected references.</description>
     </item>
     
     <item>
       <title></title>
       <link>/rpkg/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/rpkg/</guid>
-      <description>List of R packages?</description>
+      <description>This page is still under construction but in the meantime you can take a look at the CRAN Task View on Missing Data recently created and maintained by the contributors of this website.</description>
     </item>
     
     <item>
       <title></title>
       <link>/tutorials/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/tutorials/</guid>
-      <description>Describe the purpose of the website.</description>
+      <description>This page is still under construction.
+On this page we aim at providing a selection of high-quality tutorials on different aspects of missing values. If you wish to contribute some of your own material to this platform, please feel free to contact us via the Contact form.
+Missing values imputation  Special focus on principal component methods   (Julie Josse, course at École Polytechnique, fall 2018)
+ Analysis of Missing data  Introduction Likelihood-based approach Computation Imputation Multiple imputation Propensity Score approach Nonignorable missing data   (Jae-Kwang Kim, course at Iowa State University, fall 2015)</description>
     </item>
     
   </channel>
