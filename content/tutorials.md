@@ -13,10 +13,23 @@ _If you wish to contribute some of your own material to this platform, please fe
 <div class="container">
   <div class="dropdown">
     <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+      Handling missing values
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="/tutorials/Josse_bookdown_LectureNotesMissing_2018.html" target="_blank">Lecture notes</a>
+      <a class="dropdown-item" href="/tutorials/Josse_Tierney_bookdown_user2018tutorial_2018.html" target="_blank">Lab</a>
+    </div>
+  </div>
+  <p>(Julie Josse, course at École Polytechnique, fall 2018 and Julie Josse & Nick Tierney, tutorial at useR! 2018)</p>
+</div>
+
+<div class="container">
+  <div class="dropdown">
+    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
       Missing values imputation
     </button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="/tutorials/Josse_slides_imputation_PCA_2018.pdf">Special focus on principal component methods</a>
+      <a class="dropdown-item" href="/tutorials/Josse_slides_imputation_PCA_2018.pdf" target="_blank">Special focus on principal component methods</a>
   	</div>
   </div>
   <p>(Julie Josse, course at École Polytechnique, fall 2018)</p>
@@ -28,13 +41,13 @@ _If you wish to contribute some of your own material to this platform, please fe
       Analysis of Missing data
     </button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch1.pdf">Introduction</a>
-      <a class="dropdown-item" href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch2.pdf">Likelihood-based approach</a>
-      <a class="dropdown-item" href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch3.pdf">Computation</a>
-      <a class="dropdown-item" href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch4.pdf">Imputation</a>
-      <a class="dropdown-item" href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch4b.pdf">Multiple imputation</a>
-      <a class="dropdown-item" href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch5.pdf">Propensity Score approach</a>
-      <a class="dropdown-item" href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch6.pdf">Nonignorable missing data</a>
+      <a class="dropdown-item" href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch1.pdf" target="_blank">Introduction</a>
+      <a class="dropdown-item" href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch2.pdf" target="_blank">Likelihood-based approach</a>
+      <a class="dropdown-item" href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch3.pdf" target="_blank">Computation</a>
+      <a class="dropdown-item" href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch4.pdf" target="_blank">Imputation</a>
+      <a class="dropdown-item" href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch4b.pdf" target="_blank">Multiple imputation</a>
+      <a class="dropdown-item" href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch5.pdf" target="_blank">Propensity Score approach</a>
+      <a class="dropdown-item" href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch6.pdf" target="_blank">Nonignorable missing data</a>
     </div>
   </div>
   <p>(Jae-Kwang Kim, course at Iowa State University, fall 2015)</p>
