@@ -12,10 +12,11 @@ _If you think you or your reaserch group should also figure on the list below fe
 <ul class="list-group" id="people-list">
 <li> <a href="https://stefvanbuuren.name" target="_blank">Stef van Buuren</a> (University of Utrecht and Netherlands Organisation for Applied Scientific Research TNO)</li>
 <li> <a href="https://missingdata.lshtm.ac.uk/introduction-to-missing-data" target="_blank">James Carpenter & Jonathan Bartlett</a> (London School of Hygiene & Tropical Medecine)</li>
-<!-- <li> <a href="http://www.stat.columbia.edu/~gelman/" target="_blank">Andrew Gelman</a> (Columbia University)</li> -->
+<li> <a href="http://www.stat.columbia.edu/~gelman/" target="_blank">Andrew Gelman</a> (Columbia University)</li>
 <!-- <li> <a href="https://steinhardt.nyu.edu/faculty/Jennifer_L_Hill" target="_blank">Jennifer L. Hill</a> (New York University)</li> -->
 <li> <a href="https://sites.google.com/view/jaekwangkim/home" target="_blank">Jae-Kwang Kim</a> (Iowa State University and KAIST)</li>
 <li> <a href="https://sites.google.com/a/umich.edu/rod-little/" target="_blank">Roderick J.A. Little</a> (University of Michigan)</li>
+<li> <a href="https://www.kuleuven.be/wieiswie/en/person/u0056633" target="_blank">Geert Molenberghs</a> (I-BioStat and KU Leuven)</li>
 <li> <a href="https://statistics.fas.harvard.edu/people/donald-b-rubin" target="_blank">Donald B. Rubin</a> (Harvard University)</li>
 </ul>
 
