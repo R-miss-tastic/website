@@ -656,6 +656,44 @@
   Url                      = {http://pubs.sciepub.com/ajams/1/2/3}
 }
 
+@Article{gelman_etal_1998,
+  Title                    = {Not asked and not answered: Multiple imputation for multiple surveys},
+  Author                   = {Gelman, A. and King, G. and Liu, C.},
+  Journal                  = {Journal of the American Statistical Association},
+  Volume                   = {93},
+  Number                   = {443},
+  Pages                    = {846--857},
+  Year                     = {1998},
+  Publisher                = {Taylor \& Francis Group},
+
+  Abstract                 = {We present a method of analyzing a series of independent cross-sectional surveys in which some questions are not answered in some surveys and some respondents do not answer some of the questions posed. The method is also applicable to a single survey in which different questions are asked or different sampling methods are used in different strata or clusters. Our method involves multiply imputing the missing items and questions by adding to existing methods of imputation designed for single surveys a hierarchical regression model that allows covariates at the individual and survey levels. Information from survey weights is exploited by including in the analysis the variables on which the weights were based, and then reweighting individual responses (observed and imputed) to estimate population quantities. We also develop diagnostics for checking the fit of the imputation model based on comparing imputed data to nonimputed data. We illustrate with the example that motivated this project: a study of pre-election public opinion polls in which not all the questions of interest are asked in all the surveys, so that it is infeasible to impute within each survey separately.},
+  Keywords                 = {Bayesian inference; cluster sampling; diagnostics; hierarchical models; ignorable nonresponse; missing data; political science; sample surveys; stratified sampling},
+
+  Doi                      = {10.1080/01621459.1998.10473737},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.19},
+  Topics                   = {mi; survey}
+}
+
+@Article{gelman_etal_2005,
+  Title                    = {Multiple Imputation for Model Checking: Completed-Data Plots with Missing and Latent Data},
+  Author                   = {Gelman, A. and van Mechelen, I. and Verbeke, G. and Heitjan, D.F. and Meulders, M.},
+  Journal                  = {Biometrics},
+  Volume                   = {61},
+  Number                   = {1},
+  Pages                    = {74--85},
+  Year                     = {2005},
+  Publisher                = {Wiley Online Library},
+
+  Abstract                 = {In problems with missing or latent data, a standard approach is to first impute the unobserved data, then perform all statistical analyses on the completed dataset -- corresponding to the observed data and imputed unobserved data --  using standard procedures for complete‐data inference. Here, we extend this approach to model checking by demonstrating the advantages of the use of completed‐data model diagnostics on imputed completed datasets. The approach is set in the theoretical framework of Bayesian posterior predictive checks (but, as with missing‐data imputation, our methods of missing‐data model checking can also be interpreted as “predictive inference” in a non‐Bayesian context). We consider the graphical diagnostics within this framework. Advantages of the completed‐data approach include: (1) One can often check model fit in terms of quantities that are of key substantive interest in a natural way, which is not always possible using observed data alone. (2) In problems with missing data, checks may be devised that do not require to model the missingness or inclusion mechanism; the latter is useful for the analysis of ignorable but unknown data collection mechanisms, such as are often assumed in the analysis of sample surveys and observational studies. (3) In many problems with latent data, it is possible to check qualitative features of the model (for example, independence of two variables) that can be naturally formalized with the help of the latent data. We illustrate with several applied examples.},
+  Keywords                 = {Bayesian model checking; exploratory data analysis; multiple imputation; nonresponse; posterior predictive checks; realized discrepancies; residuals},
+
+  Doi                      = {10.1111/j.0006-341X.2005.031010.x},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.19},
+  Topics                   = {mi}
+}
+
 @InProceedings{gondara_wang_2018,
   Title                    = {MIDA: Multiple Imputation using Denoising Autoencoders},
   Author                   = {Gondara, L. and Wang, K.},
@@ -1279,6 +1317,24 @@
   Keywords                 = {imputation; visualization; diagnosis},
   Topics                   = {imputation}
 }
+
+@article{kropko_etal_2014,
+ Title                     = {Multiple Imputation for Continuous and Categorical Data: Comparing Joint Multivariate Normal and Conditional Approaches}, 
+ Author                    = {Kropko, J. and Goodrich, B. and Gelman, A. and Hill, J.},
+ Year                      = {2014},
+ Volume                    = {22}, 
+ Number                    = {4}, 
+ Journal                   = {Political Analysis}, 
+ Publisher                 = {Cambridge University Press}, 
+ Pages                     = {497--519},
+ Doi                       = {10.1093/pan/mpu007}, 
+ Abstract                  = {We consider the relative performance of two common approaches to multiple imputation (MI): joint multivariate normal (MVN) MI, in which the data are modeled as a sample from a joint MVN distribution; and conditional MI, in which each variable is modeled conditionally on all the others. In order to use the multivariate normal distribution, implementations of joint MVN MI typically assume that categories of discrete variables are probabilistically constructed from continuous values. We use simulations to examine the implications of these assumptions. For each approach, we assess (1) the accuracy of the imputed values; and (2) the accuracy of coefficients and fitted values from a model fit to completed data sets. These simulations consider continuous, binary, ordinal, and unordered-categorical variables. One set of simulations uses multivariate normal data, and one set uses data from the 2008 American National Election Studies. We implement a less restrictive approach than is typical when evaluating methods using simulations in the missing data literature: in each case, missing values are generated by carefully following the conditions necessary for missingness to be “missing at random” (MAR). We find that in these situations conditional MI is more accurate than joint MVN MI whenever the data include categorical variables.},
+
+ Keywords                  = {Data imputation; missing data; multivariate normal distribution; mixed data; mar},
+ Owner                     = {imke},
+ Timestamp                 = {2018.11.19},
+ Topics                    = {mi}
+ }
 
 @Article{lee_etal_2018,
   Title                    = {Optimal design when outcome values are not missing at random},
