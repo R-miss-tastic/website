@@ -53,3 +53,16 @@ _If you wish to contribute some of your own material to this platform, please fe
   <p>(Jae-Kwang Kim, course at Iowa State University, fall 2015)</p>
 </div>
 
+<div class="container">
+  <div class="dropdown">
+    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+      Multiple Imputation: Methods and Applications
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="/tutorials/Reiter_course_MultipleImputationOverview_2018/Reiter_slides_MultipleImputation_2018.pdf" target="_blank">Multiple Imputation</a>
+      <a class="dropdown-item" href="/tutorials/Reiter_course_MultipleImputationOverview_2018/Reiter_script_MultipleImputationMICE_2018.R" target="_blank">Example using MICE</a>
+    </div>
+  </div>
+  <p>(Jerry Reiter, short course at the Odum Institute at UNC Chapel Hill, March 2018)</p>
+</div>
+
