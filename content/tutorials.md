@@ -13,6 +13,19 @@ _If you wish to contribute some of your own material to this platform, please fe
 <div class="container">
   <div class="dropdown">
     <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+      Handling missing values in surveys <small>(slides written in <b>french</b>)
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="/tutorials/Chauvet_slides_SurveysWithMissingData_2015.pdf" target="_blank">Traitement des données manquantes dans les Enquêtes</a>
+    </div>
+  </div>
+  <p>(Guillaume Chauvet, course at École Nationale de la Statistique et de l'Analyse de l'Information, spring 2015)</p>
+</div>
+
+
+<div class="container">
+  <div class="dropdown">
+    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
       Handling missing values
     </button>
     <div class="dropdown-menu">
