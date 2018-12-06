@@ -13,7 +13,7 @@ _If you wish to contribute some of your own material to this platform, please fe
 <div class="container">
   <div class="dropdown">
     <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-      Handling missing values in surveys <small>(slides written in <b>french</b>)
+      Handling missing values in surveys <small>(slides in <b>french</b>)
     </button>
     <div class="dropdown-menu">
       <a class="dropdown-item" href="/tutorials/Chauvet_slides_SurveysWithMissingData_2015.pdf" target="_blank">Traitement des données manquantes dans les Enquêtes</a>
@@ -47,6 +47,20 @@ _If you wish to contribute some of your own material to this platform, please fe
   </div>
   <p>(Julie Josse, course at École Polytechnique, fall 2018)</p>
 </div>
+
+<div class="container">
+  <div class="dropdown">
+    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+      Handling missing values in PCA and MCA
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="https://www.youtube.com/watch?v=OOM8_FH6_8o&t=8s" target="_blank">Handling missing values in PCA</a>
+      <a class="dropdown-item" href="https://www.youtube.com/watch?v=uyIH1CtrfsU" target="_blank">Handling missing values in MCA</a>
+    </div>
+  </div>
+  <p>(François Husson, video tutorial accompanying the R-package <i>missMDA</i>, 2016)</p>
+</div>
+
 
 <div class="container">                                        
   <div class="dropdown">
