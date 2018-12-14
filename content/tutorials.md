@@ -87,7 +87,7 @@ _If you wish to contribute some of your own material to this platform, please fe
     </button>
     <div class="dropdown-menu">
       <a class="dropdown-item" href="/tutorials/Reiter_course_MultipleImputationOverview_2018/Reiter_slides_MultipleImputation_2018.pdf" target="_blank">Multiple Imputation</a>
-      <a class="dropdown-item" href="/tutorials/Reiter_course_MultipleImputationOverview_2018/Reiter_script_MultipleImputationMICE_2018.R" target="_blank">Example using MICE</a>
+      <a class="dropdown-item" href="/tutorials/Reiter_course_MultipleImputationOverview_2018/Reiter_script_MultipleImputationMICE_2018.html" target="_blank">Example using MICE</a>
     </div>
   </div>
   <p>(Jerry Reiter, short course at the Odum Institute at UNC Chapel Hill, March 2018)</p>

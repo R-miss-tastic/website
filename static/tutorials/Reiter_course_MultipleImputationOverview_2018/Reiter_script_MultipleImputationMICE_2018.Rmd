@@ -1,0 +1,210 @@
+---
+title: "Multiple imputation of missing data with mice"
+author: "Jerry Reiter"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Example by Jerry Reiter for short course at Odum Institute, March 2018. This short example shows R commands for handling missing data using the `mice` package.
+
+## Preliminaries (load packages and data)
+
+_If you have not already, install the mice package with the following command (remove #):_
+```{r}
+#install.packages("mice")
+```
+
+Once you have `mice` installed, load it into memory using the command:
+```{r}
+library(mice)
+```
+
+We illustrate the package with a simple data set from the mice package:
+```{r}
+data(nhanes2)
+
+dim(nhanes2)
+summary(nhanes2)
+```
+
+Note that the `age` and `hyp` variables are already defined as factor variables in this dataset. If you have a dataset with categorical variables without this pre-definition, you should make the variables factors before doing mice. For example, to make a variable called _var1_ into a factor in some dataset called _thedata_, type `thedata$var1 = as.factor(thedata$var1)`.
+
+## Missing data
+The `NA` values represent missing data.
+
+Let's look at the missing data pattern:
+```{r}
+md.pattern(nhanes2)
+```
+
+## Exploratory data analyses
+Let's look at some exploratory data analyses based on the complete cases.
+
+First make the complete cases
+```{r}
+ccnhanes2data = cc(nhanes2)
+ccnhanes2data
+```
+
+Note that there are only 3 cases with `hypertension = yes`.  Relationships will be hard to model accurately due to small sample size...
+
+We will use these data for illustration of the MI procedures. Really we need more data to say anything meaningful about relationships among these variables.
+
+```{r}
+plot(ccnhanes2data$bmi, x=ccnhanes2data$chl, xlab = "Cholesterol", ylab = "BMI", main = "Complete cases: bmi versus chl")
+boxplot(ccnhanes2data$bmi ~ ccnhanes2data$age, xlab = "Age", ylab = "BMI", main = "Complete cases: bmi versus age")
+boxplot(ccnhanes2data$bmi ~ ccnhanes2data$hyp, xlab = "Hypertensive", ylab = "BMI", main = "Complete cases: bmi versus hyp")
+```
+
+## Multiple imputation
+
+### How to use `mice`
+Let's create 5 multiple imputations for the missing values. We will use normal linear regressions for continuous variables, logistic regressions for binary variables, multinomial regressions for unordered categorical variables, and proportional odds models for ordered categorical variables. _Note: We have not discussed the last two models in this class, but they are popular models for these kinds of data._
+
+```{r}
+nhanes2MI5 = mice(nhanes2, m=5, defaultMethod = c("norm", "logreg", "polyreg", "polr"))
+```
+
+Look at the first couple of completed datasets
+```{r}
+d1 = complete(nhanes2MI5, 1)
+d1
+
+d2 = complete(nhanes2MI5, 2)
+d2
+```
+
+### Imputation diagnostics
+
+Plot imputed and observed continuous variables
+```{r}
+stripplot(nhanes2MI5, col=c("grey",mdc(2)),pch=c(1,20))
+```
+
+Grey dots are observed values and red dots are imputed values. There is no evidence of problematic imputations for these variables.
+
+If you just want to see one continuous variable, say `bmi`, use:
+```{r}
+stripplot(nhanes2MI5, bmi~.imp, col=c("grey",mdc(2)),pch=c(1,20))
+```
+
+Also you can do plots by values of categorical variable, say `bmi` by `age` grouping:
+```{r}
+stripplot(nhanes2MI5, bmi~.imp|age, col=c("grey",mdc(2)),pch=c(1,20))
+```
+
+And also you can plot all the imputations in one plot to see relationships:
+```{r}
+stripplot(nhanes2MI5, bmi~chl|age, col=c("grey",mdc(2)),pch=c(1,20))
+```
+
+__Scatter plots__ of `bmi` and `chl` by `age`:
+
+```{r}
+stripplot(nhanes2MI5, bmi~chl|age, col=c("grey",mdc(2)),pch=c(1,20))
+```
+
+__Dot plots__ of `bmi` by `hyp` by `age`:
+
+```{r}
+stripplot(nhanes2MI5, bmi~hyp|age, col=c("grey",mdc(2)),pch=c(1,20))
+```
+
+There are no obvious problems with the imputations from these plots.
+
+You can also try __posterior predictive checks__. Let's append the data and make replicates:
+```{r}
+nhanes2ppcheck = rbind(nhanes2, nhanes2)
+#check to make sure we've done what we intended
+nhanes2ppcheck
+```
+
+Now blank every value in 3 variables with missing values:
+```{r}
+nhanes2ppcheck[26:50, 2:4] = NA
+nhanes2ppcheck
+```
+
+Run the MI software on the completed data:
+```{r}
+nhanes2MI5ppcheck = mice(nhanes2ppcheck, m=5, defaultMethod = c("norm", "logreg", "polyreg", "polr"))
+```
+
+Get the completed datasets -- in the interest of time look at first two datasets:
+```{r}
+d1ppcheck = complete(nhanes2MI5ppcheck, 1)
+d2ppcheck = complete(nhanes2MI5ppcheck, 2)
+```
+
+Let's graph __histograms__ of `bmi` for each of the datasets:
+```{r}
+par(mfcol=c(2,1))
+hist(d1ppcheck$bmi[1:25], xlab = "BMI", main = "BMI completed data")
+hist(d1ppcheck$bmi[26:50], xlab = "BMI", main = "BMI replicated data")
+ 
+hist(d2ppcheck$bmi[1:25], xlab = "BMI", main = "BMI completed data")
+hist(d2ppcheck$bmi[26:50], xlab = "BMI", main = "BMI replicated data")
+```
+
+You can also use __scatter plots__ to check relationship between variables:
+```{r}
+plot(d2ppcheck$bmi[1:25]~d2ppcheck$chl[1:25], ylab = "BMI", xlab = "Cholesterol", main = "BMI vs Chl completed data")
+plot(d2ppcheck$bmi[26:50]~d2ppcheck$chl[26:50], ylab = "BMI", xlab = "Cholesterol", main = "BMI vs Chl replicated data")
+``` 
+
+Looks pretty similar! No evidence that imputation models are poorly specified for what we want to do.
+
+## Inference using the completed datasets
+
+To do __model specification__, i.e., transformations, either look at the complete cases or use one of the completed datasets. For example, to use the first dataset `d1` in a regression of `bmi` on `age`, `hyp` and `chl`, use:
+
+```{r}
+bmiregd1 = lm(bmi~age+hyp+chl, data = d1)
+```
+
+To check residuals, you can examine the fit of the model in one or more completed datasets. Any transformations will have to apply to all the datasets, so don't be too dataset-specific in your checks.
+
+```{r}
+plot(bmiregd1$residual, x = d1$chl, xlab = "Cholesterol", ylab = "Residual")
+abline(0,0)
+boxplot(bmiregd1$residual ~ d1$age, xlab = "Age", ylab = "Residual")
+boxplot(bmiregd1$residual ~ d1$hyp, xlab = "Hypertension", ylab = "Residual")
+```
+
+Pretty reasonable residual plots. A good idea is to repeat this for more than one completed dataset. If you decide transformations are needed, you might reconsider the imputation models too and fit them with transformed values.
+
+If you want to do multiple imputation inferences on all `m=5` data sets, use the `with` command.
+For example, to fit a __linear regression__ of `bmi` on `age + hyp + chl`:
+
+```{r}
+bmiregMI5 = with(data=nhanes2MI5, lm(bmi~age+hyp+chl))
+summary(bmiregMI5)
+```
+
+To get the __multiple imputation inferences__ based on the Rubin (1987) combining rules -- see the slides -- use the `pool` command:
+
+```{r}
+bmireg = pool(bmiregMI5)
+summary(bmireg)
+```
+
+If you want to do a __nested F test__ (well, technically a test that is asymptotically equivalent to a nested F test), then use `pool.compare`. Suppose we want to see if `age` is a useful predictor. We have to redo the with-age regression to have `age` as the last predictor.
+
+```{r}
+bmiregMI5 = with(data=nhanes2MI5, lm(bmi~hyp+chl+age))
+bmiregMI5noage = with(data=nhanes2MI5, lm(bmi~hyp+chl))
+pool.compare(bmiregMI5, bmiregMI5noage)
+```
+
+You also can fit __logistic regressions__. For example to predict hypertension from all the other variables, use:
+```{r}
+hyplogregMI5 = with(data=nhanes2MI5, glm(hyp~bmi+chl+age, family = binomial))
+hyplogreg = pool(hyplogregMI5)
+summary(hyplogreg)
+```
+
+This turns out to be problematic because we have some logistic regressions with perfect predictions.  
+We do not have enough data to do a meaningful logistic regression here, unless we drop `age` as a predictor. But the command structure is fine. 
