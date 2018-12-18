@@ -21,6 +21,7 @@ paginate = 1
   url = "https://github.com/R-miss-tastic"
 
 [[menu.navbar]]
+    identifier = "Bibliography"
     name = "Bibliography"
     url = "/bibliography/"
     weight = 2
@@ -46,18 +47,20 @@ paginate = 1
     weight = 4
 
 [[menu.navbar]]
+    name = "Data"
+    url = "/data/"
+    weight = 5
+
+[[menu.navbar]]
     name = "People"
     url = "/people/"
-    weight = 5
+    weight = 6
 
 [[menu.navbar]]
     name = "Contact"
     url = "/contact/"
     weight = 100
 
-#[[menu.navbar]]
-#  name = "Link 1"
-#  url = "https://example.org"
 
 
 # Theme variables
