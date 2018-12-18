@@ -14,6 +14,7 @@ _If you think you or your reaserch group should also figure on the list below fe
 <li> <a href="https://missingdata.lshtm.ac.uk/introduction-to-missing-data" target="_blank">James Carpenter & Jonathan Bartlett</a> (London School of Hygiene & Tropical Medecine)</li>
 <li> <a href="http://www.stat.columbia.edu/~gelman/" target="_blank">Andrew Gelman</a> (Columbia University)</li>
 <!-- <li> <a href="https://steinhardt.nyu.edu/faculty/Jennifer_L_Hill" target="_blank">Jennifer L. Hill</a> (New York University)</li> -->
+<li> <a href="http://math.agrocampus-ouest.fr/infoglueDeliverLive/membres/Francois.Husson" target="_blank">François Husson</a> (AgroCampus Ouest)</li>
 <li> <a href="https://sites.google.com/view/jaekwangkim/home" target="_blank">Jae-Kwang Kim</a> (Iowa State University and KAIST)</li>
 <li> <a href="https://sites.google.com/a/umich.edu/rod-little/" target="_blank">Roderick J.A. Little</a> (University of Michigan)</li>
 <li> <a href="https://www.kuleuven.be/wieiswie/en/person/u0056633" target="_blank">Geert Molenberghs</a> (<a href="https://ibiostat.be/online-resources" target="_blank">I-BioStat</a> and KU Leuven)</li>
