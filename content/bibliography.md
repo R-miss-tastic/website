@@ -7,8 +7,37 @@ linktitle: Bibliography
 On this platform we attempt to give you an overview of main references on missing values. We do not claim to gather all available references on the subject but rather to offer a peak into different fields of active research on handling missing values, allowing for an introdcutory reading as well as a starting point for further bibliographical research.
 You can either explore the bibliography throughout different [topics](/bibliography/biblio_topics/) or consult the [complete list of selected references](/bibliography/biblio_complete/).
 
-* [Bibliography organized by topics](/bibliography/biblio_topics/)
-* [Complete list of selected references](/bibliography/biblio_complete/)
 
-*Note: If you think that we missed some important publications or if you want to submit your own publication on our platform, please contact the maintainer via the [Contact form](/contact/).*
 
+<div class="container">
+  <div id="accordion">
+    <div class="card">
+      <div class="card-header">
+        <a class="card-text" data-toggle="collapse" data-target="#topics">
+          Go to <a href="/bibliography/biblio_topics/">Bibliography organized by topics</a>
+        </a>
+      </div>
+      <div class="collapse show" data-parent="#accordion">  
+        <div class="card-body">
+          Inspired by <a href="https://cran.r-project.org/web/views/MissingData.html" target="_blank">CRAN Task View on Missing Data</a> and a <a href="http://journal-sfds.fr/article/view/681" target="_blank">review of Imbert & Villa-Vialaneix</a> on handling missing values (2018, written in French) we organized our selection of relevant references on missing values by different topics.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="card-text" data-toggle="collapse" data-target="#complete">
+          Go to <a href="/bibliography/biblio_complete/">Complete list of selected references</a>
+        </a>
+      </div>
+      <div  class="collapse show" data-parent="#accordion">  
+        <div class="card-body">
+          If you think that we missed some important publications or if you want to submit your own publication on our platform, please contact the maintainer via the <a href="/contact/" target="_blank">Contact form</a>.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- *Note: If you think that we missed some important publications or if you want to submit your own publication on our platform, please contact the maintainer via the [Contact form](/contact/).*
+ -->
