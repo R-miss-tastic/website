@@ -207,6 +207,29 @@
   Topics                   = {deep learning; rnn}
 }
 
+@InProceedings{biessmann_CIKM2018,
+  Title                    = {"Deep" Learning for Missing Value Imputation in Tables with Non-Numerical Data},
+  Author                   = {Biessmann, F. and Salinas, D. and Schelter, S. and Schmidt, P. and Lange, D.},
+  Booktitle                = {Proceedings of the 27th ACM International Conference on Information and Knowledge Management},
+  Series                   = {CIKM '18},
+  Year                     = {2018},
+  ISBN                     = {978-1-4503-6014-2},
+  Location                 = {Torino, Italy},
+  Pages                    = {2017--2025},
+  Url                      = {http://doi.acm.org/10.1145/3269206.3272005},
+  Doi                      = {10.1145/3269206.3272005},
+  Publisher                = {ACM},
+  Address                  = {New York, NY, USA},
+  Editor                   = {-},
+
+  Abstract                 = {The success of applications that process data critically depends on the quality of the ingested data. Completeness of a data source is essential in many cases. Yet, most missing value imputation approaches suffer from severe limitations. They are almost exclusively restricted to numerical data, and they either offer only simple imputation methods or are difficult to scale and maintain in production. Here we present a robust and scalable approach to imputation that extends to tables with non-numerical values, including unstructured text data in diverse languages. Experiments on public data sets as well as data sets sampled from a large product catalog in different languages (English and Japanese) demonstrate that the proposed approach is both scalable and yields more accurate imputations than previous approaches. Training on data sets with several million rows is a matter of minutes on a single machine. With a median imputation F1 score of 0.93 across a broad selection of data sets our approach achieves on average a 23-fold improvement compared to mode imputation. While our system allows users to apply state-of-the-art deep learning models if needed, we find that often simple linear n-gram models perform on par with deep learning methods at a much lower operational cost. The proposed method learns all parameters of the entire imputation pipeline automatically in an end-to-end fashion, rendering it attractive as a generic plugin both for engineers in charge of data pipelines where data completeness is relevant, as well as for practitioners without expertise in machine learning who need to impute missing values in tables with non-numerical data.},
+
+  Owner                    = {imke},
+  Timestamp                = {2018.12.18},
+  Keywords                 = {data cleaning; missing value imputation},
+  Topics                   = {deep learning; neural networks}
+}
+
 @Article{buck_JRSSB1960,
   Title                    = {A method of estimation of missing values in multivariate data suitable for use with an electronic computer},
   Author                   = {Buck, S.F.},
@@ -472,6 +495,25 @@
   Pmid                     = {6121453},
   Timestamp                = {2017.10.25},
   Topics                   = {mnar}
+}
+
+
+@Article{ding_li_SS2018,
+  Title                    = {Causal Inference: A Missing Data Perspective},
+  Author                   = {Ding, P. and Li, F.},
+  Journal                  = {Statistical Science},
+  Year                     = {2018},
+  Volume                   = {33},
+  Number                   = {2},
+  Pages                    = {214--237},
+
+  Abstract                 = {Inferring causal effects of treatments is a central goal in many disciplines. The potential outcomes framework is a main statistical approach to causal inference, in which a causal effect is defined as a comparison of the potential outcomes of the same units under different treatment conditions. Because for each unit at most one of the potential outcomes is observed and the rest are missing, causal inference is inherently a missing data problem. Indeed, there is a close analogy in the terminology and the inferential framework between causal inference and missing data. Despite the intrinsic connection between the two subjects, statistical analyses of causal inference and missing data also have marked differences in aims, settings and methods. This article provides a systematic review of causal inference from the missing data perspective. Focusing on ignorable treatment assignment mechanisms, we discuss a wide range of causal inference methods that have analogues in missing data analysis, such as imputation, inverse probability weighting and doubly robust methods. Under each of the three modes of inference—Frequentist, Bayesian and Fisherian randomization—we present the general structure of inference for both finite-sample and super-population estimands, and illustrate via specific examples. We identify open questions to motivate more research to bridge the two fields.},
+  Doi                      = {10.1214/18-STS645},
+  
+  Keywords                 = {assignment mechanism; ignorability; imputation; missing data mechanism; observational studies; potential outcome; propensity score; randomizatoin; weighting},
+  Owner                    = {imke},
+  Timestamp                = {2018.12.11},
+  Topics                   = {causal inference}
 }
 
 @Article{ding_simonoff_JMLR2010,
