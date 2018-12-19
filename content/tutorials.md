@@ -31,6 +31,51 @@ _If you wish to contribute some of your own material to this platform, please fe
     </div>
     <div class="card">
       <div class="card-header">
+        <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#davidian">
+          <div class="col-12">Statistical Methods for Analysis With Missing Data</div>
+        </a>
+      </div>
+      <div id="davidian" class="collapse" data-parent="#accordion">  
+        <div class="card-body">
+          <ul>
+            <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_chapter1_2017.pdf" target="_blank">Introduction and Motivation</a></li>
+            <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_chapter2_2017.pdf" target="_blank">Naive Methods</a></li>
+            <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_chapter3_2017.pdf" target="_blank">Likelihood-based Methods Under Missing At Random (MAR)</a></li>
+            <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_chapter4_2017.pdf" target="_blank">Multiple Imputation Methods Under MAR</a></li>
+            <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_chapter5_2017.pdf" target="_blank">Inverse Probability Weighted Methods Under  MAR</a></li>
+            <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_chapter6_2017.pdf" target="_blank">Pattern Mixture Models</a></li>
+            <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_chapter7_2017.pdf" target="_blank">Sensitivity Analysis to Deviations from MAR</a></li>
+            <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_hwk1_2017.pdf" target="_blank">Homework 1</a></li>
+            <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_hwk2_2017.pdf" target="_blank">Homework 2</a></li>
+            <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_hwk3_2017.pdf" target="_blank">Homework 3</a></li>
+            <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_hwk4_2017.pdf" target="_blank">Homework 4</a></li>
+            <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_hwkData_2017.zipf" target="_blank">Data for homeworks</a></li>
+          </ul>
+        <small>
+          <p>(Marie Davidian, course at NC State University, spring 2017, <a href="https://www4.stat.ncsu.edu/~davidian/st790/index.html" target="_blank">Course page</a>)</p>
+        </small>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#rizopoulos">
+          <div class="col-12">Longitudinal data with missing values</div>
+        </a>
+      </div>
+      <div id="rizopoulos" class="collapse" data-parent="#accordion">  
+        <div class="card-body">
+          <ul>
+            <li><a href="/tutorials/Rizopoulos_slides_LongitudinalDataWithDropout_2017.pdf" target="_blank">Joint Models and Missing data</a></li>
+          </ul>
+        <small>
+          <p>(Dimitris Rizopoulos, talk at <i>Joint Conference on Biometrics & Biopharmaceutical Statistics</i>, August 2017)</p>
+        </small>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
         <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#josse_tierney">
           <div class="col-12">Handling missing values</div>
         </a>
@@ -42,7 +87,7 @@ _If you wish to contribute some of your own material to this platform, please fe
             <li><a href="/tutorials/Josse_Tierney_bookdown_user2018tutorial_2018.html" target="_blank">Lab</a></li>
           </ul>
         <small>
-          <p>(Julie Josse, course at École Polytechnique, fall 2018 and Julie Josse & Nick Tierney, tutorial at useR! 2018)</p>
+          <p>(Julie Josse, course at École Polytechnique, fall 2018 and Julie Josse & Nick Tierney, tutorial at <i>useR! 2018</i>, 2018)</p>
         </small>
         </div>
       </div>
@@ -75,7 +120,7 @@ _If you wish to contribute some of your own material to this platform, please fe
             <li><a href="https://www.youtube.com/watch?v=uyIH1CtrfsU" target="_blank">Handling missing values in MCA</a></li>
           </ul>
         <small>
-          <p>(François Husson, video tutorial accompanying the R-package <i>missMDA</i>, 2016)</p>
+          <p>(François Husson, video tutorial accompanying the R-package <code>missMDA</code>, 2016)</p>
         </small>
         </div>
       </div>
