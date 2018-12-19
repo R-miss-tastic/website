@@ -341,6 +341,25 @@
   Topics                   = {factorial data analysis; misc}
 }
 
+@article{carpenter_etal_JRSS2006,
+  Title                    = {A comparison of multiple imputation and doubly robust estimation for analyses with missing data},
+  Author                   = {Carpenter, James R. and Kenward, Michael G. and Vansteelandt, Stijn},
+  Journal                  = {Journal of the Royal Statistical Society: Series A (Statistics in Society)},
+  Volume                   = {169},
+  Number                   = {3},
+  Pages                    = {571--584},
+  Year                     = {2006},
+
+  Abstract                 = {Multiple imputation is now a well-established technique for analysing data sets where some units have incomplete observations. Provided that the imputation model is correct, the resulting estimates are consistent. An alternative, weighting by the inverse probability of observing complete data on a unit, is conceptually simple and involves fewer modelling assumptions, but it is known to be both inefficient (relative to a fully parametric approach) and sensitive to the choice of weighting model. Over the last decade, there has been a considerable body of theoretical work to improve the performance of inverse probability weighting, leading to the development of ‘doubly robust’ or ‘doubly protected’ estimators. We present an intuitive review of these developments and contrast these estimators with multiple imputation from both a theoretical and a practical viewpoint.},
+  Keywords                 = {Double robustness; Inverse probability weighting; Missing at random; Multiple imputation},
+  Doi                      = {10.1111/j.1467-985X.2006.00407.x},
+  
+  Owner                    = {imke},
+  Timestamp                = {2018.12.19},
+  Topics                   = {ipw; mi}
+}
+
+
 @Book{carpenter_kenward_MIA2013,
   Title                    = {Multiple Imputation and its Application},
   Author                   = {Carpenter, J. and Kenward, M.},
@@ -662,6 +681,26 @@
   Owner                    = {nathalie},
   Timestamp                = {2018.05.11},
   Topics                   = {imputation; ml}
+}
+
+@article{fitzmorice_etal_JRSS1995,
+  Title                    = {Regression Models for Longitudinal Binary Responses with Informative Drop-Outs},
+  Author                   = {Fitzmaurice, Garrett M. and Molenberghs, Geert and Lipsitz, Stuart R.},
+  Journal                  = {Journal of the Royal Statistical Society. Series B (Methodological)},
+  Number                   = {4},
+  Pages                    = {691--704},
+  Publisher                = {[Royal Statistical Society, Wiley]},
+  Volume                   = {57},
+  Year                     = {1995},
+
+  Abstract                 = {This paper reviews both likelihood-based and non-likelihood (generalized estimating equations) regression models for longitudinal binary responses when there are drop-outs. Throughout, it is assumed that the regression parameters for the marginal expectations of the binary responses are of primary scientific interest. The association or time dependence between the responses is largely regarded as a nuisance characteristic of the data. The performance of the methods is compared, in terms of asymptotic bias, under misspecification of the association between the responses and the missing data mechanism or drop-out process.},
+  ISSN                     = {00359246},
+  Url                      = {http://www.jstor.org/stable/2345937},
+ 
+  Keywords                 = {Generalized Estimating Equations; Maximum Likelihood Estimation; Missing Data; Repeated Measures},
+  Owner                    = {imke},
+  Timestamp                = {2018.12.19},
+  Topics                   = {survey}
 }
 
 @Article{follman_wu_B1995,
@@ -1490,6 +1529,26 @@
   Topics                   = {ml}
 }
 
+@Article{louis_JRSS1982,
+  Title                    = {Finding the Observed Information Matrix when Using the EM Algorithm},
+  Author                   = {Louis, Thomas A.},
+  Journal                  = {Journal of the Royal Statistical Society. Series B (Methodological)},
+  Number                   = {2},
+  Pages                    = {226--233},
+  Publisher                = {Royal Statistical Society, Wiley},
+  Volume                   = {44},
+  Year                     = {1982},
+  Url                      = {http://www.jstor.org/stable/2345828},
+
+  Abstract                 = {A procedure is derived for extracting the observed information matrix when the EM algorithm is used to find maximum likelihood estimates in incomplete data problems. The technique requires computation of a complete-data gradient vector or second derivative matrix, but not those associated with the incomplete data likelihood. In addition, a method useful in speeding up the convergence of the EM algorithm is developed. Two examples are presented.},
+ 
+  ISSN                     = {00359246},
+  Keywords                 = {EM algorithm; Observed Information; Maximum Likelihood; Speeding Convergence},
+  Owner                    = {imke},
+  Timestamp                = {2018.12.19},
+  Topics                   = {ml; em}
+}
+
 @Book{mclachlan_krishnan_2008,
   Title                    = {The EM Algorithm and Extensions},
   Author                   = {McLachlan, G. J. and Krishnan, T.},
@@ -1734,6 +1793,40 @@
   Topics                   = {classification; deep learning; neural network}
 }
 
+
+@Book{okelly_ratitch_2014,
+  Title                   = {Clinical Trials with Missing Data: A Guide for Practitioners},
+  Author                  = {O'Kelly, M. and Ratitch, B.},
+  Year                    = {2014},
+  Publisher               = {John Wiley \& Sons, Ltd},
+  Doi                     = {10.1002/9781118762516},
+
+  Abstract                = {This book provides practical guidance for statisticians, clinicians, and researchers involved in clinical trials in the biopharmaceutical industry, medical and public health organisations. Academics and students needing an introduction to handling missing data will also find this book invaluable.},
+
+  Owner                   = {imke},
+  Timestamp               = {2018.12.19},
+  Topics                  = {general}
+}
+
+@InProceedings{orchard_woodbury_1972,
+  Title                    = {A missing information principle: theory and applications},
+  Author                   = {Orchard, Terence and Woodbury, Max A},
+  Booktitle                = {Proceedings of the Sixth Berkeley Symposium on Mathematical Statistics and Probability, Volume 1: Theory of Statistic},
+  Year                     = {1972},
+  Volume                   = {1},
+  Pages                    = {697--715},
+  Editor                   = {Le Cam, L. M. and Neyman J. and Scott, E. L.},
+  Publisher                = {University of California Press},
+
+  Abstract                 = {The problem that a relatively simple analysis is changed into a complex one just because some of the information is missing, is one which faces most practicing statisticians at some point in their career. Obviously the best way to treat missing information problems is not to have them. Unfortunately circumstances arise in which information is missing and nothing can be done to replace it for one reason or another.},
+  Keywords                 = {maximum likelihood estimation; analysis of variance; distribution functions; random variables; factor analysis; covariance; regression analysis; discrete distribution; discriminant analysis; factorial design; probability; statistical inference},
+  Url                      = {https://apps.dtic.mil/dtic/tr/fulltext/u2/1022173.pdf},
+
+  Owner                    = {imke},
+  Timestamp                = {2018.12.19},
+  Topics                   = {general}
+}
+
 @Article{peugh_enders_RER2004,
   Title                    = {Missing data in educational research: a review of reporting practices and suggestions for improvement},
   Author                   = {Peugh, J. L. and Enders, C. K.},
@@ -1757,7 +1850,7 @@
   Journal                  = {Educational Research and Evaluation},
   Year                     = {2001},
   Number                   = {4},
-  Pages                    = {353-383},
+  Pages                    = {353--383},
   Volume                   = {7},
 
   Abstract                 = {This paper reviews methods for handling missing data in a research study. Many researchers use ad hoc methods such as complete case analysis, available case analysis (pairwise deletion), or single-value imputation. Though these methods are easily implemented, they require assumptions about the data that rarely hold in practice. Model-based methods such as maximum likelihood using the EM algorithm and multiple imputation hold more promise for dealing with difficulties caused by missing data. While model-based methods require specialized computer programs and assumptions about the nature of the missing data, these methods are appropriate for a wider range of situations than the more commonly used ad hoc methods. The paper provides an illustration of the methods using data from an intervention study designed to increase students' ability to control their asthma symptoms.},
@@ -1765,6 +1858,25 @@
   Owner                    = {alyssa},
   Timestamp                = {2017.02.21},
   Topics                   = {general}
+}
+
+@article{preisser_etal_SIM2002,
+  Title                    = {Performance of weighted estimating equations for longitudinal binary data with drop-outs missing at random},
+  Author                   = {Preisser, John S. and Lohman, Kurt K. and Rathouz, Paul J.},
+  Journal                  = {Statistics in Medicine},
+  Volume                   = {21},
+  Number                   = {20},
+  Pages                    = {3035--3054},
+  Year                     = {2002},
+  Publisher                = {John Wiley \& Sons, Ltd.},
+
+  Abstract                 = {The generalized estimating equations (GEE) approach is commonly used to model incomplete longitudinal binary data. When drop-outs are missing at random through dependence on observed responses (MAR), GEE may give biased parameter estimates in the model for the marginal means. A weighted estimating equations approach gives consistent estimation under MAR when the drop-out mechanism is correctly specified. In this approach, observations or person-visits are weighted inversely proportional to their probability of being observed. Using a simulation study, we compare the performance of unweighted and weighted GEE in models for time-specific means of a repeated binary response with MAR drop-outs. Weighted GEE resulted in smaller finite sample bias than GEE. However, when the drop-out model was misspecified, weighted GEE sometimes performed worse than GEE. Weighted GEE with observation-level weights gave more efficient estimates than a weighted GEE procedure with cluster-level weights.},
+  Keywords                 = {correlated data; drop-outs; estimating equations; logistic models; repeated measures},
+  Doi                      = {10.1002/sim.1241},
+
+  Owner                    = {imke},
+  Timestamp                = {2018.12.19},
+  Topics                   = {survey}
 }
 
 @Article{rahman_islam_KBS2013,
@@ -1831,6 +1943,25 @@
   Owner                    = {imke},
   Timestamp                = {2018.10.30},
   Topics                   = {knn; random forests}
+}
+
+@Article{robins_etal_JASA1994,
+  Title                    = {Estimation of Regression Coefficients When Some Regressors are not Always Observed},
+  Author                   = {Robins, J. M. and Rotnitzky, A. and Zhao, L. P.},
+  Journal                  = {Journal of the American Statistical Association},
+  Year                     = {1994},
+  Number                   = {427},
+  Pages                    = {846-866},
+  Volume                   = {89},
+
+  Abstract                 = {In applied problems it is common to specify a model for the conditional mean of a response given a set of regressors. A subset of the regressors may be missing for some study subjects either by design or happenstance. In this article we propose a new class of semiparametric estimators, based on inverse probability weighted estimating equations, that are consistent for parameter vector α0 of the conditional mean model when the data are missing at random in the sense of Rubin and the missingness probabilities are either known or can be parametrically modeled. We show that the asymptotic variance of the optimal estimator in our class attains the semiparametric variance bound for the model by first showing that our estimation problem is a special case of the general problem of parameter estimation in an arbitrary semiparametric model in which the data are missing at random and the probability of observing complete data is bounded away from 0, and then deriving a representation for the efficient score, the semiparametric variance bound, and the influence function of any regular, asymptotically linear estimator in this more general estimation problem. Because the optimal estimator depends on the unknown probability law generating the data, we propose locally and globally adaptive semiparametric efficient estimators. We compare estimators in our class with previously proposed estimators. We show that each previous estimator is asymptotically equivalent to some, usually inefficient, estimator in our class. This equivalence is a consequence of a proposition stating that every regular asymptotic linear estimator of α0 is asymptotically equivalent to some estimator in our class. We compare various estimators in a small simulation study and offer some practical recommendations.},
+
+  Keywords                 = {Cox proportional hazards model; Linear regression; Logistic regression; Measurement error; Missing covariates; Missing data; Nonlinear regression; Semiparametric efficiency; Survey sampling; Two-stage case-control studies; Validation study},
+  Doi                      = {10.1080/01621459.1994.10476818},
+  Owner                    = {imke},
+  Publisher                = {American Statistical Association, Taylor \& Francis},
+  Timestamp                = {2018.12.19},
+  Topics                   = {ipw}
 }
 
 @Article{robins_etal_JASA1995,
@@ -2588,6 +2719,25 @@
   Topics                   = {causal inference}
 }
 
+@Article{vansteelandt_etal_M2010,
+  Title                    = {Analysis of incomplete data using inverse probability weighting and doubly robust estimators},
+  Author                   = {Vansteelandt, Stijn and Carpenter, James and Kenward, Michael G},
+  Journal                  = {Methodology -- European Journal of Research Methods for the Behavioral and Social Sciences},
+  Year                     = {2010},
+  Volume                   = {6},
+  Number                   = {1},
+  Pages                    = {37--48},
+  Location                 = {Tilburg, The Netherlands},
+  Doi                      = {10.1027/1614-2241/a000005},
+
+  Abstract                 = {This article reviews inverse probability weighting methods and doubly robust estimation methods for the analysis of incomplete data sets. We first consider methods for estimating a population mean when the outcome is missing at random, in the sense that measured covariates can explain whether or not the outcome is observed. We then sketch the rationale of these methods and elaborate on their usefulness in the presence of influential inverse weights. We finally outline how to apply these methods in a variety of settings, such as for fitting regression models with incomplete outcomes or covariates, emphasizing the use of standard software programs.},
+  Keywords                 = {extrapolation; doubly robust estimation; extreme weights; Horvitz-Thompson estimator; inverse probability weighting; missing data; multiple imputation; regression models; repeated outcomes; inference; nonresponse},
+
+  Owner                    = {imke},
+  Timestamp                = {2018-12-19},
+  Topics                   = {ipw}
+}
+
 @Article{vansteelandt_etal_2007,
   Title                    = {Estimation of regression models for the mean of repeated outcomes under nonignorable nonmonotone nonresponse},
   Author                   = {Vansteelandt, S. and Rotnitzky, A. and Robins, J.},
@@ -2619,6 +2769,24 @@
   Owner                    = {imke},
   Timestamp                = {2018.10.26},
   Topics                   = {mnar}
+}
+
+@Article{wang_robins_B1998,
+  Title                    = {Large-sample theory for parametric multiple imputation procedures},
+  Author                   = {Wang, Naisyin and Robins, James M.},
+  Journal                  = {Biometrika},
+  Volume                   = {85},
+  Number                   = {4},
+  Pages                    = {935--948},
+  Year                     = {1998},
+  Doi                      = {10.1093/biomet/85.4.935},
+
+  Abstract                 = {We consider the asymptotic behaviour of various parametric multiple imputation procedures which include but are not restricted to the ‘proper’ imputation procedures proposed by Rubin (1978). The asymptotic variance structure of the resulting estimators is provided. This result is used to compare the relative efficiencies of different imputation procedures. It also provides a basis to understand the behaviour of two Monte Carlo iterative estimators, stochastic EM (Celeux \& Diebolt, 1985; Wei \& Tanner, 1990) and simulated EM (Ruud, 1991). We further develop properties of these estimators when they stop at iteration K with imputation size m. An application to a measurement error problem is used to illustrate the results.},
+  Keywords                 = {Asymptotic distribution; EM algorithm; Log-likelihood score; Measurement error model; Missing data},
+
+  Owner                    = {imke},
+  Timestamp                = {2018-12-19},
+  Topics                   = {mi}
 }
 
 @Article{white_etal_2018,
