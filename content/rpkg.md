@@ -47,6 +47,24 @@ _If you wish to contribute some of your own material to this section, please fee
     </div>
     <div class="card">
       <div class="card-header">
+        <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#husson">
+          <div class="col-12">Handling missing values in PCA and MCA</div>
+        </a>
+      </div>
+      <div id="husson" class="collapse" data-parent="#accordion">  
+        <div class="card-body">
+          <ul>
+            <li><a href="https://www.youtube.com/watch?v=OOM8_FH6_8o&t=8s" target="_blank">Handling missing values in PCA</a></li>
+            <li><a href="https://www.youtube.com/watch?v=uyIH1CtrfsU" target="_blank">Handling missing values in MCA</a></li>
+          </ul>
+        <small>
+          <p>(François Husson, video tutorial accompanying the R-package <code>missMDA</code>, 2016)</p>
+        </small>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
         <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#mi">
           <div class="col-12">Multiple imputation</div>
         </a>
@@ -58,6 +76,21 @@ _If you wish to contribute some of your own material to this section, please fee
             	<small><p>(Stef van Buuren and Gerko Vink, 2018)</p></small></li>
             <li><a href="/tutorials/Reiter_course_MultipleImputationOverview_2018/Reiter_script_MultipleImputationMICE_2018.html" target="_blank">Example using <code>mice</code></a>
             	<small><p>(Jerry Reiter, 2018)</p></small></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#missforest">
+          <div class="col-12">Random trees and forests</div>
+        </a>
+      </div>
+      <div id="missforest" class="collapse" data-parent="#accordion">  
+        <div class="card-body">
+          <ul>
+            <li><a href="/tutorials/Stekhoven_vignette_missForest_2012.pdf" target="_blank"><code>missForest</code> vignette: Using the <code>missForest</code> Package</a>
+              <small><p>(Daniel J. Stekhoven, 2012)</p></small></li>
           </ul>
         </div>
       </div>
