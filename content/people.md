@@ -18,6 +18,7 @@ _If you think you or your reaserch group should also figure on the list below fe
 <li class="list-group-item"> <a href="http://math.agrocampus-ouest.fr/infoglueDeliverLive/membres/Francois.Husson" target="_blank">François Husson</a> (AgroCampus Ouest)</li>
 <li class="list-group-item"> <a href="https://sites.google.com/view/jaekwangkim/home" target="_blank">Jae-Kwang Kim</a> (Iowa State University and KAIST)</li>
 <li class="list-group-item"> <a href="https://sites.google.com/a/umich.edu/rod-little/" target="_blank">Roderick J.A. Little</a> (University of Michigan)</li>
+<li class="list-group-item"> <a href="https://statistics.fas.harvard.edu/people/xiao-li-meng" target="_blank">Xiao-Li Meng</a> (Harvard University)</li>
 <li class="list-group-item"> <a href="https://www.kuleuven.be/wieiswie/en/person/u0056633" target="_blank">Geert Molenberghs</a> (<a href="https://ibiostat.be/online-resources" target="_blank">I-BioStat</a> and KU Leuven)</li>
 <li class="list-group-item"> <a href="http://www2.stat.duke.edu/~jerry/" target="_blank">Jerry Reiter</a> (Duke University)</li>
 <li class="list-group-item"> <a href="https://statistics.fas.harvard.edu/people/donald-b-rubin" target="_blank">Donald B. Rubin</a> (Tsinghua University)</li>
