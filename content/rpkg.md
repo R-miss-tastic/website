@@ -74,6 +74,8 @@ _If you wish to contribute some of your own material to this section, please fee
           <ul>
             <li><a href="https://www.gerkovink.com/miceVignettes/Ad_hoc_and_mice/Ad_hoc_methods.html" target="_blank"><code>mice</code> vignette: Ad hoc methods and <code>mice</code></a>
             	<small><p>(Stef van Buuren and Gerko Vink, 2018)</p></small></li>
+            <li><a href="https://www.gerkovink.com/miceVignettes/" target="_blank">Other <code>mice</code> vignettes</a>
+              <small><p>(Stef van Buuren and Gerko Vink, 2018)</p></small></li>
             <li><a href="/tutorials/Reiter_course_MultipleImputationOverview_2018/Reiter_script_MultipleImputationMICE_2018.html" target="_blank">Example using <code>mice</code></a>
             	<small><p>(Jerry Reiter, 2018)</p></small></li>
           </ul>
