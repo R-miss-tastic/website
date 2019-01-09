@@ -52,7 +52,7 @@ paginate = 1
     weight = 5
 
 [[menu.navbar]]
-    name = "People"
+    name = "People & Events"
     url = "/people/"
     weight = 6
 
