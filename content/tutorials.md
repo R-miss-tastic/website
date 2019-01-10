@@ -49,7 +49,7 @@ _If you wish to contribute some of your own material to this platform, please fe
             <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_hwk2_2017.pdf" target="_blank">Homework 2</a></li>
             <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_hwk3_2017.pdf" target="_blank">Homework 3</a></li>
             <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_hwk4_2017.pdf" target="_blank">Homework 4</a></li>
-            <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_hwkData_2017.zipf" target="_blank">Data for homeworks</a></li>
+            <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_hwkData_2017.zip" target="_blank">Data for homeworks</a></li>
           </ul>
         <small>
           <p>(Marie Davidian, course at NC State University, spring 2017, <a href="https://www4.stat.ncsu.edu/~davidian/st790/index.html" target="_blank">Course page</a>)</p>
