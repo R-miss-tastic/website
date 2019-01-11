@@ -76,6 +76,10 @@ _If you wish to contribute some of your own material to this section, please fee
             	<small><p>(Stef van Buuren and Gerko Vink, 2018)</p></small></li>
             <li><a href="https://www.gerkovink.com/miceVignettes/" target="_blank">Other <code>mice</code> vignettes</a>
               <small><p>(Stef van Buuren and Gerko Vink, 2018)</p></small></li>
+            <li><a href="/tutorials/Erler_course_MultipleImputation_2018/Erler_Practical_MICE_2018.html" target="_blank">Multiple imputation with the <code>mice</code> package</a>
+              <small><p>(Nicole Erler, NIHES course on multiple imputation, 2018)</p></small></li>
+            <li><a href="/tutorials/Erler_course_MultipleImputation_2018/Erler_Practical_MIadvanced_2018.html" target="_blank">Multiple imputation in complex settings (using <code>mice</code>, <code>JointAI</code>, <code>smcfs</code>, <code>jomo</code>)</a>
+              <small><p>(Nicole Erler, NIHES course on multiple imputation, 2018)</p></small></li>
             <li><a href="/tutorials/Reiter_course_MultipleImputationOverview_2018/Reiter_script_MultipleImputationMICE_2018.html" target="_blank">Example using <code>mice</code></a>
             	<small><p>(Jerry Reiter, 2018)</p></small></li>
           </ul>
