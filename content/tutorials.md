@@ -13,30 +13,36 @@ _If you wish to contribute some of your own material to this platform, please fe
 
 
 <div class="container">
-  <div id="accordion">
-    <div class="card">
-      <div class="card-header">
-        <a class="card-block clearfix" data-toggle="collapse" data-target="#chauvet">
-          <div class="col-12">Handling missing values in surveys <small>(slides in <b>french</b>)</small></div>
-        </a>
-      </div>
-      <div id="chauvet" class="collapse show" data-parent="#accordion">  
-        <div class="card-body">
-          <a href="/tutorials/Chauvet_slides_SurveysWithMissingData_2015.pdf" target="_blank">Traitement des données manquantes dans les Enquêtes</a>
-        <small>
-          <p>(Guillaume Chauvet, course at École Nationale de la Statistique et de l'Analyse de l'Information, spring 2015)</p>
-        </small>
-        </div>
-      </div>
-    </div>
+<div class="accordion-option">
+<a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
+</div>
+<div class="clearfix">
+</div>
+<div id="accordion" class="panel-group" role="tablist" aria-multiselectable="true">
+<div class="panel panel-default">
+<div id="h_general" class="panel-heading" role="tab">
+<h4 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="#general" aria-expanded="false" aria-controls="general">General tutorials</a>
+</h4>
+</div>
+<div id="general" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_general">
+
+<div class="panel-body">
+<div class="container">
+  <div id="accordion_general">
     <div class="card">
       <div class="card-header">
         <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#davidian">
-          <div class="col-12">Statistical Methods for Analysis With Missing Data</div>
+          <div class="col-12">Statistical Methods for Analysis With Missing Data<br>
+            <small>
+            <p>(Marie Davidian, course at NC State University, spring 2017, <a href="https://www4.stat.ncsu.edu/~davidian/st790/index.html" target="_blank">Course page</a>)</p>
+            </small>
+          </div>
         </a>
       </div>
-      <div id="davidian" class="collapse" data-parent="#accordion">  
+      <div id="davidian" class="collapse" data-parent="#accordion_general">  
         <div class="card-body">
+          Add short content description.
           <ul>
             <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_chapter1_2017.pdf" target="_blank">Introduction and Motivation</a></li>
             <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_chapter2_2017.pdf" target="_blank">Naive Methods</a></li>
@@ -51,69 +57,272 @@ _If you wish to contribute some of your own material to this platform, please fe
             <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_hwk4_2017.pdf" target="_blank">Homework 4</a></li>
             <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_hwkData_2017.zip" target="_blank">Data for homeworks</a></li>
           </ul>
-        <small>
-          <p>(Marie Davidian, course at NC State University, spring 2017, <a href="https://www4.stat.ncsu.edu/~davidian/st790/index.html" target="_blank">Course page</a>)</p>
-        </small>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header">
-        <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#rizopoulos">
-          <div class="col-12">Longitudinal data with missing values</div>
-        </a>
-      </div>
-      <div id="rizopoulos" class="collapse" data-parent="#accordion">  
-        <div class="card-body">
-          <ul>
-            <li><a href="/tutorials/Rizopoulos_slides_LongitudinalDataWithDropout_2017.pdf" target="_blank">Joint Models and Missing data</a></li>
-          </ul>
-        <small>
-          <p>(Dimitris Rizopoulos, talk at <i>Joint Conference on Biometrics & Biopharmaceutical Statistics</i>, August 2017)</p>
-        </small>
         </div>
       </div>
     </div>
     <div class="card">
       <div class="card-header">
         <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#josse_tierney">
-          <div class="col-12">Handling missing values</div>
+          <div class="col-12">Handling missing values<br>
+          <small>
+            <p>(Julie Josse, course at École Polytechnique, fall 2018 and Julie Josse & Nick Tierney, tutorial at <i>useR! 2018</i>, 2018)</p>
+          </small>
+          </div>
         </a>
       </div>
-      <div id="josse_tierney" class="collapse" data-parent="#accordion">  
+      <div id="josse_tierney" class="collapse" data-parent="#accordion_general">  
         <div class="card-body">
           <ul>
             <li><a href="/tutorials/Josse_bookdown_LectureNotesMissing_2018.html" target="_blank">Lecture notes</a></li>
-            <li><a href="/tutorials/Josse_Tierney_bookdown_user2018tutorial_2018.html" target="_blank">Lab</a></li>
+            <li><a href="/tutorials/Josse_Tierney_bookdown_user2018tutorial_2018.html" target="_blank">R Lab</a></li>
           </ul>
-        <small>
-          <p>(Julie Josse, course at École Polytechnique, fall 2018 and Julie Josse & Nick Tierney, tutorial at <i>useR! 2018</i>, 2018)</p>
-        </small>
         </div>
       </div>
     </div>
     <div class="card">
       <div class="card-header">
-        <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#josse">
-          <div class="col-12">Missing values imputation</div>
+        <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#kim">
+          <div class="col-12">Analysis of missing values<br>
+          <small>
+            <p>(Jae-Kwang Kim, course at Iowa State University, fall 2015)</p>
+          </small>
+          </div>
         </a>
       </div>
-      <div id="josse" class="collapse" data-parent="#accordion">  
+      <div id="kim" class="collapse" data-parent="#accordion_general">  
+        <div class="card-body">
+          <ul>
+            <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch1.pdf" target="_blank">Introduction</a></li>
+            <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch2.pdf" target="_blank">Likelihood-based approach</a></li>
+            <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch3.pdf" target="_blank">Computation</a></li>
+            <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch4.pdf" target="_blank">Imputation</a></li>
+            <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch4b.pdf" target="_blank">Multiple imputation</a></li>
+            <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch5.pdf" target="_blank">Propensity Score approach</a></li>
+            <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch6.pdf" target="_blank">Nonignorable missing data</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</br>
+</div>
+</div>
+</div>
+
+
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<div class="panel panel-default">
+<div id="h_mi" class="panel-heading" role="tab">
+<h4 class="panel-title">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#mi" aria-expanded="false" aria-controls="mi">Multiple imputation</a>
+</h4>
+</div>
+<div id="mi" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_mi">
+
+<div class="panel-body">
+<div class="container">
+  <div id="accordion_mi">
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#erler">
+          <div class="col-12">Missing Values in Clinical Research - Multiple Imputation<br>
+          <small><p>(Nicole Erler, NIHES course <a href="https://www.nihes.com/course/ep16_missing_values_in_clinical_research/" target="_blank">Missing Values in Clinical Research (EP16)</a>, May 2018)</p>
+          </small>
+        </div>
+        </a>
+      </div>
+      <div id="erler" class="collapse" data-parent="#accordion_mi">  
+        <div class="card-body">
+          <ul>
+            <li><a href="/tutorials/Erler_course_MultipleImputation_2018/Erler_slides_MICourse_2018.pdf" target="_blank">Multiple Imputation (course slides)</a></li>
+            <li><a href="/tutorials/Erler_course_MultipleImputation_2018/Erler_Practical_MICE_2018.html" target="_blank">Multiple imputation using <code>mice</code> (practical)</a></li>
+            <li><a href="/tutorials/Erler_course_MultipleImputation_2018/Erler_Practical_MIadvanced_2018.html" target="_blank">Multiple imputation in complex settings using <code>mice</code>, <code>JointAI</code>, <code>smcfs</code>, <code>jomo</code> (practical)</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#reiter">
+          <div class="col-12">Multiple Imputation: Methods and Applications<br>
+          <small>
+            <p>(Jerry Reiter, short course at the Odum Institute at UNC Chapel Hill, March 2018)</p>
+          </small>
+        </div>
+        </a>
+      </div>
+      <div id="reiter" class="collapse" data-parent="#accordion_mi">  
+        <div class="card-body">
+          <ul>
+            <li><a href="/tutorials/Reiter_course_MultipleImputationOverview_2018/Reiter_slides_MultipleImputation_2018.pdf" target="_blank">Multiple Imputation</a></li>
+            <li><a href="/tutorials/Reiter_course_MultipleImputationOverview_2018/Reiter_script_MultipleImputationMICE_2018.html" target="_blank">Example using <code>mice</code></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</br>
+</div>
+</div>
+</div>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<div class="panel panel-default">
+<div id="h_pc" class="panel-heading" role="tab">
+<h4 class="panel-title">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#pc" aria-expanded="false" aria-controls="pc">Missing values and principal compenent methods</a>
+</h4>
+</div>
+<div id="pc" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_pc">
+
+<div class="panel-body">
+<div class="container">
+  <div id="accordion_pc">
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#josse">
+          <div class="col-12">Imputation using principal compenents</br>
+          <small>
+            <p>(Julie Josse, course at École Polytechnique, fall 2018)</p>
+          </small>
+          </div>
+        </a>
+      </div>
+      <div id="josse" class="collapse" data-parent="#accordion_pc">  
         <div class="card-body">
           <a href="/tutorials/Josse_slides_imputation_PCA_2018.pdf" target="_blank">Special focus on principal component methods</a>
-        <small>
-          <p>(Julie Josse, course at École Polytechnique, fall 2018)</p>
-        </small>
         </div>
       </div>
     </div>
     <div class="card">
       <div class="card-header">
         <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#husson">
-          <div class="col-12">Handling missing values in PCA and MCA</div>
+          <div class="col-12">Handling missing values in PCA and MCA<br>
+          <small>
+            <p>(François Husson, video tutorial accompanying the R-package <code>missMDA</code>, 2016)</p>
+          </small>
+        </div>
         </a>
       </div>
-      <div id="husson" class="collapse" data-parent="#accordion">  
+      <div id="husson" class="collapse" data-parent="#accordion_pc">  
+        <div class="card-body">
+          <ul>
+            <li><a href="https://www.youtube.com/watch?v=OOM8_FH6_8o&t=8s" target="_blank">Handling missing values in PCA</a></li>
+            <li><a href="https://www.youtube.com/watch?v=uyIH1CtrfsU" target="_blank">Handling missing values in MCA</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</br>
+</div>
+</div>
+</div>
+
+
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<div class="panel panel-default">
+<div id="h_special" class="panel-heading" role="tab">
+<h4 class="panel-title">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#special" aria-expanded="false" aria-controls="special">Specific data or application types</a>
+</h4>
+</div>
+<div id="special" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_special">
+<div class="panel-body">
+
+<div class="container">
+  <div id="accordion_special">
+    <div class="card">
+      <div class="card-header">
+        <a class="card-block clearfix" data-toggle="collapse" data-target="#chauvet">
+          <div class="col-12">Handling missing values in surveys<br><small>(Guillaume Chauvet, course at École Nationale de la Statistique et de l'Analyse de l'Information, spring 2015, slides in <b>French</b>)</small></div>
+        </a>
+      </div>
+      <div id="chauvet" class="collapse" data-parent="#accordion_special">  
+        <div class="card-body">
+          <a href="/tutorials/Chauvet_slides_SurveysWithMissingData_2015.pdf" target="_blank">Traitement des données manquantes dans les Enquêtes</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#rizopoulos">
+          <div class="col-12">Longitudinal data with missing values<br>
+          <small>
+          <p>(Dimitris Rizopoulos, talk at <i>Joint Conference on Biometrics & Biopharmaceutical Statistics</i>, August 2017)</p>
+          </small>
+        </div>
+        </a>
+      </div>
+      <div id="rizopoulos" class="collapse" data-parent="#accordion_special">  
+        <div class="card-body">
+          <ul>
+            <li><a href="/tutorials/Rizopoulos_slides_LongitudinalDataWithDropout_2017.pdf" target="_blank">Joint Models and Missing data</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</br>
+</div>
+</div>
+</div>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<div class="panel panel-default">
+<div id="h_practical" class="panel-heading" role="tab">
+<h4 class="panel-title">
+<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#practical" aria-expanded="false" aria-controls="special">Implementation in R</a>
+</h4>
+</div>
+<div id="practical" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_practical">
+<div class="panel-body">
+
+<div class="container">
+  <div id="accordion_practical">
+    <div class="card">
+      <div class="card-header">
+        <a class="card-block clearfix" data-toggle="collapse" data-target="#visualize">
+          <div class="col-12">Missing data visualizations with <code>naniar</code></div>
+        </a>
+      </div>
+      <div id="visualize" class="collapse show" data-parent="#accordion_practical">  
+        <div class="card-body">
+          <ul>
+            <li><a href="https://cran.r-project.org/web/packages/naniar/vignettes/naniar-visualisation.html" target="_blank"><code>naniar</code> vignette: Missing data visualizations</a>
+          <small>
+            <p>(Nicholas Tierney, 2018)</p>
+          </small></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#data_types">
+          <div class="col-12">Handling different types of data with different R-packages</div>
+        </a>
+      </div>
+      <div id="data_types" class="collapse" data-parent="#accordion_practical">  
+        <div class="card-body">
+          <ul>
+            <li><a href="/tutorials/Josse_Tierney_bookdown_user2018tutorial_2018.html" target="_blank">useR! tutorial on handling missing values</a>
+              <small><p>(Julie Josse & Nicholas Tierney, 2018)</p></small></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#husson">
+          <div class="col-12">Handling missing values in PCA and MCA with <code>missMDA</code></div>
+        </a>
+      </div>
+      <div id="husson" class="collapse" data-parent="#accordion_practical">  
         <div class="card-body">
           <ul>
             <li><a href="https://www.youtube.com/watch?v=OOM8_FH6_8o&t=8s" target="_blank">Handling missing values in PCA</a></li>
@@ -127,48 +336,168 @@ _If you wish to contribute some of your own material to this platform, please fe
     </div>
     <div class="card">
       <div class="card-header">
-        <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#kim">
-          <div class="col-12">Analysis of missing values</div>
+        <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#mice_etal">
+          <div class="col-12">Multiple imputation with <code>mice</code>, <code>JointAI</code>, <code>smcfs</code> and <code>jomo</code></div>
         </a>
       </div>
-      <div id="kim" class="collapse" data-parent="#accordion">  
+      <div id="mice_etal" class="collapse" data-parent="#accordion_practical">  
         <div class="card-body">
           <ul>
-            <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch1.pdf" target="_blank">Introduction</a></li>
-            <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch2.pdf" target="_blank">Likelihood-based approach</a></li>
-            <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch3.pdf" target="_blank">Computation</a></li>
-            <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch4.pdf" target="_blank">Imputation</a></li>
-            <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch4b.pdf" target="_blank">Multiple imputation</a></li>
-            <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch5.pdf" target="_blank">Propensity Score approach</a></li>
-            <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch6.pdf" target="_blank">Nonignorable missing data</a></li>
+            <li><a href="https://www.gerkovink.com/miceVignettes/Ad_hoc_and_mice/Ad_hoc_methods.html" target="_blank"><code>mice</code> vignette: Ad hoc methods and <code>mice</code></a>
+              <small><p>(Stef van Buuren and Gerko Vink, 2018)</p></small></li>
+            <li><a href="https://www.gerkovink.com/miceVignettes/" target="_blank">Other <code>mice</code> vignettes</a>
+              <small><p>(Stef van Buuren and Gerko Vink, 2018)</p></small></li>
+            <li><a href="/tutorials/Erler_course_MultipleImputation_2018/Erler_Practical_MICE_2018.html" target="_blank">Multiple imputation with the <code>mice</code> package</a>
+              <small><p>(Nicole Erler, NIHES course on multiple imputation, 2018)</p></small></li>
+            <li><a href="/tutorials/Erler_course_MultipleImputation_2018/Erler_Practical_MIadvanced_2018.html" target="_blank">Multiple imputation in complex settings (using <code>mice</code>, <code>JointAI</code>, <code>smcfs</code>, <code>jomo</code>)</a>
+              <small><p>(Nicole Erler, NIHES course on multiple imputation, 2018)</p></small></li>
+            <li><a href="/tutorials/Reiter_course_MultipleImputationOverview_2018/Reiter_script_MultipleImputationMICE_2018.html" target="_blank">Example using <code>mice</code></a>
+              <small><p>(Jerry Reiter, 2018)</p></small></li>
           </ul>
-        <small>
-          <p>(Jae-Kwang Kim, course at Iowa State University, fall 2015)</p>
-        </small>
         </div>
       </div>
     </div>
     <div class="card">
       <div class="card-header">
-        <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#reiter">
-          <div class="col-12">Multiple Imputation: Methods and Applications</div>
+        <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#missforest">
+          <div class="col-12">Random trees and forests with <code>missForest</code></div>
         </a>
       </div>
-      <div id="reiter" class="collapse" data-parent="#accordion">  
+      <div id="missforest" class="collapse" data-parent="#accordion_practical">  
         <div class="card-body">
           <ul>
-            <li><a href="/tutorials/Reiter_course_MultipleImputationOverview_2018/Reiter_slides_MultipleImputation_2018.pdf" target="_blank">Multiple Imputation</a></li>
-            <li><a href="/tutorials/Reiter_course_MultipleImputationOverview_2018/Reiter_script_MultipleImputationMICE_2018.html" target="_blank">Example using <code>mice</code></a></li>
+            <li><a href="/tutorials/Stekhoven_vignette_missForest_2012.pdf" target="_blank"><code>missForest</code> vignette: Using the <code>missForest</code> Package</a>
+              <small><p>(Daniel J. Stekhoven, 2012)</p></small></li>
           </ul>
-        <small>
-          <p>(Jerry Reiter, short course at the Odum Institute at UNC Chapel Hill, March 2018)</p>
-        </small>
         </div>
       </div>
     </div>
   </div>
 </div>
+</br>
+</div>
+</div>
+</div>
 
+</div>
+</div>
+
+
+<div class="accordion-option">
+<a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
+</div>
+</div>
+<style type="text/css">
+.panel-group {
+    padding: 0;
+    margin-left: -15px;
+}
+
+.panel-default>.panel-heading {
+  color: #333;
+  background-color: #fff;
+  border-color: #e4e5e7;
+  padding: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.panel-default>.panel-heading a {
+  display: block;
+  padding: 20px 20px;
+}
+
+.panel-collapse>.panel-body {
+  padding: 0px 0px;
+  margin-left: 0px;
+}
+
+.panel-default>.panel-heading a:after {
+  content: "";
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  float: right;
+  transition: transform .25s linear;
+  -webkit-transition: -webkit-transform .25s linear;
+}
+
+.panel-default>.panel-heading a[aria-expanded="true"] {
+  background-color: #eee;
+}
+
+.panel-default>.panel-heading a[aria-expanded="true"]:after {
+  content: "\2212";
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.panel-default>.panel-heading a[aria-expanded="false"]:after {
+  content: "\002b";
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.accordion-option {
+  width: 100%;
+  float: left;
+  clear: both;
+  margin: 0px 0;
+}
+
+.accordion-option .title {
+  font-size: 20px;
+  font-weight: bold;
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+
+.accordion-option .toggle-accordion {
+  float: right;
+  font-size: 16px;
+  color: #6a6c6f;
+}
+
+.accordion-option .toggle-accordion:before {
+  content: "Collapse All";
+}
+
+.accordion-option .toggle-accordion.active:before {
+  content: "Collapse All";
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function() {
+  $(".toggle-accordion").on("click", function() {
+    var accordionId = $(this).attr("accordion-id"),
+      numPanelOpen = $(accordionId + ' .collapse.in').length;
+    
+    $(this).toggleClass("active");
+
+    if (numPanelOpen == 0) {
+      openAllPanels(accordionId);
+    } else {
+      closeAllPanels(accordionId);
+    }
+  });
+  openAllPanels = function(aId) {
+    console.log("setAllPanelOpen");
+    $(aId + ' .panel-collapse:not(".in")').collapse("show");
+  };
+  closeAllPanels = function(aId) {
+    console.log("setAllPanelclose");
+    $(aId + ' .panel-collapse.in').collapse("hide");
+  };
+});
+</script>
 
 <!-- <div class="container">
   <div class="dropdown">
