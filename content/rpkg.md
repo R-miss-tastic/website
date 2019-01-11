@@ -16,7 +16,7 @@ _If you wish to contribute some of your own material to this section, please fee
     <div class="card">
       <div class="card-header">
         <a class="card-block clearfix" data-toggle="collapse" data-target="#visualize">
-          <div class="col-12">Missing data visualizations</div>
+          <div class="col-12">Missing data visualizations with <code>naniar</code></div>
         </a>
       </div>
       <div id="visualize" class="collapse show" data-parent="#accordion">  
@@ -48,7 +48,7 @@ _If you wish to contribute some of your own material to this section, please fee
     <div class="card">
       <div class="card-header">
         <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#husson">
-          <div class="col-12">Handling missing values in PCA and MCA</div>
+          <div class="col-12">Handling missing values in PCA and MCA with <code>missMDA</code></div>
         </a>
       </div>
       <div id="husson" class="collapse" data-parent="#accordion">  
@@ -66,7 +66,7 @@ _If you wish to contribute some of your own material to this section, please fee
     <div class="card">
       <div class="card-header">
         <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#mi">
-          <div class="col-12">Multiple imputation</div>
+          <div class="col-12">Multiple imputation with <code>mice</code>, <code>JointAI</code>, <code>smcfs</code>, <code>jomo</code></div>
         </a>
       </div>
       <div id="mi" class="collapse" data-parent="#accordion">  
@@ -85,7 +85,7 @@ _If you wish to contribute some of your own material to this section, please fee
     <div class="card">
       <div class="card-header">
         <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#missforest">
-          <div class="col-12">Random trees and forests</div>
+          <div class="col-12">Random trees and forests with <code>missForest</code></div>
         </a>
       </div>
       <div id="missforest" class="collapse" data-parent="#accordion">  
