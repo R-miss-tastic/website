@@ -36,7 +36,7 @@ Click on the data set name to obtain further information.
           This data set contains daily air quality measurements in New York (May to September 1973) and presents missing values in some variables. It can be loaded in R by calling <code> data(airquality)</code>. 
           <br>
           <br>
-          Tutorials illustrating methods on this data (see <a href="/tutorials/" target="_blank">Tutorials</a> and <a href="/rpkg/    " target="_blank">R packages</a>):
+          Tutorials illustrating methods on this data:
           <ul>
           <li> Nick Tierney's <code>naniar</code> vignette for <a href="/rpkg/" target="_blank">missing data visualization</a>.</li>
           </ul>
@@ -56,7 +56,7 @@ Click on the data set name to obtain further information.
           R-package <a href="https://cran.r-project.org/web/packages/NHANES/" target="_blank">NHANES</a> containing data from the US National Health and Nutrition Examination Study. The data comprises body shape and related measurements from the US National Health and Nutrition Examination Survey (NHANES, 1999-2004, <a href="http://www.cdc.gov/nchs/nhanes.htm" target="_blank">more details on the survey</a>).
           <br>
           <br>
-          Tutorials illustrating methods on this data (see <a href="/tutorials/" target="_blank">Tutorials</a> and <a href="/rpkg/    " target="_blank">R packages</a>):
+          Tutorials illustrating methods on this data:
           <ul>
             <li> Stef van Buuren's vignette for <a href="/rpkg/" target="_blank">ad hoc methods and <code>mice</code></a>.</li>
             <li> Jerry Reiter's course on <a href="/rpkg/" target="_blank">multiple imputation</a>.</li>
@@ -78,7 +78,7 @@ Click on the data set name to obtain further information.
           <br><a href="http://stat-computing.org/dataexpo/2006/" target="_blank">More information on the data exposition</a> (1983-2013).
           <br>
           <br>
-          Tutorials illustrating methods on this data (see <a href="/tutorials/" target="_blank">Tutorials</a> and <a href="/rpkg/    " target="_blank">R packages</a>):
+          Tutorials illustrating methods on this data:
           <ul>
             <li> Julie Josse's course on <a href="/tutorials/" target="_blank">missing values imputation</a>.</li>
             <li> Julie Josse's and Nick Tierney's tutorial on <a href="/tutorials/" target="_blank">handling missing values</a>.</li>
