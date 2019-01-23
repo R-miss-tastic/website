@@ -42,6 +42,6 @@ _If you think you or your reaserch group should also figure on the list below fe
 </br>
 
 #### Main contributors to this platform
-The main contributors of this platform are: <a href="http://juliejosse.com" target="_blank">Julie Josse</a>, <a href="https://www.njtierney.com" target="_blank">Nicholas Tierney</a> and <a href="http://www.nathalievialaneix.eu" target="_blank">Nathalie Vialaneix</a>.
+The main contributors of this platform are: <a href="http://juliejosse.com" target="_blank">Julie Josse</a>, Imke Mayer, <a href="https://www.njtierney.com" target="_blank">Nicholas Tierney</a> and <a href="http://www.nathalievialaneix.eu" target="_blank">Nathalie Vialaneix</a>.
 
 _If you wish to participate in the development of this website and have ideas on possible extensions, please feel free to contact us via the <a href=/contact/>Contact form</a>._
