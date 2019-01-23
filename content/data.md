@@ -79,7 +79,7 @@ Click on the table entry to obtain further information.
     </td>
   </tr>
   <tr class="border_bottom">
-    <td colspan="15">
+    <td colspan="8">
       <div id="airquality" class="collapse"><small>
           This data set contains daily air quality measurements in New York (May to September 1973) and presents missing values in some variables. It can be loaded in R by calling <code> data(airquality)</code>. 
           <br>
@@ -123,7 +123,7 @@ Click on the table entry to obtain further information.
     </td>
   </tr>
   <tr class="border_bottom">
-    <td colspan="15">
+    <td colspan="8">
       <div id="chorizonDL" class="collapse"><small>
           From the <code>mvoutlier</code> package description: "The Kola Data were collected in the Kola Project (1993-1998, Geological Surveys of Finland (GTK) and Norway (NGU) and Central Kola Expedition (CKE), Russia). More than 600 samples in five different layers were analysed, this dataset contains the C-horizon."
           <br>
@@ -163,7 +163,7 @@ Click on the table entry to obtain further information.
     </td>
   </tr>
   <tr class="border_bottom">
-    <td colspan="15">
+    <td colspan="8">
       <div id="health-nutrition" class="collapse"><small>
           "Health Nutrition and Population Statistics database provides key health, nutrition and population statistics gathered from a variety of international and national sources. Themes include global surgery, health financing, HIV/AIDS, immunization, infectious diseases, medical resources and usage, noncommunicable diseases, nutrition, population dynamics, reproductive health, universal health coverage, and water and sanitation." (Data website of the World Bank Group, January 23th 2019)
           <br>
