@@ -26,35 +26,35 @@ Click on the table entry to obtain further information.
 <thead>
 <tr>
 <th>
-<small><b>Name</b></small>
+<b>Name</b>
 </th>
 <th>
-<small><b>Data Types</b></small>
+<b>Data Types</b>
 </th>
 <!--<th>
-<small>Default Task</small>
+Default Task
 </th>-->
 <th>
-<small><b>Attribute Types</b></small>
+<b>Attribute Types</b>
 </th>
 <th>
-<small><b># Instances</b></small>
+<b># Instances</b>
 </th>
 <th>
-<small><b># Attributes</b></small>
+<b># Attributes</b>
 </th>
 <th>
-<small><b>% Missing entries</b></small>
+<b>% Missing entries</b>
 </th>
 <th>
-<small><b>Year</b></small>
+<b>Year</b>
 </th>
 </tr>
 </thead>
 <tbody>
   <tr data-toggle="collapse" data-target="#airquality" class="clickable collapse-row collapsed">
     <td>
-    <small><font color="#428bca">Airquality</font></small>
+    <larger><font color="#428bca">Airquality</font></larger>
     </td>
     <td>
     Multivariate, Time Series
@@ -80,7 +80,7 @@ Click on the table entry to obtain further information.
   </tr>
   <tr class="border_bottom">
     <td colspan="8">
-      <div id="airquality" class="collapse"><small>
+      <div id="airquality" class="collapse">
           This data set contains daily air quality measurements in New York (May to September 1973) and presents missing values in some variables. It can be loaded in R by calling <code> data(airquality)</code>. 
           <br>
           <br><a href="https://stat.ethz.ch/R-manual/R-devel/RHOME/library/datasets/html/airquality.html" target="_blank">More information on the dataset</a>.
@@ -90,7 +90,6 @@ Click on the table entry to obtain further information.
           <ul>
           <li> Nick Tierney's <code>naniar</code> vignette for missing data visualization.</li>
           </ul>
-        </small>
         <br>
       </div>
     </td>
@@ -98,7 +97,7 @@ Click on the table entry to obtain further information.
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#chorizonDL" class="clickable collapse-row collapsed">
     <td>
-    <small><font color="#428bca">chorizonDL</font></small>
+    <larger><font color="#428bca">chorizonDL</font></larger>
     </td>
     <td>
     Multivariate
@@ -124,13 +123,12 @@ Click on the table entry to obtain further information.
   </tr>
   <tr class="border_bottom">
     <td colspan="8">
-      <div id="chorizonDL" class="collapse"><small>
+      <div id="chorizonDL" class="collapse">
           From the <code>mvoutlier</code> package description: "The Kola Data were collected in the Kola Project (1993-1998, Geological Surveys of Finland (GTK) and Norway (NGU) and Central Kola Expedition (CKE), Russia). More than 600 samples in five different layers were analysed, this dataset contains the C-horizon."
           <br>
           <br><a href="https://cran.r-project.org/web/packages/mvoutlier/mvoutlier.pdf" target="_blank">More information on the dataset</a>.
           <br>
           <br> In the <a href="https://cran.r-project.org/web/packages/VIM/VIM.pdf" target="_blank">VIM</a> all outliers have been recoded as NA. It can be loaded by calling <code> data(chorizonDL)</code>. 
-        </small>
         <br>
       </div>
     </td>
@@ -138,7 +136,7 @@ Click on the table entry to obtain further information.
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#health-nutrition" class="clickable collapse-row collapsed">
     <td>
-    <small><font color="#428bca">Health Nutrition And Population Statistics</font></small>
+    <larger><font color="#428bca">Health Nutrition And Population Statistics</font></larger>
     </td>
     <td>
     Multivariate, Time Series
@@ -164,7 +162,7 @@ Click on the table entry to obtain further information.
   </tr>
   <tr class="border_bottom">
     <td colspan="8">
-      <div id="health-nutrition" class="collapse"><small>
+      <div id="health-nutrition" class="collapse">
           "Health Nutrition and Population Statistics database provides key health, nutrition and population statistics gathered from a variety of international and national sources. Themes include global surgery, health financing, HIV/AIDS, immunization, infectious diseases, medical resources and usage, noncommunicable diseases, nutrition, population dynamics, reproductive health, universal health coverage, and water and sanitation." (Data website of the World Bank Group, January 23th 2019)
           <br>
           <br>The data have been gathered from 259 countries over the last 58 years.
@@ -172,14 +170,13 @@ Click on the table entry to obtain further information.
           <br>
           <br><a href="http://user2019.r-project.org/datathon/">R Datathon</a> on this dataset organized by the useR!2019 conference.
           <br>
-        </small>
       </div>
     </td>
   </tr>
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#nhanes" class="clickable collapse-row collapsed">
     <td>
-    <small><font color="#428bca">NHANES</font></small>
+    <larger><font color="#428bca">NHANES</font></larger>
     </td>
     <td>
     Multivariate
@@ -205,7 +202,7 @@ Click on the table entry to obtain further information.
   </tr>
   <tr class="border_bottom">
     <td colspan="8">
-      <div id="nhanes" class="collapse"><small>
+      <div id="nhanes" class="collapse">
           R-package <a href="https://cran.r-project.org/web/packages/NHANES/" target="_blank">NHANES</a> containing data from the US National Health and Nutrition Examination Study. The data comprises body shape and related measurements from the US National Health and Nutrition Examination Survey (NHANES, 1999-2004 and 2009-2012, <a href="http://www.cdc.gov/nchs/nhanes.htm" target="_blank">more details on the survey</a>).
           <br>
           <br>
@@ -214,7 +211,6 @@ Click on the table entry to obtain further information.
             <li> Stef van Buuren's vignette for ad hoc methods and <code>mice</code>.</li>
             <li> Jerry Reiter's course on multiple imputation.</li>
           </ul>
-        </small>
         <br>
       </div>
     </td>
@@ -222,7 +218,7 @@ Click on the table entry to obtain further information.
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#oceanbuoys" class="clickable collapse-row collapsed">
     <td>
-    <small><font color="#428bca">oceanbuoys</font></small>
+    <larger><font color="#428bca">oceanbuoys</font></larger>
     </td>
     <td>
     Multivariate, Time Series
@@ -248,11 +244,10 @@ Click on the table entry to obtain further information.
   </tr>
   <tr class="border_bottom">
     <td colspan="8">
-      <div id="oceanbuoys" class="collapse"><small>
+      <div id="oceanbuoys" class="collapse">
           West Pacific Tropical Atmosphere Ocean Data. The data is collected by the Tropical Atmosphere Ocean project and contains real-time data from moored ocean buoys. It can be found in R in the <a href="https://cran.r-project.org/web/packages/naniar/index.html" target="_blank"><code>naniar</code></a> package and is loaded by calling <code> data(oceanbuoys)</code>. 
           <br>
           <br><a href="https://www.pmel.noaa.gov/tao/drupal/disdel/" target="_blank">More information on the collected data</a> on the website of the Pacific Marine Environmental Laboratory.
-        </small>
         <br>
       </div>
     </td>
@@ -260,7 +255,7 @@ Click on the table entry to obtain further information.
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#ozone" class="clickable collapse-row collapsed">
     <td>
-    <small><font color="#428bca">Ozone</font></small>
+    <larger><font color="#428bca">Ozone</font></larger>
     </td>
     <td>
     Multivariate
@@ -286,7 +281,7 @@ Click on the table entry to obtain further information.
   </tr>
   <tr class="border_bottom">
     <td colspan="8">
-      <div id="ozone" class="collapse"><small>
+      <div id="ozone" class="collapse">
           Los Angeles Ozone Pollution Data, 1976. This data set contains daily measurements of ozone concentration and meteorological quantities. It can be found in R in the <a href="https://cran.r-project.org/web/packages/mlbench/index.html" target="_blank"><code>mlbench</code></a> package and is loaded by calling <code> data(Ozone)</code>. 
           <br>
           <br><a href="https://www.rdocumentation.org/packages/mlbench/versions/2.1-1/topics/Ozone" target="_blank">More information on the dataset</a>.
@@ -298,7 +293,6 @@ Click on the table entry to obtain further information.
             <li> Julie Josse's and Nick Tierney's tutorial on handling missing values.</li>
             <li> Nick Tierney's <code>naniar</code> vignette for missing data visualization.</li>
           </ul>
-        </small>
         <br>
       </div>
     </td>
@@ -306,7 +300,7 @@ Click on the table entry to obtain further information.
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#pedestrian" class="clickable collapse-row collapsed">
     <td>
-    <small><font color="#428bca">pedestrian</font></small>
+    <larger><font color="#428bca">pedestrian</font></larger>
     </td>
     <td>
     Multivariate, Time series
@@ -332,11 +326,10 @@ Click on the table entry to obtain further information.
   </tr>
   <tr class="border_bottom">
     <td colspan="8">
-      <div id="pedestrian" class="collapse"><small>
+      <div id="pedestrian" class="collapse">
           This data set contains hourly counts of pedestrians from 4 sensors around Melbourne in 2016. It can be found in R in the <a href="https://cran.r-project.org/web/packages/naniar/index.html" target="_blank"><code>naniar</code></a> package and is loaded by calling <code> data(pedestrian)</code>.
           <br> 
           <br><a href="https://data.melbourne.vic.gov.au/Transport-Movement/Pedestrian-volume-updated-monthly-/b2ak-trbp" target="_blank">More information on the collected data</a> on the public data website of the City of Melbourne.
-        </small>
         <br>
       </div>
     </td>
@@ -344,7 +337,7 @@ Click on the table entry to obtain further information.
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#riskfactors" class="clickable collapse-row collapsed">
     <td>
-    <small><font color="#428bca">riskfactors</font></small>
+    <larger><font color="#428bca">riskfactors</font></larger>
     </td>
     <td>
     Multivariate
@@ -370,11 +363,10 @@ Click on the table entry to obtain further information.
   </tr>
   <tr class="border_bottom">
     <td colspan="8">
-      <div id="riskfactors" class="collapse"><small>
+      <div id="riskfactors" class="collapse">
           The data is a subset of the 2009 survey from the Behavioral Risk Factor Surveillance System designed to measure behavioral risk factors for the adult population living in households. It can be found in R in the <a href="https://cran.r-project.org/web/packages/naniar/index.html" target="_blank"><code>naniar</code></a> package and is loaded by calling <code> data(riskfactors)</code>. 
           <br>
           <br><a href="https://www.cdc.gov/brfss/data_documentation/index.htm" target="_blank">More information on the survey</a> on the website of the Centers for Disease Control and Prevention.
-        </small>
         <br>
       </div>
     </td>
@@ -382,7 +374,7 @@ Click on the table entry to obtain further information.
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#tsAirgap" class="clickable collapse-row collapsed">
     <td>
-    <small><font color="#428bca">tsAirgap</font></small>
+    <larger><font color="#428bca">tsAirgap</font></larger>
     </td>
     <td>
     Time series
@@ -408,11 +400,10 @@ Click on the table entry to obtain further information.
   </tr>
   <tr class="border_bottom">
     <td colspan="8">
-      <div id="tsAirgap" class="collapse"><small>
+      <div id="tsAirgap" class="collapse">
           The data contains monthly totals of international airline passengers between 1949 and 1960. It can be found in R in the <a href="https://cran.r-project.org/web/packages/imputeTS/index.html" target="_blank"><code>imputeTS</code></a> package and is loaded by calling <code> data(tsAirgap)</code>. 
           <br>
           <br><a href="https://www.wiley.com/en-us/Time+Series+Analysis%3A+Forecasting+and+Control%2C+5th+Edition-p-9781118674918" target="_blank">More information on the data</a> in the work from Box & Jenkins.
-        </small>
         <br>
       </div>
     </td>
@@ -420,7 +411,7 @@ Click on the table entry to obtain further information.
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#SBS5242" class="clickable collapse-row collapsed">
     <td>
-    <small></small><font color="#428bca">SBS52424</font></small>
+    <larger><font color="#428bca">SBS52424</font></larger>
     </td>
     <td>
     Multivariate
@@ -446,11 +437,10 @@ Click on the table entry to obtain further information.
   </tr>
   <tr class="border_bottom">
     <td colspan="8">
-      <div id="SBS5242" class="collapse"><small>
+      <div id="SBS5242" class="collapse">
           The data contains a synthetic subset of the Austrian structural business statistics (SBS) data, more specifically it contains data on 9 variables of NACE 52.42 (retail sale of clothing). From original Austrian SBS data set of confidential raw data a non-confidential, close-to-reality, synthetic data set was generated. It can be found in R in the <a href="https://cran.r-project.org/web/packages/VIM/index.html" target="_blank"><code>VIM</code></a> package and is loaded by calling <code> data(SBS5242)</code>.
           <br>
           <br><a href="http://statistik.at/web_en/statistics/Economy/enterprises/structural_business_statistics/index.html" target="_blank">More information on the initial SBS data</a> on the website of Statistik Austria.
-        </small>
         <br>
       </div>
     </td>
@@ -458,7 +448,7 @@ Click on the table entry to obtain further information.
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#sleep" class="clickable collapse-row collapsed">
     <td>
-    <small></small><font color="#428bca">sleep</font></small>
+    <larger><font color="#428bca">sleep</font></larger>
     </td>
     <td>
     Multivariate
@@ -484,11 +474,10 @@ Click on the table entry to obtain further information.
   </tr>
   <tr class="border_bottom">
     <td colspan="8">
-      <div id="sleep" class="collapse"><small>
+      <div id="sleep" class="collapse">
           The data contains sleep data. It can be found in R in the <a href="https://cran.r-project.org/web/packages/VIM/index.html" target="_blank"><code>VIM</code></a> package and is loaded by calling <code> data(sleep)</code>.
           <br>
           <br><a href="https://www.semanticscholar.org/paper/Sleep-in-mammals%3A-ecological-and-constitutional-Allison-Cicchetti/8d4f202354bf0fd1bd445792340e16acc042ec6d" target="_blank">More information about the collected data</a> in Allison, T. and Chichetti, D. (1976) Sleep in mammals: ecological and constitutional correlates. <i>Science</i> <b>194 (4266)</b>, 732-734.
-        </small>
         <br>
       </div>
     </td>
@@ -496,7 +485,7 @@ Click on the table entry to obtain further information.
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#tsHeating" class="clickable collapse-row collapsed">
     <td>
-    <small><font color="#428bca">tsHeating</font></small>
+    <larger><font color="#428bca">tsHeating</font></larger>
     </td>
     <td>
     Time series
@@ -522,18 +511,17 @@ Click on the table entry to obtain further information.
   </tr>
   <tr class="border_bottom">
     <td colspan="8">
-      <div id="tsHeating" class="collapse"><small>
+      <div id="tsHeating" class="collapse">
           The data contains a time series of a heating systems supply temperature, measured from 18.11.2013 - 05:12:00 to 13.01.2015 - 15:08:00 in 1 minute steps. It can be found in R in the <a href="https://cran.r-project.org/web/packages/imputeTS/index.html" target="_blank"><code>imputeTS</code></a> package and is loaded by calling <code> data(tsHeating)</code>. The data comes from the GECCO Industrial Challenge 2015.
           <br>
           <br><a href="http://www.spotseven.de/gecco/gecco-challenge/gecco-challenge-2015/" target="_blank">More information about the challenge</a> on the website of SPOTSeven Lab.
-        </small>
         <br>
       </div>
     </td>
   </tr>
   <tr data-toggle="collapse" data-target="#tsNH4" class="clickable collapse-row collapsed">
     <td>
-    <small></small><font color="#428bca">tsNH4</font></small>
+    <larger><font color="#428bca">tsNH4</font></larger>
     </td>
     <td>
     Time series
@@ -559,11 +547,10 @@ Click on the table entry to obtain further information.
   </tr>
   <tr class="border_bottom">
     <td colspan="8">
-      <div id="tsNH4" class="collapse"><small>
+      <div id="tsNH4" class="collapse">
           The data contains a time series of a NH4 concentration in a wastewater system, measured from 30.11.2010 - 16:10 to 01.01.2011 - 06:40 in 10 minute steps. It can be found in R in the <a href="https://cran.r-project.org/web/packages/imputeTS/index.html" target="_blank"><code>imputeTS</code></a> package and is loaded by calling <code> data(tsHeating)</code>. The data comes from the GECCO Industrial Challenge 2014.
           <br>
           <br><a href="http://www.spotseven.de/gecco/gecco-challenge/gecco-challenge-2014/" target="_blank">More information about the challenge</a> on the website of SPOTSeven Lab.
-        </small>
         <br>
       </div>
     </td>
@@ -594,5 +581,8 @@ display: inline-table;
 table-layout: fixed;
 }
 
+table {
+  font-size: small;
+}
 
 </style>
