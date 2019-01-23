@@ -26,42 +26,42 @@ Click on the table entry to obtain further information.
 <thead>
 <tr>
 <th>
-Name
+<small><b>Name</b></small>
 </th>
 <th>
-Data Types
+<small><b>Data Types</b></small>
+</th>
+<!--<th>
+<small>Default Task</small>
+</th>-->
+<th>
+<small><b>Attribute Types</b></small>
 </th>
 <th>
-Default Task
+<small><b># Instances</b></small>
 </th>
 <th>
-Attribute Types
+<small><b># Attributes</b></small>
 </th>
 <th>
-# Instances
+<small><b>% Missing entries</b></small>
 </th>
 <th>
-# Attributes
-</th>
-<th>
-% Missing entries
-</th>
-<th>
-Year
+<small><b>Year</b></small>
 </th>
 </tr>
 </thead>
 <tbody>
   <tr data-toggle="collapse" data-target="#airquality" class="clickable collapse-row collapsed">
     <td>
-    <font color="#428bca">Airquality</font>
+    <small><font color="#428bca">Airquality</font></small>
     </td>
     <td>
     Multivariate, Time Series
     </td>
-    <td>
+    <!--<td>
     Regression
-    </td>
+    </td>-->
     <td>
     Real
     </td>
@@ -79,7 +79,7 @@ Year
     </td>
   </tr>
   <tr class="border_bottom">
-    <td colspan="8">
+    <td colspan="15">
       <div id="airquality" class="collapse"><small>
           This data set contains daily air quality measurements in New York (May to September 1973) and presents missing values in some variables. It can be loaded in R by calling <code> data(airquality)</code>. 
           <br>
@@ -98,14 +98,14 @@ Year
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#chorizonDL" class="clickable collapse-row collapsed">
     <td>
-    <font color="#428bca">chorizonDL</font>
+    <small><font color="#428bca">chorizonDL</font></small>
     </td>
     <td>
     Multivariate
     </td>
-    <td>
+    <!-- <td>
     Regression
-    </td>
+    </td> -->
     <td>
     Integer, Real
     </td>
@@ -123,7 +123,7 @@ Year
     </td>
   </tr>
   <tr class="border_bottom">
-    <td colspan="8">
+    <td colspan="15">
       <div id="chorizonDL" class="collapse"><small>
           From the <code>mvoutlier</code> package description: "The Kola Data were collected in the Kola Project (1993-1998, Geological Surveys of Finland (GTK) and Norway (NGU) and Central Kola Expedition (CKE), Russia). More than 600 samples in five different layers were analysed, this dataset contains the C-horizon."
           <br>
@@ -138,14 +138,14 @@ Year
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#health-nutrition" class="clickable collapse-row collapsed">
     <td>
-    <font color="#428bca">Health Nutrition And Population Statistics</font>
+    <small><font color="#428bca">Health Nutrition And Population Statistics</font></small>
     </td>
     <td>
     Multivariate, Time Series
     </td>
-    <td>
+    <!-- <td>
     Exploration
-    </td>
+    </td> -->
     <td>
     Integer, Real
     </td>
@@ -163,7 +163,7 @@ Year
     </td>
   </tr>
   <tr class="border_bottom">
-    <td colspan="8">
+    <td colspan="15">
       <div id="health-nutrition" class="collapse"><small>
           "Health Nutrition and Population Statistics database provides key health, nutrition and population statistics gathered from a variety of international and national sources. Themes include global surgery, health financing, HIV/AIDS, immunization, infectious diseases, medical resources and usage, noncommunicable diseases, nutrition, population dynamics, reproductive health, universal health coverage, and water and sanitation." (Data website of the World Bank Group, January 23th 2019)
           <br>
@@ -179,14 +179,14 @@ Year
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#nhanes" class="clickable collapse-row collapsed">
     <td>
-    <font color="#428bca">NHANES</font>
+    <small><font color="#428bca">NHANES</font></small>
     </td>
     <td>
     Multivariate
     </td>
-    <td>
+    <!-- <td>
     Regression
-    </td>
+    </td> -->
     <td>
     Categorical, Integer, Real
     </td>
@@ -222,14 +222,14 @@ Year
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#oceanbuoys" class="clickable collapse-row collapsed">
     <td>
-    <font color="#428bca">oceanbuoys</font>
+    <small><font color="#428bca">oceanbuoys</font></small>
     </td>
     <td>
     Multivariate, Time Series
     </td>
-    <td>
+    <!-- <td>
     Prediction
-    </td>
+    </td> -->
     <td>
     Real
     </td>
@@ -260,14 +260,14 @@ Year
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#ozone" class="clickable collapse-row collapsed">
     <td>
-    <font color="#428bca">Ozone</font>
+    <small><font color="#428bca">Ozone</font></small>
     </td>
     <td>
     Multivariate
     </td>
-    <td>
+    <!-- <td>
     Prediction, Regression
-    </td>
+    </td> -->
     <td>
     Categorical, Integer, Real
     </td>
@@ -306,14 +306,14 @@ Year
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#pedestrian" class="clickable collapse-row collapsed">
     <td>
-    <font color="#428bca">pedestrian</font>
+    <small><font color="#428bca">pedestrian</font></small>
     </td>
     <td>
     Multivariate, Time series
     </td>
-    <td>
+    <!-- <td>
     Prediction
-    </td>
+    </td> -->
     <td>
     Categorical, Integer
     </td>
@@ -344,14 +344,14 @@ Year
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#riskfactors" class="clickable collapse-row collapsed">
     <td>
-    <font color="#428bca">riskfactors</font>
+    <small><font color="#428bca">riskfactors</font></small>
     </td>
     <td>
     Multivariate
     </td>
-    <td>
+    <!-- <td>
     Regression
-    </td>
+    </td> -->
     <td>
     Categorical, Integer, Real
     </td>
@@ -382,14 +382,14 @@ Year
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#tsAirgap" class="clickable collapse-row collapsed">
     <td>
-    <font color="#428bca">tsAirgap</font>
+    <small><font color="#428bca">tsAirgap</font></small>
     </td>
     <td>
     Time series
     </td>
-    <td>
+    <!-- <td>
     Imputation
-    </td>
+    </td> -->
     <td>
     Integer
     </td>
@@ -420,14 +420,14 @@ Year
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#SBS5242" class="clickable collapse-row collapsed">
     <td>
-    <font color="#428bca">SBS52424</font>
+    <small></small><font color="#428bca">SBS52424</font></small>
     </td>
     <td>
     Multivariate
     </td>
-    <td>
+    <!-- <td>
     Regression
-    </td>
+    </td> -->
     <td>
     Real
     </td>
@@ -458,14 +458,14 @@ Year
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#sleep" class="clickable collapse-row collapsed">
     <td>
-    <font color="#428bca">sleep</font>
+    <small></small><font color="#428bca">sleep</font></small>
     </td>
     <td>
     Multivariate
     </td>
-    <td>
+    <!-- <td>
     Regression
-    </td>
+    </td> -->
     <td>
     Integer, Real
     </td>
@@ -496,14 +496,14 @@ Year
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#tsHeating" class="clickable collapse-row collapsed">
     <td>
-    <font color="#428bca">tsHeating</font>
+    <small><font color="#428bca">tsHeating</font></small>
     </td>
     <td>
     Time series
     </td>
-    <td>
+    <!-- <td>
     Imputation
-    </td>
+    </td> -->
     <td>
     Real
     </td>
@@ -533,14 +533,14 @@ Year
   </tr>
   <tr data-toggle="collapse" data-target="#tsNH4" class="clickable collapse-row collapsed">
     <td>
-    <font color="#428bca">tsNH4</font>
+    <small></small><font color="#428bca">tsNH4</font></small>
     </td>
     <td>
     Time series
     </td>
-    <td>
+    <!-- <td>
     Prediction
-    </td>
+    </td> -->
     <td>
     Real
     </td>
@@ -587,4 +587,12 @@ table {
 tr.border_bottom {
   border-bottom:2pt solid black;
 }
+
+tr {
+width: 100%;
+display: inline-table;
+table-layout: fixed;
+}
+
+
 </style>
