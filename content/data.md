@@ -20,9 +20,9 @@ The datasets listed below are either widely used in general in the missing data 
 
 Click on the table entry to obtain further information.
 
-<div class="container" style="overflow-x:auto;">
+<div class="table-responsive">
 <div class="card bg-light">
-<table id="data-list-tbl" class="table table-hover">
+<table id="data-list-tbl" class="table table-responsive">
 <thead>
 <tr>
 <th>
@@ -96,7 +96,7 @@ Default Task
   </tr>
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#chorizonDL" class="clickable collapse-row collapsed">
-    <td>
+    <td class="text-nowrap">
     <larger><font color="#428bca">chorizonDL</font></larger>
     </td>
     <td>
@@ -175,7 +175,7 @@ Default Task
   </tr>
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#nhanes" class="clickable collapse-row collapsed">
-    <td>
+    <td class="text-nowrap">
     <larger><font color="#428bca">NHANES</font></larger>
     </td>
     <td>
@@ -217,7 +217,7 @@ Default Task
   </tr>
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#oceanbuoys" class="clickable collapse-row collapsed">
-    <td>
+    <td class="text-nowrap">
     <larger><font color="#428bca">oceanbuoys</font></larger>
     </td>
     <td>
@@ -254,7 +254,7 @@ Default Task
   </tr>
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#ozone" class="clickable collapse-row collapsed">
-    <td>
+    <td class="text-nowrap">
     <larger><font color="#428bca">Ozone</font></larger>
     </td>
     <td>
@@ -299,7 +299,7 @@ Default Task
   </tr>
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#pedestrian" class="clickable collapse-row collapsed">
-    <td>
+    <td class="text-nowrap">
     <larger><font color="#428bca">pedestrian</font></larger>
     </td>
     <td>
@@ -336,7 +336,7 @@ Default Task
   </tr>
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#riskfactors" class="clickable collapse-row collapsed">
-    <td>
+    <td class="text-nowrap">
     <larger><font color="#428bca">riskfactors</font></larger>
     </td>
     <td>
@@ -372,45 +372,8 @@ Default Task
     </td>
   </tr>
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-  <tr data-toggle="collapse" data-target="#tsAirgap" class="clickable collapse-row collapsed">
-    <td>
-    <larger><font color="#428bca">tsAirgap</font></larger>
-    </td>
-    <td>
-    Time series
-    </td>
-    <!-- <td>
-    Imputation
-    </td> -->
-    <td>
-    Integer
-    </td>
-    <td>
-    144
-    </td>
-    <td>
-    1
-    </td>
-    <td>
-    9
-    </td>
-    <td>
-    1960
-    </td>
-  </tr>
-  <tr class="border_bottom">
-    <td colspan="8">
-      <div id="tsAirgap" class="collapse">
-          The data contains monthly totals of international airline passengers between 1949 and 1960. It can be found in R in the <a href="https://cran.r-project.org/web/packages/imputeTS/index.html" target="_blank"><code>imputeTS</code></a> package and is loaded by calling <code> data(tsAirgap)</code>. 
-          <br>
-          <br><a href="https://www.wiley.com/en-us/Time+Series+Analysis%3A+Forecasting+and+Control%2C+5th+Edition-p-9781118674918" target="_blank">More information on the data</a> in the work from Box & Jenkins.
-        <br>
-      </div>
-    </td>
-  </tr>
-  <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#SBS5242" class="clickable collapse-row collapsed">
-    <td>
+    <td class="text-nowrap">
     <larger><font color="#428bca">SBS52424</font></larger>
     </td>
     <td>
@@ -447,7 +410,7 @@ Default Task
   </tr>
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#sleep" class="clickable collapse-row collapsed">
-    <td>
+    <td class="text-nowrap">
     <larger><font color="#428bca">sleep</font></larger>
     </td>
     <td>
@@ -483,8 +446,45 @@ Default Task
     </td>
   </tr>
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-  <tr data-toggle="collapse" data-target="#tsHeating" class="clickable collapse-row collapsed">
+  <tr data-toggle="collapse" data-target="#tsAirgap" class="clickable collapse-row collapsed">
+    <td class="text-nowrap">
+    <larger><font color="#428bca">tsAirgap</font></larger>
+    </td>
     <td>
+    Time series
+    </td>
+    <!-- <td>
+    Imputation
+    </td> -->
+    <td>
+    Integer
+    </td>
+    <td>
+    144
+    </td>
+    <td>
+    1
+    </td>
+    <td>
+    9
+    </td>
+    <td>
+    1960
+    </td>
+  </tr>
+  <tr class="border_bottom">
+    <td colspan="8">
+      <div id="tsAirgap" class="collapse">
+          The data contains monthly totals of international airline passengers between 1949 and 1960. It can be found in R in the <a href="https://cran.r-project.org/web/packages/imputeTS/index.html" target="_blank"><code>imputeTS</code></a> package and is loaded by calling <code> data(tsAirgap)</code>. 
+          <br>
+          <br><a href="https://www.wiley.com/en-us/Time+Series+Analysis%3A+Forecasting+and+Control%2C+5th+Edition-p-9781118674918" target="_blank">More information on the data</a> in the work from Box & Jenkins.
+        <br>
+      </div>
+    </td>
+  </tr>
+  <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+  <tr data-toggle="collapse" data-target="#tsHeating" class="clickable collapse-row collapsed">
+    <td class="text-nowrap">
     <larger><font color="#428bca">tsHeating</font></larger>
     </td>
     <td>
@@ -519,8 +519,9 @@ Default Task
       </div>
     </td>
   </tr>
+  <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#tsNH4" class="clickable collapse-row collapsed">
-    <td>
+    <td class="text-nowrap">
     <larger><font color="#428bca">tsNH4</font></larger>
     </td>
     <td>
@@ -566,26 +567,11 @@ Default Task
      display: none;
 }
 
-.nowrap {
-  white-space: nowrap;
-}
-
-
-table { 
-    border-collapse: collapse; 
-    width: 100%;
-    overflow-x: scroll;
-}
 
 tr.border_bottom {
   border-bottom:2pt solid black;
 }
 
-tr {
-  width: 100%;
-  display: inline-table;
-  table-layout: fixed;
-}
 
 table {
   font-size: small;
