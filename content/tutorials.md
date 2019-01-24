@@ -12,6 +12,8 @@ _If you wish to contribute some of your own material to this platform, please fe
   <div class="accordion-option">
     <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
   </div>
+  <div class="clearfix">
+  </div>
   <div id="accordion" class="panel-group" role="tablist" aria-multiselectable="true">
     <div class="panel panel-default">
       <div id="h_general" class="panel-heading" role="tab">
