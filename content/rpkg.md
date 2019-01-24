@@ -4,11 +4,11 @@ date: 2018-07-22
 linktitle: R packages on missing values
 ---
 
-This page is still under construction but in the meantime you can take a look at the <a href="https://CRAN.R-project.org/view=MissingData" target="_blank">CRAN Task View on Missing Data</a> recently created and maintained by the contributors of this website.
+<p align="justify">This page is still under construction but in the meantime you can take a look at the <a href="https://CRAN.R-project.org/view=MissingData" target="_blank">CRAN Task View on Missing Data</a> recently created and maintained by the contributors of this website.</p>
 
-Here we gather some nice practical tutorials and vignettes that illustrate the use of different R-packages to handle missing data.
+<p align="justify">In the meantime we will gather some nice practical tutorials and vignettes that illustrate the use of different R-packages to handle missing data.</p>
 
-_If you wish to contribute some of your own material to this section, please feel free to contact us via the <a href="/contact/">Contact form</a>._
+<p align="justify"><i>If you wish to contribute some of your own material to this section, please feel free to contact us via the <a href="/contact/">Contact form</a>.</i></p>
 
 
 <div class="container">
