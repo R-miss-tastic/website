@@ -256,19 +256,33 @@ linktitle: Tutorials
               <div class="card">
                 <div class="card-header">
                   <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#rizopoulos">
-                    <div class="col-12">Longitudinal data with missing values<br>
-                    <small>
-                    <p>(Dimitris Rizopoulos, talk at <i>Joint Conference on Biometrics & Biopharmaceutical Statistics</i>, August 2017)</p>
-                    </small>
+                    <div class="col-12">Longitudinal data with missing values<br><small><p>(Dimitris Rizopoulos, talk at <i>Joint Conference on Biometrics & Biopharmaceutical Statistics</i>, August 2017)</p></small>
                   </div>
                   </a>
                 </div>
                 <div id="rizopoulos" class="collapse" data-parent="#accordion_special">  
                   <div class="card-body">
-                    <p align="justify" style="margin-left:15px;">This tutorial introduces joint models for longitudinal and time-ti-event data which allow to analyze longitudinal data with missing values.
+                    <p align="justify" style="margin-left:15px;">In follow-up studies different types of outcomes are typically collected for each subject. These include longitudinally measured responses (e.g., biomarkers), and the time until an event of interest occurs (e.g., death, dropout). Often these outcomes are separately analyzed, but in many occasions it is of scientific interest to study their association. This type of research question has given rise in the class of joint models for longitudinal and time-to-event data. These models constitute an attractive paradigm for the analysis of follow-up data that is mainly applicable in two settings: First, when focus is on a survival outcome and we wish to account for the effect of endogenous time-dependents covariates measured with error, and second, when focus is on the longitudinal outcome and we wish to correct for non-random dropout. This course is aimed at applied researchers and graduate students, and will provide a comprehensive introduction into this modeling framework. It provides explanation when these models should be used in practice, which are the key assumptions behind them, and how they can be utilized to extract relevant information from the data. Emphasis is given on applications, and after the end of the course participants will be able to define appropriate joint models to answer their questions of interest.
                     </p>
                     <ul>
-                      <li><a href="/tutorials/Rizopoulos_slides_LongitudinalDataWithDropout_2017.pdf" target="_blank">Joint Models and Missing data</a></li>
+                      <li><a href="/tutorials/Rizopoulos_slides_LongitudinalDataWithDropout_2017.pdf" target="_blank">Joint Modelling of Longitudinal and Time to Event Data</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header">
+                  <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#moritz">
+                    <div class="col-12">Time Series Imputation<br><small><p>(Steffen Moritz, talk at <i>useR! 2017</i>, July 2017)</p></small>
+                    </div>
+                  </a>
+                </div>
+                <div id="moritz" class="collapse" data-parent="#accordion_special">  
+                  <div class="card-body">
+                    <p align="justify" style="margin-left:15px;">This tutorial gives a short overview about methods for missing data in time series in R in general and subsequently introduces the <code>imputeTS</code> package. The  <code>imputeTS</code> package is specifically made for handling missing data in time series and offers several functions for visualization and replacement (imputation) of missing data. Based on usage examples it is shown how  <code>imputeTS</code> can be used for time series imputation.
+                    </p>
+                    <ul>
+                      <li><a href="/tutorials/Moritz_slides_TimeSeries_2017.pdf" target="_blank">How to deal with Missing Data in Time Series and the <code>imputeTS</code> package</a></li>
                     </ul>
                   </div>
                 </div>
