@@ -162,7 +162,8 @@ url: "/bibliography/biblio_complete/"
   }
 ```
 
-*A commented and structured version of this bibliography can be found [here](../biblio_topics/).*
+<br>
+<p align="justify"><i>A commented and structured version of this bibliography can be found [here](../biblio_topics/).</i></p>
 
 <div class="container">
 <div class="row">

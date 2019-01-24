@@ -8,8 +8,9 @@ url: "/bibliography/biblio_topics/"
 ---
 
 
-
-Inspired by [CRAN Task View on Missing Data](https://cran.r-project.org/web/views/MissingData.html){target="_blank"} and a [review](http://journal-sfds.fr/article/view/681){target="_blank"} of Imbert & Villa-Vialaneix on handling missing values (2018, written in French) we organized our selection of relevant references on missing values by different topics. 
+<br>
+<p align="justify"> Inspired by [CRAN Task View on Missing Data](https://cran.r-project.org/web/views/MissingData.html){target="_blank"} and a [review](http://journal-sfds.fr/article/view/681){target="_blank"} of Imbert & Villa-Vialaneix on handling missing values (2018, written in French) we organized our selection of relevant references on missing values by different topics.
+</p>
 
 *The full list of references can be found [here](../biblio_complete/).*
 
@@ -26,13 +27,14 @@ Inspired by [CRAN Task View on Missing Data](https://cran.r-project.org/web/view
 </div>
 <div id="notations" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_notations">
 <div class="panel-body">
-In order to provide a more formal introduction for the problem of missing values and the existing methods to handle them (e.g. diagnose/describe the missingness or perform statistical analysis on the incomplete data), we introduce some farely standard definitions and notations used in the remainder of this article.
+<p align="justify">In order to provide a more formal introduction for the problem of missing values and the existing methods to handle them (e.g. diagnose/describe the missingness or perform statistical analysis on the incomplete data), we introduce some farely standard definitions and notations used in the remainder of this article.
+<p>
 
-- Let $X=(X_1,\dots, X_p)$ be a vector of $p$ random variables which can be continuous or categorical.
-- We note $x_{ij}$ the observation of variable $X_j$ for an individual $i\in\{1,\dots,n\}$ and $\mathbf{x}_i=(x_{i1},\dots,x_{ip})$ the vector of observations of all $p$ variables $X$ for the individual $i$.
-- The observations of the $n$ individuals are stacked by rows in a matrix $\mathbf{X}\in\mathbb{R}^{n\times p}$.
-- The indicator matrix of missing values $\mathbf{R}$ is defined such that its values $(r_{ij})_{\substack{i=1,\dots,n\\j=1,\dots,p}}$ are given by: $r_{ij} = \left\{\begin{array}{ll}1 & \text{ if } x_{ij} \text{ is observed}\\0 & \text{ otherwise}\end{array}\right. = \mathbb{1}_{x_{ij}\, is\, observed}$. The associated random variable is denoted by $R$.
-- The observed and missing parts of $X$ are denoted respectively by $X_{obs}$ and $X_{mis}$.
+- <p align="justify">Let $X=(X_1,\dots, X_p)$ be a vector of $p$ random variables which can be continuous or categorical.</p>
+- <p align="justify">We note $x_{ij}$ the observation of variable $X_j$ for an individual $i\in\{1,\dots,n\}$ and $\mathbf{x}_i=(x_{i1},\dots,x_{ip})$ the vector of observations of all $p$ variables $X$ for the individual $i$.</p>
+- <p align="justify">The observations of the $n$ individuals are stacked by rows in a matrix $\mathbf{X}\in\mathbb{R}^{n\times p}$.</p>
+- <p align="justify">The indicator matrix of missing values $\mathbf{R}$ is defined such that its values $(r_{ij})_{\substack{i=1,\dots,n\\j=1,\dots,p}}$ are given by: $r_{ij} = \left\{\begin{array}{ll}1 & \text{ if } x_{ij} \text{ is observed}\\0 & \text{ otherwise}\end{array}\right. = \mathbb{1}_{x_{ij}\, is\, observed}$. The associated random variable is denoted by $R$.</p>
+- <p align="justify">The observed and missing parts of $X$ are denoted respectively by $X_{obs}$ and $X_{mis}$.</p>
 <br>
 </div>
 </div>
@@ -159,7 +161,8 @@ In order to provide a more formal introduction for the problem of missing values
 </div>
 <div id="general" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_general">
 <div class="panel-body">
-These general references and reviews are helpful to get started with the large field of missing values as they provide an introduction to the main concepts and methods or give an overview of the diversity of topics in statistical analysis related to missing values. They discuss different mechanisms that generated the missing values, necessary conditions for working consistently on the observed values alone and ways to impute, i.e. complete, the missing values to end up with complete datasets allowing the use of standard statistical analysis methods.
+<p align="justify">These general references and reviews are helpful to get started with the large field of missing values as they provide an introduction to the main concepts and methods or give an overview of the diversity of topics in statistical analysis related to missing values. They discuss different mechanisms that generated the missing values, necessary conditions for working consistently on the observed values alone and ways to impute, i.e. complete, the missing values to end up with complete datasets allowing the use of standard statistical analysis methods.
+</p>
 ```{r, gen_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 tags <- c("general")
 selected_refs <- select_refs(refs,tags)
@@ -182,7 +185,8 @@ create_ref_buttons(selected_refs, c(0,3,4), "gen_misc")
 ```
 <br>
 <!-- --------------------------------------------------------------------------------------------------------------------------- -->
-If you are rather new to the subject and wish to start with less formal and more application-based introductions or if you look for general high-level advices on handling missing data we suggest the following publications:
+<p align="justify">If you are rather new to the subject and wish to start with less formal and more application-based introductions or if you look for general high-level advices on handling missing data we suggest the following publications:
+</p>
 ```{r, gen2_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 tags <- c("general_informal")
 selected_refs <- select_refs(refs,tags)
@@ -205,7 +209,8 @@ create_ref_buttons(selected_refs, c(0,3,4), "gen2_misc")
 ```
 <br>
 <!-- --------------------------------------------------------------------------------------------------------------------------- -->
-Furthermore you can have a look at the following statistical journals which regularly contain recent results related to handling missing data:
+<p align="justify">Furthermore you can have a look at the following statistical journals which regularly contain recent results related to handling missing data:
+</p>
 
 - [Significance](https://rss.onlinelibrary.wiley.com/journal/17409713){target="_blank"} (bimonthly magazine)
 
@@ -227,11 +232,14 @@ Furthermore you can have a look at the following statistical journals which regu
 </div>
 <div id="weighting" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_weighting">
 <div class="panel-body">
-The first intuitive and probably most applied solution in data analyses to deal with missing values is to delete the partial observations and to work excusively on the individuals with complete information. This has several drawbacks, among others it introduces an estimation bias in most cases (more precisely in cases where the missingness is not independent of the data). In order to reduce this bias one can reweight the complete observations to compensate for the deletion of incomplete individuals in the dataset. The weights are defined by inverse probabilities, for instance the inverse of the probability for each individual of being fully observed. This method is known as _inverse probability weighting_ and is described in detail in the publications below. We split the references in two parts: handling missing values in survey data and performing causal inference in the presence of missing values, both requiring the use of weighting methods.
+<p align="justify">The first intuitive and probably most applied solution in data analyses to deal with missing values is to delete the partial observations and to work excusively on the individuals with complete information. This has several drawbacks, among others it introduces an estimation bias in most cases (more precisely in cases where the missingness is not independent of the data). In order to reduce this bias one can reweight the complete observations to compensate for the deletion of incomplete individuals in the dataset. The weights are defined by inverse probabilities, for instance the inverse of the probability for each individual of being fully observed. This method is known as _inverse probability weighting_ and is described in detail in the publications below. We split the references in two parts: handling missing values in survey data and performing causal inference in the presence of missing values, both requiring the use of weighting methods.
+</p>
+</br>
 <!-- --------------------------------------------------------------------------------------------------------------------------- -->
 <font size="+1"><b> For survey data analysis</b></font>
 <!-- --------------------------------------------------------------------------------------------------------------------------- -->
-Such weighting methods are widely used on survey data in order to correct for unbalanced sampling fractions by balancing the empirical distributions of the observed covariates to recover the structure of the target population.
+<p align="justify">Such weighting methods are widely used on survey data in order to correct for unbalanced sampling fractions by balancing the empirical distributions of the observed covariates to recover the structure of the target population.
+</p>
 ```{r, weight_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 tags <- c("survey","ipw")
 selected_refs <- select_refs(refs,tags)
@@ -256,7 +264,8 @@ create_ref_buttons(selected_refs, c(0,3,4), "weight_misc")
 <!-- --------------------------------------------------------------------------------------------------------------------------- -->
 <font size="+1"><b>For causal inference</b></font>
 <!-- --------------------------------------------------------------------------------------------------------------------------- -->
-Inverse probability weighting is also considered in causal inference: A bias is induced by the presence of confounders, i.e. variables which interact with both covariates and outcome. Hence, if the goal is to estimate causal relationships between covariates and outcome it is necessary to account for the potential effect of confounders -- a selection bias -- on the result of causal inference. 
+<p align="justify">Inverse probability weighting is also considered in causal inference: A bias is induced by the presence of confounders, i.e. variables which interact with both covariates and outcome. Hence, if the goal is to estimate causal relationships between covariates and outcome it is necessary to account for the potential effect of confounders -- a selection bias -- on the result of causal inference. 
+</p>
 ```{r, weight2_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 tags <- c("causal inference")
 selected_refs <- select_refs(refs,tags)
@@ -291,7 +300,8 @@ create_ref_buttons(selected_refs, c(0,3,4), "weight2_misc")
 </div>
 <div id="knn" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_knn">
 <div class="panel-body">
-Let $x_i$ be an observation with missing values, e.g. each entry of $x_i$ could be the temperature at a certain day for one given place and unfortunately for some days the temperature was not measured. An intuitive idea to replace this missing information could be: take other observations $\{x_j\}_j$ which are similar to $x_i$ at the observed values and use this information to _fill in_ the gaps. This idea of taking observed values from _neighbours_ or _donors_ based on some similarity measure is implemented in the so-called _hot-deck_ and _k-nearest-neighbors_ (kNN) approaches.
+<p align="justify">Let $x_i$ be an observation with missing values, e.g. each entry of $x_i$ could be the temperature at a certain day for one given place and unfortunately for some days the temperature was not measured. An intuitive idea to replace this missing information could be: take other observations $\{x_j\}_j$ which are similar to $x_i$ at the observed values and use this information to _fill in_ the gaps. This idea of taking observed values from _neighbours_ or _donors_ based on some similarity measure is implemented in the so-called _hot-deck_ and _k-nearest-neighbors_ (kNN) approaches.
+</p>
 ```{r, hot_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 tags <- c("hot-deck")
 selected_refs <- select_refs(refs,tags)
@@ -325,8 +335,9 @@ create_ref_buttons(selected_refs, c(0,3,4), "hot_misc")
 </div>
 <div id="ml" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_ml">
 <div class="panel-body">
-Likelihood-based approaches in the presence of missing values are designed for statistical inference from incomplete data. More precisely, if the missingness mechanism is ignorable (in a certain sense that is explained in the _Missing values mechanisms_ section) then one can attempt to infer the model parameters by maximizing the likelihood on the observed values. When the mechanism cannot be ignored, then a specific model for it needs to be assumed.
-The main algorithm available for performing maximum likelihood estimation (ML) with missing values, is the _Expectation Maximization_ (EM) algorithm. This algorithm requires the knowledge of the joint distribution of $X = (X_{obs}, X_{mis})$ and its implementation is not straightforward since it involves integrals which cannot always be computed easily. Once the model parameters are estimated, one can impute the missing values using this estimated information on the data model. TBC.
+<p align="justify">Likelihood-based approaches in the presence of missing values are designed for statistical inference from incomplete data. More precisely, if the missingness mechanism is ignorable (in a certain sense that is explained in the _Missing values mechanisms_ section) then one can attempt to infer the model parameters by maximizing the likelihood on the observed values. When the mechanism cannot be ignored, then a specific model for it needs to be assumed.
+The main algorithm available for performing maximum likelihood estimation (ML) with missing values, is the _Expectation Maximization_ (EM) algorithm. This algorithm requires the knowledge of the joint distribution of $X = (X_{obs}, X_{mis})$ and its implementation is not straightforward since it involves integrals which cannot always be computed easily. Once the model parameters are estimated, one can impute the missing values using this estimated information on the data model.
+</p>
 ```{r, ml_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 tags <- c("ml","fiml","em", "mcem", "mle")
 selected_refs <- select_refs(refs,tags)
@@ -364,7 +375,8 @@ create_ref_buttons(selected_refs, c(0,3,4), "ml_misc")
 </div>
 <div id="imp" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_imp">
 <div class="panel-body">
-In the previously mentioned EM algorithm there is in fact an implicit step called _imputation_: imputing a missing value means replacing it with a _plausible_ one. The definition of _plausibility_ is not stated explicitly but can be deduced from the used method to _fill in_ the gaps, for instance one could choose to replace all missing values of a certain variable $X_j$ by the average observed value $\frac{1}{n_{obs,j}}\sum_{i} x_{ij}\mathbb{1}_{\{x_{ij} \, is\, observed\}}$, where $n_{obs,j} = \sum_{i} \mathbb{1}_{\{x_{ij} \, is\, observed\}}$. The interest of imputation is manifold: (1) it allows to use all information in the sample (instead of deleting incomplete observations which leads to a decreasing power in the statistical analysis), (2) if there is sufficient data, i.e. sufficient observations, then the imputation can be very accurate and this assures good quality of future statistical analyses and (3) the imputed dataset is a complete dataset and one can apply standard statistical inference methods. The latter however has to be treated with caution since it implies that in the statistical analysis one does not make any distinction between observed values and imputed values anymore. We will come back to this issue in the next section on _multiple imputation_.
+<p align="justify">In the previously mentioned EM algorithm there is in fact an implicit step called _imputation_: imputing a missing value means replacing it with a _plausible_ one. The definition of _plausibility_ is not stated explicitly but can be deduced from the used method to _fill in_ the gaps, for instance one could choose to replace all missing values of a certain variable $X_j$ by the average observed value $\frac{1}{n_{obs,j}}\sum_{i} x_{ij}\mathbb{1}_{\{x_{ij} \, is\, observed\}}$, where $n_{obs,j} = \sum_{i} \mathbb{1}_{\{x_{ij} \, is\, observed\}}$. The interest of imputation is manifold: (1) it allows to use all information in the sample (instead of deleting incomplete observations which leads to a decreasing power in the statistical analysis), (2) if there is sufficient data, i.e. sufficient observations, then the imputation can be very accurate and this assures good quality of future statistical analyses and (3) the imputed dataset is a complete dataset and one can apply standard statistical inference methods. The latter however has to be treated with caution since it implies that in the statistical analysis one does not make any distinction between observed values and imputed values anymore. We will come back to this issue in the next section on _multiple imputation_.
+</p>
 ```{r, imp_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 tags <- c("imputation")
 selected_refs <- select_refs(refs,tags)
@@ -398,7 +410,8 @@ create_ref_buttons(selected_refs, c(0,3,4), "imp_misc")
 </div>
 <div id="mi" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_mi">
 <div class="panel-body">
-A major drawback of single imputation, i.e. where every missing value is replaced by a single most plausible value, consists in the underestimation of the overall variance of the data and inferred parameters. Indeed, by replacing every missing value by a given _plausible_ one and by applying generic statistical methods on the completed dataset, one makes no difference between initially observed and unobserved data anymore. Therefore the variability due to the uncertainty of the missing values is not reflected in future statistical analyses which treat the dataset as if it had been fully observed from the beginning. A nice and conceptually simple workaround for this problem is _multiple imputation_: instead of generating a single complete dataset by a given imputation method one imputes every missing value by several possible values. Statistical analysis is then applied on each of the imputed datasets and the resulting estimations are aggregated and used to estimate the sample variance and the variance due to the uncertainty in the missing values.
+<p align="justify">A major drawback of single imputation, i.e. where every missing value is replaced by a single most plausible value, consists in the underestimation of the overall variance of the data and inferred parameters. Indeed, by replacing every missing value by a given _plausible_ one and by applying generic statistical methods on the completed dataset, one makes no difference between initially observed and unobserved data anymore. Therefore the variability due to the uncertainty of the missing values is not reflected in future statistical analyses which treat the dataset as if it had been fully observed from the beginning. A nice and conceptually simple workaround for this problem is _multiple imputation_: instead of generating a single complete dataset by a given imputation method one imputes every missing value by several possible values. Statistical analysis is then applied on each of the imputed datasets and the resulting estimations are aggregated and used to estimate the sample variance and the variance due to the uncertainty in the missing values.
+</p>
 ```{r, mi_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 tags <- c("multiple imputation", "mi")
 selected_refs <- select_refs(refs,tags)
@@ -437,11 +450,13 @@ create_ref_buttons(selected_refs, c(0,3,4), "mi_misc")
 </div>
 <div id="tree_dl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_tree_dl">
 <div class="panel-body">
-The field of machine learning being dependent on the availability of (good) training data, it is -- in most real-world applications -- necessarily facing the issue of missing data. Hence there has been an increasing attention to how to handle missing data, in the features and the output, in order to _learn_ accurately from the data.
+<p align="justify">The field of machine learning being dependent on the availability of (good) training data, it is -- in most real-world applications -- necessarily facing the issue of missing data. Hence there has been an increasing attention to how to handle missing data, in the features and the output, in order to _learn_ accurately from the data.
+</p>
 
 <font size="+1"><b>Trees and forests</b></font>
 
-Decision trees are models based on recursive executions of elementary rules. This architecture grants them a variety of simple options to deal with missing values, without requiring prior imputation. A popular class of decision tree models is called _random trees_ (or more generally _random forests_) and allows data analyses such as causal inference in the presence of missing values without the need of having to impute these missing values.
+<p align="justify">Decision trees are models based on recursive executions of elementary rules. This architecture grants them a variety of simple options to deal with missing values, without requiring prior imputation. A popular class of decision tree models is called _random trees_ (or more generally _random forests_) and allows data analyses such as causal inference in the presence of missing values without the need of having to impute these missing values.
+</p>
 ```{r, tree_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 tags <- c("random forests", "random forest", "random trees", "random tree", "decision trees", "decision tree", "classification tree", "classification trees", "regression tree", "regression trees")
 selected_refs <- select_refs(refs,tags)
@@ -471,7 +486,8 @@ create_ref_buttons(selected_refs, c(0,3,4), "tree_misc")
 
 <font size="+1"><b>Deep Learning</b></font>
 
-The advance and success of _(deep) neural networks_ in many research and application areas such as computer vision and natural language processing has also re-discovered the problem of handling missing values. Indeed the question of training neural networks on incomplete data has been considered even before the latest rise of deep learning and is considered to be essential due to the impact of missingness on the feasibility and quality of various learning problems.
+<p align="justify">The advance and success of _(deep) neural networks_ in many research and application areas such as computer vision and natural language processing has also re-discovered the problem of handling missing values. Indeed the question of training neural networks on incomplete data has been considered even before the latest rise of deep learning and is considered to be essential due to the impact of missingness on the feasibility and quality of various learning problems.
+</p>
 
 ```{r, dl_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 tags <- c("deep learning", "gan", "neural networks", "neural network","machine learning")
@@ -510,20 +526,24 @@ create_ref_buttons(selected_refs, c(0,3,4), "dl_misc")
 </div>
 <div id="mnar" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_mnar">
 <div class="panel-body">
-As mentioned in the above sections, it is necessary to make assumptions on the _mechanism generating the missing values_ or _response mechanism_ in order to work with missing values. Broadly speaking, these assumptions indicate how much the missingness is related to the data itself. The assumptions made on the mechanism impact further steps in the data analysis (since some types of missingness can induce a bias on the analysis results) and are therefore crucial for valid analyses of data in the presence of missing values. 
+<p align="justify">As mentioned in the above sections, it is necessary to make assumptions on the _mechanism generating the missing values_ or _response mechanism_ in order to work with missing values. Broadly speaking, these assumptions indicate how much the missingness is related to the data itself. The assumptions made on the mechanism impact further steps in the data analysis (since some types of missingness can induce a bias on the analysis results) and are therefore crucial for valid analyses of data in the presence of missing values. 
+</p>
 
-More formally, the response mechanism is defined as the conditional distribution of $R$ given $X$, $f(R|X)$. This distribution can depend on some parameter $\psi$ so that we have $f(R|X;\psi)$. Little and Rubin (2002) defined three main categories of missing values depending on the form of the conditional distribution $f$:
+<p align="justify">More formally, the response mechanism is defined as the conditional distribution of $R$ given $X$, $f(R|X)$. This distribution can depend on some parameter $\psi$ so that we have $f(R|X;\psi)$. Little and Rubin (2002) defined three main categories of missing values depending on the form of the conditional distribution $f$:
+</p>
 
-- Missing completely at random (MCAR): The missingness does not depend on the variables $X$, i.e. $$f(R|X;\psi) = f(R;\psi).$$
+- <p align="justify">Missing completely at random (MCAR): The missingness does not depend on the variables $X$, i.e.</p> $$f(R|X;\psi) = f(R;\psi).$$
 
-- Missing at random (MAR): The missingness depends only on the observed variables $X_{obs}$, i.e. $$f(R|X;\psi) = f(R|X_{obs};\psi),$$ or alternatively $f(R|X^1;\psi) = f(R|X^2;\psi)$ for all $X^1 = (X^1_{obs},X^1_{mis})$ and $X^2 = (X^2_{obs},X^2_{mis})$ such that $X^1_{obs} = X^2_{obs}$. 
+- <p align="justify">Missing at random (MAR): The missingness depends only on the observed variables $X_{obs}$, i.e.</p> $$f(R|X;\psi) = f(R|X_{obs};\psi),$$ <p align="justify">or alternatively $f(R|X^1;\psi) = f(R|X^2;\psi)$ for all $X^1 = (X^1_{obs},X^1_{mis})$ and $X^2 = (X^2_{obs},X^2_{mis})$ such that $X^1_{obs} = X^2_{obs}$.</p> 
 
-- Missing not at random (MNAR): The missingness depends on the observed and missing values, i.e. $$f(R|X;\psi) \neq f(R|X_{obs};\psi).$$ To understand this definition, take the example of alcohol consumption: alcoholics are less inclined to reveal their alcohol consumption, therefore the probability of missing information on the alcohol consumption depends on the amount of consumption itself. Another simple example is the information on income or wealth which is missing more often for individuals of very high or very low income.
+- <p align="justify">Missing not at random (MNAR): The missingness depends on the observed and missing values, i.e. $$f(R|X;\psi) \neq f(R|X_{obs};\psi).$$ To understand this definition, take the example of alcohol consumption: alcoholics are less inclined to reveal their alcohol consumption, therefore the probability of missing information on the alcohol consumption depends on the amount of consumption itself. Another simple example is the information on income or wealth which is missing more often for individuals of very high or very low income.
+</p>
 
-Note that MCAR is a special case of MAR and that these three categories are of increasing complexity with a large gap between the second and third. Indeed, most more or less generic methods which have been proposed in the last few decades are suited for data that is MAR. The case MNAR requires different techniques and further assumptions.
+<p align="justify">Note that MCAR is a special case of MAR and that these three categories are of increasing complexity with a large gap between the second and third. Indeed, most more or less generic methods which have been proposed in the last few decades are suited for data that is MAR. The case MNAR requires different techniques and further assumptions.
+</p>
 
-Note that Little and Rubin (2002) consider these three categories as _really missing values_ as opposed to _not really missing values_ where, in the case of categorical data, the missingness rather constitutes an additional category (for instance in a questionnaire with multiple choice answers, a participant can leave out a question because the category he wants to choose is not among the given choices).
-
+<p align="justify">Note that Little and Rubin (2002) consider these three categories as _really missing values_ as opposed to _not really missing values_ where, in the case of categorical data, the missingness rather constitutes an additional category (for instance in a questionnaire with multiple choice answers, a participant can leave out a question because the category he wants to choose is not among the given choices).
+</p>
 
 ```{r, mnar_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 tags <- c("mnar","mar", "diagnosis")
