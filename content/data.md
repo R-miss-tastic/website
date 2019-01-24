@@ -5,20 +5,20 @@ linktitle: Data
 ---
 
 
-Here you will find a constantly growing list of interesting datasets which are frequently used in the R community working on missing values. These datasets can be useful to get familiar with different concepts in handling missing values and to assess the quality and performance of new methods.
+<p align="justify">Here you will find a constantly growing list of interesting data sets which are frequently used in the R community working on missing values. These data sets can be useful to get familiar with different concepts in handling missing values and to assess the quality and performance of new methods.</p>
 
-_If you have suggestions on other datasets which might be of interest to others, please feel free to contact us via the <a href="/contact/">Contact form</a>._
+<p align="justify"><i>If you have suggestions on other data sets which might be of interest to others, please feel free to contact us via the <a href="/contact/">Contact form</a>.</i></p>
 
 <br>
 ## Complete data
-If you wish to evaluate a certain missing data method on real (or simulated) data it can be useful to first generate missing values in a complete dataset. This allows to control the response mechanism and evaluate the method for different response mechanisms. A useful tool for this is the `ampute` function of the <a href="https://cran.r-project.org/web/packages/mice/index.html" target="_blank">`mice` R-package</a>. Rianne Schouten and her colleagues wrote a <a href="https://rianneschouten.github.io/mice_ampute/vignette/ampute.html" target="_blank">self-contained tutorial</a> on how to ampute data.
+<p align="justify">If you wish to evaluate a certain missing data method on real (or simulated) data it can be useful to first generate missing values in a complete dataset. This allows to control the response mechanism and evaluate the method for different response mechanisms. A useful tool for this is the `ampute` function of the <a href="https://cran.r-project.org/web/packages/mice/index.html" target="_blank">`mice` R-package</a>. Rianne Schouten and her colleagues wrote a <a href="https://rianneschouten.github.io/mice_ampute/vignette/ampute.html" target="_blank">self-contained tutorial</a> on how to ampute data.</p>
 
 <br>
 ## Incomplete data
 
-The datasets listed below are either widely used in general in the missing data community or used for illustration of different methods handling missing values in the tutorials from the <a href="/tutorials/" target="_blank">Tutorials</a> and <a href="/rpkg/" target="_blank">R packages</a> sections. This presentation scheme is inspired by the <a href="https://archive.ics.uci.edu/ml/index.php" target="_blank">UCI Machine Learning Repository</a>.
+<p align="justify">The data sets listed below are either widely used in general in the missing data community or used for illustration of different methods handling missing values in the tutorials from the <a href="/tutorials/" target="_blank">Tutorials</a> and <a href="/rpkg/" target="_blank">R packages</a> sections. This presentation scheme is inspired by the <a href="https://archive.ics.uci.edu/ml/index.php" target="_blank">UCI Machine Learning Repository</a>.</p>
 
-Click on the table entry to obtain further information.
+Click on a table entry to obtain further information about the data set.
 
 <div class="table-responsive">
 <div class="card bg-light">
