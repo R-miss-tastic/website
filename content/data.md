@@ -20,7 +20,7 @@ The datasets listed below are either widely used in general in the missing data 
 
 Click on the table entry to obtain further information.
 
-<div class="container">
+<div class="container" style="overflow-x:auto;">
 <div class="card bg-light">
 <table id="data-list-tbl" class="table table-hover">
 <thead>
@@ -53,7 +53,7 @@ Default Task
 </thead>
 <tbody>
   <tr data-toggle="collapse" data-target="#airquality" class="clickable collapse-row collapsed">
-    <td>
+    <td class="text-nowrap">
     <larger><font color="#428bca">Airquality</font></larger>
     </td>
     <td>
@@ -561,14 +561,20 @@ Default Task
 </div>
 
 
-
 <style>
 .collapse-row.collapsed + tr {
      display: none;
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
+
 table { 
     border-collapse: collapse; 
+    width: 100%;
+    overflow-x: scroll;
 }
 
 tr.border_bottom {
@@ -576,9 +582,9 @@ tr.border_bottom {
 }
 
 tr {
-width: 100%;
-display: inline-table;
-table-layout: fixed;
+  width: 100%;
+  display: inline-table;
+  table-layout: fixed;
 }
 
 table {
@@ -586,3 +592,5 @@ table {
 }
 
 </style>
+
+
