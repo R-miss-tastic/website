@@ -7,7 +7,7 @@ sharingicons: false
 
 
 
-If you have comments, suggestions or questions about this platform or if you wish to submit some of your own material on missing values (references, tutorials, data sets, etc.) please feel free to contact us by using the form below or send us an e-mail to the following address: r-miss-tastic [at] clementine [dot] wf.
+<p align="justify">If you have comments, suggestions or questions about this platform or if you wish to submit some of your own material on missing values (references, tutorials, data sets, etc.) please feel free to contact us by using the form below or send us an e-mail to the following address: r-miss-tastic [at] clementine [dot] wf.</p>
 
 
 <form method="POST" action="https://formspree.io/r-miss-tastic@clementine.wf">
