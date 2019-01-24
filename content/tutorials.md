@@ -4,16 +4,15 @@ date: 2018-07-22
 linktitle: Tutorials
 ---
 
-Below you will find a selection of high-quality tutorials on different aspects of missing values.
+<p align="justify">Below you will find a selection of high-quality tutorials on different aspects of missing values.</p>
 
-_If you wish to contribute some of your own material to this platform, please feel free to contact us via the <a href="/contact/">Contact form</a>._
+<p align="justify"><i>If you wish to contribute some of your own material to this platform, please feel free to contact us via the <a href="/contact/">Contact form</a></i>.</p>
 
 <div class="container">
   <div class="accordion-option">
     <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
   </div>
-  <div class="clearfix">
-  </div>
+  <div class="clearfix"></div>
   <div id="accordion" class="panel-group" role="tablist" aria-multiselectable="true">
     <div class="panel panel-default">
       <div id="h_general" class="panel-heading" role="tab">
@@ -68,7 +67,7 @@ _If you wish to contribute some of your own material to this platform, please fe
                 </div>
                 <div id="josse_tierney" class="collapse" data-parent="#accordion_general">  
                   <div class="card-body">
-                    <p align="justify" style="margin-left:15px;">The ability to easily collect and gather a large amount of data from different sources can be seen as an opportunity to better understand many processes. It has already led to breakthroughs in several application areas. However, due to the wide heterogeneity of measurements and objectives, these large databases often exhibit an extraordinary high number of missing values. Hence, in addition to scientific questions, such data also present some important methodological and technical challenges for data analysts. This tutorial gives an overview of the missing values literature as well as the recent improvements that caught the attention of the community due to their ability to handle large matrices with large amount of missing entries. The methods presented in this tutorial are illustrated on medical, environmental and survey data. <a href="https://user2018.r-project.org/tutorials/" target="_blank">useR!2018 tutorials</a>.
+                    <p align="justify" style="margin-left:15px;">The ability to easily collect and gather a large amount of data from different sources can be seen as an opportunity to better understand many processes. It has already led to breakthroughs in several application areas. However, due to the wide heterogeneity of measurements and objectives, these large databases often exhibit an extraordinary high number of missing values. Hence, in addition to scientific questions, such data also present some important methodological and technical challenges for data analysts. This tutorial gives an overview of the missing values literature as well as the recent improvements that caught the attention of the community due to their ability to handle large matrices with large amount of missing entries. The methods presented in this tutorial are illustrated on medical, environmental and survey data. <a href="https://user2018.r-project.org/tutorials/" target="_blank">useR! 2018 tutorials</a>.
                     </p>
                     <ul>
                       <li><a href="/tutorials/Josse_bookdown_LectureNotesMissing_2018.html" target="_blank">Lecture notes</a></li>
@@ -241,7 +240,7 @@ _If you wish to contribute some of your own material to this platform, please fe
               <div class="card">
                 <div class="card-header">
                   <a class="card-block clearfix" data-toggle="collapse" data-target="#chauvet">
-                    <div class="col-12">Handling missing values in surveys<br><small>(Guillaume Chauvet, course at École Nationale de la Statistique et de l'Analyse de l'Information, spring 2015, slides in <b>French</b>)</small></div>
+                    <div class="col-12">Handling missing values in surveys<br><small><p>(Guillaume Chauvet, course at École Nationale de la Statistique et de l'Analyse de l'Information, spring 2015, slides in <b>French</b>)</p></small></div>
                   </a>
                 </div>
                 <div id="chauvet" class="collapse" data-parent="#accordion_special">  
@@ -301,9 +300,7 @@ _If you wish to contribute some of your own material to this platform, please fe
                   <div class="card-body">
                     <ul>
                       <li><a href="https://cran.r-project.org/web/packages/naniar/vignettes/naniar-visualisation.html" target="_blank"><code>naniar</code> vignette: Missing data visualizations</a>
-                    <small>
-                      <p>(Nicholas Tierney, 2018)</p>
-                    </small></li>
+                    <small><p>(Nicholas Tierney, 2018)</p></small></li>
                     </ul>
                   </div>
                 </div>
@@ -389,7 +386,6 @@ _If you wish to contribute some of your own material to this platform, please fe
   <div class="accordion-option">
     <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
   </div>
-</div>
 </div>
 </div>
 <style>
