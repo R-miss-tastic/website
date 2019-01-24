@@ -7,9 +7,13 @@ linktitle: Events and further information links
 
 ### Events
 
-This is a non-exhaustive list of upcoming events, mainly conferences, with special sessions or multiple contributions on handling missing values.
+<p align="justify">This is a non-exhaustive list of upcoming and recent past events, mainly conferences, with special sessions or multiple contributions on handling missing values.</p>
 
-<ul class="list-group" id="events-list">
+<br>
+
+<b>Upcoming events:</b>
+
+<ul class="list-group" id="up-events-list">
 <li class="list-group-item"> <a href="https://www.dagstat2019.statistik.uni-muenchen.de/index.html" target="_blank">DAGStat Conference 2019</a> (March 18th - March 22th, 2019, Munich, Germany)</li>
 <li class="list-group-item"> <a href="http://cec2019.org/index.html" target="_blank">2019 IEEE Congress on Evolutionary Computation</a> (June 10th - June 13th, 2019, Wellington, New Zealand)</li>
 <li class="list-group-item"> <a href="http://user2019.r-project.org" target="_blank">useR! 2019</a> (July 9th - July 12th, 2019, Toulouse, France)</li>
@@ -18,9 +22,9 @@ This is a non-exhaustive list of upcoming events, mainly conferences, with speci
 
 </br>
 
-Past events:
+<b>Past events:</b>
 
-<ul class="list-group" id="events-list">
+<ul class="list-group" id="past-events-list">
 <li class="list-group-item"> <a href="http://datascience.ucsd.edu/statistics-symposium/" target="_blank">Statistics & Data Science Symposium: Beyond Big, Missing or Corrupted Data 2019</a> (January 19th - January 20th, 2019, La Jolla, California, USA)</li>
 </ul>
 
@@ -45,7 +49,11 @@ Software, Advice and Research on handling data with missing values</a> (Paul von
 </ul>
 
 <style>
-#events-list
+#up-events-list
+{
+	padding: 0px;
+}
+#past-events-list
 {
 	padding: 0px;
 }
