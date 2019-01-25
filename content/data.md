@@ -136,7 +136,7 @@ Default Task
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#health-nutrition" class="clickable collapse-row collapsed">
     <td>
-    <larger><font color="#428bca">Health Nutrition And Population Statistics</font></larger>
+    <larger><font color="#428bca">Health Nutrition And Population Statistics &#42;</font></larger>
     </td>
     <td>
     Multivariate, Time Series
@@ -168,7 +168,7 @@ Default Task
           <br>The data have been gathered from 259 countries over the last 58 years.
           <br><a href="https://datacatalog.worldbank.org/dataset/health-nutrition-and-population-statistics" target="_blank">More information on the dataset</a> on the Wold Bank Group website.
           <br>
-          <br><a href="http://user2019.r-project.org/datathon/">R Datathon</a> on this dataset organized by the useR!2019 conference.
+          <br><a href="http://user2019.r-project.org/datathon/">R Datathon</a> on this dataset organized by the useR! 2019 conference.
           <br>
       </div>
     </td>
@@ -561,6 +561,10 @@ Default Task
 </div>
 </div>
 
+</br>
+<small>
+<font color="#428bca">&#42;</font> This data set is currently deployed in an open data challenge/datathon.
+</small>
 
 <style>
 .collapse-row.collapsed + tr {
