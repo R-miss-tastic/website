@@ -287,6 +287,24 @@ linktitle: Tutorials
                   </div>
                 </div>
               </div>
+              <div class="card">
+                <div class="card-header">
+                  <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#studentsX3a">
+                    <div class="col-12">Analysis and imputation of missing count data<br><small><p>(Third year students from École Polytechnique, final project of <i>Statistics with R</i> course, December 2018)</p></small>
+                    </div>
+                  </a>
+                </div>
+                <div id="studentsX3a" class="collapse" data-parent="#accordion_special">  
+                  <div class="card-body">
+                    <p align="justify" style="margin-left:15px;">The estimation of count data, such as bird abundance, is an important task in many disciplines and can be used for instance by ecologists for species conservation. Collecting count data is often subject to inaccuracies and missing data due to the nature of the counted object and due to multiplicity of actors/sensors collecting the data over more or less long periods of time. Methods such as Correspondence Analysis or Generalized Linear Models can be used to estimate these missing values and allow a more accurate analyses of the count data. The objective of this project is to investigate the abundance for the Eurasian Coot, which is mainly observed in the mediterranean part of North-Africa, and its relation to external geographical and meteorological factors. First, different methods are compared in terms of accuracy, using R packages <code>glm</code>, <code>Rtrim</code>, <code>Lori</code> and <code>missMDA</code>. Afterwards, external factors and their impact on bird abundance are examined and finally the temporal trend is investigated to determine whether the Eurasian coot is declining or not. <br>This project was carried out in collaboration with the <a href="https://www.medwaterbirds.net" target="_blank">Research Institute for the conservation of Mediterranean wetlands</a>, the <a href="http://www.aao.org.tn" target="_blank">association <i>Les Amis des Oiseaux</i></a> (Friends of the birds) and the <a href="http://www.oncfs.gouv.fr" target="_blank">Office National de la Chasse et de la Faune Sauvage</a> (National Agency for Hunting and Wildlife).
+                    </p>
+                    <ul>
+                      <li><a href="/tutorials/3A_project_ImputationCountData_2018/3A_project_ImputationCountData_slides.pdf" target="_blank">Estimation of species abundance using log-linear models (slides)</a></li>
+                      <li><a href="/tutorials/3A_project_ImputationCountData_2018/3A_project_ImputationCountData_report.pdf" target="_blank">Estimation of species abundance using log-linear models (project report)</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
             </br>
           </div>
