@@ -4,7 +4,7 @@ date: 2018-07-22
 linktitle: Bibliography
 ---
 
-<p align="justify">On this platform we attempt to give you an overview of main references on missing values. We do not claim to gather all available references on the subject but rather to offer a peak into different fields of active research on handling missing values, allowing for an introdcutory reading as well as a starting point for further bibliographical research.</p>
+<p align="justify">On this platform we attempt to give you an overview of main references on missing values. We do not claim to gather all available references on the subject but rather to offer a peak into different fields of active research on handling missing values, allowing for an introductory reading as well as a starting point for further bibliographical research.</p>
 
 <p align="justify">You can either explore the bibliography throughout different <a href="/bibliography/biblio_topics/">topics</a> or consult the <a href="/bibliography/biblio_complete/">complete list of selected references</a>.</p>
 
