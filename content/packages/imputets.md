@@ -1,0 +1,73 @@
+---
+author: Steffen Moritz
+date: '2019-02-05'
+slug: imputets
+categories: []
+tags: []
+description: ''
+---
+
+
+##### Package: 
+imputeTS
+
+##### Category:
+Time Series Imputation
+
+##### Use-Cases:
+Imputation for Sensor Recordings, ...
+
+##### Popularity:
+[![CRAN Downloads](https://cranlogs.r-pkg.org/badges/imputeTS)](https://cran.r-project.org/package=imputeTS)
+
+##### Description:
+ Imputation (replacement) of missing values in univariate time series. Offers several imputation functions and missing data plots. Available imputation algorithms include: 'Mean', 'LOCF', 'Interpolation', 'Moving Average', 'Seasonal Decomposition', 'Kalman Smoothing on Structural Time Series models', 'Kalman Smoothing on ARIMA models'.
+
+#### Last update:
+[![CRAN Release](https://www.r-pkg.org/badges/last-release/imputeTS
+)](https://cran.r-project.org/package=imputeTS)
+
+##### Algorithms:
+- Mean imputation
+- LOCF
+- Interpolation'-
+-Moving Average'
+- Seasonal Decomposition
+- Kalman Smoothing on Structural Time Series models
+- Kalman Smoothing on ARIMA models'
+
+##### Datasets:
+- tsAirgap
+- tsNH4
+- tsHeating
+
+##### Further Information:
+ - Moritz S, Bartz-Beielstein T (2017). “imputeTS: Time Series Missing Value Imputation in R.” The R Journal, 9(1), 207–218. https://journal.r-project.org/archive/2017/RJ-2017-009/index.html.
+- weitere Links
+
+##### Input: 
+vector, ts, data.frame, zoo, xts
+
+##### Example:
+~~~~ 
+library(imputeTS)
+
+print("print time-series with NAs")
+print(tsAirgap)
+
+#perform the missing value replacement
+imp <- na.mean(tsAirgap) 
+
+print("print the series with the imputations")
+print(imp)
+
+#Visualize the imputations
+plotNA.imputations(imp, x.withNA = tsAirgap)gap)
+~~~~
+
+
+Here you can have a interactive look at the example:
+<iframe width='100%' height='800' src='https://rdrr.io/snippets/embed/?code=library(imputeTS)%0A%0Aprint(%22print%20time-series%20with%20NAs%22)%0Aprint(tsAirgap)%0A%0A%23perform%20the%20missing%20value%20replacement%0Aimp%20%3C-%20na.mean(tsAirgap)%20%0A%0Aprint(%22print%20the%20series%20with%20the%20imputations%22)%0Aprint(imp)%0A%0A%23Visualize%20the%20imputations%0AplotNA.imputations(imp%2C%20x.withNA%20%3D%20tsAirgap)' frameborder='0'></iframe>
+
+ https://rdrr.io/snippets/embedding/ 
+

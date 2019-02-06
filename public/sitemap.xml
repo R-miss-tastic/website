@@ -13,6 +13,26 @@
   </url>
   
   <url>
+    <loc>/packages/imputets/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2019/01/</loc>
+    <lastmod>2019-01-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/events/</loc>
+    <lastmod>2019-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/data/</loc>
+    <lastmod>2018-12-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/people/</loc>
     <lastmod>2018-10-30T00:00:00+00:00</lastmod>
   </url>
@@ -28,17 +48,29 @@
   </url>
   
   <url>
-    <loc>/rpkg/</loc>
-    <lastmod>2018-07-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tutorials/</loc>
     <lastmod>2018-07-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
+    <loc>/rpkg/</loc>
+    <lastmod>2010-04-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/packages/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2019-01-23T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
