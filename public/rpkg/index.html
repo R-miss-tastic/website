@@ -6,30 +6,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <meta property="og:title" content="" />
-<meta property="og:description" content="This page is still under construction but in the meantime you can take a look at the CRAN Task View on Missing Data recently created and maintained by the contributors of this website." />
+<meta property="og:description" content="R Packages This page provides introductions to popular missing data packages with small examples on how to use them. Thus the page gives more extensive information than the CRAN Task View on Missing Data, which is recommended to get a first overall overview about the CRAN missing data landscape.
+You can also contribute on your own to this page and provide a short introduction to a missing data package. Take a look at AAA on how to do this." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/rpkg/" />
-
-
-
-<meta property="article:published_time" content="2018-07-22T00:00:00&#43;00:00"/>
-
-<meta property="article:modified_time" content="2018-07-22T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="og:url" content="/rpkg/" /><meta property="article:published_time" content="2010-04-04T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2010-04-04T00:00:00&#43;00:00"/>
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="This page is still under construction but in the meantime you can take a look at the CRAN Task View on Missing Data recently created and maintained by the contributors of this website."/>
-<meta name="generator" content="Hugo 0.44" />
+<meta name="twitter:description" content="R Packages This page provides introductions to popular missing data packages with small examples on how to use them. Thus the page gives more extensive information than the CRAN Task View on Missing Data, which is recommended to get a first overall overview about the CRAN missing data landscape.
+You can also contribute on your own to this page and provide a short introduction to a missing data package. Take a look at AAA on how to do this."/>
+<meta name="generator" content="Hugo 0.53" />
 
 
     
@@ -39,12 +26,12 @@
   "@type": "BlogPosting",
   "headline": "",
   "url": "/rpkg/",
-  "wordCount": "33",
-  "datePublished": "2018-07-22T00:00:00&#43;00:00",
-  "dateModified": "2018-07-22T00:00:00&#43;00:00",
+  "wordCount": "354",
+  "datePublished": "2010-04-04T00:00:00&#43;00:00",
+  "dateModified": "2010-04-04T00:00:00&#43;00:00",
   "author": {
     "@type": "Person",
-    "name": "Nathalie Vialaneix"
+    "name": "Steffen Moritz"
   }
 }
 </script>
@@ -124,7 +111,13 @@ pref {
           <a class="nav-link" href="/rpkg/" title="">R packages</a>
           
           
+          <a class="nav-link" href="/data/" title="">Data</a>
+          
+          
           <a class="nav-link" href="/people/" title="">People</a>
+          
+          
+          <a class="nav-link" href="/events/" title="">Events &amp; links</a>
           
           
           <a class="nav-link" href="/contact/" title="">Contact</a>
@@ -156,7 +149,69 @@ pref {
     <h2 class="blog-post-title"><a href="/rpkg/"></a></h2>
     
   </header>
-  <p>This page is still under construction but in the meantime you can take a look at the <a href="https://CRAN.R-project.org/view=MissingData">CRAN Task View on Missing Data</a> recently created and maintained by the contributors of this website.</p>
+  
+
+<h4 id="r-packages">R Packages</h4>
+
+<p align="justify">This page provides introductions to popular missing data packages with small examples on how to use them. Thus the page gives more extensive information than the  <a href="https://CRAN.R-project.org/view=MissingData" target="_blank">CRAN Task View on Missing Data</a>, which is recommended to get a first overall overview about the CRAN missing data landscape.</p>
+
+<p align="justify"><i>You can also contribute on your own to this page and provide a short introduction to a missing data package. Take a look at AAA on how to do this. We are very happy about all contributions.</i></p>
+
+<div id="users">
+  <input class="search" placeholder="Search" />
+  <button class="sort" data-sort="name">
+    Sort by name
+  </button>
+  <button class="sort" data-sort="Category">
+    Sort by Category
+  </button>
+ 
+
+<p>
+  <ul class="list">
+    <li style="margin: 40px;">
+      <h3 class="name">imputeTS</h3>
+      <h6 class="Category">Category: Time-Series Imputation</h6>
+      <i class="Description">Imputation (replacement) of missing values in univariate time series. Offers several imputation functions and missing data plots. Available imputation algorithms include: 'Mean', 'LOCF', 'Interpolation', 'Moving Average', 'Seasonal Decomposition', 'Kalman Smoothing on Structural Time Series models', 'Kalman Smoothing on ARIMA models'.</i> <br>
+      <img src="https://cranlogs.r-pkg.org/badges/imputeTS" alt="CRAN Downloads" /> 
+      <img src="https://www.r-pkg.org/badges/last-release/imputeTS" alt="CRAN Release" /> <br>
+      <a href="/packages/imputeTS"> more.. </a>
+    </li> 
+
+    <li style="margin: 40px;">
+      <h3 class="name">mice</h3>
+      <h6 class="Category">Category: Multiple Imputation</h6>
+      <i class="Description">Multiple imputation using Fully Conditional Specification (FCS) implemented by the MICE algorithm as described in Van Buuren and Groothuis-Oudshoorn (2011). Each variable has its own imputation model. Built-in imputation models are provided for continuous data (predictive mean matching, normal), binary data (logistic regression), unordered categorical data (polytomous logistic regression) and ordered categorical data (proportional odds). MICE can also impute continuous two-level data (normal model, pan, second-level variables). Passive imputation can be used to maintain consistency between variables. Various diagnostic plots are available to inspect the quality of the imputations.</i> <br>
+      <img src="https://cranlogs.r-pkg.org/badges/mice" alt="CRAN Downloads" /> 
+      <img src="https://www.r-pkg.org/badges/last-release/mice" alt="CRAN Release" /> <br>
+      <a href="/packages/imputeTS"> more.. </a>
+    </li> 
+    
+
+    <li style="margin: 40px;">
+      <h3 class="name">missForest</h3>
+      <h6 class="Category">Category: Single Imputation</h6>
+      <i class="Description">The function 'missForest' in this package is used to impute missing values particularly in the case of mixed-type data. It uses a random forest trained on the observed values of a data matrix to predict the missing values. It can be used to impute continuous and/or categorical data including complex interactions and non-linear relations. It yields an out-of-bag (OOB) imputation error estimate without the need of a test set or elaborate cross-validation. It can be run in parallel to save computation time.
+      </i> <br>
+      <img src="https://cranlogs.r-pkg.org/badges/missForest" alt="CRAN Downloads" /> 
+      <img src="https://www.r-pkg.org/badges/last-release/missForest" alt="CRAN Release" /> <br>
+      <a href="/packages/imputeTS"> more.. </a>
+    </li> 
+
+
+  </ul>
+</p>
+</div>
+
+<p>Your favorite package is missing? Here is an explanation on how to make a entry for your package. Link&hellip;</p>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+<script> var options = {
+  valueNames: [ 'name', 'Category', 'Description' ]
+};
+
+var userList = new List('users', options);
+</script>
 
 
   

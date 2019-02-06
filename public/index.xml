@@ -17,9 +17,8 @@
       <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/bibliography/biblio_topics/</guid>
-      <description>Inspired by CRAN Task View on Missing Data and a review of Imbert &amp;amp; Villa-Vialaneix on handling missing values (2018, written in French) we organized our selection of relevant references on missing values by different topics.
-The full list of references can be found here.
-Notations In order to provide a more formal introduction for the problem of missing values and the existing methods to handle them (e.g. diagnose/describe the missingness or perform statistical analysis on the incomplete data), we introduce some farely standard definitions and notations used in the remainder of this article.</description>
+      <description>Inspired by CRAN Task View on Missing Data and a review of Imbert &amp;amp; Villa-Vialaneix on handling missing values (2018, written in French) we organized our selection of relevant references on missing values by different topics. The full list of references can be found here.
+   Notations   In order to provide a more formal introduction for the problem of missing values and the existing methods to handle them (e.</description>
     </item>
     
     <item>
@@ -28,8 +27,55 @@ Notations In order to provide a more formal introduction for the problem of miss
       <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/bibliography/biblio_complete/</guid>
-      <description>A commented and structured version of this bibliography can be found here.
-  Publication type All Book Article Paper Misc    Year         Citation   Year   Publication type      Abayomi, K., A. Gelman and M. Levy. Diagnostics for multivariate imputations. In: Journal of the Royal Statistical Society, Series C (Applied Statistics) 57.3 (2008), pp.</description>
+      <description>A commented and structured version of this bibliography can be found here.   Publication type All Book Article Paper Misc    Year    Author        Citation   Year   Publication type      Abayomi, K., A. Gelman and M. Levy. Diagnostics for multivariate imputations. In: Journal of the Royal Statistical Society, Series C (Applied Statistics) 57.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/packages/imputets/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/packages/imputets/</guid>
+      <description>Package: imputeTS
+Category: Time Series Imputation
+Use-Cases: Imputation for Sensor Recordings, &amp;hellip;
+Popularity: 
+Description: Imputation (replacement) of missing values in univariate time series. Offers several imputation functions and missing data plots. Available imputation algorithms include: &amp;lsquo;Mean&amp;rsquo;, &amp;lsquo;LOCF&amp;rsquo;, &amp;lsquo;Interpolation&amp;rsquo;, &amp;lsquo;Moving Average&amp;rsquo;, &amp;lsquo;Seasonal Decomposition&amp;rsquo;, &amp;lsquo;Kalman Smoothing on Structural Time Series models&amp;rsquo;, &amp;lsquo;Kalman Smoothing on ARIMA models&amp;rsquo;.
+Last update: 
+Algorithms:  Mean imputation LOCF Interpolation&amp;rsquo;- -Moving Average&amp;rsquo; Seasonal Decomposition Kalman Smoothing on Structural Time Series models Kalman Smoothing on ARIMA models&amp;rsquo;  Datasets:  tsAirgap tsNH4 tsHeating  Further Information:  Moritz S, Bartz-Beielstein T (2017).</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/2019/01/</link>
+      <pubDate>Wed, 23 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/01/</guid>
+      <description>&lt;figure&gt;
+    &lt;img src=&#34;/images/missing_data_propaganda.png&#34;/&gt; 
+&lt;/figure&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/events/</link>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/events/</guid>
+      <description>Events This is a non-exhaustive list of upcoming and recent past events, mainly conferences, with special sessions or multiple contributions on handling missing values.
+
+Upcoming events:
+DAGStat Conference 2019 (March 18th - March 22th, 2019, Munich, Germany) AISTATS 2019 (April 16th - April 18th, 2019, Naha, Okinawa, Japan) 2019 IEEE Congress on Evolutionary Computation (June 10th - June 13th, 2019, Wellington, New Zealand) useR! 2019 (July 9th - July 12th, 2019, Toulouse, France) Joint Statistical Meetings 2019 (July 27th - August 1st, 2019, Denver, Colorado, USA)</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/data/</link>
+      <pubDate>Tue, 18 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/data/</guid>
+      <description>Here you will find a constantly growing list of interesting data sets which are frequently used in the R community working on missing values. These data sets can be useful to get familiar with different concepts in handling missing values and to assess the quality and performance of new methods.
+If you have suggestions on other data sets which might be of interest to others, please feel free to contact us via the Contact form.</description>
     </item>
     
     <item>
@@ -48,8 +94,7 @@ If you think you or your reaserch group should also figure on the list below fee
       <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/contact/</guid>
-      <description>This page is still under construction. The form below is not activated yet but if you want to contact us in the meantime, just send us an e-mail to the following address: r-miss-tastic [at] clementine [dot] wf
-If you have comments, questions or suggestions about our platform, send us a message using the form below.
+      <description>If you have comments, suggestions or questions about this platform or if you wish to submit some of your own material on missing values (references, tutorials, data sets, etc.) please feel free to contact us by using the form below or send us an e-mail to the following address: r-miss-tastic [at] clementine [dot] wf.
 Email  Message   Send</description>
     </item>
     
@@ -59,16 +104,8 @@ Email  Message   Send</description>
       <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/bibliography/</guid>
-      <description>On this platform we attempt to give you an overview of main references on missing values. We do not claim to gather all available references on the subject but rather to offer a peak into different fields of active research on handling missing values, allowing for an introdcutory reading as well as a starting point for further bibliographical research. You can either explore the bibliography throughout different topics or consult the complete list of selected references.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/rpkg/</link>
-      <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/rpkg/</guid>
-      <description>This page is still under construction but in the meantime you can take a look at the CRAN Task View on Missing Data recently created and maintained by the contributors of this website.</description>
+      <description>On this platform we attempt to give you an overview of main references on missing values. We do not claim to gather all available references on the subject but rather to offer a peak into different fields of active research on handling missing values, allowing for an introductory reading as well as a starting point for further bibliographical research.
+You can either explore the bibliography throughout different topics or consult the complete list of selected references.</description>
     </item>
     
     <item>
@@ -77,10 +114,21 @@ Email  Message   Send</description>
       <pubDate>Sun, 22 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/tutorials/</guid>
-      <description>This page is still under construction.
-On this page we aim at providing a selection of high-quality tutorials on different aspects of missing values. If you wish to contribute some of your own material to this platform, please feel free to contact us via the Contact form.
-Missing values imputation  Special focus on principal component methods   (Julie Josse, course at École Polytechnique, fall 2018)
- Analysis of Missing data  Introduction Likelihood-based approach Computation Imputation Multiple imputation Propensity Score approach Nonignorable missing data   (Jae-Kwang Kim, course at Iowa State University, fall 2015)</description>
+      <description>Below you will find a selection of high-quality tutorials on different aspects of missing values.
+If you wish to contribute some of your own material to this platform, please feel free to contact us via the Contact form.
+   General tutorials   Statistical Methods for Analysis With Missing Data
+ (Marie Davidian, course at NC State University, spring 2017)
+    This course provides an overview of modern statistical frameworks and methods for analysis in the presence of missing data.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/rpkg/</link>
+      <pubDate>Sun, 04 Apr 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/rpkg/</guid>
+      <description>R Packages This page provides introductions to popular missing data packages with small examples on how to use them. Thus the page gives more extensive information than the CRAN Task View on Missing Data, which is recommended to get a first overall overview about the CRAN missing data landscape.
+You can also contribute on your own to this page and provide a short introduction to a missing data package. Take a look at AAA on how to do this.</description>
     </item>
     
   </channel>
