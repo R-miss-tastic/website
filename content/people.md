@@ -10,6 +10,7 @@ linktitle: People
 <p align="justify"><i>If you think you or your reaserch group should also figure on the list below feel free to contact us via the <a href="/contact/">Contact form</a>.</i></p>
 
 <ul class="list-group" id="people-list">
+<li class="list-group-item"> <a href="http://www.mattblackwell.org" target="_blank">Matthew Blackwell</a> (Harvard University)</li>
 <li class="list-group-item"> <a href="https://stefvanbuuren.name" target="_blank">Stef van Buuren</a> (University of Utrecht and Netherlands Organisation for Applied Scientific Research TNO)</li>
 <li class="list-group-item"> <a href="https://missingdata.lshtm.ac.uk/introduction-to-missing-data" target="_blank">James Carpenter & Jonathan Bartlett</a> (London School of Hygiene & Tropical Medecine)</li>
 <li class="list-group-item"> <a href="https://www4.stat.ncsu.edu/~davidian/index.html" target="_blank">Marie Davidian</a> (North Carolina State University)</li>
@@ -17,6 +18,7 @@ linktitle: People
 <!-- <li> <a href="https://steinhardt.nyu.edu/faculty/Jennifer_L_Hill" target="_blank">Jennifer L. Hill</a> (New York University)</li> -->
 <li class="list-group-item"> <a href="http://math.agrocampus-ouest.fr/infoglueDeliverLive/membres/Francois.Husson" target="_blank">François Husson</a> (AgroCampus Ouest)</li>
 <li class="list-group-item"> <a href="https://sites.google.com/view/jaekwangkim/home" target="_blank">Jae-Kwang Kim</a> (Iowa State University and KAIST)</li>
+<li class="list-group-item"> <a href="https://gking.harvard.edu" target="_blank">Gary King</a> (Harvard University)</li>
 <li class="list-group-item"> <a href="https://sites.google.com/a/umich.edu/rod-little/" target="_blank">Roderick J.A. Little</a> (University of Michigan)</li>
 <li class="list-group-item"> <a href="https://statistics.fas.harvard.edu/people/xiao-li-meng" target="_blank">Xiao-Li Meng</a> (Harvard University)</li>
 <li class="list-group-item"> <a href="https://www.kuleuven.be/wieiswie/en/person/u0056633" target="_blank">Geert Molenberghs</a> (<a href="https://ibiostat.be/online-resources" target="_blank">I-BioStat</a> and KU Leuven)</li>
