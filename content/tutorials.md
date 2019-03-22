@@ -72,6 +72,7 @@ linktitle: Tutorials
                     <ul>
                       <li><a href="/tutorials/Josse_bookdown_LectureNotesMissing_2018.html" target="_blank">Lecture notes</a></li>
                       <li><a href="/tutorials/Josse_Tierney_bookdown_user2018tutorial_2018.html" target="_blank">R Lab</a></li>
+                      <li><a href="/tutorials/ozoneNA.csv" target="_blank">Data for the R Lab</a></li>
                     </ul>
                   </div>
                 </div>
