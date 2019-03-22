@@ -94,7 +94,7 @@ Default Task
           <br>
           Tutorials illustrating methods on this data:
           <ul>
-          <li> Nick Tierney's <code>naniar</code> vignette for missing data visualization.</li>
+          <li> Nick Tierney's <code>naniar</code> <a href="https://cran.r-project.org/web/packages/naniar/vignettes/naniar-visualisation.html" target="_blank">vignette</a> for missing data visualization.</li>
           </ul>
         <br>
       </div>
@@ -145,7 +145,7 @@ Default Task
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#health-nutrition" class="clickable collapse-row collapsed">
     <td>
-    <larger><font color="#428bca">Health Nutrition And Population Statistics &#42;</font></larger>
+    <larger><font color="#428bca">Health Nutrition And Population Statistics</font></larger>
     </td>
     <td>
     Multivariate, Time Series
@@ -223,8 +223,8 @@ Default Task
           <br>
           Tutorials illustrating methods on this data:
           <ul>
-            <li> Stef van Buuren's vignette for ad hoc methods and <code>mice</code>.</li>
-            <li> Jerry Reiter's course on multiple imputation.</li>
+            <li> Stef van Buuren's <a href="https://www.gerkovink.com/miceVignettes/Ad_hoc_and_mice/Ad_hoc_methods.html" target="_blank">vignette</a> for ad hoc methods and <code>mice</code>.</li>
+            <li> Jerry Reiter's <a href="/tutorials/Reiter_course_MultipleImputationOverview_2018/Reiter_script_MultipleImputationMICE_2018.html" target="_blank">course</a> on multiple imputation.</li>
           </ul>
         <br>
       </div>
@@ -310,9 +310,9 @@ Default Task
           <br>
           Tutorials illustrating methods on this data:
           <ul>
-            <li> Julie Josse's course on missing values imputation using PC methods.</li>
-            <li> Julie Josse's and Nick Tierney's tutorial on handling missing values.</li>
-            <li> Nick Tierney's <code>naniar</code> vignette for missing data visualization.</li>
+            <li> Julie Josse's <a href="/tutorials/Josse_slides_imputation_PCA_2018.pdf" target="_blank">course</a> on missing values imputation using PC methods.</li>
+            <li> Julie Josse's and Nick Tierney's tutorial on handling missing values. Download the data set from this tutorial: <a href="/tutorials/ozoneNA.csv">ozoneNA.csv</a></li>
+            <li> Nick Tierney's <code>naniar</code> <a href="https://cran.r-project.org/web/packages/naniar/vignettes/naniar-visualisation.html" target="_blank">vignette</a> for missing data visualization.</li>
           </ul>
         <br>
       </div>
