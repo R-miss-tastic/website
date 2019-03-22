@@ -14,7 +14,6 @@ linktitle: Events and further information links
 <b>Upcoming events:</b>
 
 <ul class="list-group" id="up-events-list">
-<li class="list-group-item"> <a href="https://www.dagstat2019.statistik.uni-muenchen.de/index.html" target="_blank">DAGStat Conference 2019</a> (March 18th - March 22th, 2019, Munich, Germany)</li>
 <li class="list-group-item"> <a href="https://www.aistats.org" target="_blank">AISTATS 2019</a> (April 16th - April 18th, 2019, Naha, Okinawa, Japan)</li>
 <li class="list-group-item"> <a href="http://cec2019.org/index.html" target="_blank">2019 IEEE Congress on Evolutionary Computation</a> (June 10th - June 13th, 2019, Wellington, New Zealand)</li>
 <li class="list-group-item"> <a href="https://sampta2019.sciencesconf.org/?forward-action=index&forward-controller=index&lang=en" target="_blank">13th International Conference on Sampling Theory and Applications</a> (July 8th - July 12th, 2019, Bordeaux, France)</li>
@@ -29,6 +28,7 @@ linktitle: Events and further information links
 <b>Past events:</b>
 
 <ul class="list-group" id="past-events-list">
+<li class="list-group-item"> <a href="https://www.dagstat2019.statistik.uni-muenchen.de/index.html" target="_blank">DAGStat Conference 2019</a> (March 18th - March 22th, 2019, Munich, Germany)</li>
 <li class="list-group-item"> <a href="http://datascience.ucsd.edu/statistics-symposium/" target="_blank">Statistics & Data Science Symposium: Beyond Big, Missing or Corrupted Data 2019</a> (January 19th - January 20th, 2019, La Jolla, California, USA)</li>
 </ul>
 
