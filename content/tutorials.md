@@ -173,7 +173,7 @@ linktitle: Tutorials
     <div class="panel panel-default">
       <div id="h_pc" class="panel-heading" role="tab">
         <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#pc" aria-expanded="false" aria-controls="pc">Missing values and principal compenent methods</a>
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#pc" aria-expanded="false" aria-controls="pc">Missing values and principal component methods</a>
         </h4>
       </div>
       <div id="pc" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_pc">
