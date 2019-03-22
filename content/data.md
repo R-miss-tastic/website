@@ -47,6 +47,9 @@ Default Task
 <b>% Missing entries</b>
 </th>
 <th>
+<b>Complete data available</b>
+</th>
+<th>
 <b>Year</b>
 </th>
 </tr>
@@ -73,6 +76,9 @@ Default Task
     </td>
     <td>
     7
+    </td>
+    <td>
+    No
     </td>
     <td>
     1973
@@ -118,6 +124,9 @@ Default Task
     15
     </td>
     <td>
+    Yes
+    </td>
+    <td>
     1998
     </td>
   </tr>
@@ -155,6 +164,9 @@ Default Task
     </td>
     <td>
     54
+    </td>
+    <td>
+    No
     </td>
     <td>
     2017
@@ -195,6 +207,9 @@ Default Task
     </td>
     <td>
     37
+    </td>
+    <td>
+    No
     </td>
     <td>
     2012
@@ -239,6 +254,9 @@ Default Task
     3
     </td>
     <td>
+    No
+    </td>
+    <td>
     1997
     </td>
   </tr>
@@ -274,6 +292,9 @@ Default Task
     </td>
     <td>
     6
+    </td>
+    <td>
+    No
     </td>
     <td>
     1976
@@ -321,6 +342,9 @@ Default Task
     2
     </td>
     <td>
+    No
+    </td>
+    <td>
     2016
     </td>
   </tr>
@@ -356,6 +380,9 @@ Default Task
     </td>
     <td>
     14
+    </td>
+    <td>
+    No
     </td>
     <td>
     2009
@@ -395,6 +422,9 @@ Default Task
     2
     </td>
     <td>
+    No
+    </td>
+    <td>
     2016
     </td>
   </tr>
@@ -430,6 +460,9 @@ Default Task
     </td>
     <td>
     6
+    </td>
+    <td>
+    No
     </td>
     <td>
     1976
@@ -469,6 +502,9 @@ Default Task
     9
     </td>
     <td>
+    Yes
+    </td>
+    <td>
     1960
     </td>
   </tr>
@@ -504,6 +540,9 @@ Default Task
     </td>
     <td>
     9
+    </td>
+    <td>
+    Yes
     </td>
     <td>
     2015
@@ -543,6 +582,9 @@ Default Task
     9
     </td>
     <td>
+    Yes
+    </td>
+    <td>
     2014
     </td>
   </tr>
@@ -561,10 +603,12 @@ Default Task
 </div>
 </div>
 
+<!--
 </br>
 <small>
 <font color="#428bca">&#42;</font> This data set is currently deployed in an open data challenge/datathon.
 </small>
+-->
 
 <style>
 .collapse-row.collapsed + tr {
