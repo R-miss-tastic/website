@@ -2,17 +2,17 @@
 output: md_document
 author: "Imke Mayer"
 date: 2018-10-24
-title: Bibliography by topics
+linktitle: Bibliography
 weight: 2
-url: "/bibliography/biblio_topics/"
 ---
 
+<p align="justify">On this platform we attempt to give you an overview of main references on missing values. We do not claim to gather all available references on the subject but rather to offer a peak into different fields of active research on handling missing values, allowing for an introductory reading as well as a starting point for further bibliographical research.</p>
 
-<br>
-<p align="justify"> Inspired by [CRAN Task View on Missing Data](https://cran.r-project.org/web/views/MissingData.html){target="_blank"} and a [review](http://journal-sfds.fr/article/view/681){target="_blank"} of Imbert & Villa-Vialaneix on handling missing values (2018, written in French) we organized our selection of relevant references on missing values by different topics.
+<a href="/bibliography/biblio_complete/"><b>See here for a full (and uncommented) list of references.</b></a>
+
+<p align="justify"> Inspired by <a href="https://cran.r-project.org/web/views/MissingData.html" target="_blank"><b>CRAN Task View on Missing Data</b></a> and a [review](http://journal-sfds.fr/article/view/681){target="_blank"} of Imbert & Villa-Vialaneix on handling missing values (2018, written in French) we organized our selection of relevant references on missing values by different topics.
 </p>
 
-*The full list of references can be found [here](../biblio_complete/).*
 
 
 <div class="container">

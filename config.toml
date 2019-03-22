@@ -28,11 +28,6 @@ paginate = 1
 
 [[menu.navbar]]
     parent = "Bibliography"
-    name = "Bibliography by topics"
-    url = "/bibliography/biblio_topics/"
-
-[[menu.navbar]]
-    parent = "Bibliography"
     name = "Bibliography (complete)"
     url = "/bibliography/biblio_complete/"
     
