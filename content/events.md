@@ -16,7 +16,7 @@ linktitle: Events and further information links
 <ul class="list-group" id="up-events-list">
 <li class="list-group-item"> <a href="https://www.aistats.org" target="_blank">AISTATS 2019</a> (April 16th - April 18th, 2019, Naha, Okinawa, Japan)</li>
 <li class="list-group-item"> <a href="http://cec2019.org/index.html" target="_blank">2019 IEEE Congress on Evolutionary Computation</a> (June 10th - June 13th, 2019, Wellington, New Zealand)</li>
-<li class="list-group-item"> <a href="http://www.biometrische-gesellschaft.de/fileadmin/AG_Daten/Weiterbildung/PDFs/FlyerStrobl_V_2019.pdf target="_blank">Universit&auml;t Salzburg Summer School on Missing Values, and Estimands</a> (July 3rd - July 6th, 2019, Strobl am Wolfgangsee, Austria)</li>
+<li class="list-group-item"> <a href="http://www.biometrische-gesellschaft.de/fileadmin/AG_Daten/Weiterbildung/PDFs/FlyerStrobl_V_2019.pdf" target="_blank">Universit&auml;t Salzburg Summer School on Missing Values, and Estimands</a> (July 3rd - July 6th, 2019, Strobl am Wolfgangsee, Austria)</li>
 <li class="list-group-item"> <a href="https://sampta2019.sciencesconf.org/?forward-action=index&forward-controller=index&lang=en" target="_blank">13th International Conference on Sampling Theory and Applications</a> (July 8th - July 12th, 2019, Bordeaux, France)</li>
 <li class="list-group-item"> <a href="http://user2019.r-project.org" target="_blank">useR! 2019</a> (July 9th - July 12th, 2019, Toulouse, France)</li>
 <li class="list-group-item"> <a href="http://ww2.amstat.org/meetings/jsm/2019/index.cfm" target="_blank">Joint Statistical Meetings 2019</a> (July 27th - August 1st, 2019, Denver, Colorado, USA)</li>
