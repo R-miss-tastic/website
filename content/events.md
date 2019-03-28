@@ -15,6 +15,7 @@ linktitle: Events and further information links
 
 <ul class="list-group" id="up-events-list">
 <li class="list-group-item"> <a href="https://www.aistats.org" target="_blank">AISTATS 2019</a> (April 16th - April 18th, 2019, Naha, Okinawa, Japan)</li>
+<li class="list-group-item"> <a href="http://www.jds2019.sfds.asso.fr/" target="_blank">51ème Journ&#xE8;es de Statistique de la Soci&#xE9;t&#xE9; Fran&ccedil;aise de Statistique</a> (June 3rd - June 7th, 2019, Nancy, France)</li>
 <li class="list-group-item"> <a href="http://cec2019.org/index.html" target="_blank">2019 IEEE Congress on Evolutionary Computation</a> (June 10th - June 13th, 2019, Wellington, New Zealand)</li>
 <li class="list-group-item"> <a href="http://www.biometrische-gesellschaft.de/fileadmin/AG_Daten/Weiterbildung/PDFs/FlyerStrobl_V_2019.pdf" target="_blank">Universit&auml;t Salzburg Summer School on Missing Values, and Estimands</a> (July 3rd - July 6th, 2019, Strobl am Wolfgangsee, Austria)</li>
 <li class="list-group-item"> <a href="https://sampta2019.sciencesconf.org/?forward-action=index&forward-controller=index&lang=en" target="_blank">13th International Conference on Sampling Theory and Applications</a> (July 8th - July 12th, 2019, Bordeaux, France)</li>
