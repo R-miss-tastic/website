@@ -3,12 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/bibliography/biblio_topics/</loc>
+    <loc>/bibliography/biblio_complete/</loc>
     <lastmod>2018-10-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/bibliography/biblio_complete/</loc>
+    <loc>/bibliography/</loc>
+    <lastmod>2018-10-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/bibliography/biblio_topics/</loc>
     <lastmod>2018-10-24T00:00:00+00:00</lastmod>
   </url>
   
@@ -40,11 +45,6 @@
   <url>
     <loc>/contact/</loc>
     <lastmod>2018-10-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/bibliography/</loc>
-    <lastmod>2018-07-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
