@@ -124,7 +124,7 @@ linktitle: Tutorials
                       <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture03.pdf" target="_blank">Lecture 3: naive methods: complete-case analysis and imputation</a></li>
                       <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture04Lab01.R" target="_blank">Lecture 4: R session 1</a></li>
                       <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture05.pdf" target="_blank">Lecture 5: likelihood-based methods</a></li>
-                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture06.pdf" target="_blank">Lecture 6: The EM algorithm</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture06.pdf" target="_blank">Lecture 6: the EM algorithm</a></li>
                       <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture07setup.pdf" target="_blank">Lecture 7: R session 2 (setup)</a>, <a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture07Lab02.R" target="_blank">R script</a></li>
                       <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture06.pdf" target="_blank">Lecture 8: introduction to Bayesian inference</a></li>
                       <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture06.pdf" target="_blank">Lecture 9: Gibbs sampling, ignorability under Bayesian inference, data augmentation</a></li>
