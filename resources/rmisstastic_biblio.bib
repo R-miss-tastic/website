@@ -1319,6 +1319,23 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Topics                   = {multiple imputation; factorial data analysis}
 }
 
+@Article{josse_etal_2019,
+  Title                    = {On the consistency of supervised learning with missing values},
+  Author                   = {Josse, Julie and Prost, Nicolas and Scornet, Erwan and Varoquaux, Ga{\"e}l},
+  Journal                  = {arXiv preprint},
+  archivePrefix            = {arXiv},
+  eprint                   = {1902.06931},
+  primaryClass             = {stat.ML},
+  Year                     = {2019},
+  Url                      = {https://arxiv.org/abs/1902.06931},
+
+  Abstract                 = {In many application settings, the data are plagued with missing features. These hinder data analysis. An abundant literature addresses missing values in an inferential framework, where the aim is to estimate parameters and their variance from incomplete tables. Here, we consider supervised-learning settings where the objective is to best predict a target when missing values appear in both training and test sets. We analyze which missing-values strategies lead to good prediction. We show the consistency of two approaches to estimating the prediction function. The most striking one shows that the widely-used mean imputation prior to learning method is consistent when missing values are not informative. This is in contrast with inferential settings as mean imputation is known to have serious drawbacks in terms of deformation of the joint and marginal distribution of the data. That such a simple approach can be consistent has important consequences in practice. This result holds asymptotically when the learning algorithm is consistent in itself. We contribute additional analysis on decision trees as they can naturally tackle empirical risk minimization with missing values. This is due to their ability to handle the half-discrete nature of variables with missing values. After comparing theoretically and empirically different missing-values strategies in trees, we recommend using the missing incorporated in attributes method as it can handle both non-informative and informative missing values.},
+  Keywords                 = {Imputation; decision trees; expectation maximization},
+  Owner                    = {imke},
+  Timestamp                = {2019.03.17},
+  Topics                   = {machine learning; random trees; random forests}
+}
+
 @Article{kaiser_JSI2014,
   Title                    = {Dealing with missing values in data},
   Author                   = {Kaiser, J.},
@@ -1995,6 +2012,27 @@ If you find nothing nonsensical in this reviewer's comments, then the current ar
   Topics                   = {hot-deck}
 }
 
+@Article{reiter_sadinle_2017,
+    Author                 = {Reiter, Jerome P. and Sadinle, Mauricio},
+    Title                  = {Itemwise conditionally independent nonresponse modelling for incomplete multivariate data},
+    Journal                = {Biometrika},
+    Volume                 = {104},
+    Number                 = {1},
+    Pages                  = {207-220},
+    Year                   = {2017},
+    Month                  = {01},
+    Abstract               = {We introduce a nonresponse mechanism for multivariate missing data in which each study variable and its nonresponse indicator are conditionally independent given the remaining variables and their nonresponse indicators. This is a nonignorable missingness mechanism, in that nonresponse for any item can depend on values of other items that are themselves missing. We show that under this itemwise conditionally independent nonresponse assumption, one can define and identify nonparametric saturated classes of joint multivariate models for the study variables and their missingness indicators. We also show how to perform sensitivity analysis with respect to violations of the conditional independence assumptions encoded by this missingness mechanism. We illustrate the proposed modelling approach with data analyses.},
+    Doi                    = {10.1093/biomet/asw063},
+    Url                    = {https://doi.org/10.1093/biomet/asw063},
+    eprint                 = {http://oup.prod.sis.lan/biomet/article-pdf/104/1/207/13066719/asw063.pdf},
+    Keywords                 = {Loglinear model; Missing not at random; Missingness mechanism;
+Nonignorable; Nonparametric saturated; Sensitivity analysis.},
+  Owner                    = {imke},
+  Timestamp                = {2019.03.28},
+  Topics                   = {mnar; sensitivity analysis}
+}
+
+
 @TechReport{rieger_etal_2010,
   Title                    = {Random forests with missing values in the covariates},
   Author                   = {Rieger, A. and Hothorn, T. and Strobl, C.},
@@ -2284,7 +2322,27 @@ If you find nothing nonsensical in this reviewer's comments, then the current ar
   Doi                      = {10.1177/0962280210395740},
   Owner                    = {alyssa},
   Timestamp                = {2017.03.06},
-  Topics                   = {ipw; survey}
+  Topics                   = {causal inference}
+}
+
+@article{seaman_vansteelandt_SS2018,
+  Title                    = {Introduction to Double Robust Methods for Incomplete Data},
+  Author                   = {Seaman, Shaun R and Vansteelandt, Stijn},
+  Journal                  = {Statistical Science},
+  Volume                   = {33},
+  Number                   = {2},
+  Pages                    = {184},
+  Year                     = {2018},
+  Publisher                = {Europe PMC Funders},
+  Doi                      = {10.1214/18-STS647},
+
+  Abstract                 = {Most methods for handling incomplete data can be broadly classified as inverse probability weighting (IPW) strategies or imputation strategies. The former model the occurrence of incomplete data; the latter, the distribution of the missing variables given observed variables in each missingness pattern. Imputation strategies are typically more efficient, but they can involve extrapolation, which is difficult to diagnose and can lead to large bias. Double robust (DR) methods combine the two approaches. They are typically more efficient than IPW and more robust to model misspecification than imputation. We give a formal introduction to DR estimation of the mean of a partially observed variable, before moving to more general incomplete-data scenarios. We review strategies to improve the performance of DR estimators under model misspecification, reveal connections between DR estimators for incomplete data and ‘design-consistent’ estimators used in sample surveys, and explain the value of double robustness when using flexible data-adaptive methods for IPW or imputation.},
+
+  Keywords                 = {augmented inverse probability weighting; calibration estimators; data-adaptive methods; doubly robust; empirical likelihood; imputation; inverse probability weighting; missing data; semiparametric methods},
+
+  Owner                    = {imke},
+  Timestamp                = {2019.03.28},
+  Topics                   = {causal inference}
 }
 
 @Article{shao_zhang_2015,
@@ -2377,6 +2435,24 @@ If you find nothing nonsensical in this reviewer's comments, then the current ar
   Topics                   = {machine learning}
 }
 
+@Article{sportisse_etal_2018,
+  Title                    = {Imputation and low-rank estimation with Missing Non At Random data},
+  Author                   = {Sportisse, Aude and Boyer, Claire and Josse, Julie},
+  Journal                  = {arXiv preprint},
+  archivePrefix            = {arXiv},
+  eprint                   = {1812.11409},
+  primaryClass             = {stat.ML},
+  Year                     = {2018},
+  Url                      = {https://arxiv.org/abs/1812.11409},
+
+  Abstract                 = {Missing values challenge data analysis because many supervised and unsu-pervised learning methods cannot be applied directly to incomplete data. Matrix completion based on low-rank assumptions are very powerful solution for dealing with missing values. However, existing methods do not consider the case of informative missing values which are widely encountered in practice. This paper proposes matrix completion methods to recover Missing Not At Random (MNAR) data. Our first contribution is to suggest a model-based estimation strategy by modelling the missing mechanism distribution. An EM algorithm is then implemented, involving a Fast Iterative Soft-Thresholding Algorithm (FISTA). Our second contribution is to suggest a computationally efficient surrogate estimation by implicitly taking into account the joint distribution of the data and the missing mechanism: the data matrix is concatenated with the mask coding for the missing values ; a low-rank structure for exponential family is assumed on this new matrix, in order to encode links between variables and missing mechanisms. The methodology that has the great advantage of handling different missing value mechanisms is robust to model specification errors.},
+  Keywords                 = {Informative missing values; denoising; matrix completion; accelerated proximal gradient method; EM algorithm; nuclear norm penalty},
+
+  Owner                    = {imke},
+  Timestamp                = {2019.03.28},
+  Topics                   = {mnar}
+}
+
 @Article{stacklies_etal_B2007,
   Title                    = {{pcaMethods} -- a bioconductor package providing {PCA} methods for incomplete data},
   Author                   = {Stacklies, W. and Redestig, H. and Scholz, M. and Walther, D. and Selbig, J.},
@@ -2428,7 +2504,6 @@ If you find nothing nonsensical in this reviewer's comments, then the current ar
   Eprint                   = {1105.0828},
   ISBN                     = {1367-4811 (Electronic)$\backslash$n1367-4803 (Linking)},
   ISSN                     = {13674803},
-  Mendeley-groups          = {missing data/random{\_}forest},
   Owner                    = {alyssa},
   Pmid                     = {22039212},
   Timestamp                = {2016.09.27},
