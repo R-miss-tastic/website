@@ -8,6 +8,7 @@ linktitle: Tutorials
 
 <p align="justify"><i>If you wish to contribute some of your own material to this platform, please feel free to contact us via the <a href="/contact/">Contact form</a></i>.</p>
 
+
 <div class="container">
   <div class="accordion-option">
     <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
@@ -99,6 +100,49 @@ linktitle: Tutorials
                       <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch4b.pdf" target="_blank">Multiple imputation</a></li>
                       <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch5.pdf" target="_blank">Propensity Score approach</a></li>
                       <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch6.pdf" target="_blank">Nonignorable missing data</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header">
+                  <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#sadinle">
+                    <div class="col-12">Statistical Methods for Analysis with Missing Data<br>
+                    <small>
+                      <p>(Mauricio Sadinle, course at University of Washington, winter 2019)</p>
+                    </small>
+                    </div>
+                  </a>
+                </div>
+                <div id="sadinle" class="collapse" data-parent="#accordion_general">  
+                  <div class="card-body">
+                    <p align="justify" style="margin-left:15px;">This course formally introduces methodologies for handling missing data in statistical analyses. It covers naive methods, missing-data assumptions, likelihood-based approaches, Bayesian and multiple imputation approaches, inverse-probability weighting, pattern-mixture models, sensitivity analysis and approaches under nonignorable missingness. Computational tools such as the Expectation-Maximization algorithm and the Gibbs' sampler will be introduced. This course is intended for students who are interested in methodological research. <br><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Syllabus-BIOST531-Winter2019.pdf" target="_blank">Course syllabus</a>
+                    </p>
+                    <ul>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture01.pdf" target="_blank">Lecture 1: syllabus, motivating examples</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture02.pdf" target="_blank">Lecture 2: general setup, notation, missing-data mechanisms</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture03.pdf" target="_blank">Lecture 3: naive methods: complete-case analysis and imputation</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture04Lab01.R" target="_blank">Lecture 4: R session 1</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture05.pdf" target="_blank">Lecture 5: likelihood-based methods</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture06.pdf" target="_blank">Lecture 6: The EM algorithm</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture07setup.pdf" target="_blank">Lecture 7: R session 2 (setup)</a>, <a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture07Lab02.R" target="_blank">R script</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture06.pdf" target="_blank">Lecture 8: introduction to Bayesian inference</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture06.pdf" target="_blank">Lecture 9: Gibbs sampling, ignorability under Bayesian inference, data augmentation</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture06.pdf" target="_blank">Lecture 10: multiple imputation</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture11.pdf" target="_blank">Lecture 11: R session 3 (setup)</a>, <a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture11Lab03.R" target="_blank">R script</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture12.pdf" target="_blank">Lecture 12: inverse probability weighting</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture13.pdf" target="_blank">Lecture 13: introduction to (weighted generalized) estimating equations</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture14wgeesel.pdf" target="_blank">Lecture 14: R session 4 (setup)</a>, <a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture14Lab04.R" target="_blank">R script</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture15.pdf" target="_blank">Lecture 15: identifiability, nonignorability, pattern-mixture models</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture16.pdf" target="_blank">Lecture 16: pattern-mixture models (continued), sensitivity analysis</a></li>
+                    </ul>
+                    <p>Exercices/Homework</p>
+                    <ul>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture01HW0.R" target="_blank">Homework 0 (after Lecture 1)</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture04HW1.pdf" target="_blank">Homework 1 (after Lecture 4)</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture07HW2.pdf" target="_blank">Homework 2 (after Lecture 7)</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture11HW3.pdf" target="_blank">Homework 3 (after Lecture 11)</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture14HW4.pdf" target="_blank">Homework 4 (after Lecture 14)</a></li>
                     </ul>
                   </div>
                 </div>
