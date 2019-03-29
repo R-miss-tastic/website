@@ -24,6 +24,7 @@ linktitle: People
 <li class="list-group-item"> <a href="https://www.kuleuven.be/wieiswie/en/person/u0056633" target="_blank">Geert Molenberghs</a> (<a href="https://ibiostat.be/online-resources" target="_blank">I-BioStat</a> and KU Leuven)</li>
 <li class="list-group-item"> <a href="http://www2.stat.duke.edu/~jerry/" target="_blank">Jerry Reiter</a> (Duke University)</li>
 <li class="list-group-item"> <a href="https://statistics.fas.harvard.edu/people/donald-b-rubin" target="_blank">Donald B. Rubin</a> (Tsinghua University)</li>
+<li class="list-group-item"> <a href="https://faculty.washington.edu/msadinle/index.html" target="_blank">Mauricio Sadinle</a> (University of Washington)</li>
 <li class="list-group-item"> <a href="https://www.mrc-bsu.cam.ac.uk/people/in-alphabetical-order/n-to-s/shaun-seaman/" target="_blank">Shaun Seaman</a> (University of Cambridge)</li>
 <li class="list-group-item"> <a href="https://gbiomed.kuleuven.be/biostat/geertverbeke" target="_blank">Geert Verbeke</a> (<a href="https://ibiostat.be/online-resources" target="_blank">I-BioStat</a> and KU Leuven)</li>
 </ul>
