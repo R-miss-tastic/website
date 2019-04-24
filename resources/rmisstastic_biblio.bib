@@ -187,6 +187,24 @@
   Topics                   = {knn}
 }
 
+@article{bartlett_etal_2015,
+  Title                    = {Asymptotically unbiased estimation of exposure odds ratios in complete records logistic regression},
+  Author                   = {Bartlett, Jonathan W and Harel, Ofer and Carpenter, James R},
+  Journal                  = {American journal of epidemiology},
+  Volume                   = {182},
+  Number                   = {8},
+  Pages                    = {730--736},
+  Year                     = {2015},
+  Publisher                = {Oxford University Press},
+  Doi                      = {10.1093/aje/kwv114},
+
+  Abstract                 = {Missing data are a commonly occurring threat to the validity and efficiency of epidemiologic studies. Perhaps the most common approach to handling missing data is to simply drop those records with 1 or more missing values, in so-called “complete records” or “complete case” analysis. In this paper, we bring together earlier-derived yet perhaps now somewhat neglected results which show that a logistic regression complete records analysis can provide asymptotically unbiased estimates of the association of an exposure of interest with an outcome, adjusted for a number of confounders, under a surprisingly wide range of missing-data assumptions. We give detailed guidance describing how the observed data can be used to judge the plausibility of these assumptions. The results mean that in large epidemiologic studies which are affected by missing data and analyzed by logistic regression, exposure associations may be estimated without bias in a number of settings where researchers might otherwise assume that bias would occur.},
+  Keywords                 = {complete case analysis; logistic regression; missing data; odds ratio},
+  Owner                    = {imke},
+  Timestamp                = {2019.04.01},
+  Topics                   = {causal inference}
+}
+
 @InProceedings{bengio_gingras_1995,
   Title                    = {Recurrent neural networks for missing or asynchronous data},
   Author                   = {Bengio, Y. and Gingras, F.},
@@ -1195,6 +1213,23 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Owner                    = {alyssa},
   Timestamp                = {2017.05.09},
   Topics                   = {diagnosis}
+}
+
+@Article{jiang_etal_2018,
+  Title                    = {Logistic Regression with Missing Covariates--Parameter Estimation, Model Selection and Prediction},
+  Author                   = {Jiang, Wei and Josse, Julie and Lavielle, Marc},
+  Journal                  = {arXiv preprint},
+  ArchivePrefix            = {arXiv},
+  Eprint                   = {1805.04602},
+  PrimaryClass             = {stat.ME},
+  Year                     = {2018},
+
+  Abstract                 = {Logistic regression is a common classification method in supervised learning. Sur- prisingly, there are very few solutions for performing it and selecting variables in the presence of missing values. We develop a complete approach, including the es- timation of parameters and variance of estimators, derivation of confidence intervals and a model selection procedure, for cases where the missing values can be anywhere in covariates. By well organizing different patterns of missingness in each observa- tion, we propose a stochastic approximation version of the EM algorithm based on Metropolis-Hasting sampling, to perform statistical inference for logistic regression with incomplete data. We also tackle the problem of prediction for a new individual with missing values, which is never addressed. The methodology is computationally efficient, and its good coverage and variable selection properties are demonstrated in a simulation study where we contrast its performances to other methods. For instance, the popular multiple imputation by chained equation can lead to biased estimates while our method is unbiased. We then illustrate the method on a dataset of severely traumatized patients from Paris hospitals to predict the occurrence of hemorrhagic shock, a leading cause of early preventable death in severe trauma cases. The aim is to consolidate the current red flag procedure, a binary alert identifying patients with a high risk of severe hemorrhage. The methodology is implemented in the R package misaem.},
+
+  Keywords                 = {incomplete data; observed likelihood; variable selection; major trauma; public health},
+  Owner                    = {imke},
+  Timestamp                = {2019.03.31},
+  Topics                   = {ml; regression}
 }
 
 @Article{joenssen_bankhofer_JTACS2012,
