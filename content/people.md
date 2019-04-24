@@ -20,7 +20,7 @@ weight: 6
 <li class="list-group-item"> <a href="https://www4.stat.ncsu.edu/~davidian/index.html" target="_blank">Marie Davidian</a> (North Carolina State University)</li>
 <li class="list-group-item"> <a href="http://www.stat.columbia.edu/~gelman/" target="_blank">Andrew Gelman</a> (Columbia University)</li>
 <!-- <li> <a href="https://steinhardt.nyu.edu/faculty/Jennifer_L_Hill" target="_blank">Jennifer L. Hill</a> (New York University)</li> -->
-<li class="list-group-item"> <a href="http://math.agrocampus-ouest.fr/infoglueDeliverLive/membres/Francois.Husson" target="_blank">François Husson</a> (AgroCampus Ouest)</li>
+<li class="list-group-item"> <a href="https://husson.github.io/" target="_blank">François Husson</a> (AgroCampus Ouest)</li>
 <li class="list-group-item"> <a href="https://sites.google.com/view/jaekwangkim/home" target="_blank">Jae-Kwang Kim</a> (Iowa State University and KAIST)</li>
 <li class="list-group-item"> <a href="https://gking.harvard.edu" target="_blank">Gary King</a> (Harvard University)</li>
 <li class="list-group-item"> <a href="https://sites.google.com/a/umich.edu/rod-little/" target="_blank">Roderick J.A. Little</a> (University of Michigan)</li>
