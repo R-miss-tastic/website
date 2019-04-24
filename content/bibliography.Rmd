@@ -4,6 +4,10 @@ author: "Imke Mayer"
 date: 2018-10-24
 linktitle: Bibliography
 weight: 2
+menu: navbar
+name: Bibliography
+identifier: "Bibliography"
+url: /bibliography/
 ---
 
 <p align="justify">On this platform we attempt to give you an overview of main references on missing values. We do not claim to gather all available references on the subject but rather to offer a peak into different fields of active research on handling missing values, allowing for an introductory reading as well as a starting point for further bibliographical research.</p>

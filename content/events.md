@@ -1,7 +1,11 @@
 ---
 author: "Imke Mayer"
 date: 2019-01-11
-linktitle: Events and further information links
+linktitle: Events & links
+menu: navbar
+name: "Events and further information links"
+url: "/events/"
+weight: 7
 ---
 
 

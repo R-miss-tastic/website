@@ -2,6 +2,10 @@
 author: "Imke Mayer"
 date: 2018-12-18
 linktitle: Data
+menu: navbar
+name: "Data"
+url: "/data/"
+weight: 5
 ---
 
 

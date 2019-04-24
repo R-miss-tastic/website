@@ -2,8 +2,9 @@
 output: md_document
 author: "Imke Mayer"
 date: 2018-10-24
-weight: 2
 url: "/bibliography/biblio_complete/"
+parent: "Bibliography"
+name: "Bibliography (complete)"
 ---
 
 

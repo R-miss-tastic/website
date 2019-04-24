@@ -3,6 +3,10 @@ date: "2018-10-24"
 author: "Imke Mayer"
 title: "Contact"
 sharingicons: false
+menu: navbar
+name: "Contact"
+url: "/contact/"
+weight: 100
 ---
 
 

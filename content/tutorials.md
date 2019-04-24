@@ -1,7 +1,11 @@
 ---
 author: "Nathalie Vialaneix"
 date: 2018-07-22
-linktitle: Tutorials
+linktitle: Lectures
+menu: navbar
+name: "Lectures"
+url: "/tutorials/"
+weight: 3
 ---
 
 <p align="justify">Below you will find a selection of high-quality tutorials on different aspects of missing values.</p>

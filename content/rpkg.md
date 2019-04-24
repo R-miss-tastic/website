@@ -1,7 +1,11 @@
 ---
 author: "Steffen Moritz"
 date: 2010-04-04
-linktitle: R packages on missing values
+linktitle: R packages
+menu: navbar
+name: "R packages on missing values"
+url: "/rpkg/"
+weight: 4
 ---
 
 

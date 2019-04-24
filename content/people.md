@@ -2,6 +2,10 @@
 author: "Imke Mayer"
 date: 2018-10-30
 linktitle: People
+menu: navbar
+name: People
+url: "/people/"
+weight: 6
 ---
 
 #### People

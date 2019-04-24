@@ -20,48 +20,7 @@ paginate = 1
   name = "GitHub"
   url = "https://github.com/R-miss-tastic"
 
-[[menu.navbar]]
-    identifier = "Bibliography"
-    name = "Bibliography"
-    url = "/bibliography/"
-    weight = 2
-
-[[menu.navbar]]
-    parent = "Bibliography"
-    name = "Bibliography (complete)"
-    url = "/bibliography/biblio_complete/"
     
-[[menu.navbar]]
-    name = "Tutorials"
-    url = "/tutorials/"
-    weight = 3
-    
-[[menu.navbar]]
-    name = "R packages"
-    url = "/rpkg/"
-    weight = 4
-
-[[menu.navbar]]
-    name = "Data"
-    url = "/data/"
-    weight = 5
-
-[[menu.navbar]]
-    name = "People"
-    url = "/people/"
-    weight = 6
-
-[[menu.navbar]]
-    name = "Events & links"
-    url = "/events/"
-    weight = 7
-
-[[menu.navbar]]
-    name = "Contact"
-    url = "/contact/"
-    weight = 100
-
-
 
 # Theme variables
 #
