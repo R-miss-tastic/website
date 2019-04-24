@@ -8,7 +8,7 @@ url: "/tutorials/"
 weight: 3
 ---
 
-<p align="justify">Below you will find a selection of high-quality tutorials on different aspects of missing values.</p>
+<p align="justify">Below you will find a selection of high-quality lectures and labs on different aspects of missing values.</p>
 
 <p align="justify"><i>If you wish to contribute some of your own material to this platform, please feel free to contact us via the <a href="/contact/">Contact form</a></i>.</p>
 
