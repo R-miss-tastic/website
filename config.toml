@@ -4,7 +4,7 @@ baseurl = "https://rmisstastic.netlify.com/"
 languageCode = "en-us"
 title = "R-miss-tastic"
 theme = "hugo-theme-bootstrap4-blog"
-tags = ["missing values", "missing data", "imputation", "R", "incomplete data"]
+tags = ["missing values", "missing data", "imputation", "R", "incomplete data", "rmisstastic", "rmiss"]
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 # number of posts to show on home/category/tag pages (Default: 10)
 paginate = 1
@@ -30,7 +30,7 @@ paginate = 1
   author = "R miss tastic team <r-miss-tastic[AT]clementine.wf>"
 
   # Description/subtitle for homepage (can be Markdown)
-  description = "A resource website on missing data"
+  description = "A resource website on missing values - Methods and references for managing missing data"
 
   # Format dates with Go's time formatting
   date_format = "Mon Jan 02, 2006"
