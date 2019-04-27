@@ -4,6 +4,7 @@ baseurl = "/"
 languageCode = "en-us"
 title = "R-miss-tastic"
 theme = "hugo-theme-bootstrap4-blog"
+tags = ["missing values", "missing data", "imputation", "R", "incomplete data"]
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 # number of posts to show on home/category/tag pages (Default: 10)
 paginate = 1
