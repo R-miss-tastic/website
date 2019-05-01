@@ -64,7 +64,7 @@ weight: 4
 </p>
 </div>
 
-Your favorite package is missing? <a href="/packages/pkg-listitem-template.md" target="_blank">Here</a> is an explanation on how to make an entry for your package. <a href="/packages/pkg-template.md" target="_blank">Template</a>
+Your favorite package is missing? <a href="/packages/rpkg-listitem-template.md" target="_blank">Here</a> is an explanation on how to make an entry for your package. <a href="/packages/rpkg-template.md" target="_blank">Template</a>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
 <script> var options = {
