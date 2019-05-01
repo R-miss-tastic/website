@@ -2,7 +2,7 @@
 <!-- 1) Once you completed/replaced the indicated values, 
      insert this chunk in the following file: /content/rpkg.md 
      2) Download the Template from the website (or get it from the GitHub repo)
-     3) Copy the modified template 'pkg-template.md' (renamed to '<package name>.md') into the folder /contnent/packages/ -->
+     3) Copy the modified template 'pkg-template.md' (renamed to '<package name>.md') into the folder /content/packages/ -->
       
 <li style="margin: 40px;">
   <h3 class="name">name_of_package</h3> <!-- Replace <name_of_package> by the package name-->
