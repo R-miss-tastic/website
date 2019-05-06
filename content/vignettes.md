@@ -1,21 +1,18 @@
 ---
-author: "Steffen Moritz"
-date: 2010-04-04
-linktitle: R packages
-menu: navbar
+author: "Imke Mayer"
+date: 2019-05-02
+linktitle: R packages vignettes
 name: "R packages on missing values"
-url: "/rpkg/"
+url: "/rpkg/vignettes/"
 weight: 4
 ---
 
 
 #### R Packages
 
-<a href="/rpkg/vignettes">Link</a> to vignettes page.
-
 <p align="justify">This page provides introductions to popular missing data packages with small examples on how to use them. Thus the page gives more extensive information than the  <a href="https://CRAN.R-project.org/view=MissingData" target="_blank">CRAN Task View on Missing Data</a>, which is recommended to get a first overall overview about the CRAN missing data landscape.</p>
 
-<p align="justify"><i>You can also contribute on your own to this page and provide a short introduction to a missing data package. Take a look at <a href="/packages/rpkg-listitem-template.md" target="_blank">this short description</a> on how to do this. We are very happy about all contributions.</i></p>
+<p align="justify"><i>You can also contribute on your own to this page and provide a short introduction to a missing data package. Take a look at AAA on how to do this. We are very happy about all contributions.</i></p>
 
 
 
