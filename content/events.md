@@ -49,6 +49,7 @@ weight: 7
 <li class="list-group-item"> <a href="https://missingdata.org" target="_blank">Missing Data -
 Software, Advice and Research on handling data with missing values</a> (Paul von Hippel)</li>
 <li class="list-group-item"> <a href="http://www.multiple-imputation.com" target="_blank">Multiple Imputation</a> (Stef van Buuren, currently unavailable)</li>
+<li class="list-group-item"> <a href="https://scikit-learn.org/0.21/modules/impute.html#id4" target="_blank">Imputation of missing values in Python (using scikit-learn)</a> (scikit-learn documentation)</li>
 </ul>
 
 </br>
