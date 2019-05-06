@@ -1,8 +1,9 @@
 ---
-date: 2019-01-23
+date: 2019-05-05
 author: "R-miss-tastic"
 images: ["/images/missing_data_propaganda.png"]
 slug: "welcome"
+title: "Missing data"
 ---
 
 {{< figure src="/images/missing_data_propaganda.png">}}
