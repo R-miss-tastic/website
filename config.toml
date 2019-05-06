@@ -27,7 +27,7 @@ paginate = 3
 
 [[menu.sidebar]]
   name = "Events"
-  url = "/posts/2019-05-04_events/"     
+  url = "/posts/events/"     
 
 # Theme variables
 #
