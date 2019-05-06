@@ -68,7 +68,7 @@ paginate = 3
     # Optional about block for sidebar (can be Markdown)
      about = "This website is proudly sponsored by R Consortium and maintained by [Julie Josse](http://juliejosse.com), [Imke Mayer](https://www.imkemayer.com), [Nicholas Tierney](https://www.njtierney.com) and [Nathalie Vialaneix](http://www.nathalievialaneix.eu).
      
-     Read more](/posts/intro/)."
+     [Read more](/posts/intro/)."
 
     # How many posts to show on the sidebar (Default: 5)
     # num_recent_posts = 3
