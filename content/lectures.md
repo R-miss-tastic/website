@@ -4,7 +4,7 @@ date: 2018-07-22
 linktitle: Lectures
 menu: navbar
 name: "Lectures"
-url: "/tutorials/"
+url: "/lectures/"
 weight: 3
 ---
 
