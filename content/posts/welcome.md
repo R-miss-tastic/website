@@ -10,8 +10,7 @@ title: "Missing data"
 <!--more-->
 Image source: etsy.com
 
-This website is proudly sponsored by R Consortium and maintained by Julie Josse, Nicholas Tierney and Nathalie Vialaneix.
-
+This website is proudly sponsored by R Consortium and maintained by <a href="http://juliejosse.com" target="_blank">Julie Josse</a>, <a href="https://www.imkemayer.com" target="_blank">Imke Mayer</a>, <a href="https://www.njtierney.com" target="_blank">Nicholas Tierney</a> and <a href="http://www.nathalievialaneix.eu" target="_blank">Nathalie Vialaneix</a>.
 
 
 

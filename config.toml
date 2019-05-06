@@ -63,10 +63,10 @@ paginate = 3
 
   [params.sidebar]
     # Optional about block for sidebar (can be Markdown)
-    about = "This website is proudly sponsored by R Consortium and maintained by [Julie Josse](http://juliejosse.com), [Imke Mayer](https://www.imkemayer.com), [Nicholas Tierney](https://www.njtierney.com) and [Nathalie Vialaneix](http://www.nathalievialaneix.eu)."
+    # about = "This website is proudly sponsored by R Consortium and maintained by [Julie Josse](http://juliejosse.com), [Imke Mayer](https://www.imkemayer.com), [Nicholas Tierney](https://www.njtierney.com) and [Nathalie Vialaneix](http://www.nathalievialaneix.eu)."
 
     # How many posts to show on the sidebar (Default: 5)
-    num_recent_posts = 3
+    # num_recent_posts = 3
 
   [params.social]
     # Optional, used for attribution in Twitter cards (ideally not a person
