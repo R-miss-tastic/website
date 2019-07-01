@@ -34,7 +34,7 @@ weight: 4
   <ul class="list">
     <li style="margin: 40px;">
       <h3 class="name">missMDA</h3>
-      <h6 class="Category">Category: Multivariate Data Analysis Imputation</h6>
+      <h6 class="Category">Category: Single and multiple Imputation, Multivariate Data Analysis</h6>
       <i class="Description">Imputation of incomplete continuous or categorical datasets; Missing values are imputed with a principal component analysis (PCA), a multiple correspondence analysis (MCA) model or a multiple factor analysis (MFA) model; Perform multiple imputation with and in PCA or MCA.</i> <br>
       <img src="https://cranlogs.r-pkg.org/badges/missMDA" alt="CRAN Downloads" /> 
       <img src="https://www.r-pkg.org/badges/last-release/missMDA" alt="CRAN Release" /> <br>

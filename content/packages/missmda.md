@@ -12,7 +12,7 @@ description: ''
 missMDA
 
 ##### Category:
-Imputation
+Single and multiple imputation
 
 ##### Use-Cases:
 Imputation of incomplete continuous, categorical or mixed datasets, ...
