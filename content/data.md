@@ -15,7 +15,13 @@ weight: 5
 
 <br>
 ## Complete data
-<p align="justify">If you wish to evaluate a certain missing data method on real (or simulated) data it can be useful to first generate missing values in a complete dataset. This allows to control the response mechanism and evaluate the method for different response mechanisms. A useful tool for this is the <code>ampute</code> function of the <a href="https://cran.r-project.org/web/packages/mice/index.html" target="_blank"><code>mice</code> R-package</a>. Rianne Schouten and her colleagues wrote a <a href="https://rianneschouten.github.io/mice_ampute/vignette/ampute.html" target="_blank">self-contained tutorial</a> on how to ampute data.</p>
+<p align="justify">If you wish to evaluate a certain missing data method on real (or simulated) data it can be useful to first generate missing values in a complete dataset. This allows to control the response mechanism and evaluate the method for different response mechanisms. Some useful tools for this: </p>
+
+<ul>
+<li> The <code>ampute</code> function of the <a href="https://cran.r-project.org/web/packages/mice/index.html" target="_blank"><code>mice</code> R-package</a>. Rianne Schouten and her colleagues wrote a <a href="https://rianneschouten.github.io/mice_ampute/vignette/ampute.html" target="_blank">self-contained tutorial</a> on how to ampute data.</li>
+<li> The R workflow on <a href="/how-to/generate/missSimul.html" target="_blank">How to generate missing values?</a> extending some functionalities of the <code>ampute</code> function. For the related R source code <a href="/how-to/generate/amputation.R" target="_blank"> click here</a>.</li>
+<li> The <a href="https://cran.r-project.org/web/packages/missCompare/index.html" target="_blank"><code>missCompare</code></a> R-package.</li>
+</ul>
 
 <br>
 ## Incomplete data
