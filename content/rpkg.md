@@ -59,6 +59,14 @@ weight: 4
       <a href="/packages/imputeTS"> more.. </a>
     </li> 
     
+    <li style="margin: 40px;">
+      <h3 class="name">naniar</h3>
+      <h6 class="Category">Category: Visualisations for Missing Data</h6>
+      <i class="Description">Missing values are ubiquitous in data and need to be explored and handled in the initial stages of analysis. 'naniar' provides data structures and functions that facilitate the plotting of missing values and examination of imputations. This allows missing data dependencies to be explored with minimal deviation from the common work patterns of 'ggplot2' and tidy data.</i> <br>
+      <img src="https://cranlogs.r-pkg.org/badges/naniar" alt="CRAN Downloads" /> 
+      <img src="https://www.r-pkg.org/badges/last-release/naniar" alt="CRAN Release" /> <br>
+      <a href="/packages/naniar"> more.. </a>
+    </li> 
 
     <li style="margin: 40px;">
       <h3 class="name">missForest</h3>
