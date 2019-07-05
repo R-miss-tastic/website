@@ -8,7 +8,7 @@ name: "Bibliography (complete)"
 ---
 
 
-```{r, load_refs, echo=FALSE, message=FALSE}
+```{r, load_refs, echo=FALSE, message=FALSE, warning=FALSE}
   require(dplyr)
   require(RefManageR)
   bibfile <- "../resources/rmisstastic_biblio.bib"
