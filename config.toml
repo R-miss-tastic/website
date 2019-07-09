@@ -1,12 +1,13 @@
 # Hugo variables
 #
-baseurl = "/"
+baseurl = "https://rmisstastic.netlify.com/"
 languageCode = "en-us"
 title = "R-miss-tastic"
 theme = "hugo-theme-bootstrap4-blog"
+tags = ["missing values", "missing data", "imputation", "R", "incomplete data", "rmisstastic", "rmiss"]
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 # number of posts to show on home/category/tag pages (Default: 10)
-paginate = 1
+paginate = 3
 # optionally override the site's footer with custom copyright text
 # copyright = "Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/)."
 #googleAnalytics = "UA-123-45"
@@ -19,54 +20,11 @@ paginate = 1
 [[menu.sidebar]]
   name = "GitHub"
   url = "https://github.com/R-miss-tastic"
-
-[[menu.navbar]]
-    identifier = "Bibliography"
-    name = "Bibliography"
-    url = "/bibliography/"
-    weight = 2
-
-[[menu.navbar]]
-    parent = "Bibliography"
-    name = "Bibliography by topics"
-    url = "/bibliography/biblio_topics/"
-
-[[menu.navbar]]
-    parent = "Bibliography"
-    name = "Bibliography (complete)"
-    url = "/bibliography/biblio_complete/"
     
-[[menu.navbar]]
-    name = "Tutorials"
-    url = "/tutorials/"
-    weight = 3
-    
-[[menu.navbar]]
-    name = "R packages"
-    url = "/rpkg/"
-    weight = 4
 
-[[menu.navbar]]
-    name = "Data"
-    url = "/data/"
-    weight = 5
-
-[[menu.navbar]]
-    name = "People"
-    url = "/people/"
-    weight = 6
-
-[[menu.navbar]]
-    name = "Events & links"
-    url = "/events/"
-    weight = 7
-
-[[menu.navbar]]
-    name = "Contact"
-    url = "/contact/"
-    weight = 100
-
-
+[[menu.sidebar]]
+  name = "Events"
+  url = "/posts/events/"     
 
 # Theme variables
 #
@@ -75,7 +33,7 @@ paginate = 1
   author = "R miss tastic team <r-miss-tastic[AT]clementine.wf>"
 
   # Description/subtitle for homepage (can be Markdown)
-  description = "A resource website on missing data"
+  description = "A resource website on missing values - Methods and references for managing missing data"
 
   # Format dates with Go's time formatting
   date_format = "Mon Jan 02, 2006"
@@ -108,10 +66,10 @@ paginate = 1
 
   [params.sidebar]
     # Optional about block for sidebar (can be Markdown)
-    about = "This website is proudly sponsored by R Consortium and maintained by Julie Josse, Nicholas Tierney and Nathalie Vialaneix."
+     about = "This website is proudly sponsored by R Consortium and maintained by [Julie Josse](http://juliejosse.com), [Imke Mayer](https://www.imkemayer.com), [Nicholas Tierney](https://www.njtierney.com) and [Nathalie Vialaneix](http://www.nathalievialaneix.eu).<br><br>[Read more →](/posts/intro/)"
 
     # How many posts to show on the sidebar (Default: 5)
-    #num_recent_posts = 2
+    # num_recent_posts = 3
 
   [params.social]
     # Optional, used for attribution in Twitter cards (ideally not a person

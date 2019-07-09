@@ -2,6 +2,10 @@
 author: "Imke Mayer"
 date: 2018-12-18
 linktitle: Data
+menu: navbar
+name: "Data"
+url: "/data/"
+weight: 5
 ---
 
 
@@ -11,7 +15,13 @@ linktitle: Data
 
 <br>
 ## Complete data
-<p align="justify">If you wish to evaluate a certain missing data method on real (or simulated) data it can be useful to first generate missing values in a complete dataset. This allows to control the response mechanism and evaluate the method for different response mechanisms. A useful tool for this is the <code>ampute</code> function of the <a href="https://cran.r-project.org/web/packages/mice/index.html" target="_blank"><code>mice</code> R-package</a>. Rianne Schouten and her colleagues wrote a <a href="https://rianneschouten.github.io/mice_ampute/vignette/ampute.html" target="_blank">self-contained tutorial</a> on how to ampute data.</p>
+<p align="justify">If you wish to evaluate a certain missing data method on real (or simulated) data it can be useful to first generate missing values in a complete dataset. This allows to control the response mechanism and evaluate the method for different response mechanisms. Some useful tools for this: </p>
+
+<ul>
+<li> The <code>ampute</code> function of the <a href="https://cran.r-project.org/web/packages/mice/index.html" target="_blank"><code>mice</code> R-package</a>. Rianne Schouten and her colleagues wrote a <a href="https://rianneschouten.github.io/mice_ampute/vignette/ampute.html" target="_blank">self-contained tutorial</a> on how to ampute data.</li>
+<li> The R workflow on <a href="/how-to/generate/missSimul.html" target="_blank">How to generate missing values?</a> extending some functionalities of the <code>ampute</code> function. For the related R source code <a href="/how-to/generate/amputation.R" target="_blank"> click here</a>.</li>
+<li> The <a href="https://cran.r-project.org/web/packages/missCompare/index.html" target="_blank"><code>missCompare</code></a> R-package.</li>
+</ul>
 
 <br>
 ## Incomplete data
@@ -47,6 +57,9 @@ Default Task
 <b>% Missing entries</b>
 </th>
 <th>
+<b>Complete data available</b>
+</th>
+<th>
 <b>Year</b>
 </th>
 </tr>
@@ -75,6 +88,9 @@ Default Task
     7
     </td>
     <td>
+    No
+    </td>
+    <td>
     1973
     </td>
   </tr>
@@ -88,7 +104,7 @@ Default Task
           <br>
           Tutorials illustrating methods on this data:
           <ul>
-          <li> Nick Tierney's <code>naniar</code> vignette for missing data visualization.</li>
+          <li> Nick Tierney's <code>naniar</code> <a href="https://cran.r-project.org/web/packages/naniar/vignettes/naniar-visualisation.html" target="_blank">vignette</a> for missing data visualization.</li>
           </ul>
         <br>
       </div>
@@ -118,6 +134,9 @@ Default Task
     15
     </td>
     <td>
+    Yes
+    </td>
+    <td>
     1998
     </td>
   </tr>
@@ -136,7 +155,7 @@ Default Task
   <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
   <tr data-toggle="collapse" data-target="#health-nutrition" class="clickable collapse-row collapsed">
     <td>
-    <larger><font color="#428bca">Health Nutrition And Population Statistics &#42;</font></larger>
+    <larger><font color="#428bca">Health Nutrition And Population Statistics</font></larger>
     </td>
     <td>
     Multivariate, Time Series
@@ -155,6 +174,9 @@ Default Task
     </td>
     <td>
     54
+    </td>
+    <td>
+    No
     </td>
     <td>
     2017
@@ -197,6 +219,9 @@ Default Task
     37
     </td>
     <td>
+    No
+    </td>
+    <td>
     2012
     </td>
   </tr>
@@ -208,8 +233,8 @@ Default Task
           <br>
           Tutorials illustrating methods on this data:
           <ul>
-            <li> Stef van Buuren's vignette for ad hoc methods and <code>mice</code>.</li>
-            <li> Jerry Reiter's course on multiple imputation.</li>
+            <li> Stef van Buuren's <a href="https://www.gerkovink.com/miceVignettes/Ad_hoc_and_mice/Ad_hoc_methods.html" target="_blank">vignette</a> for ad hoc methods and <code>mice</code>.</li>
+            <li> Jerry Reiter's <a href="/tutorials/Reiter_course_MultipleImputationOverview_2018/Reiter_script_MultipleImputationMICE_2018.html" target="_blank">course</a> on multiple imputation.</li>
           </ul>
         <br>
       </div>
@@ -237,6 +262,9 @@ Default Task
     </td>
     <td>
     3
+    </td>
+    <td>
+    No
     </td>
     <td>
     1997
@@ -276,6 +304,9 @@ Default Task
     6
     </td>
     <td>
+    No
+    </td>
+    <td>
     1976
     </td>
   </tr>
@@ -289,9 +320,9 @@ Default Task
           <br>
           Tutorials illustrating methods on this data:
           <ul>
-            <li> Julie Josse's course on missing values imputation using PC methods.</li>
-            <li> Julie Josse's and Nick Tierney's tutorial on handling missing values.</li>
-            <li> Nick Tierney's <code>naniar</code> vignette for missing data visualization.</li>
+            <li> Julie Josse's <a href="/tutorials/Josse_slides_imputation_PCA_2018.pdf" target="_blank">course</a> on missing values imputation using PC methods.</li>
+            <li> Julie Josse's and Nick Tierney's tutorial on handling missing values. Download the data set from this tutorial: <a href="/tutorials/ozoneNA.csv">ozoneNA.csv</a></li>
+            <li> Nick Tierney's <code>naniar</code> <a href="https://cran.r-project.org/web/packages/naniar/vignettes/naniar-visualisation.html" target="_blank">vignette</a> for missing data visualization.</li>
           </ul>
         <br>
       </div>
@@ -319,6 +350,9 @@ Default Task
     </td>
     <td>
     2
+    </td>
+    <td>
+    No
     </td>
     <td>
     2016
@@ -358,6 +392,9 @@ Default Task
     14
     </td>
     <td>
+    No
+    </td>
+    <td>
     2009
     </td>
   </tr>
@@ -393,6 +430,9 @@ Default Task
     </td>
     <td>
     2
+    </td>
+    <td>
+    No
     </td>
     <td>
     2016
@@ -432,6 +472,9 @@ Default Task
     6
     </td>
     <td>
+    No
+    </td>
+    <td>
     1976
     </td>
   </tr>
@@ -467,6 +510,9 @@ Default Task
     </td>
     <td>
     9
+    </td>
+    <td>
+    Yes
     </td>
     <td>
     1960
@@ -506,6 +552,9 @@ Default Task
     9
     </td>
     <td>
+    Yes
+    </td>
+    <td>
     2015
     </td>
   </tr>
@@ -543,6 +592,9 @@ Default Task
     9
     </td>
     <td>
+    Yes
+    </td>
+    <td>
     2014
     </td>
   </tr>
@@ -561,10 +613,12 @@ Default Task
 </div>
 </div>
 
+<!--
 </br>
 <small>
 <font color="#428bca">&#42;</font> This data set is currently deployed in an open data challenge/datathon.
 </small>
+-->
 
 <style>
 .collapse-row.collapsed + tr {

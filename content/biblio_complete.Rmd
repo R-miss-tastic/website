@@ -2,13 +2,13 @@
 output: md_document
 author: "Imke Mayer"
 date: 2018-10-24
-title: Complete list of selected references
-weight: 2
 url: "/bibliography/biblio_complete/"
+parent: "Bibliography"
+name: "Bibliography (complete)"
 ---
 
 
-```{r, load_refs, echo=FALSE, message=FALSE}
+```{r, load_refs, echo=FALSE, message=FALSE, warning=FALSE}
   require(dplyr)
   require(RefManageR)
   bibfile <- "../resources/rmisstastic_biblio.bib"
@@ -163,7 +163,7 @@ url: "/bibliography/biblio_complete/"
 ```
 
 <br>
-<p align="justify"><i>A commented and structured version of this bibliography can be found [here](../biblio_topics/).</i></p>
+<a href="/bibliography/"><b>A commented version of this bibliography can be found here.</b></a>
 
 <div class="container">
 <div class="row">

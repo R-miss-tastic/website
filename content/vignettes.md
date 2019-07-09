@@ -1,21 +1,18 @@
 ---
-author: "Steffen Moritz"
-date: 2010-04-04
-linktitle: R packages
-menu: navbar
+author: "Imke Mayer"
+date: 2019-05-02
+linktitle: R packages vignettes
 name: "R packages on missing values"
-url: "/rpkg/"
+url: "/rpkg/vignettes/"
 weight: 4
 ---
 
 
 #### R Packages
 
-<a href="/rpkg/vignettes">Link</a> to vignettes page.
-
 <p align="justify">This page provides introductions to popular missing data packages with small examples on how to use them. Thus the page gives more extensive information than the  <a href="https://CRAN.R-project.org/view=MissingData" target="_blank">CRAN Task View on Missing Data</a>, which is recommended to get a first overall overview about the CRAN missing data landscape.</p>
 
-<p align="justify"><i>You can also contribute on your own to this page and provide a short introduction to a missing data package. Take a look at <a href="/packages/rpkg-listitem-template.md" target="_blank">this short description</a> on how to do this. We are very happy about all contributions.</i></p>
+<p align="justify"><i>You can also contribute on your own to this page and provide a short introduction to a missing data package. Take a look at AAA on how to do this. We are very happy about all contributions.</i></p>
 
 
 
@@ -32,15 +29,6 @@ weight: 4
 
 <p>
   <ul class="list">
-    <li style="margin: 40px;">
-      <h3 class="name">missMDA</h3>
-      <h6 class="Category">Category: Single and multiple Imputation, Multivariate Data Analysis</h6>
-      <i class="Description">Imputation of incomplete continuous or categorical datasets; Missing values are imputed with a principal component analysis (PCA), a multiple correspondence analysis (MCA) model or a multiple factor analysis (MFA) model; Perform multiple imputation with and in PCA or MCA.</i> <br>
-      <img src="https://cranlogs.r-pkg.org/badges/missMDA" alt="CRAN Downloads" /> 
-      <img src="https://www.r-pkg.org/badges/last-release/missMDA" alt="CRAN Release" /> <br>
-      <a href="/packages/missMDA"> more.. </a>
-    </li> 
-
     <li style="margin: 40px;">
       <h3 class="name">imputeTS</h3>
       <h6 class="Category">Category: Time-Series Imputation</h6>
@@ -59,14 +47,6 @@ weight: 4
       <a href="/packages/imputeTS"> more.. </a>
     </li> 
     
-    <li style="margin: 40px;">
-      <h3 class="name">naniar</h3>
-      <h6 class="Category">Category: Visualisations for Missing Data</h6>
-      <i class="Description">Missing values are ubiquitous in data and need to be explored and handled in the initial stages of analysis. 'naniar' provides data structures and functions that facilitate the plotting of missing values and examination of imputations. This allows missing data dependencies to be explored with minimal deviation from the common work patterns of 'ggplot2' and tidy data.</i> <br>
-      <img src="https://cranlogs.r-pkg.org/badges/naniar" alt="CRAN Downloads" /> 
-      <img src="https://www.r-pkg.org/badges/last-release/naniar" alt="CRAN Release" /> <br>
-      <a href="/packages/naniar"> more.. </a>
-    </li> 
 
     <li style="margin: 40px;">
       <h3 class="name">missForest</h3>

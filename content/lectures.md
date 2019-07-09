@@ -1,163 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+author: "Nathalie Vialaneix"
+date: 2018-07-22
+linktitle: Lectures
+menu: navbar
+name: "Lectures"
+url: "/lectures/"
+weight: 3
+---
 
-  <head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<meta property="og:title" content="" />
-<meta property="og:description" content="Below you will find a selection of high-quality tutorials on different aspects of missing values.
-If you wish to contribute some of your own material to this platform, please feel free to contact us via the Contact form.
-   General tutorials   Statistical Methods for Analysis With Missing Data
- (Marie Davidian, course at NC State University, spring 2017)
-    This course provides an overview of modern statistical frameworks and methods for analysis in the presence of missing data." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/tutorials/" /><meta property="article:published_time" content="2018-07-22T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2018-07-22T00:00:00&#43;00:00"/>
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Below you will find a selection of high-quality tutorials on different aspects of missing values.
-If you wish to contribute some of your own material to this platform, please feel free to contact us via the Contact form.
-   General tutorials   Statistical Methods for Analysis With Missing Data
- (Marie Davidian, course at NC State University, spring 2017)
-    This course provides an overview of modern statistical frameworks and methods for analysis in the presence of missing data."/>
-<meta name="generator" content="Hugo 0.53" />
-
-
-    
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "BlogPosting",
-  "headline": "",
-  "url": "/tutorials/",
-  "wordCount": "1887",
-  "datePublished": "2018-07-22T00:00:00&#43;00:00",
-  "dateModified": "2018-07-22T00:00:00&#43;00:00",
-  "author": {
-    "@type": "Person",
-    "name": "Nathalie Vialaneix"
-  }
-}
-</script>
-
-
-
-    <link rel="canonical" href="/tutorials/">
-
-    <title> | R-miss-tastic</title>
-
-    <!-- combined, minified CSS -->
-    <link href="/css/style.css" rel="stylesheet" integrity="sha384-Upm5uY/SXdvbjuIGH6fBjF5vOYUr9DguqBskM&#43;EQpLBzO9U&#43;9fMVmWEt&#43;TTlGrWQ" crossorigin="anonymous">
-
-    
-
-    
-
-    
-
-    
-
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> 
-
-<style>
-   
-  #filterInput {
-    padding: 20px;
-    margin-top: -6px;
-    border: 0;
-    border-radius: 0;
-    background: #f1f1f1;
-  }
-</style>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-      }
-    });
-</script>
-<script type="text/javascript"
-    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-<style>
-pref {
-    display: block;
-    margin-top: 0.6rem;
-    margin-bottom: 0;
-    margin-left: 0;
-    margin-right: 0;
-}
-</style>
-
-  </head>
-
-  <body>
-
-    
-    <div class="blog-masthead">
-      <div class="container">
-        <nav class="nav blog-nav">
-          <a class="nav-link " href="/">Home</a>
-          
-          <a class="nav-link" href="/bibliography/" title="">Bibliography</a>
-          
-          
-          <a class="nav-link" href="/tutorials/" title="">Tutorials</a>
-          
-          
-          <a class="nav-link" href="/rpkg/" title="">R packages</a>
-          
-          
-          <a class="nav-link" href="/data/" title="">Data</a>
-          
-          
-          <a class="nav-link" href="/people/" title="">People</a>
-          
-          
-          <a class="nav-link" href="/events/" title="">Events &amp; links</a>
-          
-          
-          <a class="nav-link" href="/contact/" title="">Contact</a>
-          
-        </nav>
-      </div>
-    </div>
-    
-
-    
-    <header class="blog-header">
-      <div class="container">
-        <h1 class="blog-title"><a href="/" rel="home">R-miss-tastic</a></h1>
-        <p class="lead blog-description">A resource website on missing data</p>
-      </div>
-    </header>
-    
-
-    
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 blog-main">
-
-          
-
-
-<article class="blog-post">
-  <header>
-    <h2 class="blog-post-title"><a href="/tutorials/"></a></h2>
-    
-  </header>
-  <p align="justify">Below you will find a selection of high-quality tutorials on different aspects of missing values.</p>
+<p align="justify">Below you will find a selection of high-quality lectures and labs on different aspects of missing values.</p>
 
 <p align="justify"><i>If you wish to contribute some of your own material to this platform, please feel free to contact us via the <a href="/contact/">Contact form</a></i>.</p>
+
 
 <div class="container">
   <div class="accordion-option">
@@ -223,6 +77,7 @@ pref {
                     <ul>
                       <li><a href="/tutorials/Josse_bookdown_LectureNotesMissing_2018.html" target="_blank">Lecture notes</a></li>
                       <li><a href="/tutorials/Josse_Tierney_bookdown_user2018tutorial_2018.html" target="_blank">R Lab</a></li>
+                      <li><a href="/tutorials/ozoneNA.csv" target="_blank">Data for the R Lab</a></li>
                     </ul>
                   </div>
                 </div>
@@ -249,6 +104,49 @@ pref {
                       <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch4b.pdf" target="_blank">Multiple imputation</a></li>
                       <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch5.pdf" target="_blank">Propensity Score approach</a></li>
                       <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch6.pdf" target="_blank">Nonignorable missing data</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header">
+                  <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#sadinle">
+                    <div class="col-12">Statistical Methods for Analysis with Missing Data<br>
+                    <small>
+                      <p>(Mauricio Sadinle, course at University of Washington, winter 2019)</p>
+                    </small>
+                    </div>
+                  </a>
+                </div>
+                <div id="sadinle" class="collapse" data-parent="#accordion_general">  
+                  <div class="card-body">
+                    <p align="justify" style="margin-left:15px;">This course formally introduces methodologies for handling missing data in statistical analyses. It covers naive methods, missing-data assumptions, likelihood-based approaches, Bayesian and multiple imputation approaches, inverse-probability weighting, pattern-mixture models, sensitivity analysis and approaches under nonignorable missingness. Computational tools such as the Expectation-Maximization algorithm and the Gibbs' sampler will be introduced. This course is intended for students who are interested in methodological research. <br><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Syllabus-BIOST531-Winter2019.pdf" target="_blank">Course syllabus</a>
+                    </p>
+                    <ul>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture01.pdf" target="_blank">Lecture 1: syllabus, motivating examples</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture02.pdf" target="_blank">Lecture 2: general setup, notation, missing-data mechanisms</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture03.pdf" target="_blank">Lecture 3: naive methods: complete-case analysis and imputation</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture04Lab01.R" target="_blank">Lecture 4: R session 1</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture05.pdf" target="_blank">Lecture 5: likelihood-based methods</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture06.pdf" target="_blank">Lecture 6: the EM algorithm</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture07setup.pdf" target="_blank">Lecture 7: R session 2 (setup)</a>, <a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture07Lab02.R" target="_blank">R script</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture06.pdf" target="_blank">Lecture 8: introduction to Bayesian inference</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture06.pdf" target="_blank">Lecture 9: Gibbs sampling, ignorability under Bayesian inference, data augmentation</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture06.pdf" target="_blank">Lecture 10: multiple imputation</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture11.pdf" target="_blank">Lecture 11: R session 3 (setup)</a>, <a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture11Lab03.R" target="_blank">R script</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture12.pdf" target="_blank">Lecture 12: inverse probability weighting</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture13.pdf" target="_blank">Lecture 13: introduction to (weighted generalized) estimating equations</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture14wgeesel.pdf" target="_blank">Lecture 14: R session 4 (setup)</a>, <a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture14Lab04.R" target="_blank">R script</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture15.pdf" target="_blank">Lecture 15: identifiability, nonignorability, pattern-mixture models</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture16.pdf" target="_blank">Lecture 16: pattern-mixture models (continued), sensitivity analysis</a></li>
+                    </ul>
+                    <p>Exercices/Homework</p>
+                    <ul>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture01HW0.R" target="_blank">Homework 0 (after Lecture 1)</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture04HW1.pdf" target="_blank">Homework 1 (after Lecture 4)</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture07HW2.pdf" target="_blank">Homework 2 (after Lecture 7)</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture11HW3.pdf" target="_blank">Homework 3 (after Lecture 11)</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture14HW4.pdf" target="_blank">Homework 4 (after Lecture 14)</a></li>
                     </ul>
                   </div>
                 </div>
@@ -323,7 +221,7 @@ pref {
     <div class="panel panel-default">
       <div id="h_pc" class="panel-heading" role="tab">
         <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#pc" aria-expanded="false" aria-controls="pc">Missing values and principal compenent methods</a>
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#pc" aria-expanded="false" aria-controls="pc">Missing values and principal component methods</a>
         </h4>
       </div>
       <div id="pc" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_pc">
@@ -681,6 +579,7 @@ $(document).ready(function() {
   <p>(Guillaume Chauvet, course at École Nationale de la Statistique et de l'Analyse de l'Information, spring 2015)</p>
 </div>
 
+
 <div class="container">
   <div class="dropdown">
     <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
@@ -719,6 +618,7 @@ $(document).ready(function() {
   <p>(François Husson, video tutorial accompanying the R-package <i>missMDA</i>, 2016)</p>
 </div>
 
+
 <div class="container">                                        
   <div class="dropdown">
     <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
@@ -750,78 +650,4 @@ $(document).ready(function() {
   <p>(Jerry Reiter, short course at the Odum Institute at UNC Chapel Hill, March 2018)</p>
 </div>
 
-<p>&ndash;&gt;</p>
-
-
-  
-
-  
-  <hr>
-  <footer>
-
-  
-    <section>
-    <h4>Share</h4>
-    <nav class="nav sharing-icons">
-      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u=%2ftutorials%2f" title="Share on Facebook"><span class="fa fa-facebook fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://plus.google.com/share?url=%2ftutorials%2f" title="Share on Google+"><span class="fa fa-google-plus fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2ftutorials%2f" title="Share on LinkedIn"><span class="fa fa-linkedin fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://twitter.com/home?status=%2ftutorials%2f" title="Tweet this"><span class="fa fa-twitter fa-2x"></span></a>
-    </nav>
-  </section>
-
-  
-
-  
-  </footer>
-  
-
-</article> 
-
-
-
-        </div> <!-- /.blog-main -->
-
-        <aside class="col-sm-3 ml-auto blog-sidebar">
-  
-  <section class="sidebar-module sidebar-module-inset">
-    <h4>About</h4>
-    <p>This website is proudly sponsored by R Consortium and maintained by Julie Josse, Nicholas Tierney and Nathalie Vialaneix.</p>
-  </section>
-  
-
-
-
-  
-  <section class="sidebar-module">
-    <h4>Follow us!</h4>
-    <ol class="list-unstyled">
-      
-      <li><a href="https://github.com/R-miss-tastic">GitHub</a></li>
-      
-    </ol>
-  </section>
-  
-</aside>
-
-
-      </div> <!-- /.row -->
-    </div> <!-- /.container -->
-    
-
-    
-    <footer class="blog-footer">
-      <p>
-      
-      Website template created by <a href="https://twitter.com/mdo">@mdo</a>, ported to Hugo by <a href='https://twitter.com/mralanorth'>@mralanorth</a>. Website proudly powered by <a href="https://github.com/rstudio/blogdown" target="_blank">Blogdown</a> for <a href="http://r-project.org" target="_blank"><strong>R</strong></a>.
-      
-      </p>
-      <p>
-      <a href="#">Back to top</a>
-      </p>
-    </footer>
-    
-
-  </body>
-
-</html>
+ -->
