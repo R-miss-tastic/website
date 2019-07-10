@@ -1,8 +1,11 @@
 ---
 date: 2019-07-10
 author: "R-miss-tastic"
-slug: "intro"
+slug: intro
 title: "Welcome!"
+categories: []
+tags: []
+description: ''
 ---
 
 
