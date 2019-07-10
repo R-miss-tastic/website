@@ -43,7 +43,7 @@ weight: 4
 
     <li style="margin: 40px;">
       <h3 class="name">imputeTS</h3>
-      <h6 class="Category">Category: Time-Series Imputation</h6>
+      <h6 class="Category">Category: Time-Series Imputation, Visualisations for Missing Data</h6>
       <i class="Description">Imputation (replacement) of missing values in univariate time series. Offers several imputation functions and missing data plots. Available imputation algorithms include: 'Mean', 'LOCF', 'Interpolation', 'Moving Average', 'Seasonal Decomposition', 'Kalman Smoothing on Structural Time Series models', 'Kalman Smoothing on ARIMA models'.</i> <br>
       <img src="https://cranlogs.r-pkg.org/badges/imputeTS" alt="CRAN Downloads" /> 
       <img src="https://www.r-pkg.org/badges/last-release/imputeTS" alt="CRAN Release" /> <br>
@@ -56,7 +56,7 @@ weight: 4
       <i class="Description">Multiple imputation using Fully Conditional Specification (FCS) implemented by the MICE algorithm as described in Van Buuren and Groothuis-Oudshoorn (2011). Each variable has its own imputation model. Built-in imputation models are provided for continuous data (predictive mean matching, normal), binary data (logistic regression), unordered categorical data (polytomous logistic regression) and ordered categorical data (proportional odds). MICE can also impute continuous two-level data (normal model, pan, second-level variables). Passive imputation can be used to maintain consistency between variables. Various diagnostic plots are available to inspect the quality of the imputations.</i> <br>
       <img src="https://cranlogs.r-pkg.org/badges/mice" alt="CRAN Downloads" /> 
       <img src="https://www.r-pkg.org/badges/last-release/mice" alt="CRAN Release" /> <br>
-      <a href="/packages/imputeTS"> more.. </a>
+      <a href="/packages/mice"> more.. </a>
     </li> 
     
     <li style="margin: 40px;">
@@ -75,7 +75,27 @@ weight: 4
       </i> <br>
       <img src="https://cranlogs.r-pkg.org/badges/missForest" alt="CRAN Downloads" /> 
       <img src="https://www.r-pkg.org/badges/last-release/missForest" alt="CRAN Release" /> <br>
-      <a href="/packages/imputeTS"> more.. </a>
+      <a href="/packages/missForest"> more.. </a>
+    </li> 
+    
+     <li style="margin: 40px;">
+      <h3 class="name">simputation</h3>
+      <h6 class="Category">Category: Single Imputation, Meta-Package</h6>
+      <i class="Description">Easy to use interfaces to a number of imputation methods that fit in the not-a-pipe operator of the 'magrittr' package.
+      </i> <br>
+      <img src="https://cranlogs.r-pkg.org/badges/simputation" alt="CRAN Downloads" /> 
+      <img src="https://www.r-pkg.org/badges/last-release/simputation" alt="CRAN Release" /> <br>
+      <a href="/packages/simputation"> more.. </a>
+    </li> 
+    
+     <li style="margin: 40px;">
+      <h3 class="name">VIM</h3>
+      <h6 class="Category">Category: Single Imputation, Visualisations for Missing Data</h6>
+      <i class="Description">New tools for the visualization of missing and/or imputed values are introduced, which can be used for exploring the data and the structure of the missing and/or imputed values. Depending on this structure of the missing values, the corresponding methods may help to identify the mechanism generating the missing values and allows to explore the data including missing values. In addition, the quality of imputation can be visually explored using various univariate, bivariate, multiple and multivariate plot methods. A graphical user interface available in the separate package VIMGUI allows an easy handling of the implemented plot methods.
+      </i> <br>
+      <img src="https://cranlogs.r-pkg.org/badges/VIM" alt="CRAN Downloads" /> 
+      <img src="https://www.r-pkg.org/badges/last-release/VIM" alt="CRAN Release" /> <br>
+      <a href="/packages/VIM"> more.. </a>
     </li> 
 
 
