@@ -1,6 +1,6 @@
 ---
 author: Steffen Moritz
-date: '2019-02-05'
+date: '2019-07-10'
 slug: imputets
 categories: []
 tags: []
@@ -12,10 +12,10 @@ description: ''
 imputeTS
 
 ##### Category:
-Time Series Imputation
+Time-Series Imputation, Visualisations for Missing Data
 
 ##### Use-Cases:
-Imputation for Sensor Recordings, ...
+Imputation for univariate time series, Imputation of Sensor data, Visualization of time series missing data
 
 ##### Popularity:
 [![CRAN Downloads](https://cranlogs.r-pkg.org/badges/imputeTS)](https://cran.r-project.org/package=imputeTS)
@@ -28,22 +28,31 @@ Imputation for Sensor Recordings, ...
 )](https://cran.r-project.org/package=imputeTS)
 
 ##### Algorithms:
-- Mean imputation
-- LOCF
-- Interpolation'-
--Moving Average'
-- Seasonal Decomposition
+- Mean imputation (mean, mode, median)
+- Last observation carried forward (locf)
+- Next observation carried backward (nocb)
+- Linear interpolation
+- Spline interpolation
+- Stineman interpolation
+- Simple Moving Average
+- Linear Weighted Moving Average
+- Exponentially Weighted Moving Average
+- Seasonal Decomposition based imputation
+- Seasonal Split based imputation
 - Kalman Smoothing on Structural Time Series models
 - Kalman Smoothing on ARIMA models'
 
 ##### Datasets:
-- tsAirgap
-- tsNH4
-- tsHeating
+- tsAirgap (airpass dataset - Monthly totals of international airline passengers, 1949 to 1960)
+- tsNH4 (Time series of NH4 concentration in a wastewater system)
+- tsHeating (Time series of a heating systems supply temperature)
 
 ##### Further Information:
  - Moritz S, Bartz-Beielstein T (2017). “imputeTS: Time Series Missing Value Imputation in R.” The R Journal, 9(1), 207–218. https://journal.r-project.org/archive/2017/RJ-2017-009/index.html.
-- weitere Links
+ 
+- https://edav.info/missingTS.html
+
+- https://www.kaggle.com/juejuewang/handle-missing-values-in-time-series-for-beginners
 
 ##### Input: 
 vector, ts, data.frame, zoo, xts
