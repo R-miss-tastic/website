@@ -1,5 +1,5 @@
 ---
-date: 2019-06-30
+date: 2019-07-09
 author: "R-miss-tastic"
 images: ["/images/missing_data_propaganda.png"]
 slug: "welcome"
