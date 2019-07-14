@@ -96,6 +96,16 @@ weight: 4
       <a href="/packages/VIM"> more.. </a>
     </li> 
 
+    <li style="margin: 40px;">
+    <h3 class="name">primePCA</h3> 
+    <h6 class="Category">Category: Principal component analysis (PCA)</h6> 
+    <i class="Description"> Implements the primePCA algorithm, developed and analysed in Zhu, Z., Wang, T. and Samworth, R. J. (2019) High-dimensional principal component analysis with heterogeneous missingness (arXiv:1906.12125). Starting from the inverse probability weighted (IPW) estimator, *primePCA* iteratively projects the observed entries of the data matrix onto the column space of our current estimate to impute the missing entries, and then updates our estimate by computing the leading right singular space of the imputed data matrix. 
+    </i> <br> 
+    <img src="https://cranlogs.r-pkg.org/badges/primePCA" alt="CRAN Downloads" /> 
+    <img src="https://www.r-pkg.org/badges/last-release/primePCA" alt="CRAN Release" /> 
+    <a href="/packages/primePCA"> more.. </a> 
+    </li> 
+
 
   </ul>
 </p>
