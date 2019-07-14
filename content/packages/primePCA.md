@@ -12,10 +12,10 @@ description: ''
 primePCA <!-- Replace <name_of_package> by the package name-->
 
 ##### Category:
-Principal component analysis <!-- Replace <category> by the category (e.g. Time Series Imputation, Regression, Classification, etc.) -->
+Principal component analysis (PCA)<!-- Replace <category> by the category (e.g. Time Series Imputation, Regression, Classification, etc.) -->
 
 ##### Use-Cases:
-Clustering, Personalized recommendation <!-- Replace <use_cases> by one or more examples (e.g. Imputation for Sensor Recordings, Prediction on incomplete health/ecology/... records, etc.) -->
+PCA, Clustering, Personalized recommendation <!-- Replace <use_cases> by one or more examples (e.g. Imputation for Sensor Recordings, Prediction on incomplete health/ecology/... records, etc.) -->
 
 ##### Popularity:
 [![CRAN Downloads](https://cranlogs.r-pkg.org/badges/primePCA)](https://cran.r-project.org/package=primePCA) <!-- Replace the two instances of <pkg> by the CRAN package name-->
