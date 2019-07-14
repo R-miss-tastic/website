@@ -1,7 +1,7 @@
 ---
 author: Steffen Moritz
-date: '2019-02-05'
-slug: package_name
+date: '2019-07-13'
+slug: primePCA
 categories: []
 tags: []
 description: ''
@@ -21,7 +21,7 @@ Clustering, Personalized recommendation <!-- Replace <use_cases> by one or more 
 [![CRAN Downloads](https://cranlogs.r-pkg.org/badges/primePCA)](https://cran.r-project.org/package=primePCA) <!-- Replace the two instances of <pkg> by the CRAN package name-->
 
 ##### Description:
-Implements the primePCA algorithm, developed and analysed in Zhu, Z., Wang, T. and Samworth, R. J. (2019) High-dimensional principal component analysis with heterogeneous missingness. arXiv:1906.12125. <!-- Add short description (<10 lines) on main functionalities and caracteristics of the packages-->
+Implements the primePCA algorithm, developed and analysed in Zhu, Z., Wang, T. and Samworth, R. J. (2019) High-dimensional principal component analysis with heterogeneous missingness (arXiv:1906.12125). Starting from the inverse probability weighted (IPW) estimator, *primePCA* iteratively projects the observed entries of the data matrix onto the column space of our current estimate to impute the missing entries, and then updates our estimate by computing the leading right singular space of the imputed data matrix.<!-- Add short description (<10 lines) on main functionalities and caracteristics of the packages-->
 
 #### Last update:
 [![CRAN Release](https://www.r-pkg.org/badges/last-release/primePCA
