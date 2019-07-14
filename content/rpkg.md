@@ -103,9 +103,10 @@ weight: 4
     </i> <br> 
     <img src="https://cranlogs.r-pkg.org/badges/primePCA" alt="CRAN Downloads" /> 
     <img src="https://www.r-pkg.org/badges/last-release/primePCA" alt="CRAN Release" /> 
+    <br>
     <a href="/packages/primePCA"> more.. </a> 
   </li> 
-  </ul>
+    </ul>
   </p>
 </div>
 
