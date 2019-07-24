@@ -11,9 +11,11 @@ description: ''
 
 <p align="justify">When it comes to analyses with missing values, some questions are raised regularely during classes or seminars. We try to list the most popular questions with some elements of response. If you have another question related to the handling of missing values, feel free to contact us via the <a href="/contact/">Contact form</a>.</p>
 
-<p align="justify">Click on a question to see the answer.</p>
 
 <!--more-->
+
+<p align="justify">Click on a question to see the answer.</p>
+
 
 <div class="container">
   <div class="accordion-option">

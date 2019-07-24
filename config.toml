@@ -20,10 +20,7 @@ paginate = 3
 [[menu.sidebar]]
   name = "GitHub"
   url = "https://github.com/R-miss-tastic"
-    
-[[menu.sidebar]]
-  name = "FAQ"
-  url = "/posts/faq/"  
+      
 
 [[menu.sidebar]]
   name = "Events"
@@ -69,7 +66,7 @@ paginate = 3
 
   [params.sidebar]
     # Optional about block for sidebar (can be Markdown)
-     about = "This website is proudly sponsored by R Consortium and maintained by [Julie Josse](http://juliejosse.com), [Imke Mayer](https://www.imkemayer.com), [Nicholas Tierney](https://www.njtierney.com) and [Nathalie Vialaneix](http://www.nathalievialaneix.eu).<br><br>[Read more →](/posts/intro/)"
+     about = "This website is proudly sponsored by R Consortium and maintained by [Julie Josse](http://juliejosse.com), [Imke Mayer](https://www.imkemayer.com), [Nicholas Tierney](https://www.njtierney.com) and [Nathalie Vialaneix](http://www.nathalievialaneix.eu).<br><br>[Read more →](/posts/intro/)<br>[FAQ →](/posts/faq/)"
 
     # How many posts to show on the sidebar (Default: 5)
     # num_recent_posts = 3
