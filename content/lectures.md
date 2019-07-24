@@ -288,6 +288,27 @@ weight: 3
             <div id="accordion_special">
               <div class="card">
                 <div class="card-header">
+                  <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#josse_user">
+                    <div class="col-12">Supervised learning with missing values<br>
+                    <small>
+                      <p>(Julie Josse, video of Keynote at useR! conference in Toulouse, 2019)</p>
+                    </small>
+                  </div>
+                  </a>
+                </div>
+                <div id="josse_user" class="collapse" data-parent="#accordion_special">  
+                  <div class="card-body">
+                    <p align="justify" style="margin-left:15px;">This keynote talk gives an overview of different approaches for inference and prediction tasks. A striking result for the latter is that the widely-used method of imputing with the mean prior to learning can be consistent. 
+                    </p>
+                    <ul>
+                      <li><a href="https://www.youtube.com/watch?v=z8IuuDe5oXs" target="_blank">A missing value tour in R (video)</a></li>
+                      <li><a href="http://juliejosse.com/wp-content/uploads/2019/07/useRjosse_2019.pdf" target="_blank">Slides for the talk</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header">
                   <a class="card-block clearfix" data-toggle="collapse" data-target="#chauvet">
                     <div class="col-12">Handling missing values in surveys<br><small><p>(Guillaume Chauvet, course at École Nationale de la Statistique et de l'Analyse de l'Information, spring 2015, slides in <b>French</b>)</p></small></div>
                   </a>
