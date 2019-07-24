@@ -21,6 +21,9 @@ paginate = 3
   name = "GitHub"
   url = "https://github.com/R-miss-tastic"
     
+[[menu.sidebar]]
+  name = "FAQ"
+  url = "/posts/faq/"  
 
 [[menu.sidebar]]
   name = "Events"
