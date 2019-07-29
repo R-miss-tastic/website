@@ -25,7 +25,9 @@ weight: 6
 <li class="list-group-item"> <a href="https://gking.harvard.edu" target="_blank">Gary King</a> (Harvard University)</li>
 <li class="list-group-item"> <a href="https://sites.google.com/a/umich.edu/rod-little/" target="_blank">Roderick J.A. Little</a> (University of Michigan)</li>
 <li class="list-group-item"> <a href="https://statistics.fas.harvard.edu/people/xiao-li-meng" target="_blank">Xiao-Li Meng</a> (Harvard University)</li>
+<li class="list-group-item"> <a href="http://www.karthikamohan.com" target="_blank">Karthika Mohan</a> (UCLA)</li>
 <li class="list-group-item"> <a href="https://www.kuleuven.be/wieiswie/en/person/u0056633" target="_blank">Geert Molenberghs</a> (<a href="https://ibiostat.be/online-resources" target="_blank">I-BioStat</a> and KU Leuven)</li>
+<li class="list-group-item"> <a href="http://bayes.cs.ucla.edu/jp_home.html" target="_blank">Judea Pearl</a> (UCLA)</li>
 <li class="list-group-item"> <a href="http://www2.stat.duke.edu/~jerry/" target="_blank">Jerry Reiter</a> (Duke University)</li>
 <li class="list-group-item"> <a href="https://statistics.fas.harvard.edu/people/donald-b-rubin" target="_blank">Donald B. Rubin</a> (Tsinghua University)</li>
 <li class="list-group-item"> <a href="https://faculty.washington.edu/msadinle/index.html" target="_blank">Mauricio Sadinle</a> (University of Washington)</li>
