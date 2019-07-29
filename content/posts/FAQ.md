@@ -141,7 +141,7 @@ description: ''
                 <div id="predictive-missing" class="collapse" data-parent="#accordion_general_faq">  
                   <div class="card-body">
                     <p align="justify" style="margin-left:15px;">If having missing data is informative for prediction, we see that having an indicator in your dataset that codes for <i>missing</i>/<i>not missing</i> will help because it is seen as an explanatory variable. The <a href="https://www.sciencedirect.com/science/article/abs/pii/S0167865508000305" target="_blank">MIA method (Twala et al. 2008)</a> for regression trees/random forests allows this to be done. (<i>JJ</i>)</p>
-                    <p >See also, <a href="https://arxiv.org/pdf/1902.06931.pdf" target="_blank">Josse et al. (2019)</a></p>
+                    <p align="justify" style="margin-left:15px;">See also, <a href="https://arxiv.org/pdf/1902.06931.pdf" target="_blank">Josse et al. (2019)</a></p>
                   </div>
                 </div>
               </div>
