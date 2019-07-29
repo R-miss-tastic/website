@@ -26,7 +26,7 @@ url: /bibliography/
 <div class="panel panel-default">
 <div class="panel-heading" role="tab" id="h_notations">
 <h4 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#notations" aria-expanded="false" aria-controls="notations">Notations</a>
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="#notations" aria-expanded="false" aria-controls="notations">Short introduction to missing values</a>
 </h4>
 </div>
 <div id="notations" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_notations">
