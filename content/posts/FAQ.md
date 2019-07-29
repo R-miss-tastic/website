@@ -99,7 +99,7 @@ description: ''
                     </div>
                   </a>
                 </div>
-                <div id="method-choice" class="collapse" data-parent="#accordion_general_faq">  
+                <div id="imputation-time" class="collapse" data-parent="#accordion_general_faq">  
                   <div class="card-body">
                     <p align="justify" style="margin-left:15px;">Yes, definitely! The consequences of not taking into account the missing data can become dramatic very quickly. Even without mentioning underestimation of variance, there can be a significant bias! For example, at the moment I am working on estimating the effect of a treatment and if we do not take into account the missing data, we can say that the treatment kills when it saves. (<i>JJ</i>)</p>
                   </div>
@@ -203,7 +203,7 @@ description: ''
               <div class="card">
                 <div class="card-header">
                   <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#learner-codes">
-                    <div class="col-12"><i>If you have a learner powerful enough to recognise encoded missing values, shouldn't it be able to recognise NA without resorting to recoding? (Question relative to <a href="https://arxiv.org/pdf/1902.06931.pdf" target="_blank">(Josse et al. 2019))</a></i></div>
+                    <div class="col-12"><i>If you have a learner powerful enough to recognise encoded missing values, shouldn't it be able to recognise NA without resorting to recoding?</i><p>(Question relative to <a href="https://arxiv.org/pdf/1902.06931.pdf" target="_blank">(Josse et al. 2019))</a></p></div>
                   </a>
                 </div>
                 <div id="learner-codes" class="collapse" data-parent="#accordion_encoding_faq">  
