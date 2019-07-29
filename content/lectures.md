@@ -84,7 +84,7 @@ weight: 3
               </div>
               <div class="card">
                 <div class="card-header">
-                  <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#kim">
+                  <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#kim" id="h_kim">
                     <div class="col-12">Analysis of missing values<br>
                     <small>
                       <p>(Jae-Kwang Kim, course at Iowa State University, fall 2015)</p>
