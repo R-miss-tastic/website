@@ -20,7 +20,7 @@ description: ''
 
 <div class="container card-group">
   <input class="form-control" id="accordion_search_bar" onkeyup="filterFunction()" type="text" placeholder="Keyword search.. (e.g. imputation)">
-  <br>
+  </br>
   <div id="accordion" aria-multiselectable="true">
     <div class="card mb-2" id="faq01_container">
       <div class="card-header bg-light text-dark" role="tab" id="h_faq01" data-toggle="collapse" data-parent="#accordion" href="#faq01" aria-expanded="false" aria-controls="faq01">
