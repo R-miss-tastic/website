@@ -14,7 +14,7 @@ url: /bibliography/
 
 <a href="/bibliography/biblio_complete/"><b>See here for a full (and uncommented) list of references.</b></a>
 
-<p align="justify"> Inspired by <a href="https://cran.r-project.org/web/views/MissingData.html" target="_blank"><b>CRAN Task View on Missing Data</b></a> and a [review](http://journal-sfds.fr/article/view/681){target="_blank"} of Imbert & Villa-Vialaneix on handling missing values (2018, written in French) we organized our selection of relevant references on missing values by different topics.
+<p align="justify"> Inspired by <a href="https://cran.r-project.org/web/views/MissingData.html" target="_blank"><b>CRAN Task View on Missing Data</b></a> and a [review](http://journal-sfds.fr/article/view/681){target="_blank"} of Imbert & Vialaneix on handling missing values (2018, written in French) we organized our selection of relevant references on missing values by different topics.
 </p>
 
 
