@@ -5,7 +5,7 @@ linktitle: Lectures
 menu: navbar
 name: "Lectures"
 url: "/lectures/"
-weight: 3
+weight: 2
 ---
 
 <p align="justify">Below you will find a selection of high-quality lectures and labs on different aspects of missing values.</p>
