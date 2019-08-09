@@ -8,7 +8,7 @@ url: "/lectures/"
 weight: 2
 ---
 
-<p align="justify">Below you will find a selection of high-quality lectures and labs on different aspects of missing values.</p>
+<p align="justify">Below you will find a selection of high-quality lectures, tutorials and labs on different aspects of missing values.</p>
 
 <p align="justify"><i>If you wish to contribute some of your own material to this platform, please feel free to contact us via the <a href="/contact/">Contact form</a></i>.</p>
 
@@ -22,7 +22,7 @@ weight: 2
     <div class="panel panel-default">
       <div id="h_general" class="panel-heading" role="tab">
         <h4 class="panel-title">
-          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#general" aria-expanded="false" aria-controls="general">General tutorials</a>
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#general" aria-expanded="false" aria-controls="general">General lectures</a>
         </h4>
       </div>
       <div id="general" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_general">
