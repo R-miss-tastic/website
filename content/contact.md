@@ -1,17 +1,27 @@
 ---
 date: "2018-10-24"
 author: "Imke Mayer"
-title: "Contact"
 sharingicons: false
+linktitle: Contact & Contribute
 menu: navbar
-name: "Contact"
+name: "Contact & Contribute"
 url: "/contact/"
 weight: 100
 ---
 
 
+#### Contribute
+<p align="justify">Here is some way to contribute to the project.</p>
 
-<p align="justify">If you have comments, suggestions or questions about this platform or if you wish to submit some of your own material on missing values (references, tutorials, data sets, etc.) please feel free to contact us by using the form below or send us an e-mail to the following address: r-miss-tastic [at] clementine [dot] wf.</p>
+- Edit the <a href="https://github.com/R-miss-tastic/website/blob/master/resources/rmisstastic_biblio.bib" target="_blank">bibliography ressource</a>;
+- Review the <a href="/workflows/" target="_blank">Workflows</a> available and suggest comments or improvement (or do similar workflows in python);
+- Add data sets;
+- Suggest ideas to organize a data challenge;
+- Improve the <a href="/posts/faq/" target="_blank">FAQ </a> with more questions;
+- Improve this [website](https://github.com/R-miss-tastic/website).
+
+#### Contact
+<p align="justify">If you have comments, suggestions or questions about this platform or if you wish to submit some of your own material on missing values (references, tutorials, data sets, etc.) please feel free to either submit <a href="https://github.com/R-miss-tastic/website/issues" target="_blank">an issue on github</a>, or to contact us by using the form below (which will send us an e-mail at: r-miss-tastic [at] clementine [dot] wf).</p>
 
 
 <form method="POST" action="https://formspree.io/r-miss-tastic@clementine.wf">
