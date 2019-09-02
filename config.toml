@@ -19,7 +19,7 @@ paginate = 3
 
 [[menu.sidebar]]
   name = "GitHub"
-  url = "https://github.com/R-miss-tastic"
+  url = "https://github.com/R-miss-tastic/website"
       
 
 [[menu.sidebar]]
