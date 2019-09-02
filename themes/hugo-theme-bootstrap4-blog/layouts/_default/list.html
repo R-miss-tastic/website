@@ -27,6 +27,11 @@
 </script>
 {{ end }}
 
+
+<!-- template for google analytics -->
+{{ template "_internal/google_analytics.html" . }}
+{{ template "_internal/google_analytics_async.html" . }}
+
 {{ define "main" }}
 
 {{ $truncate := default true .Site.Params.truncate }}
