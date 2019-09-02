@@ -3,80 +3,146 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/bibliography/biblio_complete/</loc>
-    <lastmod>2018-10-24T00:00:00+00:00</lastmod>
+    <loc>https://rmisstastic.netlify.com/workflows/</loc>
+    <lastmod>2019-06-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/bibliography/</loc>
-    <lastmod>2018-10-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/packages/imputets/</loc>
-    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2019/01/</loc>
-    <lastmod>2019-01-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/events/</loc>
-    <lastmod>2019-01-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/data/</loc>
-    <lastmod>2018-12-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/people/</loc>
-    <lastmod>2018-10-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/contact/</loc>
-    <lastmod>2018-10-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tutorials/</loc>
+    <loc>https://rmisstastic.netlify.com/lectures/</loc>
     <lastmod>2018-07-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/rpkg/</loc>
+    <loc>https://rmisstastic.netlify.com/bibliography/</loc>
+    <lastmod>2018-10-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/rpkg/</loc>
     <lastmod>2010-04-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/</loc>
-    <priority>0</priority>
+    <loc>https://rmisstastic.netlify.com/data/</loc>
+    <lastmod>2018-12-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/packages/</loc>
-    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <loc>https://rmisstastic.netlify.com/people/</loc>
+    <lastmod>2018-10-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2019-01-23T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <loc>https://rmisstastic.netlify.com/misc/</loc>
+    <lastmod>2019-01-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/</loc>
+    <loc>https://rmisstastic.netlify.com/contact/</loc>
     <lastmod>2018-10-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/posts/</loc>
+    <lastmod>2019-08-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/</loc>
+    <lastmod>2019-08-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/posts/intro/</loc>
+    <lastmod>2019-08-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/posts/faq/</loc>
+    <lastmod>2019-08-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/posts/welcome/</loc>
+    <lastmod>2019-08-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/posts/events/</loc>
+    <lastmod>2019-08-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/packages/imputets/</loc>
+    <lastmod>2019-07-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/packages/mice/</loc>
+    <lastmod>2019-07-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/packages/missforest/</loc>
+    <lastmod>2019-07-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/packages/simputation/</loc>
+    <lastmod>2019-07-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/packages/vim/</loc>
+    <lastmod>2019-07-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/packages/</loc>
+    <lastmod>2019-07-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/posts/events-2/</loc>
+    <lastmod>2019-07-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/posts/events-3/</loc>
+    <lastmod>2019-07-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/posts/events-4/</loc>
+    <lastmod>2019-07-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/posts/events-5/</loc>
+    <lastmod>2019-07-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/packages/missmda/</loc>
+    <lastmod>2019-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/packages/naniar/</loc>
+    <lastmod>2019-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/bibliography/biblio_complete/</loc>
+    <lastmod>2018-10-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/tags/</loc>
   </url>
   
 </urlset>
