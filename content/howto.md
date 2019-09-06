@@ -22,14 +22,18 @@ weight: 1
 
 
 <br>
-<h3>How to ...</h3>
+<h3>How to (R notebook)...</h3>
 <ul class="list-group" id="workflows-list">
 <li class="list-group-item"> <a href="/how-to/generate/missSimul.html" target="_blank">... generate missing values?</a> (<a href="/how-to/generate/missSimul.pdf" target="_blank">PDF</a> and <a href="/how-to/generate/amputation.R" target="_blank">related R source code</a>)</li>
 <li class="list-group-item"> <a href="/how-to/estimate/missEstim.html" target="_blank">... estimate with missing values?</a> (<a href="/how-to/estimate/missEstim.pdf" target="_blank">PDF</a>)</li>
 <li class="list-group-item"> <a href="/how-to/impute/missImp.html" target="_blank">... impute missing values?</a> (<a href="/how-to/impute/missImp.pdf" target="_blank">PDF</a>)</li>
 </ul>
 
-<p align="justify"><i>If you have suggestions for improvement of these workflows or if you discover bugs in some of them, please feel free to contact us via the <a href="/contact/">Contact form</a> or directly submit changes on our <a href="https://github.com/R-miss-tastic/website" target="_blank">GitHub repo</a>.</i></p>
+### Python notebook (Work in progress)
+- [How to generate missing values?](https://github.com/TwsThomas/website/blob/tuto_python/static/how-to/python/generate/How%20to%20generate%20missing%20values.ipynb)
+- [How to predict with missing values](https://github.com/TwsThomas/website/blob/tuto_python/static/how-to/python/predict/Tutorial%20Boosted%20Trees%20with%20Missing%20Values.ipynb)
+
+<p align="justify"><i>If you have any suggestions please raise an issue on our <a href="https://github.com/R-miss-tastic/website" target="_blank">GitHub repo</a>.</i></p>
 
 
 
