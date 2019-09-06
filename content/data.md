@@ -26,7 +26,7 @@ weight: 5
 <br>
 ## Incomplete data
 
-<p align="justify">The data sets listed below are either widely used in general in the missing data community or used for illustration of different methods handling missing values in the tutorials from the <a href="/tutorials/" target="_blank">Tutorials</a> and <a href="/rpkg/" target="_blank">R packages</a> sections. This presentation scheme is inspired by the <a href="https://archive.ics.uci.edu/ml/index.php" target="_blank">UCI Machine Learning Repository</a>.</p>
+<p align="justify">The data sets listed below are either widely used in general in the missing data community or used for illustration of different methods handling missing values in the tutorials from the <a href="/workflows/" target="_blank">Tutorials</a> and <a href="/rpkg/" target="_blank">R packages</a> sections. This presentation scheme is inspired by the <a href="https://archive.ics.uci.edu/ml/index.php" target="_blank">UCI Machine Learning Repository</a>.</p>
 
 Click on a table entry to obtain further information about the data set.
 

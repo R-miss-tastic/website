@@ -7,7 +7,6 @@ def generate_without_missing_values(data='simple', n_samples=200,
     """generate canonical regression data"""
 
     assert data in ['simple', 'linear', 'quadratic', 'friedman']
-
     np.random.seed(random_state)
     mean = np.ones(n_features)
     ro = .5
