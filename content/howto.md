@@ -34,8 +34,8 @@ weight: 1
 <h5> [Work in progress] How to (Python notebook) ... </h5>
 <p align="justify"> 
 <ul class="list-group" id="workflows-list_py">
-<li class="list-group-item"> [... generate missing values?](https://github.com/TwsThomas/website/blob/tuto_python/static/how-to/python/How%20to%20generate%20missing%20values.ipynb) ([HTML](https://github.com/TwsThomas/website/blob/tuto_python/static/how-to/python/How%20to%20generate%20missing%20values.html))</li>
-<li class="list-group-item">  [... predict with missing values?](https://github.com/TwsThomas/website/blob/tuto_python/static/how-to/python/Tutorial%20Boosted%20Trees%20with%20Missing%20Values.ipynb) ([HTML](https://github.com/TwsThomas/website/blob/tuto_python/static/how-to/python/Tutorial%20Boosted%20Trees%20with%20Missing%20Values.html))</li>
+<li class="list-group-item"> [... generate missing values?](https://github.com/TwsThomas/website/blob/tuto_python/static/how-to/python/How%20to%20generate%20missing%20values.ipynb) ([HTML](/static/how-to/python/How%20to%20generate%20missing%20values.html))</li>
+<li class="list-group-item">  [... predict with missing values?](https://github.com/TwsThomas/website/blob/tuto_python/static/how-to/python/Tutorial%20Boosted%20Trees%20with%20Missing%20Values.ipynb) ([HTML](/static/how-to/python/Tutorial%20Boosted%20Trees%20with%20Missing%20Values.html))</li>
 </p>
 
 <p align="justify"><i>If you have any suggestions please raise an issue on our <a href="https://github.com/R-miss-tastic/website" target="_blank">GitHub repo</a>.</i></p>
