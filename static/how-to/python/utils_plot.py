@@ -31,15 +31,41 @@ def scatter_plot_obs(X_obs):
     g.ax_joint.plot(X_miss_min[:,0], X_miss_min[:,1], "*", alpha = .7)  
     plt.legend()
     plt.tight_layout()
-    
+
+
+def scatter_plot_imputed(X_obs, X_impute):
+    # Scatter plot X_obs and X_impute with density histogram
+
+    # g = sns.JointGrid(X_obs[:,0], X_obs[:,1])
+    g = sns.JointGrid([0],[0])
+#     g.set_axis_labels('X [:,0]','X [:,1]')
+    row_with_missing = np.array([any(np.isnan(x)) for x in X_obs])
+    X_impute_only = X_impute[row_with_missing]
+    X_obs_wo_nan = X_obs[~row_with_missing]
+    # g.set(xticks=[], yticks=[])
+    sns.kdeplot(X_obs_wo_nan[:,0], ax=g.ax_marg_x)
+    sns.kdeplot(X_obs_wo_nan[:,1], ax=g.ax_marg_y,
+                vertical=True, label='observed')
+    g.ax_joint.plot(X_obs_wo_nan[:,0], X_obs_wo_nan[:,1], "o", alpha = .7)
+
+    sns.kdeplot(X_impute[:,0], ax=g.ax_marg_x)
+    sns.kdeplot(X_impute[:,1], ax=g.ax_marg_y,
+         vertical=True, label='imputed')
+    g.ax_joint.plot(X_impute_only[:,0], X_impute_only[:,1], "*",
+                    alpha = .7)  
+    plt.legend()
+    plt.tight_layout()
+
 def scatter_plot_with_missing_completed(X_obs, X_complete, 
                                         replace_nan_by_min=True):
     # scatter plot with historgams, nan are completed by its true value
     
     row_with_missing = [any(np.isnan(x)) for x in X_obs]
     # use X_complete informations
+    values_miss_0 = X_complete[:,0][np.isnan(X_obs[:,0])]
+    values_miss_1 = X_complete[:,1][np.isnan(X_obs[:,1])]
     X_missing = X_complete[row_with_missing]
-
+    
     g = sns.JointGrid(X_obs[:,0], X_obs[:,1])
 #     g.set_axis_labels('X [:,0]','X [:,1]')
 #     g.set_ylabel('X[:,1]')
