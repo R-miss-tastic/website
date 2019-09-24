@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>How to generate missing values</title>
+<title>How to predict</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13123,7 +13123,7 @@ div#notebook {
 <script>
 $( document ).ready(function(){
 
-            var cfg = {"base_numbering": 1, "nav_menu": {}, "number_sections": true, "sideBar": true, "skip_h1_title": false, "title_cell": "Table of Contents", "title_sidebar": "Contents", "toc_cell": false, "toc_position": {}, "toc_section_display": true, "toc_window_display": true};
+            var cfg = {"base_numbering": 1, "nav_menu": {}, "number_sections": false, "sideBar": true, "skip_h1_title": false, "title_cell": "Table of Contents", "title_sidebar": "Contents", "toc_cell": false, "toc_position": {}, "toc_section_display": true, "toc_window_display": true};
 
             // fire the main function with these parameters
             require(['nbextensions/toc2/toc2'], function (toc2) {
@@ -13138,30 +13138,7 @@ $( document ).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="How-to-simulate-missing-values?">How to simulate missing values?<a class="anchor-link" href="#How-to-simulate-missing-values?">&#182;</a></h1><p>Teresa Alves de Sousa, Imke Mayer, Thomas Schmitt</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Missing values occur in many domains and most datasets contain missing values (due to non-responses, lost records, machine failures, dataset fusions, etc.). These missing values have to be considered before or during analyses of these datasets.</p>
-<p>Now, if you have a method that deals with missing values, for instance imputation or estimation with missing values, how can you assess the performance of your method on a given dataset? If the data already contains missing values, than this does not help you since you generally do not have a ground truth for these missing values. So you will have to simulate missing values, i.e. you remove values -- which you therefore know to be the ground truth -- to generate missing values.</p>
-<p>The mechanisms generating missing values can be various but usually they are classified into three main categories defined by <a href="http://www.jstor.org/stable/2335739">Rubin 1976</a>: <em>missing completely at random</em> (MCAR), <em>missing at random</em> (MAR) and <em>missing not at random</em> (MNAR). The first two are also qualified as <em>ignorable</em> missing values mechanisms, for instance in likelihood-based approaches to handle missing values, whereas the MNAR mechanism generates <em>nonignorable</em> missing values.
-In the following we will briefly introduce each mechanism (with the definitions used widely in the literature) and propose ways of simulations missing values under these three mechanism assumptions. For more precise definitions we refer to references in the bibliography on the <a href="https://rmisstastic.netlify.com/">R-miss-tastic</a> website.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Notations">Notations<a class="anchor-link" href="#Notations">&#182;</a></h1><p>Let's denote by $\mathbf{X}\in\mathcal{X_1}\times\dots\times\mathcal{X_p}$ the complete observations. We assume that $\mathbf{X}$ is a concatenation of $p$ columns $X_j\in\mathcal{X_j}$, $j\in\{1,\dots,p\}$, where $dim(\mathcal{X_j})=n$ for all $j$.</p>
-<p>The data can be composed of quantitative and/or qualitative values, hence $\mathcal{X_j}$ can be $\mathbb{R}^n$, $\mathbb{Z}^n$ or more generally $\mathcal{S}^n$ for any discrete set $S$.</p>
-<p>Missing values are indicated as <code>np.nan</code> (not a number) and we define an indicator matrix $\mathbf{R}\in\{0,1\}^{n\times p}$ such that $R_{ij}=1$ if $X_{ij}$ is observed and $R_{ij}=0$ otherwise. We call this matrix $\mathbf{R}$ the response (or missingness) pattern of the observations $\mathbf{X}$. According to this pattern, we can partition the observations $\mathbf{X}$ into observed and missing: $\mathbf{X} = (\mathbf{X}^{obs}, \mathbf{X}^{mis})$.</p>
-<p>We generate a small example of two dimensional normal observations $\mathbf{X} \sim \mathbf{N}(\mu, I_2), \mu \in \mathbb{R}^2$</p>
-
+<h1 id="How-to-predict-with-missing-values-?">How to predict with missing values ?<a class="anchor-link" href="#How-to-predict-with-missing-values-?">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -13171,8 +13148,10 @@ In the following we will briefly introduce each mechanism (with the definitions 
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
+
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 
@@ -13181,82 +13160,50 @@ In the following we will briefly introduce each mechanism (with the definitions 
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#160;1-Get-your-data-(with-missing-values)">&#160;1 Get your data (with missing values)<a class="anchor-link" href="#&#160;1-Get-your-data-(with-missing-values)">&#182;</a></h1>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Generate the complete data</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load you own data here</span>
 
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># fix the seed </span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="k">import</span> <span class="n">fetch_california_housing</span>
+<span class="n">X_complete</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fetch_california_housing</span><span class="p">(</span><span class="n">return_X_y</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 
-<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">900</span>
+<span class="c1"># Artificially add some np.nan</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># fix the seed</span>
 
-<span class="c1"># Generate normal data with Id_2 covariance.</span>
-<span class="n">mean</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">cov</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
-<span class="n">X_complete</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">cov</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_samples</span><span class="p">)</span>
-<span class="c1"># X_complete = np.random.uniform(0, 1, size=(n_samples,2))</span>
+<span class="c1">## Add completly at random missing values</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X_complete</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">missing_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">missing_mask</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
 
-<span class="c1"># plot the data</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">X_complete</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_complete</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Complete data&#39;</span><span class="p">);</span>
+<span class="c1">## Add censored missing values</span>
+<span class="n">missing_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">X_complete</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">X_complete</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">missing_mask</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+
+<span class="c1">## Add missing values correlated to y</span>
+<span class="n">y_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
+<span class="n">y_max_mask</span> <span class="o">=</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="n">y_max</span>
+<span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">y_max_mask</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="output_4_0.png"
->
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#160;Amputation">&#160;Amputation<a class="anchor-link" href="#&#160;Amputation">&#182;</a></h1><p>We want to simulate a matrix <code>X_obs</code> from <code>X_complete</code> with missing entries (remplacing some entries by <code>np.nan</code>).<br>
-To do so we sample the indicator matrix <code>R</code> (missing pattern) with same shape as <code>X_complete</code> indicating non missing entries:</p>
-<p>$X_{obs} = X_{complete} \cdot \mathbb{1}_{\{R=1\}} + \mbox{np.nan} \cdot \mathbb{1}_{\{R=0\}}$</p>
-<p>The mechanisms generating the indicator matrix (thus the missing values) can be various but usually they are classified into three main categories defined by <a href="https://www.jstor.org/stable/2335739">Rubin 1976</a>, see the <a href="https://rmisstastic.netlify.com/bibliography/">bibliography</a>.</p>
-<ol>
-<li>Missing Completly at Random (MCAR)</li>
-<li>Missing at Random (MAR)</li>
-<li>Missing Not at Random (MNAR)  </li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#160;1.-MCAR-Mechanism-(Missing-Completly-at-Random)">&#160;1. MCAR Mechanism (Missing Completly at Random)<a class="anchor-link" href="#&#160;1.-MCAR-Mechanism-(Missing-Completly-at-Random)">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The observations are said to be Missing Completely At Random (MCAR) if the probability that an observation is missing is independent of the variables and observations: the probability that an observation is missing does not depend on $(\mathbf{X}^{obs},\mathbf{X}^{mis})$. Formally this is:
-$$\mathbb{P}_R(R\,|\, X^{obs}, X^{mis}; \phi) = \mathbb{P}_R(R) \qquad \forall \, \phi.$$</p>
-<p>In Python, the easiest way is to sample a Bernouilli mask</p>
+<h3 id="Quick-Exploratory-Data-Analysise">Quick Exploratory Data Analysise<a class="anchor-link" href="#Quick-Exploratory-Data-Analysise">&#182;</a></h3><p>Few lines of code to appreciate the missingness in our data</p>
 
 </div>
 </div>
@@ -13266,43 +13213,7 @@ $$\mathbb{P}_R(R\,|\, X^{obs}, X^{mis}; \phi) = \mathbb{P}_R(R) \qquad \forall \
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
-
-<span class="k">def</span> <span class="nf">ampute_mcar</span><span class="p">(</span><span class="n">X_complete</span><span class="p">,</span> <span class="n">missing_rate</span> <span class="o">=</span> <span class="o">.</span><span class="mi">2</span><span class="p">):</span>
-    <span class="c1"># Mask completly at random some values</span>
-    
-    <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">missing_rate</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">X_complete</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-    <span class="n">X_obs</span> <span class="o">=</span> <span class="n">X_complete</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">X_obs</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Percentage of newly generated mising values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span>\
-      <span class="nb">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">X_obs</span><span class="p">))</span><span class="o">/</span><span class="n">X_obs</span><span class="o">.</span><span class="n">size</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>
-    
-    <span class="c1"># warning if a full row is missing</span>
-    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">X_obs</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">row</span><span class="p">)):</span>
-            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Some row(s) contains only nan values.&#39;</span><span class="p">)</span>
-            <span class="k">break</span>
-
-    <span class="c1"># warning if a full col is missing</span>
-    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">X_obs</span><span class="o">.</span><span class="n">T</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">col</span><span class="p">)):</span>
-            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Some col(s) contains only nan values.&#39;</span><span class="p">)</span>
-            <span class="k">break</span>
-            
-    <span class="k">return</span> <span class="n">X_obs</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_obs_mcar</span> <span class="o">=</span> <span class="n">ampute_mcar</span><span class="p">(</span><span class="n">X_complete</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of X:&#39;</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13319,21 +13230,52 @@ $$\mathbb{P}_R(R\,|\, X^{obs}, X^{mis}; \phi) = \mathbb{P}_R(R) \qquad \forall \
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Percentage of newly generated mising values: 0.192
+<pre>Shape of X: (20640, 8)
 </pre>
 </div>
 </div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#  supress scientific notation </span>
+<span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/home/thomas/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:15: UserWarning: Some row(s) contains only nan values.
-  from ipykernel import kernelapp as app
-</pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[   8.3252,   41.    ,       nan,    1.0238,  322.    ,    2.5556,
+          37.88  , -122.23  ],
+       [   8.3014,   21.    ,    6.2381,    0.9719, 2401.    ,       nan,
+              nan, -122.22  ],
+       [   7.2574,   52.    ,    8.2881,    1.0734,  496.    ,       nan,
+          37.85  , -122.24  ],
+       [   5.6431,   52.    ,    5.8174,    1.0731,  558.    ,    2.5479,
+          37.85  , -122.25  ],
+       [      nan,   52.    ,    6.2819,    1.0811,  565.    ,    2.1815,
+          37.85  , -122.25  ]])</pre>
 </div>
+
 </div>
 
 </div>
@@ -13345,9 +13287,8 @@ $$\mathbb{P}_R(R\,|\, X^{obs}, X^{mis}; \phi) = \mathbb{P}_R(R) \qquad \forall \
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X_obs_mcar = &#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">X_obs_mcar</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  ...&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ratio nan in X:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">X</span><span class="p">))</span> <span class="o">/</span> <span class="n">X</span><span class="o">.</span><span class="n">size</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ratio nan in y:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="o">/</span> <span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13364,18 +13305,8 @@ $$\mathbb{P}_R(R\,|\, X^{obs}, X^{mis}; \phi) = \mathbb{P}_R(R) \qquad \forall \
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>X_obs_mcar = 
-[[ 1.76405235         nan]
- [ 0.97873798  2.2408932 ]
- [ 1.86755799 -0.97727788]
- [        nan         nan]
- [-0.10321885  0.4105985 ]
- [ 0.14404357  1.45427351]
- [ 0.76103773  0.12167502]
- [ 0.44386323  0.33367433]
- [        nan -0.20515826]
- [        nan         nan]]
-  ...
+<pre>Ratio nan in X: 25.4 %
+Ratio nan in y: 0.0 %
 </pre>
 </div>
 </div>
@@ -13389,24 +13320,89 @@ $$\mathbb{P}_R(R\,|\, X^{obs}, X^{mis}; \phi) = \mathbb{P}_R(R) \qquad \forall \
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ploting functions with seaborn</span>
-<span class="c1"># scripts are at: https://github.com/TwsThomas/website/tree/master/static/how-to/python/generate</span>
-<span class="kn">from</span> <span class="nn">utils_plot</span> <span class="k">import</span> <span class="p">(</span><span class="n">hist_plot</span><span class="p">,</span> <span class="n">scatter_plot_obs</span><span class="p">,</span>
-                        <span class="n">scatter_plot_with_missing_completed</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">400</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:</span><span class="mi">400</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span>  <span class="c1">#  data with missing coordinate are not plotted</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="output_8_0.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="2-Imputation-Model">2 Imputation Model<a class="anchor-link" href="#2-Imputation-Model">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Our goal is to predict <code>y</code> as accuratly as possible. 
+Here we will have two option to deal with missing values:</p>
+<ol>
+<li>Either we get ride of all missing values (ease of use at the price of loosing information).</li>
+<li>Or we impute the missing values.  </li>
+</ol>
+<p>We will describe the second option in details.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Imputation-strategies">Imputation strategies<a class="anchor-link" href="#Imputation-strategies">&#182;</a></h2><p>Since there is no one prefer way to deal with missing values, we wille consider three imputation strategies:</p>
+<ol>
+<li>Mean imputation: replace <code>nan</code> by the mean [or the median] of the feature (the column);</li>
+<li>Iterative imputation: each feature is regressed/estimated from the others;</li>
+<li>MinMax Imputation (also refer as Missing In Attribute, by <a href="https://www.sciencedirect.com/science/article/pii/S0167865508000305">Twala et al.</a>): duplicating features twice and remplace its missing values once by $\infty$ and once by $- \infty$. </li>
+</ol>
+<p>In the case of Mean or Iterative imputation, it might by fruitsfull to add the missing values indicator (by concatenating the missing indicator to $X$)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Rule of thumb</strong>: If we possess a good learner algorithm and enough samples in our dataset (e.g. more than $10^5$), the mean imputation is a good default choice (since it is consistent).</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data with &quot;MCAR&quot; mechanism.&#39;</span><span class="p">)</span>
-<span class="n">scatter_plot_obs</span><span class="p">(</span><span class="n">X_obs_mcar</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="k">import</span> <span class="n">SimpleImputer</span>
+
+<span class="c1"># imputer = SimpleImputer(strategy=&#39;constant&#39;, fill_value=0)</span>
+<span class="n">imputer</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<span class="n">X_impute</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_impute</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -13423,23 +13419,18 @@ $$\mathbb{P}_R(R\,|\, X^{obs}, X^{mis}; \phi) = \mathbb{P}_R(R) \qquad \forall \
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Data with &#34;MCAR&#34; mechanism.
+<pre>[[   8.3252   41.        5.3034    1.0238  322.        2.5556   37.88
+  -122.23  ]
+ [   8.3014   21.        6.2381    0.9719 2401.        3.0741   35.6295
+  -122.22  ]
+ [   7.2574   52.        8.2881    1.0734  496.        3.0741   37.85
+  -122.24  ]
+ [   5.6431   52.        5.8174    1.0731  558.        2.5479   37.85
+  -122.25  ]
+ [   3.8735   52.        6.2819    1.0811  565.        2.1815   37.85
+  -122.25  ]]
 </pre>
 </div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="output_12_1.png"
->
-</div>
-
 </div>
 
 </div>
@@ -13451,8 +13442,7 @@ $$\mathbb{P}_R(R\,|\, X^{obs}, X^{mis}; \phi) = \mathbb{P}_R(R) \qquad \forall \
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Plot completed with X_complete information.&#39;</span><span class="p">)</span>
-<span class="n">scatter_plot_with_missing_completed</span><span class="p">(</span><span class="n">X_obs_mcar</span><span class="p">,</span> <span class="n">X_complete</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ratio nan =&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">X_impute</span><span class="p">))</span> <span class="o">/</span> <span class="n">X</span><span class="o">.</span><span class="n">size</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13469,23 +13459,9 @@ $$\mathbb{P}_R(R\,|\, X^{obs}, X^{mis}; \phi) = \mathbb{P}_R(R) \qquad \forall \
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Plot completed with X_complete information.
+<pre>Ratio nan = 0.0 %
 </pre>
 </div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="output_13_1.png"
->
-</div>
-
 </div>
 
 </div>
@@ -13497,7 +13473,10 @@ $$\mathbb{P}_R(R\,|\, X^{obs}, X^{mis}; \phi) = \mathbb{P}_R(R) \qquad \forall \
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hist_plot</span><span class="p">(</span><span class="n">X_obs_mcar</span><span class="p">,</span> <span class="n">X_complete</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_impute</span><span class="p">[:</span><span class="mi">400</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_impute</span><span class="p">[:</span><span class="mi">400</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">missing_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">([</span><span class="nb">any</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">400</span><span class="p">][:,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_impute</span><span class="p">[</span><span class="n">missing_mask</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_impute</span><span class="p">[</span><span class="n">missing_mask</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -13510,13 +13489,26 @@ $$\mathbb{P}_R(R\,|\, X^{obs}, X^{mis}; \phi) = \mathbb{P}_R(R) \qquad \forall \
 
 <div class="output_area">
 
+    <div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.collections.PathCollection at 0x7ff8dddea8d0&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
     <div class="prompt"></div>
 
 
 
 
 <div class="output_png output_subarea ">
-<img src="output_14_0.png"
+<img src="output_15_1.png"
 >
 </div>
 
@@ -13526,83 +13518,14 @@ $$\mathbb{P}_R(R\,|\, X^{obs}, X^{mis}; \phi) = \mathbb{P}_R(R) \qquad \forall \
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>From plots and histogram below, we can infer that missingness is independant on the observed and missing values.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.-MAR-Mechanism-(Missing-at-Random)">2. MAR Mechanism (Missing at Random)<a class="anchor-link" href="#2.-MAR-Mechanism-(Missing-at-Random)">&#182;</a></h2><p>The observations are said to be Missing At Random (MAR) if the probability that an observation is missing only depends on the observed data $\mathbf{X}^{obs}$. Formally,</p>
-$$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qquad \forall \,\phi,\, \forall \, X^{mis}.$$
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Contrary to R, there is no python implementation of amputation yet.</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># The following code is work in progress</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">normalize</span>
-
-<span class="k">def</span> <span class="nf">ampute_mar</span><span class="p">(</span><span class="n">X_complete</span><span class="p">,</span> <span class="n">missing_rate</span><span class="o">=.</span><span class="mi">2</span><span class="p">,</span> <span class="n">W</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Observed values will censor the missing ones</span>
-<span class="sd">    </span>
-<span class="sd">    The proba of being missing: M_proba = X_obs.dot(W)</span>
-<span class="sd">    So for each sample, some observed feature (P=1) will influence </span>
-<span class="sd">    the missingness of some others features (P=0) w.r.t to the weight </span>
-<span class="sd">    matrix W (shape n_features x n_features).</span>
-<span class="sd">    </span>
-<span class="sd">    e.g. during a questionnary, those who said being busy (X_obs[:,0] = 1) </span>
-<span class="sd">    usualy miss to fill the last question (X_obs[:,-1] = np.nan)</span>
-<span class="sd">    So here W[0,-1] = 1</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">X_obs</span> <span class="o">=</span> <span class="n">X_complete</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">M_proba</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">X_obs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-    
-    <span class="k">if</span> <span class="n">W</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="c1"># generate the weigth matrix W</span>
-        <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">X_complete</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">X_complete</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-
-    <span class="c1"># Severals iteration to have room for high missing_rate</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X_obs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">):</span>
-        <span class="c1"># Sample a pattern matrix P</span>
-        <span class="c1"># P[i,j] = 1 will correspond to an observed value</span>
-        <span class="c1"># P[i,j] = 0 will correspond to a potential missing value</span>
-        <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">X_complete</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-
-        <span class="c1"># potential missing entry do not take part of missingness computation</span>
-        <span class="n">X_not_missing</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">X_complete</span><span class="p">,</span><span class="n">P</span><span class="p">)</span>
-
-        <span class="c1"># sample from the proba X_obs.dot(W)</span>
-        <span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">X_not_missing</span><span class="p">)</span>
-        <span class="n">M_proba_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">X_not_missing</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">),</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">sigma</span><span class="p">)</span>
-
-        <span class="c1"># not missing should have M_proba = 0</span>
-        <span class="n">M_proba_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">M_proba_</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">P</span><span class="p">)</span>  <span class="c1"># M_proba[P] = 0</span>
-        
-        <span class="n">M_proba</span> <span class="o">+=</span> <span class="n">M_proba_</span>
-
-    <span class="n">thresold</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">M_proba</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">missing_rate</span><span class="p">))</span>
-    <span class="n">M</span> <span class="o">=</span> <span class="n">M_proba</span> <span class="o">&gt;</span> <span class="n">thresold</span>
-
-    <span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">X_obs</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Percentage of newly generated mising values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span>\
-      <span class="nb">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">X_obs</span><span class="p">))</span><span class="o">/</span><span class="n">X_obs</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">X_obs</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># explicitly require because IterativeImputer is still experimental</span>
+<span class="kn">from</span> <span class="nn">sklearn.experimental</span> <span class="k">import</span> <span class="n">enable_iterative_imputer</span>
+<span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="k">import</span> <span class="n">IterativeImputer</span>
 </pre></div>
 
     </div>
@@ -13615,10 +13538,9 @@ $$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qqu
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span> 
-<span class="c1"># With this weight matrix W, </span>
-<span class="c1"># missingness of X[:,1] depends on X[:,0] values</span>
-<span class="n">X_obs_mar</span> <span class="o">=</span> <span class="n">ampute_mar</span><span class="p">(</span><span class="n">X_complete</span><span class="p">,</span> <span class="n">W</span><span class="o">=</span><span class="n">W</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">imputer</span> <span class="o">=</span> <span class="n">IterativeImputer</span><span class="p">()</span>
+<span class="n">X_impute</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X_impute</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -13635,7 +13557,28 @@ $$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qqu
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Percentage of newly generated mising values: 0.2
+<pre>[[   8.3252   41.        8.4915    1.0238  322.        2.5556   37.88
+  -122.23  ]
+ [   8.3014   21.        6.2381    0.9719 2401.        2.208    36.4426
+  -122.22  ]
+ [   7.2574   52.        8.2881    1.0734  496.        3.836    37.85
+  -122.24  ]
+ [   5.6431   52.        5.8174    1.0731  558.        2.5479   37.85
+  -122.25  ]
+ [   4.5915   52.        6.2819    1.0811  565.        2.1815   37.85
+  -122.25  ]]
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/home/thomas/Documents/scikit-learn/sklearn/impute/_iterative.py:623: ConvergenceWarning: [IterativeImputer] Early stopping criterion not reached.
+  &#34; reached.&#34;, ConvergenceWarning)
 </pre>
 </div>
 </div>
@@ -13649,8 +13592,9 @@ $$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qqu
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data with &quot;MAR&quot; mechanism.&#39;</span><span class="p">)</span>
-<span class="n">scatter_plot_obs</span><span class="p">(</span><span class="n">X_obs_mar</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_impute</span><span class="p">[:</span><span class="mi">400</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_impute</span><span class="p">[:</span><span class="mi">400</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">missing_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">([</span><span class="nb">any</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">400</span><span class="p">][:,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_impute</span><span class="p">[</span><span class="n">missing_mask</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_impute</span><span class="p">[</span><span class="n">missing_mask</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span>
 </pre></div>
 
     </div>
@@ -13666,21 +13610,10 @@ $$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qqu
     <div class="prompt"></div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Data with &#34;MAR&#34; mechanism.
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
 
 
 <div class="output_png output_subarea ">
-<img src="output_20_1.png"
+<img src="output_18_0.png"
 >
 </div>
 
@@ -13693,8 +13626,42 @@ $$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qqu
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>From the scatter plot we see that the missing values with <code>nan</code> on the <code>X[:,1]</code> coordinate (y-axis), which are represented as orange star at the bottom, are highly correlated to the <code>X[:,0]</code> values (x-axis).</p>
-<p><code>X[i,0] &gt; .5</code> =&gt; <code>X[i,1] = np.nan</code> with high probability.</p>
+<p>Imputation here takes advantage of others features.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="3.-Simulations/Experiments">3. Simulations/Experiments<a class="anchor-link" href="#3.-Simulations/Experiments">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's evaluate the differents imputation strategies.
+Let's consider our differents imputers w.r.t. differents machine learning algorithms. The piepline will be</p>
+<ul>
+<li><ol>
+<li>Imputation</li>
+</ol>
+</li>
+<li><ol>
+<li>Regression on the imputed dataset  </li>
+</ol>
+</li>
+</ul>
+<p>e.g. <code>my_regressor_with_nan = Pipeline(imputer, regressor)</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.1-Step-by-step-pipeline-with-LinearRegression()">3.1 Step by step pipeline with LinearRegression()<a class="anchor-link" href="#3.1-Step-by-step-pipeline-with-LinearRegression()">&#182;</a></h3><p>Here we decompose each step of the pipepline for clarity.</p>
 
 </div>
 </div>
@@ -13704,8 +13671,11 @@ $$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qqu
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Samples completed with X_complete information.&#39;</span><span class="p">)</span>
-<span class="n">scatter_plot_with_missing_completed</span><span class="p">(</span><span class="n">X_obs_mar</span><span class="p">,</span> <span class="n">X_complete</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># First split the data in train and test set</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">train_test_split</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;train shape: X.shape=</span><span class="si">{}</span><span class="s1">, y.shape=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;test shape: X.shape=</span><span class="si">{}</span><span class="s1">, y.shape=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -13722,23 +13692,10 @@ $$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qqu
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Samples completed with X_complete information.
+<pre>train shape: X.shape=(15480, 8), y.shape=(15480,)
+test shape: X.shape=(5160, 8), y.shape=(5160,)
 </pre>
 </div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="output_22_1.png"
->
-</div>
-
 </div>
 
 </div>
@@ -13750,80 +13707,26 @@ $$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qqu
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hist_plot</span><span class="p">(</span><span class="n">X_obs_mar</span><span class="p">,</span> <span class="n">X_complete</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LinearRegression</span>
+<span class="n">regressor</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="output_23_0.png"
->
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Histogram are overlaping : missingness does not depends on the missing values.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.-MNAR-(Missing-Not-At-Random)">3. MNAR (Missing Not At Random)<a class="anchor-link" href="#3.-MNAR-(Missing-Not-At-Random)">&#182;</a></h2><p>Otherwise, if neither MCAR nor MAR, values are Missing Not At Random (MNAR)</p>
-<p>Here we ampute high values with high probability. It might be called "censoring"</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="k">import</span> <span class="n">expit</span> <span class="k">as</span> <span class="n">sigmoid</span>  <span class="c1"># logistic function</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot; Line below would raise an ValueError: </span>
+<span class="sd">&#39;Input contains NaN, infinity or a value too large for dtype(&#39;float64&#39;).&#39;</span>
 
-<span class="k">def</span> <span class="nf">ampute_mnar</span><span class="p">(</span><span class="n">X_complete</span><span class="p">,</span> <span class="n">missing_rate</span><span class="o">=</span> <span class="o">.</span><span class="mi">2</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; ampute X_complete with censoring (Missing Not At Random)</span>
-<span class="sd">    </span>
-<span class="sd">    The missingness depends on the values.</span>
-<span class="sd">    This will tends to &quot;censor&quot; X[i,j] where X[i,j] is high </span>
-<span class="sd">    comparing to its column X[:,j]</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    
-    <span class="c1"># M depends on X_complete values</span>
-    <span class="n">M_proba</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">X_complete</span><span class="p">)</span>
-    <span class="n">M_proba</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">M_proba</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">)</span>
-    
-    <span class="c1"># compute thresold wrt missing_rate</span>
-    <span class="n">thresold</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">M_proba</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span> <span class="n">missing_rate</span><span class="p">))</span>
-    <span class="n">M</span> <span class="o">=</span> <span class="n">M_proba</span> <span class="o">&gt;</span> <span class="n">thresold</span>
-    
-    <span class="n">X_obs</span> <span class="o">=</span> <span class="n">X_complete</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">X_obs</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Percentage of newly generated mising values: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span>\
-      <span class="nb">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">X_obs</span><span class="p">))</span><span class="o">/</span><span class="n">X_obs</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">X_obs</span>
+<span class="sd">Because LinearRegressor couldn&#39;t deals with NaN values.&quot;&quot;&quot;</span><span class="p">;</span>
+
+<span class="c1"># regressor.fit(X_train, y_train) </span>
 </pre></div>
 
     </div>
@@ -13836,28 +13739,16 @@ $$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qqu
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_obs_mnar</span> <span class="o">=</span> <span class="n">ampute_mnar</span><span class="p">(</span><span class="n">X_complete</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Good pratcice are: fitting on the train, then transform both train and test with the *same* imputer</span>
+
+<span class="n">imputer</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<span class="n">imputer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="n">X_train_imp</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test_imp</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Percentage of newly generated mising values: 0.2
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -13867,8 +13758,9 @@ $$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qqu
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">scatter_plot_obs</span><span class="p">(</span><span class="n">X_obs_mnar</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X_obs with &quot;MNAR&quot; mechanism&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_imp</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">regressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_imp</span><span class="p">)</span>
+<span class="n">y_pred</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -13881,25 +13773,14 @@ $$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qqu
 
 <div class="output_area">
 
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>X_obs with &#34;MNAR&#34; mechanism
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[17]:</div>
 
 
 
 
-<div class="output_png output_subarea ">
-<img src="output_28_1.png"
->
+<div class="output_text output_subarea output_execute_result">
+<pre>array([2.352 , 2.0814, 1.4765, 1.7468, 1.841 , 2.1366, 2.2143, 2.6764,
+       1.935 , 2.1883])</pre>
 </div>
 
 </div>
@@ -13913,8 +13794,8 @@ $$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qqu
 <div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Samples completed with X_complete information.&#39;</span><span class="p">)</span>
-<span class="n">scatter_plot_with_missing_completed</span><span class="p">(</span><span class="n">X_obs_mnar</span><span class="p">,</span> <span class="n">X_complete</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Score on train:&#39;</span><span class="p">,</span> <span class="n">regressor</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train_imp</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Score on test:&#39;</span><span class="p">,</span> <span class="n">regressor</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_imp</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -13931,23 +13812,10 @@ $$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qqu
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Samples completed with X_complete information.
+<pre>Score on train: 0.4122652287216697
+Score on test: 0.38863230503580426
 </pre>
 </div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="output_29_1.png"
->
-</div>
-
 </div>
 
 </div>
@@ -13959,7 +13827,213 @@ $$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qqu
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hist_plot</span><span class="p">(</span><span class="n">X_obs_mnar</span><span class="p">,</span> <span class="n">X_complete</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Try with the IterativeImputer now</span>
+<span class="n">imputer_it</span> <span class="o">=</span> <span class="n">IterativeImputer</span><span class="p">()</span>
+<span class="n">imputer_it</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+
+<span class="n">X_train_imp_it</span> <span class="o">=</span> <span class="n">imputer_it</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test_imp_it</span> <span class="o">=</span> <span class="n">imputer_it</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_imp_it</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Score on train:&#39;</span><span class="p">,</span> <span class="n">regressor</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train_imp_it</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Score on test:&#39;</span><span class="p">,</span> <span class="n">regressor</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_imp_it</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Score on train: 0.452176807869808
+Score on test: 0.4401242654048192
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/home/thomas/Documents/scikit-learn/sklearn/impute/_iterative.py:623: ConvergenceWarning: [IterativeImputer] Early stopping criterion not reached.
+  &#34; reached.&#34;, ConvergenceWarning)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here we see that the Iterative imputation method can add information for Linear Regression method.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#160;3.2-Model-selection">&#160;3.2 Model selection<a class="anchor-link" href="#&#160;3.2-Model-selection">&#182;</a></h3><p>Now the piepline is clear, we run it on severals imputers and regressors.<br>
+We will use Piepline from sklearn to sequentially apply imputation and regression.<br>
+We fnially use sklearn cross_val_score to evaluate our models.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Imputer model:</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">MinMaxScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="k">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span>
+
+<span class="k">class</span> <span class="nc">MinMaxImputer</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
+    <span class="c1"># replacing the `nan` by two extremes values (by duplicating each column)</span>
+    
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">mm</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_min_</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">data_min_</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_max_</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">data_max_</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">X_min</span><span class="p">,</span> <span class="n">X_max</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">feature_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">nan_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="n">feature_idx</span><span class="p">])</span>
+            <span class="n">X_min</span><span class="p">[</span><span class="n">nan_mask</span><span class="p">,</span> <span class="n">feature_idx</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_min_</span><span class="p">[</span><span class="n">feature_idx</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="n">X_max</span><span class="p">[</span><span class="n">nan_mask</span><span class="p">,</span> <span class="n">feature_idx</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_max_</span><span class="p">[</span><span class="n">feature_idx</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">X_min</span><span class="p">,</span> <span class="n">X_max</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+<span class="n">imputers_wo_indicator</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Simple&#39;</span><span class="p">:</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">add_indicator</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+                         <span class="s1">&#39;Iterative&#39;</span><span class="p">:</span> <span class="n">IterativeImputer</span><span class="p">(</span><span class="n">add_indicator</span><span class="o">=</span><span class="kc">False</span><span class="p">)}</span>
+<span class="n">imputers_with_indicator</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Simple&#39;</span><span class="p">:</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">add_indicator</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                           <span class="s1">&#39;Iterative&#39;</span><span class="p">:</span> <span class="n">IterativeImputer</span><span class="p">(</span><span class="n">add_indicator</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                           <span class="s1">&#39;MinMax&#39;</span><span class="p">:</span> <span class="n">MinMaxImputer</span><span class="p">()}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Regressor model:</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="k">import</span> <span class="n">SVR</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">RandomForestRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.experimental</span> <span class="k">import</span> <span class="n">enable_hist_gradient_boosting</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">HistGradientBoostingRegressor</span>  <span class="c1"># similar to XGBoost/lightGBM</span>
+
+<span class="n">regressors</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;LinReg&#39;</span><span class="p">:</span> <span class="n">LinearRegression</span><span class="p">(),</span>
+              <span class="s1">&#39;SVM&#39;</span><span class="p">:</span> <span class="n">SVR</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+              <span class="s1">&#39;RandomForest&#39;</span><span class="p">:</span> <span class="n">RandomForestRegressor</span><span class="p">(),</span>
+              <span class="s2">&quot;HGBoost&quot;</span><span class="p">:</span> <span class="n">HistGradientBoostingRegressor</span><span class="p">()}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="k">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">cross_val_score</span>
+
+<span class="n">rf_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;Simple&#39;</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">add_indicator</span><span class="o">=</span><span class="kc">True</span><span class="p">)),</span> <span class="p">(</span><span class="s1">&#39;RandomForest&#39;</span><span class="p">,</span> <span class="n">RandomForestRegressor</span><span class="p">())])</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">rf_pipeline</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Score on 5-fold :&#39;</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Score on 5-fold : [0.3226 0.5901 0.5953 0.447  0.4779]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">ShuffleSplit</span><span class="p">,</span> <span class="n">cross_val_score</span>
+
+<span class="k">def</span> <span class="nf">plot_score_regressor</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">regressor</span><span class="p">,</span> <span class="n">regressor_name</span> <span class="o">=</span> <span class="s1">&#39;regressor&#39;</span><span class="p">):</span>
+    <span class="c1"># Boxplot scores for each imputation strategies</span>
+    
+    <span class="n">l_score</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">imputers</span> <span class="ow">in</span> <span class="p">[</span><span class="n">imputers_wo_indicator</span><span class="p">,</span> <span class="n">imputers_with_indicator</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">imputer_name</span><span class="p">,</span> <span class="n">imputer</span> <span class="ow">in</span> <span class="n">imputers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="n">imputer_name</span><span class="p">,</span> <span class="n">imputer</span><span class="p">),</span> <span class="p">(</span><span class="n">regressor_name</span><span class="p">,</span> <span class="n">regressor</span><span class="p">)])</span>
+            <span class="n">score</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">l_score</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+            
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">regressor_name</span><span class="p">)</span>     
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Simple&#39;</span><span class="p">,</span> <span class="s1">&#39;Iterative&#39;</span><span class="p">,</span> <span class="s1">&#39;Simple+Mask&#39;</span><span class="p">,</span> <span class="s1">&#39;Iterative+Mask&#39;</span><span class="p">,</span> <span class="s1">&#39;MinMax&#39;</span><span class="p">]</span>
+    <span class="n">bplot</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">l_score</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                <span class="n">vert</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">patch_artist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Add colors to boxplots</span>
+    <span class="k">for</span> <span class="n">patch</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">bplot</span><span class="p">[</span><span class="s1">&#39;boxes&#39;</span><span class="p">],</span>
+                            <span class="p">[</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span><span class="s1">&#39;C2&#39;</span><span class="p">,</span><span class="s1">&#39;C3&#39;</span><span class="p">,</span> <span class="s1">&#39;C4&#39;</span><span class="p">]):</span>
+        <span class="n">patch</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">regressor_name</span><span class="p">,</span> <span class="n">regressor</span> <span class="ow">in</span> <span class="n">regressors</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">plot_score_regressor</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">regressor</span><span class="p">,</span> <span class="n">regressor_name</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13978,7 +14052,49 @@ $$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qqu
 
 
 <div class="output_png output_subarea ">
-<img src="output_30_0.png"
+<img src="output_36_0.png"
+>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="output_36_1.png"
+>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="output_36_2.png"
+>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="output_36_3.png"
 >
 </div>
 
@@ -13991,8 +14107,7 @@ $$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qqu
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The distribution of missing values is shifted to the right (comparing to the observed values' distribution).
-The missingness pattern depends on the values of the missing entries.</p>
+<p>Note that in the HistGradientBosstedTree, MIA (i.e. replacing the <code>np.nan</code> by the two extremes values, by duplicating each column containing <code>np.nan</code>) will be implemented by default in the next release of sklearn in <a href="https://scikit-learn.org/dev/modules/generated/sklearn.ensemble.HistGradientBoostingClassifier.html">HistGradientBosstedTree</a></p>
 
 </div>
 </div>
@@ -14000,11 +14115,23 @@ The missingness pattern depends on the values of the missing entries.</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#160;Summary">&#160;Summary<a class="anchor-link" href="#&#160;Summary">&#182;</a></h1><ol>
-<li>Mising completly at random (MCAR): the missingness mechanism could be forget, nan are distributed as white noise.</li>
-<li>Missing at random (MAR): the missingness mechanism depends on the observed value </li>
-<li>Missing not at random (MNAR): missingness might carry information about the missing values. </li>
-</ol>
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>To train and test on data with missing values, the <strong>same imputation model should be used</strong>.</p>
+</li>
+<li><p><em>Missing Incorporated in Attribute (MIA)</em> is a good solution for tree-based models (e.g. lightGBM implemantation, sklearn next release). It handles missing values information.</p>
+</li>
+<li><p>Imputation methods <em>reduce</em> the number of samples required to reach good prediction</p>
+</li>
+<li><p>When missingness is related to the prediction target, it is useful to <em>add indicator of missing entries as features</em></p>
+</li>
+</ul>
 
 </div>
 </div>
@@ -14012,9 +14139,13 @@ The missingness pattern depends on the values of the missing entries.</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#160;Additional-remarks">&#160;Additional remarks<a class="anchor-link" href="#&#160;Additional-remarks">&#182;</a></h3><p>See also the R <a href="https://rianneschouten.github.io/mice_ampute/vignette/ampute.html">ampute</a> algorithm from the R package <a href="https://www.rdocumentation.org/packages/mice/versions/3.6.0/topics/mice">Mice</a></p>
-<p><a href="https://rmisstastic.netlify.com/how-to/generate/misssimul">This workflow in R</a></p>
-<p>We can also include the label <code>y</code> is the data. So the missingness could also depends on the target (We might call it "predicitve missingness").</p>
+<h3 id="Further-reading">Further reading<a class="anchor-link" href="#Further-reading">&#182;</a></h3><ul>
+<li>We can deal with <code>nan</code> directly within Pandas: <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html">Missing data with Pandas</a></li>
+<li><a href="https://scikit-learn.org/stable/modules/impute.html">Impuation in sklearn</a><ul>
+<li>Here we used both the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.SimpleImputer.html">SimpleImputer</a> and the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.IterativeImputer.html">IterativeImputer</a> class.</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
