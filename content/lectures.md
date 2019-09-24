@@ -130,9 +130,9 @@ weight: 2
                       <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture05.pdf" target="_blank">Lecture 5: likelihood-based methods</a></li>
                       <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture06.pdf" target="_blank">Lecture 6: the EM algorithm</a></li>
                       <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture07setup.pdf" target="_blank">Lecture 7: R session 2 (setup)</a>, <a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture07Lab02.R" target="_blank">R script</a></li>
-                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture06.pdf" target="_blank">Lecture 8: introduction to Bayesian inference</a></li>
-                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture06.pdf" target="_blank">Lecture 9: Gibbs sampling, ignorability under Bayesian inference, data augmentation</a></li>
-                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture06.pdf" target="_blank">Lecture 10: multiple imputation</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture08.pdf" target="_blank">Lecture 8: introduction to Bayesian inference</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture09.pdf" target="_blank">Lecture 9: Gibbs sampling, ignorability under Bayesian inference, data augmentation</a></li>
+                      <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture10.pdf" target="_blank">Lecture 10: multiple imputation</a></li>
                       <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture11.pdf" target="_blank">Lecture 11: R session 3 (setup)</a>, <a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture11Lab03.R" target="_blank">R script</a></li>
                       <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture12.pdf" target="_blank">Lecture 12: inverse probability weighting</a></li>
                       <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture13.pdf" target="_blank">Lecture 13: introduction to (weighted generalized) estimating equations</a></li>

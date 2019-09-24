@@ -37,6 +37,7 @@ weight: 1
 <ul class="list-group" id="workflows-list_py">
 <li class="list-group-item"> [... generate missing values?](/how-to/python/generate_html/How%20to%20generate%20missing%20values.html) </li>
 <li class="list-group-item">  [... predict with missing values?](/how-to/python/predict_html/How%20to%20predict.html)</li>
+
 </p>
 
 Code for the python notebook could be found [here](https://github.com/R-miss-tastic/website/tree/master/static/how-to/python)
