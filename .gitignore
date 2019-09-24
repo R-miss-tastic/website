@@ -4,3 +4,8 @@
 .Ruserdata
 .Rprofile
 public/
+
+.pynb_checkpoint/
+__pycache__/
+*-checkpoint.py
+*-checkpoint.ipynb

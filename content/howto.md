@@ -22,14 +22,25 @@ weight: 1
 
 
 <br>
-<h3>How to ...</h3>
+<h3>How to (R notebook)...</h3>
 <ul class="list-group" id="workflows-list">
 <li class="list-group-item"> <a href="/how-to/generate/missSimul.html" target="_blank">... generate missing values?</a> (<a href="/how-to/generate/missSimul.pdf" target="_blank">PDF</a> and <a href="/how-to/generate/amputation.R" target="_blank">related R source code</a>)</li>
 <li class="list-group-item"> <a href="/how-to/estimate/missEstim.html" target="_blank">... estimate with missing values?</a> (<a href="/how-to/estimate/missEstim.pdf" target="_blank">PDF</a>)</li>
 <li class="list-group-item"> <a href="/how-to/impute/missImp.html" target="_blank">... impute missing values?</a> (<a href="/how-to/impute/missImp.pdf" target="_blank">PDF</a>)</li>
 </ul>
 
-<p align="justify"><i>If you have suggestions for improvement of these workflows or if you discover bugs in some of them, please feel free to contact us via the <a href="/contact/">Contact form</a> or directly submit changes on our <a href="https://github.com/R-miss-tastic/website" target="_blank">GitHub repo</a>.</i></p>
+
+
+<h5> How to (Python notebook) ...  </h5>
+*[Work in progress]* 
+<p align="justify"> 
+<ul class="list-group" id="workflows-list_py">
+<li class="list-group-item"> [... generate missing values?](/how-to/python/generate_html/How%20to%20generate%20missing%20values.html) </li>
+<li class="list-group-item">  [... predict with missing values?](/how-to/python/predict_html/How%20to%20predict.html)</li>
+</p>
+
+Code for the python notebook could be found [here](https://github.com/R-miss-tastic/website/tree/master/static/how-to/python)
+<p align="justify"><i>If you have any suggestions please raise an issue on our <a href="https://github.com/R-miss-tastic/website" target="_blank">Github repository</a>.</i></p>
 
 
 
