@@ -30,7 +30,7 @@ weight: 4
 
 <p>
   <ul class="list">
-  <li style="margin: 40px;">
+  <li style="margin: 0px;">
     <h3 class="name">imputeTS</h3>
     <h6 class="Category">Category: Time-Series Imputation, Visualisations for Missing Data</h6>
     <i class="Description">Imputation (replacement) of missing values in univariate time series. Offers several imputation functions and missing data plots. Available imputation algorithms include: 'Mean', 'LOCF', 'Interpolation', 'Moving Average', 'Seasonal Decomposition', 'Kalman Smoothing on Structural Time Series models', 'Kalman Smoothing on ARIMA models'.</i> <br>
@@ -38,8 +38,8 @@ weight: 4
     <img src="https://www.r-pkg.org/badges/last-release/imputeTS" alt="CRAN Release" /> <br>
     <a href="/packages/imputeTS"> more.. </a>
   </li> 
-
-  <li style="margin: 40px;">
+  </br>
+  <li style="margin: 0px;">
     <h3 class="name">mice</h3>
     <h6 class="Category">Category: Multiple Imputation</h6>
     <i class="Description">Multiple imputation using Fully Conditional Specification (FCS) implemented by the MICE algorithm as described in Van Buuren and Groothuis-Oudshoorn (2011). Each variable has its own imputation model. Built-in imputation models are provided for continuous data (predictive mean matching, normal), binary data (logistic regression), unordered categorical data (polytomous logistic regression) and ordered categorical data (proportional odds). MICE can also impute continuous two-level data (normal model, pan, second-level variables). Passive imputation can be used to maintain consistency between variables. Various diagnostic plots are available to inspect the quality of the imputations.</i> <br>
@@ -47,8 +47,8 @@ weight: 4
     <img src="https://www.r-pkg.org/badges/last-release/mice" alt="CRAN Release" /> <br>
     <a href="/packages/mice"> more.. </a>
   </li> 
-
-  <li style="margin: 40px;">
+  </br>
+  <li style="margin: 0px;">
     <h3 class="name">missForest</h3>
     <h6 class="Category">Category: Single Imputation</h6>
     <i class="Description">The function 'missForest' in this package is used to impute missing values particularly in the case of mixed-type data. It uses a random forest trained on the observed values of a data matrix to predict the missing values. It can be used to impute continuous and/or categorical data including complex interactions and non-linear relations. It yields an out-of-bag (OOB) imputation error estimate without the need of a test set or elaborate cross-validation. It can be run in parallel to save computation time.
@@ -57,8 +57,8 @@ weight: 4
     <img src="https://www.r-pkg.org/badges/last-release/missForest" alt="CRAN Release" /> <br>
     <a href="/packages/missForest"> more.. </a>
   </li> 
-
-  <li style="margin: 40px;">
+  </br>
+  <li style="margin: 0px;">
     <h3 class="name">missMDA</h3>
     <h6 class="Category">Category: Single and multiple Imputation, Multivariate Data Analysis</h6>
     <i class="Description">Imputation of incomplete continuous or categorical datasets; Missing values are imputed with a principal component analysis (PCA), a multiple correspondence analysis (MCA) model or a multiple factor analysis (MFA) model; Perform multiple imputation with and in PCA or MCA.</i> <br>
@@ -66,8 +66,8 @@ weight: 4
     <img src="https://www.r-pkg.org/badges/last-release/missMDA" alt="CRAN Release" /> <br>
     <a href="/packages/missMDA"> more.. </a>
   </li> 
-  
-  <li style="margin: 40px;">
+  </br>
+  <li style="margin: 0px;">
     <h3 class="name">naniar</h3>
     <h6 class="Category">Category: Visualisations for Missing Data</h6>
     <i class="Description">Missing values are ubiquitous in data and need to be explored and handled in the initial stages of analysis. 'naniar' provides data structures and functions that facilitate the plotting of missing values and examination of imputations. This allows missing data dependencies to be explored with minimal deviation from the common work patterns of 'ggplot2' and tidy data.</i> <br>
@@ -75,8 +75,8 @@ weight: 4
     <img src="https://www.r-pkg.org/badges/last-release/naniar" alt="CRAN Release" /> <br>
     <a href="/packages/naniar"> more.. </a>
   </li> 
-
-   <li style="margin: 40px;">
+  </br>
+  <li style="margin: 0px;">
     <h3 class="name">simputation</h3>
     <h6 class="Category">Category: Single Imputation, Meta-Package</h6>
     <i class="Description">Easy to use interfaces to a number of imputation methods that fit in the not-a-pipe operator of the 'magrittr' package.
@@ -85,8 +85,8 @@ weight: 4
     <img src="https://www.r-pkg.org/badges/last-release/simputation" alt="CRAN Release" /> <br>
     <a href="/packages/simputation"> more.. </a>
   </li> 
-  
-   <li style="margin: 40px;">
+  </br>
+  <li style="margin: 0px;">
     <h3 class="name">VIM</h3>
     <h6 class="Category">Category: Single Imputation, Visualisations for Missing Data</h6>
     <i class="Description">New tools for the visualization of missing and/or imputed values are introduced, which can be used for exploring the data and the structure of the missing and/or imputed values. Depending on this structure of the missing values, the corresponding methods may help to identify the mechanism generating the missing values and allows to explore the data including missing values. In addition, the quality of imputation can be visually explored using various univariate, bivariate, multiple and multivariate plot methods. A graphical user interface available in the separate package VIMGUI allows an easy handling of the implemented plot methods.
