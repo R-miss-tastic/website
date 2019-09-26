@@ -11,7 +11,7 @@ weight: 7
 #### Recent R package releases
 <i>Last update: 2019-09-26</i>
 
-We regularly update this list of recently released R packages handling missing values. This is a non-exhaustive list and if you have more suggestions or news about recently released R packages, feel free to <a href="/contact/">contact us</a>.
+We regularly update this list of interesting recently released R packages handling missing values. This is a non-exhaustive list and if you have more suggestions and news about recently released R packages, feel free to <a href="/contact/">contact us</a>.
 
 <ul class="list-group" id="packages-list">
 <li class="list-group-item"><a href="https://cran.r-project.org/web/packages/missSBM/index.html" target="_blank"><code>missSBM</code>: Handling Missing Data in Stochastic Block Models</a> (Authors: Julien Chiquet, Pierre Barbillon, Timothée Tabouy)</li>
