@@ -13142,14 +13142,20 @@ $( document ).ready(function(){
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this tutorial, we will cover how to accuratly predict the response <code>y</code> given <code>X</code> when <code>X</code> contains missing values.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">sklearn</span>
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
@@ -13172,7 +13178,7 @@ $( document ).ready(function(){
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load you own data here</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load you data here</span>
 
 <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="k">import</span> <span class="n">fetch_california_housing</span>
 <span class="n">X_complete</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fetch_california_housing</span><span class="p">(</span><span class="n">return_X_y</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
@@ -13203,7 +13209,7 @@ $( document ).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Quick-Exploratory-Data-Analysise">Quick Exploratory Data Analysise<a class="anchor-link" href="#Quick-Exploratory-Data-Analysise">&#182;</a></h3><p>Few lines of code to appreciate the missingness in our data</p>
+<h3 id="Quick-Exploratory-Data-Analysis">Quick Exploratory Data Analysis<a class="anchor-link" href="#Quick-Exploratory-Data-Analysis">&#182;</a></h3><p>Few lines of code to appreciate the missingness in our data</p>
 
 </div>
 </div>
@@ -13339,7 +13345,7 @@ Ratio nan in y: 0.0 %
 
 
 <div class="output_png output_subarea ">
-<img src="output_8_0.png"
+<img src="output_9_0.png"
 >
 </div>
 
@@ -13360,9 +13366,9 @@ Ratio nan in y: 0.0 %
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Our goal is to predict <code>y</code> as accuratly as possible. 
-Here we will have two option to deal with missing values:</p>
+There exists mainly two options to deals with missing values:</p>
 <ol>
-<li>Either we get ride of all missing values (ease of use at the price of loosing information).</li>
+<li>Either we get ride of all missing values (ease of use at the price of loosing information);</li>
 <li>Or we impute the missing values.  </li>
 </ol>
 <p>We will describe the second option in details.</p>
@@ -13373,7 +13379,7 @@ Here we will have two option to deal with missing values:</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Imputation-strategies">Imputation strategies<a class="anchor-link" href="#Imputation-strategies">&#182;</a></h2><p>Since there is no one prefer way to deal with missing values, we wille consider three imputation strategies:</p>
+<h2 id="Imputation-strategies">Imputation strategies<a class="anchor-link" href="#Imputation-strategies">&#182;</a></h2><p>Since there is no prefer way to deals with missing values, we will consider three imputation strategies:</p>
 <ol>
 <li>Mean imputation: replace <code>nan</code> by the mean [or the median] of the feature (the column);</li>
 <li>Iterative imputation: each feature is regressed/estimated from the others;</li>
@@ -13399,7 +13405,6 @@ Here we will have two option to deal with missing values:</p>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="k">import</span> <span class="n">SimpleImputer</span>
 
-<span class="c1"># imputer = SimpleImputer(strategy=&#39;constant&#39;, fill_value=0)</span>
 <span class="n">imputer</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
 <span class="n">X_impute</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">X_impute</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
@@ -13495,7 +13500,7 @@ Here we will have two option to deal with missing values:</p>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.collections.PathCollection at 0x7ff8dddea8d0&gt;</pre>
+<pre>&lt;matplotlib.collections.PathCollection at 0x7f73195ee390&gt;</pre>
 </div>
 
 </div>
@@ -13508,7 +13513,7 @@ Here we will have two option to deal with missing values:</p>
 
 
 <div class="output_png output_subarea ">
-<img src="output_15_1.png"
+<img src="output_16_1.png"
 >
 </div>
 
@@ -13523,22 +13528,11 @@ Here we will have two option to deal with missing values:</p>
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># explicitly require because IterativeImputer is still experimental</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># explicitly require because IterativeImputer is still experimental in sklearn</span>
 <span class="kn">from</span> <span class="nn">sklearn.experimental</span> <span class="k">import</span> <span class="n">enable_iterative_imputer</span>
 <span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="k">import</span> <span class="n">IterativeImputer</span>
-</pre></div>
 
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">imputer</span> <span class="o">=</span> <span class="n">IterativeImputer</span><span class="p">()</span>
+<span class="n">imputer</span> <span class="o">=</span> <span class="n">IterativeImputer</span><span class="p">()</span>
 <span class="n">X_impute</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">X_impute</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
 </pre></div>
@@ -13577,7 +13571,7 @@ Here we will have two option to deal with missing values:</p>
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/home/thomas/Documents/scikit-learn/sklearn/impute/_iterative.py:623: ConvergenceWarning: [IterativeImputer] Early stopping criterion not reached.
+<pre>/home/thomas/anaconda3/envs/stable/lib/python3.7/site-packages/sklearn/impute/_iterative.py:599: ConvergenceWarning: [IterativeImputer] Early stopping criterion not reached.
   &#34; reached.&#34;, ConvergenceWarning)
 </pre>
 </div>
@@ -13589,10 +13583,11 @@ Here we will have two option to deal with missing values:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_impute</span><span class="p">[:</span><span class="mi">400</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_impute</span><span class="p">[:</span><span class="mi">400</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+
 <span class="n">missing_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">([</span><span class="nb">any</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">400</span><span class="p">][:,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_impute</span><span class="p">[</span><span class="n">missing_mask</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_impute</span><span class="p">[</span><span class="n">missing_mask</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span>
 </pre></div>
@@ -13653,7 +13648,6 @@ Let's consider our differents imputers w.r.t. differents machine learning algori
 </ol>
 </li>
 </ul>
-<p>e.g. <code>my_regressor_with_nan = Pipeline(imputer, regressor)</code></p>
 
 </div>
 </div>
@@ -13668,10 +13662,10 @@ Let's consider our differents imputers w.r.t. differents machine learning algori
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># First split the data in train and test set</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># First split the data into train set and test set</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">train_test_split</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;train shape: X.shape=</span><span class="si">{}</span><span class="s1">, y.shape=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
@@ -13704,7 +13698,7 @@ test shape: X.shape=(5160, 8), y.shape=(5160,)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LinearRegression</span>
@@ -13718,7 +13712,7 @@ test shape: X.shape=(5160, 8), y.shape=(5160,)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot; Line below would raise an ValueError: </span>
@@ -13736,7 +13730,7 @@ test shape: X.shape=(5160, 8), y.shape=(5160,)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Good pratcice are: fitting on the train, then transform both train and test with the *same* imputer</span>
@@ -13755,46 +13749,11 @@ test shape: X.shape=(5160, 8), y.shape=(5160,)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_imp</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">regressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_imp</span><span class="p">)</span>
-<span class="n">y_pred</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[17]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>array([2.352 , 2.0814, 1.4765, 1.7468, 1.841 , 2.1366, 2.2143, 2.6764,
-       1.935 , 2.1883])</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Score on train:&#39;</span><span class="p">,</span> <span class="n">regressor</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train_imp</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Score on train:&#39;</span><span class="p">,</span> <span class="n">regressor</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train_imp</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Score on test:&#39;</span><span class="p">,</span> <span class="n">regressor</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_imp</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
 </pre></div>
 
@@ -13813,7 +13772,7 @@ test shape: X.shape=(5160, 8), y.shape=(5160,)
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Score on train: 0.4122652287216697
-Score on test: 0.38863230503580426
+Score on test: 0.38863230503580404
 </pre>
 </div>
 </div>
@@ -13824,7 +13783,7 @@ Score on test: 0.38863230503580426
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Try with the IterativeImputer now</span>
@@ -13853,8 +13812,8 @@ Score on test: 0.38863230503580426
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Score on train: 0.452176807869808
-Score on test: 0.4401242654048192
+<pre>Score on train: 0.45217680786980824
+Score on test: 0.44012426540482763
 </pre>
 </div>
 </div>
@@ -13865,7 +13824,7 @@ Score on test: 0.4401242654048192
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/home/thomas/Documents/scikit-learn/sklearn/impute/_iterative.py:623: ConvergenceWarning: [IterativeImputer] Early stopping criterion not reached.
+<pre>/home/thomas/anaconda3/envs/stable/lib/python3.7/site-packages/sklearn/impute/_iterative.py:599: ConvergenceWarning: [IterativeImputer] Early stopping criterion not reached.
   &#34; reached.&#34;, ConvergenceWarning)
 </pre>
 </div>
@@ -13886,16 +13845,16 @@ Score on test: 0.4401242654048192
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#160;3.2-Model-selection">&#160;3.2 Model selection<a class="anchor-link" href="#&#160;3.2-Model-selection">&#182;</a></h3><p>Now the piepline is clear, we run it on severals imputers and regressors.<br>
-We will use Piepline from sklearn to sequentially apply imputation and regression.<br>
-We fnially use sklearn cross_val_score to evaluate our models.</p>
+<h3 id="&#160;3.2-Model-selection">&#160;3.2 Model selection<a class="anchor-link" href="#&#160;3.2-Model-selection">&#182;</a></h3><p>Now we run our piepline on severals imputers and regressors.<br>
+We will use <code>Piepline</code> from sklearn to sequentially apply imputation and regression.<br>
+We finally use sklearn cross_val_score to evaluate our models.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Imputer model:</span>
@@ -13936,10 +13895,11 @@ We fnially use sklearn cross_val_score to evaluate our models.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Regressor model:</span>
+
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LinearRegression</span>
 <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="k">import</span> <span class="n">SVR</span>
 <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">RandomForestRegressor</span>
@@ -13962,12 +13922,12 @@ We fnially use sklearn cross_val_score to evaluate our models.</p>
 <div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="k">import</span> <span class="n">Pipeline</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">cross_val_score</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># from sklearn.pipeline import Pipeline</span>
+<span class="c1"># from sklearn.model_selection import cross_val_score</span>
 
-<span class="n">rf_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;Simple&#39;</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">add_indicator</span><span class="o">=</span><span class="kc">True</span><span class="p">)),</span> <span class="p">(</span><span class="s1">&#39;RandomForest&#39;</span><span class="p">,</span> <span class="n">RandomForestRegressor</span><span class="p">())])</span>
-<span class="n">score</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">rf_pipeline</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Score on 5-fold :&#39;</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+<span class="c1"># rf_pipeline = Pipeline([(&#39;Simple&#39;, SimpleImputer(add_indicator=True)), (&#39;RandomForest&#39;, RandomForestRegressor())])</span>
+<span class="c1"># score = cross_val_score(rf_pipeline, X, y) </span>
+<span class="c1"># print(&#39;Score on 5-fold :&#39;, score)</span>
 </pre></div>
 
     </div>
@@ -13998,7 +13958,8 @@ We fnially use sklearn cross_val_score to evaluate our models.</p>
 <div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">ShuffleSplit</span><span class="p">,</span> <span class="n">cross_val_score</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="k">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">ShuffleSplit</span><span class="p">,</span> <span class="n">cross_val_score</span>
 
 <span class="k">def</span> <span class="nf">plot_score_regressor</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">regressor</span><span class="p">,</span> <span class="n">regressor_name</span> <span class="o">=</span> <span class="s1">&#39;regressor&#39;</span><span class="p">):</span>
     <span class="c1"># Boxplot scores for each imputation strategies</span>
@@ -14052,7 +14013,7 @@ We fnially use sklearn cross_val_score to evaluate our models.</p>
 
 
 <div class="output_png output_subarea ">
-<img src="output_36_0.png"
+<img src="output_35_0.png"
 >
 </div>
 
@@ -14066,7 +14027,7 @@ We fnially use sklearn cross_val_score to evaluate our models.</p>
 
 
 <div class="output_png output_subarea ">
-<img src="output_36_1.png"
+<img src="output_35_1.png"
 >
 </div>
 
@@ -14080,7 +14041,7 @@ We fnially use sklearn cross_val_score to evaluate our models.</p>
 
 
 <div class="output_png output_subarea ">
-<img src="output_36_2.png"
+<img src="output_35_2.png"
 >
 </div>
 
@@ -14094,7 +14055,7 @@ We fnially use sklearn cross_val_score to evaluate our models.</p>
 
 
 <div class="output_png output_subarea ">
-<img src="output_36_3.png"
+<img src="output_35_3.png"
 >
 </div>
 
@@ -14140,7 +14101,7 @@ We fnially use sklearn cross_val_score to evaluate our models.</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Further-reading">Further reading<a class="anchor-link" href="#Further-reading">&#182;</a></h3><ul>
-<li>We can deal with <code>nan</code> directly within Pandas: <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html">Missing data with Pandas</a></li>
+<li>Pandas conrains some functions to deals with <code>nan</code>: <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html">Missing data with Pandas</a></li>
 <li><a href="https://scikit-learn.org/stable/modules/impute.html">Impuation in sklearn</a><ul>
 <li>Here we used both the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.SimpleImputer.html">SimpleImputer</a> and the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.IterativeImputer.html">IterativeImputer</a> class.</li>
 </ul>
