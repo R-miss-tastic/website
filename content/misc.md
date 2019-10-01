@@ -9,9 +9,9 @@ weight: 7
 ---
 
 #### Recent R package releases
-<i>Last update: 2019-09-26</i>
+<i>Last update: 2019-10-01</i>
 
-We regularly update this list of interesting recently released R packages handling missing values. This is a non-exhaustive list and if you have more suggestions and news about recently released R packages, feel free to <a href="/contact/">contact us</a>.
+We regularly update recently released R packages handling missing values. This is a non-exhaustive list, if you have suggestions feel free to <a href="/contact/">contact us</a>.
 
 <ul class="list-group" id="packages-list">
 <li class="list-group-item"><a href="https://cran.r-project.org/web/packages/missSBM/index.html" target="_blank"><code>missSBM</code>: Handling Missing Data in Stochastic Block Models</a> (Authors: Julien Chiquet, Pierre Barbillon, Timothée Tabouy)</li>
@@ -20,27 +20,29 @@ We regularly update this list of interesting recently released R packages handli
 <li class="list-group-item"><a href="https://cran.r-project.org/web/packages/bnstruct/index.html" target="_blank"><code>bnstruct</code>: Bayesian Network Structure Learning from Data with Missing Values</a> (Authors: Francesco Sambo, Alberto Franzin)</li>
 <li class="list-group-item"><a href="https://cran.r-project.org/web/packages/primePCA/index.html" target="_blank"><code>primePCA</code>: Projected Refinement for Imputation of Missing Entries in PCA</a> (Authors: Ziwei Zhu, Tengyao Wang, Richard J. Samworth)</li>
 <li class="list-group-item"><a href="https://cran.r-project.org/web/packages/jomo/index.html" target="_blank"><code>jomo</code>: Multilevel Joint Modelling Multiple Imputation</a> (Authors: Matteo Quartagno, James Carpenter)</li>
+<li class="list-group-item"> (<code>psfmi</code>: Predictor Selection Functions for Logistic and Cox regression models in multiply imputed datasets)[https://cran.r-project.org/web/packages/psfmi/index.html] (Authors: Martijn Heymans)</li>
 </ul>
 
 </br>
 
-#### Some other interesting websites discussing missing values:
+#### Websites discussing missing values:
+
 <ul class="list-group" id="websites-list">
-<li class="list-group-item"> <a href="https://sci2s.ugr.es/MVDM" target="_blank">Missing Values in Data Mining</a> (Soft Computing and Intelligent Information Systems research group, University of Granada)</li>
-<li class="list-group-item"> <a href="http://www.missingdata.org.uk" target="_blank">Missing Data</a> (James Carpenter, Jonathan Bartlett, London School of Hygiene & Tropical Medicine)</li>
-<li class="list-group-item"> <a href="https://missingdata.org" target="_blank">Missing Data -
-Software, Advice and Research on handling data with missing values</a> (Paul von Hippel)</li>
-<li class="list-group-item"> <a href="http://www.multiple-imputation.com" target="_blank">Multiple Imputation</a> (Stef van Buuren, currently unavailable)</li>
 <li class="list-group-item"> <a href="https://scikit-learn.org/0.21/modules/impute.html" target="_blank">Imputation of missing values in Python (using scikit-learn)</a> (scikit-learn documentation)</li>
 </ul>
 
-</br>
 
 #### Miscellaneous:
 
-<ul class="list-group" id="misc-list">
-	<li class="list-group-item">Missing data on <a href="https://twitter.com/hashtag/missingdata" target="_blank">Twitter</a></li>
-</ul>
+- (Missing Values in Data Mining)[https://sci2s.ugr.es/MVDM] (Soft Computing and Intelligent Information Systems research group, University of Granada)
+- https://missingdata.org/ (James Carpenter, Jonathan Bartlett, London School of Hygiene & Tropical Medicine)
+- https://stefvanbuuren.name/mice/ (Mice package documentation)
+- http://missingdatasolutions.rbind.io/ (Martijn W Heymans)
+- Missing data on (Twitter)[https://twitter.com/hashtag/missingdata]
+[comment]: # (http://www.missingdata.org.uk" )[comment]: # (https://missingdata.org" )
+[comment]: # (http://www.multiple-imputation.com")
+
+
 
 <style>
 #up-events-list
