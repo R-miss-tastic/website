@@ -26,15 +26,13 @@ For a straightforward application of some the most common methods we propose sev
 
 
 <h5> How to (Python notebook) ...  </h5>
-*[Work in progress]* 
 <p align="justify"> 
 <ul class="list-group" id="workflows-list_py">
-<li class="list-group-item"> [... generate missing values?](/how-to/python/generate_html/How%20to%20generate%20missing%20values.html) </li>
-<li class="list-group-item">  [... predict with missing values?](/how-to/python/predict_html/How%20to%20predict.html)</li>
+<li class="list-group-item"> [... generate missing values?](/how-to/python/generate_html/How%20to%20generate%20missing%20values.html) ([Interactive notebook](https://mybinder.org/v2/gh/R-miss-tastic/website/master?filepath=static%2Fhow-to%2Fpython%2FHow%20to%20generate%20missing%20values.ipynb)) </li>
+<li class="list-group-item">  [... predict with missing values?](/how-to/python/predict_html/How%20to%20predict.html) ([Interactive notebook](https://mybinder.org/v2/gh/R-miss-tastic/website/master?filepath=static%2Fhow-to%2Fpython%2FHow%20to%20predict.ipynb))</li>
 
 </p>
 
-Code for the python notebook could be found [here](https://github.com/R-miss-tastic/website/tree/master/static/how-to/python)
 <p align="justify"><i>If you have any suggestions please raise an issue on our <a href="https://github.com/R-miss-tastic/website" target="_blank">Github repository</a>.</i></p>
 
 
