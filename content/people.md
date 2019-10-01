@@ -51,6 +51,6 @@ weight: 6
 </br>
 
 #### Main contributors to this platform
-<p align="justify">The main contributors of this platform are: <a href="http://juliejosse.com" target="_blank">Julie Josse</a>, <a href="http://www.imkemayer.com" target="_blank">Imke Mayer</a>, <a href="https://www.researchgate.net/profile/Steffen_Moritz2" target="_blank">Steffen Moritz</a>, (Thomas Schmitt)[https://twsthomas.github.io], <a href="https://www.njtierney.com" target="_blank">Nicholas Tierney</a> and <a href="http://www.nathalievialaneix.eu" target="_blank">Nathalie Vialaneix</a>.</p>
+<p align="justify">The main contributors of this platform are: <a href="http://juliejosse.com" target="_blank">Julie Josse</a>, <a href="http://www.imkemayer.com" target="_blank">Imke Mayer</a>, <a href="https://www.researchgate.net/profile/Steffen_Moritz2" target="_blank">Steffen Moritz</a>, [Thomas Schmitt](https://twsthomas.github.io), <a href="https://www.njtierney.com" target="_blank">Nicholas Tierney</a> and <a href="http://www.nathalievialaneix.eu" target="_blank">Nathalie Vialaneix</a>.</p>
 
 <p align="justify"><i>If you wish to participate in the development of this website and have ideas on possible extensions, please feel free to contact us via the <a href=/contact/>Contact form</a>.</i></p>
