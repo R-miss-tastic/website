@@ -69,7 +69,7 @@ paginate = 3
 
   [params.sidebar]
     # Optional about block for sidebar (can be Markdown)
-     about = "This website is proudly sponsored by R Consortium and maintained by [Julie Josse](http://juliejosse.com), [Imke Mayer](https://www.imkemayer.com), [Nicholas Tierney](https://www.njtierney.com) and [Nathalie Vialaneix](http://www.nathalievialaneix.eu).<br><br>[Article on arXiv →](https://arxiv.org/abs/1908.04822)<br>[Read more →](/posts/intro/)<br>[FAQ →](/posts/faq/)"
+     about = "This website is proudly sponsored by R Consortium and maintained by [Julie Josse](http://juliejosse.com), [Imke Mayer](https://www.imkemayer.com), [Thomas Schmitt](https://twsthomas.github.io/), [Nicholas Tierney](https://www.njtierney.com) and [Nathalie Vialaneix](http://www.nathalievialaneix.eu).<br><br>[Article on arXiv →](https://arxiv.org/abs/1908.04822)<br>[Read more →](/posts/intro/)<br>[FAQ →](/posts/faq/)"
 
     # How many posts to show on the sidebar (Default: 5)
     # num_recent_posts = 3
