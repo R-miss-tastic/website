@@ -13145,7 +13145,7 @@ $( document ).ready(function(){
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this tutorial, we will cover how to accuratly predict the response <code>y</code> given <code>X</code> when <code>X</code> contains missing values.</p>
+<p>In this tutorial, we will cover how to accurately predict the response <code>y</code> given <code>X</code> when <code>X</code> contains missing values.</p>
 
 </div>
 </div>
@@ -13182,23 +13182,60 @@ $( document ).ready(function(){
 
 <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="k">import</span> <span class="n">fetch_california_housing</span>
 <span class="n">X_complete</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fetch_california_housing</span><span class="p">(</span><span class="n">return_X_y</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
 
-<span class="c1"># Artificially add some np.nan</span>
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Artificially add some np.nan</span>
+
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># fix the seed</span>
 
-<span class="c1">## Add completly at random missing values</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">X_complete</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">missing_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">missing_mask</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">ampute_mcar</span><span class="p">(</span><span class="n">X_complete</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># Add completly at random missing values</span>
+    
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X_complete</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">missing_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">missing_mask</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">X</span>
 
-<span class="c1">## Add censored missing values</span>
-<span class="n">missing_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">X_complete</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">X_complete</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">missing_mask</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">ampute_mnar</span><span class="p">(</span><span class="n">X_complete</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># Add missing values not at random</span>
+    
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X_complete</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="c1">## Add censored missing values</span>
+    <span class="n">missing_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">X_complete</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">X_complete</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">missing_mask</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
 
-<span class="c1">## Add missing values correlated to y</span>
-<span class="n">y_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
-<span class="n">y_max_mask</span> <span class="o">=</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="n">y_max</span>
-<span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">y_max_mask</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1">## Add missing values correlated with y</span>
+        <span class="n">y_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
+        <span class="n">y_max_mask</span> <span class="o">=</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="n">y_max</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">putmask</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">y_max_mask</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">X</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_mcar</span> <span class="o">=</span> <span class="n">ampute_mcar</span><span class="p">(</span><span class="n">X_complete</span><span class="p">)</span>
+<span class="n">X_mnar</span> <span class="o">=</span> <span class="n">ampute_mnar</span><span class="p">(</span><span class="n">X_complete</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X_mcar</span>
 </pre></div>
 
     </div>
@@ -13216,7 +13253,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of X:&#39;</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -13247,7 +13284,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#  supress scientific notation </span>
@@ -13264,21 +13301,21 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[4]:</div>
+    <div class="prompt output_prompt">Out[6]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([[   8.3252,   41.    ,       nan,    1.0238,  322.    ,    2.5556,
+<pre>array([[   8.3252,   41.    ,    6.9841,    1.0238,  322.    ,    2.5556,
           37.88  , -122.23  ],
        [   8.3014,   21.    ,    6.2381,    0.9719, 2401.    ,       nan,
-              nan, -122.22  ],
-       [   7.2574,   52.    ,    8.2881,    1.0734,  496.    ,       nan,
+          37.86  , -122.22  ],
+       [   7.2574,   52.    ,    8.2881,    1.0734,       nan,       nan,
           37.85  , -122.24  ],
-       [   5.6431,   52.    ,    5.8174,    1.0731,  558.    ,    2.5479,
+       [      nan,       nan,    5.8174,    1.0731,  558.    ,       nan,
           37.85  , -122.25  ],
-       [      nan,   52.    ,    6.2819,    1.0811,  565.    ,    2.1815,
+       [      nan,   52.    ,    6.2819,    1.0811,  565.    ,       nan,
           37.85  , -122.25  ]])</pre>
 </div>
 
@@ -13290,7 +13327,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ratio nan in X:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">X</span><span class="p">))</span> <span class="o">/</span> <span class="n">X</span><span class="o">.</span><span class="n">size</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
@@ -13311,7 +13348,7 @@ $( document ).ready(function(){
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Ratio nan in X: 25.4 %
+<pre>Ratio nan in X: 20.0 %
 Ratio nan in y: 0.0 %
 </pre>
 </div>
@@ -13323,7 +13360,7 @@ Ratio nan in y: 0.0 %
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:</span><span class="mi">400</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:</span><span class="mi">400</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span>  <span class="c1">#  data with missing coordinate are not plotted</span>
@@ -13345,7 +13382,7 @@ Ratio nan in y: 0.0 %
 
 
 <div class="output_png output_subarea ">
-<img src="output_9_0.png"
+<img src="output_11_0.png"
 >
 </div>
 
@@ -13365,7 +13402,7 @@ Ratio nan in y: 0.0 %
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Our goal is to predict <code>y</code> as accuratly as possible. 
+<p>Our goal is to predict <code>y</code> as accurately as possible. 
 There exists mainly two options to deals with missing values:</p>
 <ol>
 <li>Either we get ride of all missing values (ease of use at the price of loosing information);</li>
@@ -13383,9 +13420,9 @@ There exists mainly two options to deals with missing values:</p>
 <ol>
 <li>Mean imputation: replace <code>nan</code> by the mean [or the median] of the feature (the column);</li>
 <li>Iterative imputation: each feature is regressed/estimated from the others;</li>
-<li>MinMax Imputation (also refer as Missing In Attribute, by <a href="https://www.sciencedirect.com/science/article/pii/S0167865508000305">Twala et al.</a>): duplicating features twice and remplace its missing values once by $\infty$ and once by $- \infty$. </li>
+<li>MinMax Imputation (also refer as Missing In Attribute, by <a href="https://www.sciencedirect.com/science/article/pii/S0167865508000305">Twala et al.</a>): duplicating features twice and replace its missing values once by $\infty$ and once by $- \infty$. </li>
 </ol>
-<p>In the case of Mean or Iterative imputation, it might by fruitsfull to add the missing values indicator (by concatenating the missing indicator to $X$)</p>
+<p>In the case of Mean or Iterative imputation, it might by fruitfull to add the missing values indicator (by concatenating the missing indicator to $X$)</p>
 
 </div>
 </div>
@@ -13400,7 +13437,7 @@ There exists mainly two options to deals with missing values:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="k">import</span> <span class="n">SimpleImputer</span>
@@ -13424,15 +13461,15 @@ There exists mainly two options to deals with missing values:</p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[[   8.3252   41.        5.3034    1.0238  322.        2.5556   37.88
+<pre>[[   8.3252   41.        6.9841    1.0238  322.        2.5556   37.88
   -122.23  ]
- [   8.3014   21.        6.2381    0.9719 2401.        3.0741   35.6295
+ [   8.3014   21.        6.2381    0.9719 2401.        3.1038   37.86
   -122.22  ]
- [   7.2574   52.        8.2881    1.0734  496.        3.0741   37.85
+ [   7.2574   52.        8.2881    1.0734 1428.183     3.1038   37.85
   -122.24  ]
- [   5.6431   52.        5.8174    1.0731  558.        2.5479   37.85
+ [   3.8718   28.674     5.8174    1.0731  558.        3.1038   37.85
   -122.25  ]
- [   3.8735   52.        6.2819    1.0811  565.        2.1815   37.85
+ [   3.8718   52.        6.2819    1.0811  565.        3.1038   37.85
   -122.25  ]]
 </pre>
 </div>
@@ -13444,7 +13481,7 @@ There exists mainly two options to deals with missing values:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ratio nan =&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">X_impute</span><span class="p">))</span> <span class="o">/</span> <span class="n">X</span><span class="o">.</span><span class="n">size</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
@@ -13475,7 +13512,7 @@ There exists mainly two options to deals with missing values:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_impute</span><span class="p">[:</span><span class="mi">400</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_impute</span><span class="p">[:</span><span class="mi">400</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
@@ -13494,13 +13531,13 @@ There exists mainly two options to deals with missing values:</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.collections.PathCollection at 0x7f73195ee390&gt;</pre>
+<pre>&lt;matplotlib.collections.PathCollection at 0x7f2e6921a518&gt;</pre>
 </div>
 
 </div>
@@ -13513,7 +13550,7 @@ There exists mainly two options to deals with missing values:</p>
 
 
 <div class="output_png output_subarea ">
-<img src="output_16_1.png"
+<img src="output_18_1.png"
 >
 </div>
 
@@ -13525,7 +13562,7 @@ There exists mainly two options to deals with missing values:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># explicitly require because IterativeImputer is still experimental in sklearn</span>
@@ -13551,15 +13588,15 @@ There exists mainly two options to deals with missing values:</p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[[   8.3252   41.        8.4915    1.0238  322.        2.5556   37.88
+<pre>[[   8.3252   41.        6.9841    1.0238  322.        2.5556   37.88
   -122.23  ]
- [   8.3014   21.        6.2381    0.9719 2401.        2.208    36.4426
+ [   8.3014   21.        6.2381    0.9719 2401.        9.2866   37.86
   -122.22  ]
- [   7.2574   52.        8.2881    1.0734  496.        3.836    37.85
+ [   7.2574   52.        8.2881    1.0734  408.2665    0.8595   37.85
   -122.24  ]
- [   5.6431   52.        5.8174    1.0731  558.        2.5479   37.85
+ [   4.5338   33.2761    5.8174    1.0731  558.       -3.1331   37.85
   -122.25  ]
- [   4.5915   52.        6.2819    1.0811  565.        2.1815   37.85
+ [   4.824    52.        6.2819    1.0811  565.        1.3492   37.85
   -122.25  ]]
 </pre>
 </div>
@@ -13583,7 +13620,7 @@ There exists mainly two options to deals with missing values:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_impute</span><span class="p">[:</span><span class="mi">400</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X_impute</span><span class="p">[:</span><span class="mi">400</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
@@ -13608,7 +13645,7 @@ There exists mainly two options to deals with missing values:</p>
 
 
 <div class="output_png output_subarea ">
-<img src="output_18_0.png"
+<img src="output_20_0.png"
 >
 </div>
 
@@ -13637,7 +13674,7 @@ There exists mainly two options to deals with missing values:</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Let's evaluate the differents imputation strategies.
-Let's consider our differents imputers w.r.t. differents machine learning algorithms. The piepline will be</p>
+Let's consider our differents imputers w.r.t. differents machine learning algorithms. The pipeline will be</p>
 <ul>
 <li><ol>
 <li>Imputation</li>
@@ -13655,14 +13692,14 @@ Let's consider our differents imputers w.r.t. differents machine learning algori
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.1-Step-by-step-pipeline-with-LinearRegression()">3.1 Step by step pipeline with LinearRegression()<a class="anchor-link" href="#3.1-Step-by-step-pipeline-with-LinearRegression()">&#182;</a></h3><p>Here we decompose each step of the pipepline for clarity.</p>
+<h3 id="3.1-Step-by-step-pipeline-with-LinearRegression()">3.1 Step by step pipeline with LinearRegression()<a class="anchor-link" href="#3.1-Step-by-step-pipeline-with-LinearRegression()">&#182;</a></h3><p>Here we decompose each step of the pipeline for clarity.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># First split the data into train set and test set</span>
@@ -13698,7 +13735,7 @@ test shape: X.shape=(5160, 8), y.shape=(5160,)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LinearRegression</span>
@@ -13712,12 +13749,11 @@ test shape: X.shape=(5160, 8), y.shape=(5160,)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot; Line below would raise an ValueError: </span>
 <span class="sd">&#39;Input contains NaN, infinity or a value too large for dtype(&#39;float64&#39;).&#39;</span>
-
 <span class="sd">Because LinearRegressor couldn&#39;t deals with NaN values.&quot;&quot;&quot;</span><span class="p">;</span>
 
 <span class="c1"># regressor.fit(X_train, y_train) </span>
@@ -13730,7 +13766,7 @@ test shape: X.shape=(5160, 8), y.shape=(5160,)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Good pratcice are: fitting on the train, then transform both train and test with the *same* imputer</span>
@@ -13749,7 +13785,7 @@ test shape: X.shape=(5160, 8), y.shape=(5160,)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_imp</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -13771,8 +13807,8 @@ test shape: X.shape=(5160, 8), y.shape=(5160,)
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Score on train: 0.4122652287216697
-Score on test: 0.38863230503580404
+<pre>Score on train: 0.43620914183706777
+Score on test: 0.4264164447205786
 </pre>
 </div>
 </div>
@@ -13783,7 +13819,7 @@ Score on test: 0.38863230503580404
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Try with the IterativeImputer now</span>
@@ -13812,8 +13848,8 @@ Score on test: 0.38863230503580404
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Score on train: 0.45217680786980824
-Score on test: 0.44012426540482763
+<pre>Score on train: 0.5016123112291981
+Score on test: 0.4884089070599
 </pre>
 </div>
 </div>
@@ -13845,7 +13881,7 @@ Score on test: 0.44012426540482763
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#160;3.2-Model-selection">&#160;3.2 Model selection<a class="anchor-link" href="#&#160;3.2-Model-selection">&#182;</a></h3><p>Now we run our piepline on severals imputers and regressors.<br>
+<h3 id="&#160;3.2-Model-selection">&#160;3.2 Model selection<a class="anchor-link" href="#&#160;3.2-Model-selection">&#182;</a></h3><p>Now we run our pipeline on severals imputers and regressors.<br>
 We will use <code>Piepline</code> from sklearn to sequentially apply imputation and regression.<br>
 We finally use sklearn cross_val_score to evaluate our models.</p>
 
@@ -13854,7 +13890,7 @@ We finally use sklearn cross_val_score to evaluate our models.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Imputer model:</span>
@@ -13895,7 +13931,7 @@ We finally use sklearn cross_val_score to evaluate our models.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Regressor model:</span>
@@ -13907,7 +13943,7 @@ We finally use sklearn cross_val_score to evaluate our models.</p>
 <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">HistGradientBoostingRegressor</span>  <span class="c1"># similar to XGBoost/lightGBM</span>
 
 <span class="n">regressors</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;LinReg&#39;</span><span class="p">:</span> <span class="n">LinearRegression</span><span class="p">(),</span>
-              <span class="s1">&#39;SVM&#39;</span><span class="p">:</span> <span class="n">SVR</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+<span class="c1">#               &#39;SVM&#39;: SVR(C=100),</span>
               <span class="s1">&#39;RandomForest&#39;</span><span class="p">:</span> <span class="n">RandomForestRegressor</span><span class="p">(),</span>
               <span class="s2">&quot;HGBoost&quot;</span><span class="p">:</span> <span class="n">HistGradientBoostingRegressor</span><span class="p">()}</span>
 </pre></div>
@@ -13922,63 +13958,29 @@ We finally use sklearn cross_val_score to evaluate our models.</p>
 <div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># from sklearn.pipeline import Pipeline</span>
-<span class="c1"># from sklearn.model_selection import cross_val_score</span>
-
-<span class="c1"># rf_pipeline = Pipeline([(&#39;Simple&#39;, SimpleImputer(add_indicator=True)), (&#39;RandomForest&#39;, RandomForestRegressor())])</span>
-<span class="c1"># score = cross_val_score(rf_pipeline, X, y) </span>
-<span class="c1"># print(&#39;Score on 5-fold :&#39;, score)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Score on 5-fold : [0.3226 0.5901 0.5953 0.447  0.4779]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
-<div class="inner_cell">
-    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="k">import</span> <span class="n">Pipeline</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">ShuffleSplit</span><span class="p">,</span> <span class="n">cross_val_score</span>
 
-<span class="k">def</span> <span class="nf">plot_score_regressor</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">regressor</span><span class="p">,</span> <span class="n">regressor_name</span> <span class="o">=</span> <span class="s1">&#39;regressor&#39;</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">plot_score_regressor</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">regressor</span><span class="p">,</span> <span class="n">regressor_name</span><span class="o">=</span><span class="s1">&#39;regressor&#39;</span><span class="p">,</span> <span class="n">X_complete</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="c1"># Boxplot scores for each imputation strategies</span>
     
     <span class="n">l_score</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">imputers</span> <span class="ow">in</span> <span class="p">[</span><span class="n">imputers_wo_indicator</span><span class="p">,</span> <span class="n">imputers_with_indicator</span><span class="p">]:</span>
         <span class="k">for</span> <span class="n">imputer_name</span><span class="p">,</span> <span class="n">imputer</span> <span class="ow">in</span> <span class="n">imputers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="n">imputer_name</span><span class="p">,</span> <span class="n">imputer</span><span class="p">),</span> <span class="p">(</span><span class="n">regressor_name</span><span class="p">,</span> <span class="n">regressor</span><span class="p">)])</span>
-            <span class="n">score</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">score</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">cv</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
             <span class="n">l_score</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
             
+    <span class="n">score_ground_truth</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">regressor</span><span class="p">,</span> <span class="n">X_complete</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">cv</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="n">l_score</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">score_ground_truth</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">regressor_name</span><span class="p">)</span>     
-    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Simple&#39;</span><span class="p">,</span> <span class="s1">&#39;Iterative&#39;</span><span class="p">,</span> <span class="s1">&#39;Simple+Mask&#39;</span><span class="p">,</span> <span class="s1">&#39;Iterative+Mask&#39;</span><span class="p">,</span> <span class="s1">&#39;MinMax&#39;</span><span class="p">]</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Simple&#39;</span><span class="p">,</span> <span class="s1">&#39;Iterative&#39;</span><span class="p">,</span> <span class="s1">&#39;Simple+Mask&#39;</span><span class="p">,</span> <span class="s1">&#39;Iterative+Mask&#39;</span><span class="p">,</span> <span class="s1">&#39;MinMax&#39;</span><span class="p">,</span> <span class="s1">&#39;X_complete&#39;</span><span class="p">]</span>
     <span class="n">bplot</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">l_score</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
                 <span class="n">vert</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">patch_artist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="c1"># Add colors to boxplots</span>
     <span class="k">for</span> <span class="n">patch</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">bplot</span><span class="p">[</span><span class="s1">&#39;boxes&#39;</span><span class="p">],</span>
-                            <span class="p">[</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span><span class="s1">&#39;C2&#39;</span><span class="p">,</span><span class="s1">&#39;C3&#39;</span><span class="p">,</span> <span class="s1">&#39;C4&#39;</span><span class="p">]):</span>
+                            <span class="p">[</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span><span class="s1">&#39;C2&#39;</span><span class="p">,</span><span class="s1">&#39;C3&#39;</span><span class="p">,</span> <span class="s1">&#39;C4&#39;</span><span class="p">,</span> <span class="s1">&#39;C5&#39;</span><span class="p">]):</span>
         <span class="n">patch</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
 </pre></div>
 
@@ -13989,12 +13991,14 @@ We finally use sklearn cross_val_score to evaluate our models.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">regressor_name</span><span class="p">,</span> <span class="n">regressor</span> <span class="ow">in</span> <span class="n">regressors</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-    <span class="n">plot_score_regressor</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">regressor</span><span class="p">,</span> <span class="n">regressor_name</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">X_name</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="n">X_mcar</span><span class="p">,</span> <span class="n">X_mnar</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;MCAR&#39;</span><span class="p">,</span> <span class="s1">&#39;MNAR&#39;</span><span class="p">])):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">ii</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">plot_score_regressor</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">regressor</span><span class="p">,</span> <span class="n">regressor_name</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">X_name</span><span class="p">,</span> <span class="n">X_complete</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14013,7 +14017,7 @@ We finally use sklearn cross_val_score to evaluate our models.</p>
 
 
 <div class="output_png output_subarea ">
-<img src="output_35_0.png"
+<img src="output_36_0.png"
 >
 </div>
 
@@ -14027,7 +14031,7 @@ We finally use sklearn cross_val_score to evaluate our models.</p>
 
 
 <div class="output_png output_subarea ">
-<img src="output_35_1.png"
+<img src="output_36_1.png"
 >
 </div>
 
@@ -14041,21 +14045,7 @@ We finally use sklearn cross_val_score to evaluate our models.</p>
 
 
 <div class="output_png output_subarea ">
-<img src="output_35_2.png"
->
-</div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="output_35_3.png"
+<img src="output_36_2.png"
 >
 </div>
 
@@ -14086,7 +14076,7 @@ We finally use sklearn cross_val_score to evaluate our models.</p>
 <ul>
 <li><p>To train and test on data with missing values, the <strong>same imputation model should be used</strong>.</p>
 </li>
-<li><p><em>Missing Incorporated in Attribute (MIA)</em> is a good solution for tree-based models (e.g. lightGBM implemantation, sklearn next release). It handles missing values information.</p>
+<li><p><em>Missing Incorporated in Attribute (MIA)</em> is a good solution for tree-based models (e.g. lightGBM implementation, sklearn next release). It handles missing values information.</p>
 </li>
 <li><p>Imputation methods <em>reduce</em> the number of samples required to reach good prediction</p>
 </li>
@@ -14101,7 +14091,7 @@ We finally use sklearn cross_val_score to evaluate our models.</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Further-reading">Further reading<a class="anchor-link" href="#Further-reading">&#182;</a></h3><ul>
-<li>Pandas conrains some functions to deals with <code>nan</code>: <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html">Missing data with Pandas</a></li>
+<li>Pandas contains some functions to deals with <code>nan</code>: <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html">Missing data with Pandas</a></li>
 <li><a href="https://scikit-learn.org/stable/modules/impute.html">Impuation in sklearn</a><ul>
 <li>Here we used both the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.SimpleImputer.html">SimpleImputer</a> and the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.IterativeImputer.html">IterativeImputer</a> class.</li>
 </ul>
