@@ -6,7 +6,7 @@
     <description>Recent content on R-miss-tastic</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 30 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://rmisstastic.netlify.com/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,7 +17,9 @@
       <pubDate>Sun, 30 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>https://rmisstastic.netlify.com/workflows/</guid>
-      <description>How to handle missing values in practice ?  Missing values occur almost inevitably in most domains that handle data. Hence most data sets contain missing values, some of them might be informative. Now the question is How to handle these missing values if we want to do estimation, inference, prediction, etc.? There doesn&#39;t exist a unique and standard answer to this question since the analyses depend on different aspects of the data and several questions have to be considered before choosing a way to deal with the missing values:</description>
+      <description>How to handle missing values in practice ?  How to handle these missing values if we want to do estimation, inference, prediction, etc.? There doesn&#39;t exist a unique and standard answer to this question. For a straightforward application of some the most common methods we propose several workflows below, in both R and Python.
+
+How to (R notebook)&amp;hellip; &amp;hellip; generate missing values? (PDF and related R source code) &amp;hellip; estimate with missing values?</description>
     </item>
     
     <item>
@@ -27,10 +29,9 @@
       
       <guid>https://rmisstastic.netlify.com/lectures/</guid>
       <description>Below you will find a selection of high-quality lectures, tutorials and labs on different aspects of missing values.
-If you wish to contribute some of your own material to this platform, please feel free to contact us via the Contact form.
    General lectures   Statistical Methods for Analysis With Missing Data
  (Marie Davidian, course at NC State University, spring 2017)
-    This course provides an overview of modern statistical frameworks and methods for analysis in the presence of missing data.</description>
+    This course provides an overview of modern statistical frameworks and methods for analysis in the presence of missing data. Both methodological developments and applications are emphasized.</description>
     </item>
     
     <item>
@@ -39,17 +40,17 @@ If you wish to contribute some of your own material to this platform, please fee
       <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>https://rmisstastic.netlify.com/bibliography/</guid>
-      <description>On this platform we attempt to give you an overview of main references on missing values. We do not claim to gather all available references on the subject but rather to offer a peak into different fields of active research on handling missing values, allowing for an introductory reading as well as a starting point for further bibliographical research. See here for a full (and uncommented) list of references.</description>
+      <description>On this platform we attempt to give you an overview of main references on missing values. We do not claim to gather all available references on the subject but rather to offer a peak into different fields of active research on handling missing values, allowing for an introductory reading as well as a starting point for further bibliographical research. See here for a full (and uncommented) list of references.
+Inspired by CRAN Task View on Missing Data and a review of Imbert &amp;amp; Vialaneix on handling missing values (2018, written in French) we organized our selection of relevant references on missing values by different topics.</description>
     </item>
     
     <item>
       <title></title>
       <link>https://rmisstastic.netlify.com/rpkg/</link>
-      <pubDate>Sun, 04 Apr 2010 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://rmisstastic.netlify.com/rpkg/</guid>
-      <description>R Packages This page provides introductions to popular missing data packages with small examples on how to use them. Thus the page gives more extensive information than the CRAN Task View on Missing Data, which is recommended to get a first overall overview about the CRAN missing data landscape.
-You can also contribute on your own to this page and provide a short introduction to a missing data package. Take a look at this short description on how to do this.</description>
+      <description>R Packages This page provides introductions to popular missing data packages with small examples on how to use them. Thus the page gives more extensive information than the CRAN Task View on Missing Data, which is recommended to get a first overall overview about the CRAN missing data landscape. You can also contribute on your own to this page and provide a short introduction to a missing data package. Take a look at this short description on how to do this.</description>
     </item>
     
     <item>
@@ -78,7 +79,11 @@ If you think you or your reaserch group should also figure on the list below fee
       <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://rmisstastic.netlify.com/misc/</guid>
-      <description>Some other interesting websites discussing missing values: Missing Values in Data Mining (Soft Computing and Intelligent Information Systems research group, University of Granada) Missing Data (James Carpenter, Jonathan Bartlett, London School of Hygiene &amp; Tropical Medicine) Missing Data - Software, Advice and Research on handling data with missing values (Paul von Hippel) Multiple Imputation (Stef van Buuren, currently unavailable) Imputation of missing values in Python (using scikit-learn) (scikit-learn documentation)</description>
+      <description>Recent R package releases Last update: 2019-10-01
+We regularly update recently released R packages handling missing values. This is a non-exhaustive list, if you have suggestions feel free to contact us.
+missSBM: Handling Missing Data in Stochastic Block Models (Authors: Julien Chiquet, Pierre Barbillon, Timothée Tabouy)
+ RMixtComp: Mixture Models with Heterogeneous and (Partially) Missing Data (Authors: Vincent Kubicki, Christophe Biernacki, Quentin Grimonprez)
+ ABSLOPE: High-dimensional Model Selection with Missing Values (Author: Wei Jiang)</description>
     </item>
     
     <item>
@@ -107,7 +112,9 @@ If you think you or your reaserch group should also figure on the list below fee
       <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://rmisstastic.netlify.com/posts/faq/</guid>
-      <description>&lt;p align=&#34;justify&#34;&gt;When it comes to analyses with missing values, some questions are raised regularely during classes or seminars. We try to list the most popular questions with some elements of response. If you have another question related to the handling of missing values, feel free to contact us via the &lt;a href=&#34;https://rmisstastic.netlify.com/contact/&#34;&gt;Contact form&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>&lt;p align=&#34;justify&#34;&gt;When it comes to analyses with missing values, some questions are raised regularely during classes or seminars. We try to list the most popular questions with some elements of response. If you have another question related to the handling of missing values, feel free to contact us via the &lt;a href=&#34;https://rmisstastic.netlify.com/contact/&#34;&gt;Contact form&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -116,9 +123,16 @@ If you think you or your reaserch group should also figure on the list below fee
       <pubDate>Sat, 03 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://rmisstastic.netlify.com/posts/welcome/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://rmisstastic.netlify.com/images/missing_data_propaganda.png&#34;/&gt; 
-&lt;/figure&gt;</description>
+      <description>&lt;p&gt;
+&lt;figure&gt;
+    
+        &lt;img src=&#34;https://rmisstastic.netlify.com/images/missing_data_propaganda.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+
+Image source: etsy.com&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -128,6 +142,19 @@ If you think you or your reaserch group should also figure on the list below fee
       
       <guid>https://rmisstastic.netlify.com/posts/events/</guid>
       <description>&lt;p align=&#34;justify&#34;&gt;Some upcoming and recent past events, mainly conferences, with special sessions or multiple contributions on handling missing values. (Last updated: 2019-07-18)&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://rmisstastic.netlify.com/packages/vim/</link>
+      <pubDate>Wed, 10 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://rmisstastic.netlify.com/packages/vim/</guid>
+      <description>Package: VIM
+Category: Single Imputation, Visualisations for Missing Data
+Use-Cases: Single imputation for numerical, categorical, ordered and semi-continous variables, Missing data visualizations
+Popularity: 
+Description: New tools for the visualization of missing and/or imputed values are introduced, which can be used for exploring the data and the structure of the missing and/or imputed values. Depending on this structure of the missing values, the corresponding methods may help to identify the mechanism generating the missing values and allows to explore the data including missing values.</description>
     </item>
     
     <item>
@@ -187,19 +214,6 @@ Algorithms:  impute_cart Decision Tree Imputation impute_const Impute by variabl
     
     <item>
       <title></title>
-      <link>https://rmisstastic.netlify.com/packages/vim/</link>
-      <pubDate>Wed, 10 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://rmisstastic.netlify.com/packages/vim/</guid>
-      <description>Package: VIM
-Category: Single Imputation, Visualisations for Missing Data
-Use-Cases: Single imputation for numerical, categorical, ordered and semi-continous variables, Missing data visualizations
-Popularity: 
-Description: New tools for the visualization of missing and/or imputed values are introduced, which can be used for exploring the data and the structure of the missing and/or imputed values. Depending on this structure of the missing values, the corresponding methods may help to identify the mechanism generating the missing values and allows to explore the data including missing values.</description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>https://rmisstastic.netlify.com/packages/missmda/</link>
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
       
@@ -233,7 +247,7 @@ Description: Missing values are ubiquitous in data and need to be carefully expl
       
       <guid>https://rmisstastic.netlify.com/bibliography/biblio_complete/</guid>
       <description>A commented version of this bibliography can be found here.
-  Publication type All Book Article Paper Misc    Year    Author        Citation   Year   Publication type      Yoon, J., J. Jordon, and M. Van Der Schaar. Gain: Missing data imputation using generative adversarial nets. In: arXiv preprint arXiv:1806.02920 (2018).</description>
+  Publication type All Book Article Paper Misc    Year    Author        Citation   Year   Publication type      Yoon, J., J. Jordon, and M. Van Der Schaar. Gain: Missing data imputation using generative adversarial nets. In: arXiv preprint arXiv:1806.02920 (2018).   2018   Article   Bertsimas, D.</description>
     </item>
     
   </channel>

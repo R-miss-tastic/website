@@ -19,7 +19,6 @@
   
   <url>
     <loc>https://rmisstastic.netlify.com/rpkg/</loc>
-    <lastmod>2010-04-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -43,16 +42,6 @@
   </url>
   
   <url>
-    <loc>https://rmisstastic.netlify.com/posts/</loc>
-    <lastmod>2019-08-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rmisstastic.netlify.com/</loc>
-    <lastmod>2019-08-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://rmisstastic.netlify.com/posts/intro/</loc>
     <lastmod>2019-08-05T00:00:00+00:00</lastmod>
   </url>
@@ -70,6 +59,11 @@
   <url>
     <loc>https://rmisstastic.netlify.com/posts/events/</loc>
     <lastmod>2019-07-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/packages/vim/</loc>
+    <lastmod>2019-07-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -93,16 +87,6 @@
   </url>
   
   <url>
-    <loc>https://rmisstastic.netlify.com/packages/vim/</loc>
-    <lastmod>2019-07-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://rmisstastic.netlify.com/packages/</loc>
-    <lastmod>2019-07-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://rmisstastic.netlify.com/packages/missmda/</loc>
     <lastmod>2019-07-01T00:00:00+00:00</lastmod>
   </url>
@@ -119,10 +103,29 @@
   
   <url>
     <loc>https://rmisstastic.netlify.com/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/packages/</loc>
+    <lastmod>2019-07-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/posts/</loc>
+    <lastmod>2019-08-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://rmisstastic.netlify.com/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://rmisstastic.netlify.com/</loc>
+    <lastmod>2019-06-30T00:00:00+00:00</lastmod>
   </url>
   
 </urlset>
