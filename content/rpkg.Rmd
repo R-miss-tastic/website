@@ -1,0 +1,88 @@
+---
+output: md_document
+author: "Steffen Moritz & Nathalie Vialaneix"
+linktitle: R packages
+menu: navbar
+name: "R packages on missing values"
+url: "/rpkg/"
+weight: 4
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r PkGList, echo=FALSE, message=FALSE, warning=FALSE}
+pkg_list <- c("imputeTS", "mice", "missForest", "missMDA", "naniar",
+              "simputation", "VIM")
+pkg_category <- c("Time-Series Imputation, Visualisations for Missing Data",
+                  "Multiple Imputation",
+                  "Single Imputation",
+                  "Single and multiple Imputation, Multivariate Data Analysis",
+                  "Visualisations for Missing Data",
+                  "Single Imputation, Meta-Package",
+                  "Single Imputation, Visualisations for Missing Data")
+```
+
+#### R Packages
+
+<p align="justify">This page provides introductions to popular missing data packages with small examples on how to use them. Thus the page gives more extensive information than the  <a href="https://CRAN.R-project.org/view=MissingData" target="_blank">CRAN Task View on Missing Data</a>, which is recommended to get a first overall overview about the CRAN missing data landscape.</p>
+
+<p align="justify"><i>You can also contribute on your own to this page and provide a short introduction to a missing data package. Take a look at <a href="/packages/rpkg-listitem-template.md" target="_blank">this short description</a> on how to do this. We are very happy about all contributions.</i></p>
+
+<div id="users">
+  <input class="search" placeholder="Search" />
+  <button class="sort" data-sort="name">
+    Sort by name
+  </button>
+  <button class="sort" data-sort="Category">
+    Sort by Category
+  </button>
+
+<p>
+  <ul class="list">
+```{r loopRpkG, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+for (ind in seq_along(pkg_list)) {
+    
+  print_text <- paste0('<li style="margin: 0px;">',
+                       '<h3 class="name">',
+                       packageDescription(pkg_list[ind], fields = "Package"),
+                       '</h3>',
+
+                       '<h6 class="Category">Category: ',
+                       pkg_category[ind],
+                       '</h6>',
+                       '<i class="Description">',
+                       packageDescription(pkg_list[ind], fields = "Description"),
+                       '</i><br>',
+                       
+                       '<img src="https://cranlogs.r-pkg.org/badges/',
+                        pkg_list[ind],
+                       '" alt="CRAN Downloads" />',
+                       
+                       '<img src="https://www.r-pkg.org/badges/last-release/',
+                       pkg_list[ind],
+                       '" alt="CRAN Release" /> <br>',
+                       
+                       '<a href="/packages/',
+                       pkg_list[ind],
+                       '"> more.. </a>',
+                       
+                       '</li></br>')
+  cat(print_text)
+}
+```
+  </ul>
+</p>
+</div>
+
+Your favorite package is missing? <a href="/packages/rpkg-listitem-template.md" target="_blank">Here</a> is an explanation on how to make an entry for your package. <a href="/packages/rpkg-template.md" target="_blank">Template</a>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+<script> var options = {
+  valueNames: [ 'name', 'Category', 'Description' ]
+};
+
+var userList = new List('users', options);
+</script>
+
