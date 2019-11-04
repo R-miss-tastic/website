@@ -620,6 +620,16 @@ Default Task
 </small>
 -->
 
+<br>
+
+<p align="justify">If you are looking for other publicly available data sets with missing values that have been used by researchers to assess the quality of different methods, have a look at:</p>
+
+<ul class="list-group" id="data-websites-list">
+<li class="list-group-item"> <a href="https://sci2s.ugr.es/MVDM" target="_blank">Missing Values in Data Mining</a> website of the Soft Computing and Intelligent Information Systems research group at University of Granada.</li>
+<li class="list-group-item"> <a href="https://sci2s.ugr.es/keel/missing.php#sub2" target="_blank">Missing values data sets</a> in the Knowledge Extraction based on Evolutionary Learning (KEEL) data set repository.</li>
+</ul>
+
+
 <style>
 .collapse-row.collapsed + tr {
      display: none;
@@ -637,4 +647,9 @@ table {
 
 </style>
 
-
+<style>
+#data-websites-list
+{
+  padding: 0px;
+}
+</style>
