@@ -24,7 +24,7 @@ description: ''
   <div id="accordion" aria-multiselectable="true">
     <div class="card mb-2" id="faq01_container">
       <div class="card-header bg-light text-dark" role="tab" id="h_faq01" data-toggle="collapse" data-parent="#accordion" href="#faq01" aria-expanded="false" aria-controls="faq01">
-        <i>How to handle missing values in the validation or test set? Is it better to impute test and training set simultaneously, or spearately?</i>
+        <i>How to handle missing values in the validation or test set? Is it better to impute test and training set simultaneously, or separately?</i>
       </div>
       <div id="faq01" class="collapse" role="tabpanel" aria-labelledby="faq01" data-parent="#accordion">
         <div class="card-body">
