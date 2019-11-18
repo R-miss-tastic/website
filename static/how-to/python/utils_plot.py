@@ -76,7 +76,7 @@ def scatter_plot_with_missing_completed(X_obs, X_complete,
     
     sns.kdeplot(X_missing[:,0], ax=g.ax_marg_x)
     sns.kdeplot(X_missing[:,1], ax=g.ax_marg_y,
-                    vertical=True, label='missing (comlpeted)')
+                    vertical=True, label='missing (completed)')
     g.ax_joint.plot(X_missing[:,0], X_missing[:,1], "*", alpha = .7)
     plt.legend()
     plt.tight_layout()
