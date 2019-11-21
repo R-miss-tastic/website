@@ -47,7 +47,7 @@ We regularly update recently released R packages handling missing values. This i
 
 </br>
 
-#### Website discussing missing values:
+#### Website discussing missing values
 
 <ul class="list-group" id="websites-list">
 <li class="list-group-item"> <a href="https://scikit-learn.org/0.21/modules/impute.html" target="_blank">Imputation of missing values in Python (using scikit-learn)</a> (scikit-learn documentation)</li>
@@ -55,7 +55,7 @@ We regularly update recently released R packages handling missing values. This i
 <br>
 
 
-#### Miscellaneous:
+#### Miscellaneous
 
 - [Missing Values in Data Mining](https://sci2s.ugr.es/MVDM) (Soft Computing and Intelligent Information Systems research group, University of Granada)
 - https://missingdata.org/ (James Carpenter, Jonathan Bartlett, London School of Hygiene & Tropical Medicine)
@@ -65,7 +65,9 @@ We regularly update recently released R packages handling missing values. This i
 [comment]: # (http://www.missingdata.org.uk" )[comment]: # (https://missingdata.org" )
 [comment]: # (http://www.multiple-imputation.com")
 
+## Credits
 
+The forkme Github corner has been made from the work by Tim Holman at <a href="https://github.com/tholman/github-corners">this link</a>.
 
 <style>
 #up-events-list
