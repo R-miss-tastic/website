@@ -1,25 +1,5 @@
 % Encoding: UTF-8
 
-@article{yoon2018gain,
-  title={Gain: Missing data imputation using generative adversarial nets},
-  author={Yoon, Jinsung and Jordon, James and Van Der Schaar, Mihaela},
-  journal={arXiv preprint arXiv:1806.02920},
-  year={2018},
-  topic={imputation}
-}
-
-@article{bertsimas2017predictive,
-  title={From predictive methods to missing data imputation: an optimization approach},
-  author={Bertsimas, Dimitris and Pawlowski, Colin and Zhuo, Ying Daisy},
-  journal={The Journal of Machine Learning Research},
-  volume={18},
-  number={1},
-  pages={7133--7171},
-  year={2017},
-  publisher={JMLR. org},
-  topic={imputation}
-}
-
 @Article{abayomi_etal_JRSSC2008,
   Title                    = {Diagnostics for multivariate imputations},
   Author                   = {Abayomi, K. and Gelman, A. and Levy, M.},
@@ -2328,14 +2308,19 @@ Nonignorable; Nonparametric saturated; Sensitivity analysis.},
 }
 
 
-@ARTICLE{santos2019,
-  title   = "Generating Synthetic Missing Data: A Review by Missing Mechanism",
-  author  = "Santos, M S and Pereira, R C and Costa, A F and Soares, J P and
-             Santos, J and Abreu, P H",
-  journal = "IEEE Access",
-  volume  =  7,
-  pages   = "11651--11667",
-  year    =  2019
+@Article{santos_etal_2019,
+  Title                    = {Generating Synthetic Missing Data: A Review by Missing Mechanism},
+  Author                   = {Santos, M S and Pereira, R C and Costa, A F and Soares, J P and Santos, J and Abreu, P H},
+  Journal                  = {IEEE Access},
+  Volume                   = {7},
+  Pages                    = {11651--11667},
+  Year                     = {2019},
+  Doi                      = {10.1109/ACCESS.2019.2891360},
+
+  Abstract                 = {The performance evaluation of imputation algorithms often involves the generation of missing values. Missing values can be inserted in only one feature (univariate configuration) or in several features (multivariate configuration) at different percentages (missing rates) and according to distinct missing mechanisms, namely, missing completely at random, missing at random, and missing not at random. Since the missing data generation process defines the basis for the imputation experiments (configuration, missing rate, and missing mechanism), it is essential that it is appropriately applied; otherwise, conclusions derived from ill-defined setups may be invalid. The goal of this paper is to review the different approaches to synthetic missing data generation found in the literature and discuss their practical details, elaborating on their strengths and weaknesses. Our analysis revealed that creating missing at random and missing not at random scenarios in datasets comprising qualitative features is the most challenging issue in the related work and, therefore, should be the focus of future work in the field.},
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {mnar; simulation}
 }
 
 
@@ -2567,6 +2552,24 @@ Nonignorable; Nonparametric saturated; Sensitivity analysis.},
   Owner                    = {imke},
   Timestamp                = {2019.03.28},
   Topics                   = {mnar}
+}
+
+@Article{sportisse_etal_2019,
+  Title                    = {Estimation with informative missing data in the low-rank model with random effects},
+  Author                   = {Sportisse, Aude and Boyer, Claire and Josse, Julie},
+  Journal                  = {arXiv preprint},
+  archivePrefix            = {arXiv},
+  eprint                   = {1906.02493},
+  primaryClass             = {stat.ST},
+  Year                     = {2019},
+
+  Abstract                 = {Missing Not At Random values are considered to be non-ignorable and require defining a model for the missing values mechanismwhich involves strong a priori on the parametric form of the distribution and makes the inference or imputation tasks more complex. Methodologies to handle MNAR values also focus on simple settings assuming that only one variable (such as the outcome one) has missing entries. Recent work of Mohan and Pearl based on graphical models and causality show that specific settings of MNAR enable to recover some aspects of the distribution without specifying the MNAR mechanism. We pursue this line of research. Considering a data matrix generated from a probabilistic principal component analysis (PPCA) model containing several MNAR variables, not necessarily under the same self-masked missing mechanism, we propose estimators for the means, variances and covariances of the variables and study their consistency. The estimators present the great advantage of being computed by only using observed data. In addition, we propose an imputation method of the data matrix and an estimation of the PPCA loading matrix. We compare our proposal with results obtained for ignorable missing values based on the use of expectation-maximization algorithm.},
+  Keywords                 = {informative missing values; selection bias; latent variables; probabilistic principal
+component analysis; missingness graph; matrix completion},
+
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {mnar; factorial data analysis}
 }
 
 @Article{stacklies_etal_B2007,
