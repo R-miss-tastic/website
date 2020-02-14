@@ -1,0 +1,319 @@
+---
+title: "How to perform parameters estimation with missing values?"
+author: "Pavlo Mozharovskyi, Wei Jiang, Manuel Pichon"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    number_sections: yes
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
+linkcolor: blue
+link-citations: yes
+bibliography: bibliography.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+Imagine you are solving a linear regression but there are a lot of missing values in your covariate matrix, how can you deal with so many "*NA*"? The trouble may be caused by survey non-responses, lost records or machine failures. Classical packages performing estimation would let you ignore all the lines with missingness, as a result, much information would be lost. 
+
+A more reasonable method to handle this problem, is modifying an estimation process so that the method can be applied to incomplete data. For example, one can use the Expectation-Maximization (EM) algorithm [@dempster1977] to obtain the maximum likelihood estimate (MLE) despite missing values.
+This strategy is valid under missing at random (MAR) mechanisms [@little_rubin; @MAR], in which the missingness of data is independent of the missing values, given the observed data.
+Even though this approach is perfectly suited to specific inference problems with missing values, there are few solutions or implementations available, even for simple models. In the following , we will demonstrate how to estimate parameters based on EM algorithm in a linear regression model and in a logistic regression model.
+
+Another popular choice is multiple imputation [@mice], followed by classical regression procedure on each imputed dataset, and finally we aggregate the estimate on each set with Rubin's combining rules. In the following, we will compare this method to EM and illustrate the bias and variance of estimation by an example of simulated dataset.
+
+
+# Linear regression with missing values {#linear}
+## Estimation with EM algorithm
+Consider the following linear regression model which fits to numerous practical settings even while being restricted to the joint multivariate normal assumption:
+
+$$
+y = \tilde{X}^\top \boldsymbol{\beta} + \varepsilon\,,
+$$
+where $\tilde{X} = (1, X^\top)^\top$ with random variable $X = (x_1,...,x_p)^\top \sim\mathcal{N}_p(\mu_X,\Sigma_X)$ independent of the noise $\varepsilon\sim\mathcal{N}(0,\sigma^2)$. Let $n$ *i.i.d.* observations $(y_i, X_i^\top)^\top,\,i=1,...,n$ be available but only partly observed. We aim to estimate $\mathbb{E}[y\mid X] = \tilde{X}^\top\boldsymbol{\beta}$.
+
+In view of independence and normality of $y$ and $X$, we have
+$$
+(y,X)\sim\mathcal{N}(\mu_{y,X},\Sigma_{y,X}) \quad \text{with}\quad \mu_{y,X} = \begin{pmatrix}\mu_y \\ \mu_X\end{pmatrix} \quad \text{and} \quad \Sigma_{y,X} = \begin{pmatrix}\Sigma_{y} & \Sigma_{y,X} \\ \Sigma_{X,y} & \Sigma_{X}\end{pmatrix}\,.
+$$
+Let $\theta = (\mu_{y,X}, \Sigma_{y,X})$ denote a set of parameters. $\theta$ can be estimated using the EM algorithm [@dempster1977] and this presentation allows us to write
+$$
+\mathbb{E}[y\mid X] = (\mu_y - \Sigma_{y,X}\Sigma_{X}^{-1}\mu_X) + \Sigma_{y,X}\Sigma_{X}^{-1}X\,, 
+$$
+and thus $\boldsymbol{\beta}$ can be estimated by plug-in from
+$$
+\boldsymbol{\beta} = (\mu_y - \Sigma_{y,X}\Sigma_{X}^{-1}\mu_X, \Sigma_{y,X}\Sigma_{X}^{-1})^\top\,.
+$$
+In the same way, the standard deviations can be estimated (via the Gram matrix) as
+$$
+\mathbb{V}[\boldsymbol{\beta}] = \text{diag}(C) \quad \text{with} \\
+C = (\Sigma_{y} - \boldsymbol{\beta}^\top\Sigma_{X}\boldsymbol{\beta})\bigl((\boldsymbol{0}_{p+1},(\boldsymbol{0}_p,\Sigma_{X})^\top)^\top + (1,\mu_X^\top)^\top(1,\mu_X^\top)\bigr)^{-1} / n \,.
+$$
+
+## Estimation via multiple imputation (MI) {#lin_reg_mi}
+
+### Overview of MI framework
+Multiple imputation creates $M>1$ complete datasets, and then a parameter of interest $\theta$ can be estimated from each imputed dataset. This second step is performed by applying the analytic method we would have used had the data been complete. Let's denote by $\hat{\theta}_k$ the $k^{th}$ completed-data estimate of $\theta$ (with $k \in \{1, \dots, M \}$), and its estimated variance $\hat{V}_k$. Depending on the values imputed in the $k^{th}$ completed dataset, the result for each estimated parameter $\hat{\theta}_k$ will obviously differ.
+The third and final pooling step is performed using specific rules named "Rubin's rules" [@mi_original] that will led to a final point estimate. The figure below illustrates the main steps described above :
+<p>
+![](multiple_imputation.png)
+
+### Rubin's rules
+<p>
+Let's denote by $\bar{\theta}_{MI}$ the pooled estimator of $\theta$. It's obtained by taking the average over the parameter estimates $\hat{\theta}_k$ from all $M$ imputed datasets :
+$$
+\bar{\theta}_{MI} = \frac{1}{M} \sum_{k = 1}^M \hat{\theta}_k
+$$
+Let's denote by $\overline{V}_{MI}$ the pooled estimated variance of $\bar{\theta}_{MI}$. It's obtained by combining the within-imputation component $\overline{V}_{within}$ and between-imputation component $\overline{V}_{between}$ of overall variance as follows :
+$$
+\begin{matrix}
+\overline{V}_{MI} & = & \overline{V}_{within} & + & \big(1 + \frac{1}{M} \big)\:\:\overline{V}_{between}\\
+            & = &  \frac{1}{M} \sum_{k = 1}^M \hat{V}_k & + & \big(1 + \frac{1}{M} \big) \cdot \frac{1}{M-1} \sum_{k = 1}^M (\hat{\theta}_k - \bar{\theta}_{MI})(\hat{\theta}_k - \bar{\theta}_{MI})^\top
+\end{matrix}
+$$
+</p>
+
+
+## Example on a simulated dataset
+This idea is implemented in the following chunk of code.
+```{r linreg}
+require(MASS)
+require(norm)
+require(mice)
+set.seed(1)
+# Sample data generation -------------------------------------------------------
+# Generate complete data
+mu.X <- c(1, 1)
+Sigma.X <- matrix(c(1, 1, 1, 4), nrow = 2)
+n <- 1000
+X.complete <- mvrnorm(n, mu.X, Sigma.X)
+b <- c(2, 3, -1)
+sigma.eps <- 0.25
+y.complete <- cbind(rep(1, n), X.complete) %*% b + rnorm(n, 0, sigma.eps)
+reg.complete <- lm(y.complete ~ X.complete)
+summary(reg.complete)
+# Add missing values
+yX.miss <- ampute(cbind(y.complete, X.complete), 0.15, patterns = matrix(
+  c(0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0), 
+  ncol = 3, byrow = TRUE), freq = c(1, 1, 1, 2, 2, 2) / 9, 
+  mech = "MCAR", bycases = FALSE)
+y <- yX.miss$amp[,1]              # OUTPUT of the linear regression with NAs
+X <- as.matrix(yX.miss$amp[,2:3]) # INPUT  of the linear regression with NAs
+# Estimation of the regression using EM-----------------------------------------
+# Estimate extended mean and covariance using EM
+s <- prelim.norm(cbind(y, X))
+thetahat <- em.norm(s)
+pars <- getparam.norm(s, thetahat)
+# Calculate regression estimates
+b.est <- c(pars$mu[1] - 
+             pars$sigma[1,2:3] %*% solve(pars$sigma[2:3,2:3]) %*% pars$mu[2:3], 
+           pars$sigma[1,2:3] %*% solve(pars$sigma[2:3,2:3]))
+esigma.est <- as.vector(sqrt(
+  pars$sigma[1,1] - b.est[2:3] %*% pars$sigma[2:3,2:3] %*% b.est[2:3]))
+Gram.est <- rbind(rep(0, 3), cbind(rep(0, 2), pars$sigma[2:3,2:3])) + 
+  c(1, pars$mu[2:3]) %*% t(c(1, pars$mu[2:3]))
+sdb.est <- sqrt(diag(esigma.est^2 * solve(Gram.est * n)))
+cat("Estimated regression coefficients:", b.est, "\n")
+cat("Their standard deviations:", sdb.est, "\n")
+cat("Standard deviation of residuals:", esigma.est, "\n")
+# Estimation of the regression using multiple imputation -----------------------
+# Using R-package "mice"
+mice.est <- mice(cbind(y, X), maxit = 5, m = 20, printFlag = FALSE) # impute
+fit <- with(data = mice.est, exp = lm(y ~ V2 + V3)) # fit all m models
+mice.lmodel <- mice::pool(fit) # pool the results using Rubin's rules
+summary(mice.lmodel)
+```
+
+
+# Logistic regression with missing values
+## Logistic regression model
+Let $(y_i,X_i)$ be $n$ *i.i.d* observations with $y_i \in \{0, 1\}$ a binary response and $X_i = (X_{i1},\ldots, X_{ip})^\top\in \mathbb{R}^p$ vector of covariates.
+The logistic regression model for binary classification can be written as:   
+$$
+\mathbb{P}({y_i=1\mid X_i;\beta})= 
+\frac{\exp(\beta_0 + \sum_{j=1}^p \beta_j X_{ij})}
+{ 1+\exp(\beta_0 + \sum_{j=1}^p \beta_j X_{ij}) }\,, 
+\quad i=1,\ldots,n,
+$$
+where $\beta=(\beta_0,\beta_1,\ldots,\beta_p)^\top$ are unknown parameters. We adopt a probabilistic framework by assuming that
+ $X_i$ is normally distributed:
+$$
+X_i \mathop{\sim}_{\rm i.i.d.} \mathcal{N}_p(\mu,\Sigma)\,, \quad i=1,\cdots,n. 
+$$
+Let $\theta=(\mu, \Sigma, \beta)$ be the set of parameters of the model. Then, the log-likelihood for the complete data can be written as:
+$$
+\ell(\theta;X,y) =\sum_{i=1}^n \ell(\theta;X_i,y_i)
+=\sum_{i=1}^n \left( \log \texttt{p}(y_i\mid X_i;\beta)+\log \texttt{p}(X_i;\mu,\Sigma) \right)\,.
+$$
+where $X=\begin{pmatrix} X_1^\top \\ X_2^\top \\ \vdots \\ X_n^\top \end{pmatrix}$ the design matrix and $y= \begin{pmatrix} y_1 \\ y_2 \\ \vdots \\ y_n \end{pmatrix}$ vector of response.
+Our main goal is to estimate the vector of parameters $\beta$ when missing values (MAR) exist in the design matrix: $X=(X_{\text{OBS}},X_{\text{MIS}})$.
+
+## Parameter estimation by a stochatic approximation version of EM
+For logistic regression with EM algorithm, there is no explicit expression to calculate expectation in E step. Therefore, a Monte Carlo version of EM [@ibrahim1999_MonteCarlo] can be used.  The E-step of MCEM generates a large number of samples of missing data from the target distribution $\texttt{p}(X_{\text{MIS}}|X_{\text{OBS}},y;\theta)$ and replaces the expectation of the complete log-likelihood by an empirical mean. However, an accurate Monte Carlo approximation of the E-step may require a significant computational effort. To achieve improved computational efficiency, Stochastic Approximation EM (SAEM) algorithm [@lavielle:hal-01122873] replaces the E-step by a stochastic approximation based on a single simulation of $X_{\text{MIS}}$. Starting from an initial guess $\theta^{(0)}$, the $t$th iteration consists of three steps:
+
+* Simulation: For $i=1,2,\cdots,n$, draw a single sample $X_{\text{MIS}}^{(t)}$ from the conditional distribution of missing variables:  $\texttt{p}(X_{\text{MIS}}\mid X_{\text{OBS}},y;\theta^{(t-1)})$.
+* Stochastic approximation: Update the function $Q$, *i.e.*, the expected complete-data log-likelihood, according to 
+$$
+Q(\theta,\theta^{(t)})=Q(\theta,\theta^{(t-1)})+\gamma_t\left(\ell(\theta ;X_{\text{OBS}},X_{\text{MIS}}^{(t)},y)-Q(\theta,\theta^{(t-1)})\right),
+$$
+where $(\gamma_t)$ is a decreasing sequence of positive numbers.
+* Maximization: update the estimation of $\theta$:
+
+$$
+\theta^{(t+1)} = argmax_{\theta}Q(\theta,\theta^{(t)}).
+$$
+
+## Example on a simulated dataset 
+
+### Parameter estimation with SAEM {#log_reg_sim}
+
+The methodology is implemented in the package [misaem](https://CRAN.R-project.org/package=misaem). Let's illustrate the use of the package on a simulated data.
+
+We first generate a design matrix of size $N=500$ times $p=5$ by drawing each observation from a multivariate normal distribution $\mathcal{N}(\mu, \Sigma)$. Then, we generate the response according to the logistic regression model.
+
+We consider as the true values for the parameters
+\begin{equation*}
+\begin{split}
+\beta &= (0, 1, -1, 1, 0, -1)^\top\,,\\
+\mu &= (1,2,3,4,5)^\top\,,\\
+\Sigma &= \text{diag}(\sigma)C \text{diag}(\sigma)\,,
+\end{split}
+\end{equation*} 
+where the vector of standard deviations $\sigma=(1,2,3,4,5)^\top$, and the correlation matrix: 
+$$C = \begin{bmatrix}
+1  & 0.8 & 0 & 0 &   0\\
+0.8 & 1 & 0 & 0  &  0\\
+0  & 0 & 1 & 0.3 &   0.6\\
+0 & 0 & 0.3 & 1 &  0.7\\
+0 & 0 & 0.6 & 0.7 &  1\\
+\end{bmatrix}\,.$$ 
+
+```{r}
+# Generate dataset
+set.seed(200)
+N <- 500  # number of subjects
+p <- 5     # number of explanatory variables
+mu.star <- 1:p  #rep(0,p)  # mean of the explanatory variables
+sd <- 1:p # rep(1,p) # standard deviations
+C <- matrix(c(   # correlation matrix
+1,   0.8, 0,   0,   0,
+0.8, 1,   0,   0,   0,
+0,   0,   1,   0.3, 0.6,
+0,   0,   0.3, 1,   0.7,
+0,   0,   0.6, 0.7, 1), nrow=p)
+Sigma.star <- diag(sd)%*%C%*%diag(sd) # covariance matrix
+beta.star <- c(1, -1, 1, 0, -1) # coefficients
+beta0.star <- 0  # intercept
+beta.true = c(beta0.star,beta.star)
+
+# Design matrix
+X.complete <- matrix(rnorm(N*p), nrow=N)%*%chol(Sigma.star)+
+              matrix(rep(mu.star,N), nrow=N, byrow = TRUE)
+
+# Reponse vector
+p1 <- 1/(1+exp(-X.complete%*%beta.star-beta0.star))
+y <- as.numeric(runif(N)<p1)
+```
+
+Then we randomly introduced 10\% of missing values in the covariates according to the MCAR (Missing completely at random) mechanism.
+```{r}
+# Generate missingness
+set.seed(200)
+p.miss <- 0.10
+patterns <- runif(N*p)<p.miss # missing completely at random
+X.obs <- X.complete
+X.obs[patterns] <- NA
+```
+
+Have a look at our synthetic dataset:
+```{r}
+head(X.obs)
+```
+
+The main function in package is `miss.saem` function, which returns the estimation of parameters for logistic regression with missingness. Here we apply this function with its default options.
+```{r}
+# Charge library
+# install.packages("misaem")
+library(misaem)
+
+# SAEM
+list.saem = miss.saem(X.obs,y,print_iter = FALSE)
+
+# estimation of parameters
+print(list.saem$beta)
+```
+
+And if you need to obtain the variance of estimation:
+```{r}
+# SAEM with variance estimation
+list.saem = miss.saem(X.obs,y,var_cal = TRUE, print_iter = FALSE)
+
+# estimation of parameters
+print(list.saem$beta)
+
+# estimation of variance
+print(list.saem$var_obs)
+```
+
+### Parameter estimation with Multiple Imputation (MI)
+
+The purpose of this part is to give an example of parameter estimation using multiple imputation in the logistic regression case, performed on the same simulated dataset as used above in the [previous section](#log_reg_sim). As a reminder, the MI framework is described in the [linear regression section](#lin_reg_mi).
+<p>
+</p>
+<p>
+We recall that we want to provide an estimate of the parameter $\beta$ given by `beta.true` as follows : 
+</p>
+```{r}
+beta.true
+```
+We'll use multiple imputation on our incomplete dataset `X.obs` to perform the estimation task.
+<p>
+We use the package `mice` and first impute values to generate 20 complete datasets :
+</p>
+```{r}
+library(mice)
+mi <- mice(data.frame(y, X.obs), m=20, printFlag = FALSE)  # imputation of 20 complete datasets
+```
+One can observe below an overview of the 2 first completed datasets, where missing values in `X.obs[3,3]` and `X.obs[6,5]` have basically been replaced by plausible values.
+```{r}
+complete.dataset.1 <- complete(mi, action=1) # completed dataset #1
+head(complete.dataset.1)
+complete.dataset.2 <- complete(mi, action=2) # completed dataset #2
+head(complete.dataset.2)
+```
+The estimation task is then computed on each completed dataset using the function `with`, and the pooled estimates are finally obtained through the use of `pool`:
+```{r}
+fit <- with(data = mi, exp = glm(y ~ X1+X2+X3+X4+X5, family = binomial)) # fit 
+beta.mi <- mice::pool(fit) # pool the results using Rubin's rules
+summary(beta.mi)
+```
+
+### Parameter estimation on complete dataset
+
+For comparison purpose, we compute hereafter an estimate of $\beta$ using our complete dataset `X.complete`
+```{r}
+beta.complete <- glm(y ~ X.complete, family = binomial())
+summary(beta.complete)
+```
+
+---
+# Comparison of methods 
+#Now we focus on comparing different methods: EM-based method and MI, in terms of bias of #estimation and coverage rate of confidence interval, over 1000 replications of simulations.
+---
+
+# Session info
+
+```{r}
+sessionInfo()
+```
+
+# References
+
+
+
+

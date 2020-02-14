@@ -1,0 +1,188 @@
+---
+title: "How to impute missing values?"
+author: "Genevieve Robin, Aude Sportisse"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    number_sections: yes
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
+linkcolor: blue
+link-citations: yes
+bibliography: bibliography.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+If you have a dataset which contains missing values, it is relevant to impute the missing values, mainly for two reasons: (i) these values may be particularly interesting in themselves or (ii) the fully completed data is required to perform some estimation method that does not handle the missing data. 
+
+In this section we provide, for some of the main packages (the list is of course not thorough) to impute missing values, links to vignettes and tutorials, as well as a description of their main functionalities and reusable code. The goal is not to describe all the methods precisely, as many resources are already available, but rather to provide an overview of several imputation options. The methods we focus on are gathered in the table below.
+
+| Package       | Data Types    | Underlying Method   | Imputation | Computational Time| Comments |
+| ------------- |:--------------| ------------------- |------------|:-------------:|--------------|
+| Amelia        | quantitative and binary  |multivariate gaussian model| multiple | +| Binary variables modeled as Gaussians|
+| mice          | mixed         |multivariate imputation by chained equations | multiple   | -  | Very flexible to data types, no parameter to tune |
+| missForest    | mixed         |random forests| single|-| Requires large sample sizes, no parameter to tune |
+| missMDA       | mixed         |component methods| single/multiple | + | Rank parameter to tune |
+| softImpute    | quantitative  |low-rank matrix completion | single| + |Very fast, strong theoretical guarantees, regularization parameter to tune |
+
+
+```{r libraries, message=FALSE, error=FALSE, warning=FALSE}
+library(Amelia)
+library(mice)
+library(missForest)
+library(missMDA)
+library(softImpute)
+```
+
+Consider the Los Angeles ozone pollution data in 1976, available in R using the function data. 
+
+```{r pressure, echo = FALSE, results=FALSE}
+data(ozone)
+```
+
+
+This dataset already contains some missing values. 
+
+
+```{r, echo=FALSE}
+summary(ozone)
+```
+
+
+# softImpute
+
+The [`softImpute` package](https://cran.r-project.org/web/packages/softImpute/index.html) can be used to impute quantitative data. It fits a low-rank matrix approximation to a matrix with missing values via nuclear-norm regularization. A [vignette is available online](https://web.stanford.edu/~hastie/swData/softImpute/vignette.html), as well as the original article [@hastie2015matrix].
+
+The softImpute function computes, based on an incomplete data set, a low-dimensional factorization which can be used to impute the missing values. The function is used as follows:
+
+```{r softImpute}
+# keep only quantitative variables
+dat_miss_quanti <- as.matrix(ozone[, 1:11]) 
+# perform softImpute
+sft <- softImpute(x=dat_miss_quanti, rank.max=2, lambda=0, type=c("als", "svd"))
+```
+
+The main arguments are the following (more details can be found on the help page).
+
+* `x`: the data set with missing values (matrix).
+
+* `rank.max`: the restricted rank of the solution, which should not be bigger than min(dim(x))-1.
+
+* `lambda`: the nuclear-norm regularization parameter.
+
+* `type`: indicates the algorithm which should be used, among "svd" and "als". "svd" returns an exact solution, while "als" returns an approximate solution (in exchange for a faster computation time).
+
+To compute the imputed data set based on the softImpute results, one may use the following code:
+
+```{r softImpute-impute}
+# compute the factorization
+dat_imp_sft <- sft$u%*%diag(sft$d)%*%t(sft$v)
+# replace missing values by computed values
+dat_imp_sft[which(!is.na(dat_miss_quanti))] <- dat_miss_quanti[which(!is.na(dat_miss_quanti))] 
+```
+
+To calibrate the parameter lambda, one may perform cross-validation, the code is given below. One uses the function produce_NA detailed in "amputation.R" available in the related R source code of ["How to generate missing values?"](https://rmisstastic.netlify.com/workflows/). 
+
+```{r softImpute-CrossValidation, warning=FALSE}
+source('amputation.R')
+
+cv_sft <- function(y,
+                   N = 10,
+                   len = 20) {
+  y <- as.matrix(y)
+  Y2 <- y
+  Y2[is.na(Y2)] <- 0
+  d <- dim(y)
+  n <- d[1]
+  p <- d[2]
+  m <- sum(!is.na(y))
+  lambda1.max <- max(svd(Y2)$d)
+  lambda1.min <- 1e-3*lambda1.max
+  grid.lambda1 <-
+    exp(seq(log(lambda1.min), log(lambda1.max), length.out = len))
+  ylist <-
+    lapply(1:N, function(k)
+      produce_NA(as.matrix(y),perc.missing = 0.2))$data.incomp
+  res.cv <- lapply(1:N, function(k) {
+    sapply(1:len,
+           function(i) {
+             yy <-produce_NA(as.matrix(y),perc.missing = 0.2)$data.incomp
+             res <-
+               softImpute(as.matrix(yy),
+                          lambda = grid.lambda1[i])
+             u <- res$u
+             d <- res$d
+             v <- res$v
+             if (is.null(dim(u))) {
+               res <- d * u %*% t(v)
+             } else {
+               res <- u %*% diag(d) %*% t(v)
+             }
+             imp <- as.matrix(yy)
+             imp[is.na(yy)] <- res[is.na(yy)]
+             return(sqrt(sum((res - y) ^ 2, na.rm = T)))
+           })
+    
+  })
+  res.cv <- colMeans(do.call(rbind, res.cv))
+  l <- which.min(res.cv)
+  lambda <- grid.lambda1[l]
+  return(lambda)
+}
+lambda_sft <- cv_sft(dat_miss_quanti)
+
+```
+
+Then, the imputation procedure can be performed using the value of lambda computed with cross-validation (the other parameters are set to their default value):
+
+```{r softImpute-impute-crossval}
+sft <- softImpute(x=dat_miss_quanti, lambda=lambda_sft)
+dat_imp_sft <- sft$u%*%diag(sft$d)%*%t(sft$v)
+dat_imp_sft[which(!is.na(dat_miss_quanti))] <- dat_miss_quanti[which(!is.na(dat_miss_quanti))]
+head(dat_imp_sft)
+```
+
+# mice
+
+The [`mice` package](https://CRAN.R-project.org/package=mice) implements a multiple imputation methods for multivariate missing data. It can impute mixes of continuous, binary, unordered categorical and ordered categorical data, as well as two-level data. The original article describing the software, as well as the source package and example code are available online [@mice].
+
+The mice function computes, based on an incomplete data set, multiple imputations by chained equations and thus returns $m$ imputed data sets. 
+
+The main arguments are the following (more details can be found on the help page).
+
+* `data`: the data set with missing values (matrix).
+
+* `m`: number of multiple imputations.
+
+* `method`: the imputation method to use. 
+
+In this case the predictive mean matching method is performed. Other imputation methods can be used, type `methods(mice)` for a list of the available imputation methods.
+
+```{r mice, results=FALSE}
+mice_mice <- mice(ozone,m=5,method="pmm") #contains m=5 completed datasets.
+#get back the first completed dataset of the five available in mice_res
+mice::complete(mice_mice,1)
+```
+
+The pool function combines all the results together based on Rubin’s rules.
+
+```{r mice pool}
+mice_with <- with(mice_mice, exp = lm(maxO3 ~ T9 + Ne9))
+pool(mice_with) 
+```
+
+# Session info
+
+```{r}
+sessionInfo()
+```
+
+# References
+
