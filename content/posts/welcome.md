@@ -1,5 +1,5 @@
 ---
-date: 2019-08-03
+date: 2020-03-09
 author: "R-miss-tastic"
 images: ["/images/missing_data_propaganda.png"]
 slug: welcome
@@ -17,6 +17,3 @@ Contribute to our <a href="https://github.com/R-miss-tastic" target="_blank">R-m
 
 
 This website is proudly sponsored by R Consortium and maintained by <a href="http://juliejosse.com" target="_blank">Julie Josse</a>, <a href="https://www.imkemayer.com" target="_blank">Imke Mayer</a>, [Thomas Schmitt](https://twsthomas.github.io), <a href="https://www.njtierney.com" target="_blank">Nicholas Tierney</a> and <a href="http://www.nathalievialaneix.eu" target="_blank">Nathalie Vialaneix</a>.
-
-
-
