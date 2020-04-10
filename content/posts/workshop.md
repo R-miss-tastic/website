@@ -8,12 +8,6 @@ tags: []
 description: ''
 ---
 
-I am very pleased to inform you that we are organizing a workshop at ICML conference on missing values
-
-https://artemiss-workshop.github.io
-
-
-
 <p align="justify">We are very pleased to announce a workshop at this year's ICML conference on <i>The Art of Learning with Missing Values</i>, co-organized by Julie Josse.
 <a href="https://artemiss-workshop.github.io" target="_blank">Workshop details</a><br>
 </p>
