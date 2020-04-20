@@ -3,17 +3,17 @@ title: "How to simulate missing values?"
 author: "Teresa Alves de Sousa, Imke Mayer"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
-  pdf_document:
-    toc: yes
-    toc_depth: '3'
   html_document:
     number_sections: yes
     toc: yes
     toc_depth: 3
     toc_float: yes
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
 linkcolor: blue
 link-citations: yes
-bibliography: bibliography.bib
+bibliography: ../bibliography.bib
 ---
 
 ```{r setup, include=FALSE}

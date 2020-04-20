@@ -546,11 +546,11 @@ produce_MAR_MNAR <- function(data, mechanism, perc.missing, idx.incomplete, idx.
         subdata <- as.data.frame(cbind(not.missing[,-idx_col],"newcol"=newcol))
         
         weights.covariates[i,]<- 0
-        weights.covariates[i,which(idx.covariates[i,-which(missingness.matrix[i,]==0)]==1)] <- glm(newcol ~ . , data = subdata, family = binomial)$coefficients[-1]
+        weights.covariates[i,which(idx.covariates[i,]==1 & !(missingness.matrix[i,]==0))] <- glm(newcol ~ . , data = subdata, family = binomial)$coefficients[-1]
         
         #is this correct? based on what mice will do next
         if(idx.covariates[i,i] ==1){
-          weights.covariates[i,i] <- mean(weights.covariates[i,idx.covariates[i,-i]==1])
+          weights.covariates[i,i] <- mean(weights.covariates[i,setdiff(which(idx.covariates[i,]==1),c(i))])
         }
       }
       
