@@ -60,22 +60,23 @@ weight: 2
               </div>
               <div class="card">
                 <div class="card-header">
-                  <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#josse_tierney">
-                    <div class="col-12">Handling missing values<br>
+                  <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#josse_eth">
+                    <div class="col-12">Dealing With Missing Values in R<br>
                     <small>
-                      <p>(Julie Josse, course at École Polytechnique, fall 2018 and Julie Josse & Nick Tierney, tutorial at <i>useR! 2018</i>, 2018)</p>
+                      <p>(Julie Josse, course at ETH Zürich, winter 2020)</p>
                     </small>
                     </div>
                   </a>
                 </div>
-                <div id="josse_tierney" class="collapse" data-parent="#accordion_general">  
+                <div id="josse_eth" class="collapse" data-parent="#accordion_general">  
                   <div class="card-body">
-                    <p align="justify" style="margin-left:15px;">The ability to easily collect and gather a large amount of data from different sources can be seen as an opportunity to better understand many processes. It has already led to breakthroughs in several application areas. However, due to the wide heterogeneity of measurements and objectives, these large databases often exhibit an extraordinary high number of missing values. Hence, in addition to scientific questions, such data also present some important methodological and technical challenges for data analysts. This tutorial gives an overview of the missing values literature as well as the recent improvements that caught the attention of the community due to their ability to handle large matrices with large amount of missing entries. The methods presented in this tutorial are illustrated on medical, environmental and survey data. <a href="https://user2018.r-project.org/tutorials/" target="_blank">useR! 2018 tutorials</a>.
+                    <p align="justify" style="margin-left:15px;">The ability to easily collect and gather a large amount of data from different sources can be seen as an opportunity to better understand many processes. It has already led to breakthroughs in several application areas. However, due to the wide heterogeneity of measurements and objectives, these large databases often exhibit an extraordinary high number of missing values. Hence, in addition to scientific questions, such data also present some important methodological and technical challenges for data analysts. This tutorial gives an overview of the missing values literature as well as the recent improvements that caught the attention of the community due to their ability to handle large matrices with large amount of missing entries. The methods presented in this tutorial are illustrated on medical, environmental and survey data.
                     </p>
                     <ul>
-                      <li><a href="/tutorials/Josse_bookdown_LectureNotesMissing_2018.html" target="_blank">Lecture notes</a></li>
-                      <li><a href="/tutorials/Josse_Tierney_bookdown_user2018tutorial_2018.html" target="_blank">R Lab</a></li>
-                      <li><a href="/tutorials/ozoneNA.csv" target="_blank">Data for the R Lab</a></li>
+                      <li><a hr ef="/tutorials/Josse_slides_missingdata_2020.pdf" target="_blank">Slides</a></li>
+                      <li><a href="/tutorials/Josse_bookdown_LectureNotesMissing_2020.html" target="_blank">Lecture notes</a></li>
+                      <li><a href="/tutorials/Josse_bookdown_DataAnalysisMissingR_2020.html" target="_blank">Tutorial</a></li>
+                      <li><a href="/tutorials/Josse_tutorial_data.zip" target="_blank">Data used in tutorial.</a></li>
                     </ul>
                   </div>
                 </div>
@@ -296,7 +297,7 @@ weight: 2
                 </div>
                 <div id="josse_user" class="collapse" data-parent="#accordion_special">  
                   <div class="card-body">
-                    <p align="justify" style="margin-left:15px;">This keynote talk gives an overview of different approaches for inference and prediction tasks. A striking result for the latter is that the widely-used method of imputing with the mean prior to learning can be consistent. 
+                    <p align="justify" style="margin-left:15px;">This keynote talk gives an overview of different approaches for inference and prediction tasks. A striking result for the latter is that the widely-used method of imputing with the mean prior to learning can be consistent.
                     </p>
                     <ul>
                       <li><a href="https://www.youtube.com/watch?v=z8IuuDe5oXs" target="_blank">A missing value tour in R (video)</a></li>
@@ -674,4 +675,3 @@ $(document).ready(function() {
 
 
 <p align="justify"><i>If you wish to contribute some of your own material to this platform, please feel free to <a href="/contact/">contact us </a></i>.</p>
-
