@@ -73,7 +73,7 @@ weight: 2
                     <p align="justify" style="margin-left:15px;">The ability to easily collect and gather a large amount of data from different sources can be seen as an opportunity to better understand many processes. It has already led to breakthroughs in several application areas. However, due to the wide heterogeneity of measurements and objectives, these large databases often exhibit an extraordinary high number of missing values. Hence, in addition to scientific questions, such data also present some important methodological and technical challenges for data analysts. This tutorial gives an overview of the missing values literature as well as the recent improvements that caught the attention of the community due to their ability to handle large matrices with large amount of missing entries. The methods presented in this tutorial are illustrated on medical, environmental and survey data.
                     </p>
                     <ul>
-                      <li><a hr ef="/tutorials/Josse_slides_missingdata_2020.pdf" target="_blank">Slides</a></li>
+                      <li><a href="/tutorials/Josse_slides_missingdata_2020.pdf" target="_blank">Slides</a></li>
                       <li><a href="/tutorials/Josse_bookdown_LectureNotesMissing_2020.html" target="_blank">Lecture notes</a></li>
                       <li><a href="/tutorials/Josse_bookdown_DataAnalysisMissingR_2020.html" target="_blank">Tutorial</a></li>
                       <li><a href="/tutorials/Josse_tutorial_data.zip" target="_blank">Data used in tutorial.</a></li>
