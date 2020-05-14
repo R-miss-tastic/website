@@ -11,7 +11,7 @@ weight: 6
 #### People
 <p align="justify">The community of people and research teams working on missing values is constantly growing but there are some researchers whose work can be considered as key contributions to the community and who provide a lot of material to different groups of interested people. Here we provide the links to their personal/group websites (in alphabetical order).</p>
 
-<p align="justify"><i>If you think you or your reaserch group should also figure on the list below feel free to contact us via the <a href="/contact/">Contact form</a>.</i></p>
+<p align="justify"><i>If you think you or your research group should also figure on the list below feel free to contact us via the <a href="/contact/">Contact form</a>.</i></p>
 
 <ul class="list-group" id="people-list">
 <li class="list-group-item"> <a href="http://www.mattblackwell.org" target="_blank">Matthew Blackwell</a> (Harvard University)</li>
@@ -32,6 +32,7 @@ weight: 6
 <li class="list-group-item"> <a href="https://statistics.fas.harvard.edu/people/donald-b-rubin" target="_blank">Donald B. Rubin</a> (Tsinghua University)</li>
 <li class="list-group-item"> <a href="https://faculty.washington.edu/msadinle/index.html" target="_blank">Mauricio Sadinle</a> (University of Washington)</li>
 <li class="list-group-item"> <a href="https://www.mrc-bsu.cam.ac.uk/people/in-alphabetical-order/n-to-s/shaun-seaman/" target="_blank">Shaun Seaman</a> (University of Cambridge)</li>
+<li class="list-group-item"> <a href="https://www.cs.jhu.edu/~ilyas/" target="_blank">Ilya Shpitser</a> (Johns Hopkins University)</li>
 <li class="list-group-item"> <a href="https://gbiomed.kuleuven.be/biostat/geertverbeke" target="_blank">Geert Verbeke</a> (<a href="https://ibiostat.be/online-resources" target="_blank">I-BioStat</a> and KU Leuven)</li>
 </ul>
 
