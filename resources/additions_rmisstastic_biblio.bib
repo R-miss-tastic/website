@@ -1,0 +1,282 @@
+@Article{nguyen_etal_2019,
+  title={Low-Rank Matrix Completion: A Contemporary Survey},
+  author={Nguyen, Luong Trung and Kim, Junhan and Shim, Byonghyo},
+  journal={IEEE Access},
+  volume={7},
+  pages={94215--94237},
+  year={2019},
+  publisher={IEEE}
+}
+
+
+@Misc{londschien_etal_2019,
+    Title                    = {Change point detection for graphical models in presence of missing values},
+    Author                   = {Malte Londschien and Solt Kov{\'a}cs and Peter B{\"u}hlmann},
+    Year                     = {2019},
+    Eprint                   = {1907.05409},
+    ArchivePrefix            = {arXiv},
+    PrimaryClass             = {stat.ML},
+    Abstract                 = {We propose estimation methods for change points in high-dimensional
+    covariance structures with an emphasis on challenging scenarios with missing values.
+    We advocate three imputation like methods and investigate their implications on common
+    losses used for change point detection. We also discuss how model selection methods
+    have to be adapted to the setting of incomplete data. The methods are compared in a
+    simulation study and applied to real data examples from environmental monitoring
+    systems as well as financial time series.},
+    Owner                    = {imke},
+    Timestamp                = {2020.02.27},
+    Topics                   = {machine learning; ml}
+}
+
+@Article{muzellec_etal_2020,
+  Title                    = {Missing Data Imputation using Optimal Transport},
+  Author                   = {Boris Muzellec and Julie Josse and Claire Boyer and Marco Cuturi},
+  Year                     = {2020},
+  Eprint                   = {2002.03860},
+  ArchivePrefix            = {arXiv},
+  PrimaryClass             = {stat.ML},
+  Abstract                 = {Missing data is a crucial issue when applying machine learning algorithms to real-world datasets. Starting from the simple assumption that two batches extracted randomly from the same dataset should share the same distribution, we leverage optimal transport distances to quantify that criterion and turn it into a loss function to impute missing data values. We propose practical methods to minimize these losses using end-to-end learning, that can exploit or not parametric assumptions on the underlying distributions of values. We evaluate our methods on datasets from the UCI repository, in MCAR, MAR and MNAR settings. These experiments show that OT-based methods match or out-perform state-of-the-art imputation methods, even for high percentages of missing values.},
+  Keywords                 = {optimal transport; imputataion},
+
+  Owner                    = {imke},
+  Timestamp                = {2020.02.11},
+  Topics                   = {optimal transport; imputation}
+}
+
+@Article{andiojaya_haydar_2019,
+  Title                    = {A bagging algorithm for the imputation of missing values in time series},
+  Author                   = {Andiojaya, Agung and Demirhan, Haydar},
+  Journal                  = {Expert Systems with Applications},
+  Volume                   = {129},
+  Pages                    = {10--26},
+  Year                     = {2019},
+  Publisher                = {Elsevier},
+  Doi                      = {10.1016/j.eswa.2019.03.044},
+
+  Abstract                 = {Classical time series analysis methods are not readily applicable to the series with missing observations. To deal with the missingness in time series, the common approach is to use imputation techniques to fill in the gaps and get a regularly spaced series. However, this approach has several drawbacks such as information and time bias, relationship causality, and not being suitable for the series with a high missingness rate. Instead of directly imputing the missing values, we propose a bagging algorithm to improve on the accuracy of imputation methods utilizing block bootstrap methods and marked point processes. We consider non-overlapping, moving, and circular block bootstrap methods along with amplitude modulated series and integer valued sequences. Imputation methods considered for bagging are Stineman and linear interpolations, Kalman filters, and weighted moving average. Imputation accuracy of the proposed algorithm is investigated by nearly 3000 yearly, quarterly, and monthly time series from different sectors under the “missing completely random” and “missing at random” missingness mechanisms. The results of the numerical study show that the proposed algorithm improved the accuracy of the considered imputation methods at most of the instances for different missingness rates and frequencies under both missingness mechanisms.},
+  Keywords                 = {Block bootstrap; Gap filling; Interpolation; Kalman filter; Stineman; Weighted moving average},
+
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {time series; imputation}
+}
+
+@Article{beaulac_rosenthal_2018,
+  Title                    = {BEST: A decision tree algorithm that handles missing values},
+  Author                   = {Beaulac, C{\'e}dric and Rosenthal, Jeffrey S},
+  Journal                  = {arXiv preprint},
+  archivePrefix            = {arXiv},
+  eprint                   = {1804.10168},
+  Year                     = {2018},
+  Url                      = {https://arxiv.org/pdf/1804.10168.pdf},
+
+  Abstract                 = {The main contribution of this paper is the development of a new decision tree algorithm. The proposed approach allows users to guide the algorithm through the data partitioning process. We believe this feature has many applications but in this paper we demonstrate how to utilize this algorithm to analyse data sets containing missing values. We tested our algorithm against simulated data sets with various missing data structures and a real data set. The results demonstrate that this new classification procedure efficiently handles missing values and produces results that are slightly more accurate and more interpretable than most common procedures without any imputations or pre-processing.},
+
+  Keywords                 = {cart; machine learning; variable importance analysis},
+
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {random forests; regression trees; variable selection}
+
+}
+
+@Article{bertsimas_etal_2017,
+  Title                    = {From predictive methods to missing data imputation: an optimization approach},
+  Author                   = {Bertsimas, Dimitris and Pawlowski, Colin and Zhuo, Ying Daisy},
+  Journal                  = {The Journal of Machine Learning Research},
+  Volume                   = {18},
+  Number                   = {1},
+  Pages                    = {7133--7171},
+  Year                     = {2017},
+  Publisher                = {JMLR.org},
+  Abstract                 = {Missing data is a common problem in real-world settings and for this reason has attracted significant attention in the statistical literature. We propose a flexible framework based on formal optimization to impute missing data with mixed continuous and categorical variables. This framework can readily incorporate various predictive models including Knearest neighbors, support vector machines, and decision tree based methods, and can be adapted for multiple imputation. We derive fast first-order methods that obtain high quality solutions in seconds following a general imputation algorithm opt.impute presented in this paper. We demonstrate that our proposed method improves out-of-sample accuracy in large-scale computational experiments across a sample of 84 data sets taken from the UCI Machine Learning Repository. In all scenarios of missing at random mechanisms and various missing percentages, opt.impute produces the best overall imputation in most data sets benchmarked against five other methods: mean impute, K-nearest neighbors, iterative knn, Bayesian PCA, and predictive-mean matching, with an average reduction in mean absolute error of 8.3% against the best cross-validated benchmark method. Moreover, opt.impute leads to improved out-of-sample performance of learning algorithms trained using the imputed data, demonstrated by computational experiments on 10 downstream tasks. For models trained using opt.impute single imputations with 50% data missing, the average out-of-sample R2 is 0.339 in the regression tasks and the average out-of-sample accuracy is 86.1% in the classification tasks, compared to 0.315 and 84.4% for the best cross-validated benchmark method. In the multiple imputation setting, downstream models trained using opt.impute obtain a statistically significant improvement over models trained using multivariate imputation by chained equations (mice) in 8/10 missing data scenarios considered.},
+  Keywords                 = {missing data imputation; K-NN; SVM; optimal decision trees},
+
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {imputation; knn; decision trees}
+}
+
+@Article{bianchi_etal_2019,
+  Title                    = {Learning representations of multivariate time series with missing data},
+  Author                   = {Bianchi, Filippo Maria and Livi, Lorenzo and Mikalsen, Karl {\O}yvind and Kampffmeyer, Michael and Jenssen, Robert},
+  Journal                  = {Pattern Recognition},
+  Volume                   = {96},
+  Pages                    = {106973},
+  Year                     = {2019},
+  Publisher                = {Elsevier},
+  DOI                      = {10.1016/j.patcog.2019.106973},
+
+  Abstract                 = {Learning compressed representations of multivariate time series (MTS) facilitates data analysis in the presence of noise and redundant information, and for a large number of variates and time steps. However, classical dimensionality reduction approaches are designed for vectorial data and cannot deal explicitly with missing values. In this work, we propose a novel autoencoder architecture based on recurrent neural networks to generate compressed representations of MTS. The proposed model can process inputs characterized by variable lengths and it is specifically designed to handle missing data. Our autoencoder learns fixed-length vectorial representations, whose pairwise similarities are aligned to a kernel function that operates in input space and that handles missing values. This allows to learn good representations, even in the presence of a significant amount of missing data. To show the effectiveness of the proposed approach, we evaluate the quality of the learned representations in several classification tasks, including those involving medical data, and we compare to other methods for dimensionality reduction. Successively, we design two frameworks based on the proposed architecture: one for imputing missing data and another for one-class classification. Finally, we analyze under what circumstances an autoencoder with recurrent layers can learn better compressed representations of MTS than feed-forward architectures.},
+
+  Keywords                 = {Representation learning; Multivariate time series; Autoencoders; Recurrent neural networks; Kernel methods},
+
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {time series; deep learning; neural network}
+}
+
+@Article{brinis_etal_2019,
+  Title                    = {Hollow-tree: a metric access method for data with missing values},
+  Author                   = {Brinis, Safia and Traina, Caetano and Traina, Agma JM},
+  Journal                  = {Journal of Intelligent Information Systems},
+  Pages                    = {1--28},
+  Year                     = {2019},
+  Publisher                = {Springer},
+  DOI                      = {10.1007/s10844-019-00567-8},
+
+  Abstract                 = {Similarity search is fundamental to store and retrieve large volumes of complex data required by many real world applications. A useful mechanism for such concept is the query-by-similarity. Based on their topological properties, metric similarity functions can be used to index sets of data which can be queried effectively and efficiently by the so-called metric access methods. However, data produced by various application domains and the varying data types handled often lead to missing data, hence, they do not follow the metric similarity requirements. As a consequence, missing data cause distortions in the index structure and yield bias in the query answer. In this paper, we propose the Hollow-tree, a novel access method aimed at successfully retrieving data with missing attribute values. It employs new strategies for indexing and searching data elements, capable of handling the missing data issues when the cause of missingness is ignorable. The indexing strategy is based on a family of distance functions that allow measuring the distance between elements with missing values, along with a set of policies able to organize the elements in the index without causing distortions to its internal structure. The searching strategy employs fractal dimension property of the data to achieve accurate query answer while considering data with missing values part of the response. Results from experiments performed on a variety of real and synthetic data sets showed that, while other metric access methods deteriorate with small amounts of missing values, the Hollow-tree maintains a remarkable performance with almost 100% of precision and recall for range queries and more than 90% for k-nearest neighbor queries, for up to 40% of missing values.},
+
+  Keywords                 = {Missing at random; Similarity search; Fractal dimension},
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {classification; knn; clustering}
+
+}
+
+@Article{camino_etal_2019,
+  Title                    = {Improving Missing Data Imputation with Deep Generative Models},
+  Author                   = {Camino, Ramiro D and Hammerschmidt, Christian A and State, Radu},
+  Journal                  = {arXiv preprint},
+  archivePrefix            = {arXiv},
+  eprint                   = {1902.10666},
+  Year                     = {2019},
+  primaryClass             = {cs.LG},
+
+  Abstract                 = {Datasets with missing values are very common on industry applications, and they can have a negative impact on machine learning models. Recent studies introduced solutions to the problem of imputing missing values based on deep generative models. Previous experiments with Generative Adversarial Networks and Variational Autoencoders showed interesting results in this domain, but it is not clear which method is preferable for different use cases. The goal of this work is twofold: we present a comparison between missing data imputation solutions based on deep generative models, and we propose improvements over those methodologies. We run our experiments using known real life datasets with different characteristics, removing values at random and reconstructing them with several imputation techniques. Our results show that the presence or absence of categorical variables can alter the selection of the best model, and that some models are more stable than others after similar runs with different random number generator seeds.},
+  Keywords                 = {deep network imputation; GAN; VAE},
+
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {deep learning; gan}
+}
+
+@Article{chen_reiter_2019,
+  Title                    = {Nonparametric Pattern-Mixture Models for Inference with Missing Data},
+  Author                   = {Chen, Yen-Chi and Sadinle, Mauricio},
+  Journal                  = {arXiv preprint},
+  archivePrefix            = {arXiv},
+  eprint                   = {1904.11085},
+  Year                     = {2019},
+  primaryClass             = {stat.ME},
+
+  Url                      = {https://arxiv.org/pdf/1904.11085.pdf},
+
+  Abstract                 = {Pattern-mixture models provide a transparent approach for handling missing data, where the full-data distribution is factorized in a way that explicitly shows the parts that can be estimated from observed data alone, and the parts that require identifying restrictions. We introduce a nonparametric estimator of the full-data distribution based on the pattern-mixture model factorization. Our approach uses the empirical observed-data distribution and augments it with a nonparametric estimator of the missing-data distributions under a given identifying restriction. Our results apply to a large class of donor-based identifying restrictions that encompasses commonly used ones and can handle
+both monotone and nonmonotone missingness. We propose a Monte Carlo procedure to derive point estimates of functionals of interest, and the bootstrap to construct confidence intervals.},
+  Keywords                 = {Bootstrap; Missingness mechanism; Nonignorable nonresponse; Nonparametric identification; Nonparametric inference},
+
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {mnar}
+}
+
+@Article{golden_etal_2019,
+  Title                    = {Consequences of model misspecification for maximum likelihood estimation with missing data},
+  Author                   = {Golden, Richard M and Henley, Steven S and White, Halbert and Kashner, T Michael},
+  Journal                  = {Econometrics},
+  Volume                   = {7},
+  Number                   = {3},
+  Pages                    = {37},
+  Year                     = {2019},
+  Publisher                = {Multidisciplinary Digital Publishing Institute},
+  Doi                      = {10.3390/econometrics7030037},
+
+  Abstract                 = {Researchers are often faced with the challenge of developing statistical models with incomplete data. Exacerbating this situation is the possibility that either the researcher's complete-data model or the model of the missing-data mechanism is misspecified. In this article, we create a formal theoretical framework for developing statistical models and detecting model misspecification in the presence of incomplete data where maximum likelihood estimates are obtained by maximizing the
+observable-data likelihood function when the missing-data mechanism is assumed ignorable. First, we provide sufficient regularity conditions on the researcher's complete-data model to characterize the asymptotic behavior of maximum likelihood estimates in the simultaneous presence of both missing data and model misspecification. These results are then used to derive robust hypothesis testing
+methods for possibly misspecified models in the presence of Missing at Random (MAR) or Missing Not at Random (MNAR) missing data. Second, we introduce a method for the detection of model misspecification in missing data problems using recently developed Generalized Information Matrix Tests (GIMT). Third, we identify regularity conditions for the Missing Information Principle (MIP) to hold in the presence of model misspecification so as to provide useful computational covariance matrix estimation formulas. Fourth, we provide regularity conditions that ensure the observable-data expected negative log-likelihood function is convex in the presence of partially observable data when the amount of missingness is sufficiently small and the complete-data likelihood is convex. Fifth, we show that when the researcher has correctly specified a complete-data model with a convex negative likelihood function and an ignorable missing-data mechanism, then its strict local minimizer is the true parameter value for the complete-data model when the amount of missingness is sufficiently small. Our results thus provide new robust estimation, inference, and specification analysis methods for developing statistical models with incomplete data.},
+  Keywords                 = {asymptotic theory; ignorable; Generalized Information Matrix Test; misspecification;
+missing data; nonignorable; sandwich estimator; specification analysis},
+
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {ml; regression}
+
+}
+
+@Article{larose_etal_2019,
+  Title                    = {The impact of missing values on different measures of uncertainty},
+  Author                   = {Larose, Chantal and Dey, Dipak K and Harel, Ofer},
+  Journal                  = {Statistica Sinica},
+  Volume                   = {29},
+  Number                   = {2},
+  Pages                    = {551--566},
+  Year                     = {2019},
+  Doi                      = {10.5705/ss.202016.0073},
+
+  Abstract                 = {Entropy quantifies uncertainty in a data set. Intuition tells us that missing values should increase the uncertainty in a data set, but the affect of missing values on entropy has never been quantified. This paper develops formulae for the entropy of incomplete normal data under different missingness mechanisms. The results are compared to the fraction of missing information, which quantifies uncertainty in parameter estimates due to missing values, to compare the two measurements of uncertainty.},
+
+  Keywords                 = {Entropy; fraction of missing information; missing data; multiple imputation},
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {mnar; multiple imputation}
+}
+
+@Article{ludtke_etal_2019,
+  Title                    = {Regression models involving nonlinear effects with missing data: A sequential modeling approach using Bayesian estimation.},
+  Author                   = {L{\"u}dtke, Oliver and Robitzsch, Alexander and West, Stephen G},
+  Journal                  = {Psychological methods},
+  Year                     = {2019},
+  Publisher                = {American Psychological Association},
+  Doi                      = {10.1037/met0000233},
+
+  Abstract                 = {When estimating multiple regression models with incomplete predictor variables, it is necessary to specify a joint distribution for the predictor variables. A convenient assumption is that this distribution is a joint normal distribution, the default in many statistical software packages. This distribution will in general be misspecified if the predictors with missing data have nonlinear effects (e.g., x2) or are included in interaction terms (e.g., x.z). In the present article, we discuss a sequential modeling approach that can be applied to decompose the joint distribution of the variables into 2 parts: (a) a part that is due to the model of interest and (b) a part that is due to the model for the incomplete predictors. We demonstrate how the sequential modeling approach can be used to implement a multiple imputation strategy based on Bayesian estimation techniques that can accommodate rather complex substantive regression models with nonlinear effects and also allows a flexible treatment of auxiliary variables. In 4 simulation studies, we showed that the sequential modeling approach can be applied to estimate nonlinear effects in regression models with missing values on continuous, categorical, or skewed predictor variables under a broad range of conditions and investigated the robustness of the proposed approach against distributional misspecifications. We developed the R package mdmb, which facilitates a user-friendly application of the sequential modeling approach, and we present a real-data example that illustrates the flexibility of the software.},
+  Keywords                 = {Interaction effects; Multiple imputation; Multiple regression},
+
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {ml; regression}
+}
+
+@Article{sadinle_reiter_2019,
+  Title                    = {Sequentially additive nonignorable missing data modeling using auxiliary marginal information},
+  Author                   = {Sadinle, Mauricio and Reiter, Jerome P},
+  Journal                  = {arXiv preprint},
+  archivePrefix            = {arXiv},
+  eprint                   = {1902.06043},
+  Year                     = {2019},
+  primaryClass             = {stat.ME},
+  Url                      = {https://arxiv.org/pdf/1902.06043.pdf},
+
+  Abstract                 = {We study a class of missingness mechanisms, called sequentially additive nonignorable, for modeling multivariate data with item nonresponse. These mechanisms
+explicitly allow the probability of nonresponse for each variable to depend on the value
+of that variable, thereby representing nonignorable missingness mechanisms. These
+missing data models are identified by making use of auxiliary information on marginal
+distributions, such as marginal probabilities for multivariate categorical variables or
+moments for numeric variables. We present theory proving identification results, and
+illustrate the use of these mechanisms in an application.},
+  Keywords                 = {Information projection; Missing not at random; Nonmonotone nonresponse;
+Nonparametric identification; Observational equivalence},
+
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {mnar}
+}
+
+@Article{santos_etal_2019,
+  Title                    = {Generating Synthetic Missing Data: A Review by Missing Mechanism},
+  Author                   = {Santos, Miriam Seoane and Pereira, Ricardo Cardoso and Costa, Adriana Fonseca and Soares, Jastin Pompeu and Santos, Jo{\~a}o and Abreu, Pedro Henriques},
+  Journal                  = {IEEE Access},
+  Volume                   = {7},
+  Pages                    = {11651--11667},
+  Year                     = {2019},
+  Publisher                = {IEEE},
+  Doi                      = {10.1109/ACCESS.2019.2891360},
+
+  Abstract                 = {The performance evaluation of imputation algorithms often involves the generation of missing
+values. Missing values can be inserted in only one feature (univariate configuration) or in several features
+(multivariate configuration) at different percentages (missing rates) and according to distinct missing
+mechanisms, namely, missing completely at random, missing at random, and missing not at random. Since
+the missing data generation process defines the basis for the imputation experiments (configuration, missing
+rate, and missing mechanism), it is essential that it is appropriately applied; otherwise, conclusions derived
+from ill-defined setups may be invalid. The goal of this paper is to review the different approaches to
+synthetic missing data generation found in the literature and discuss their practical details, elaborating on
+their strengths and weaknesses. Our analysis revealed that creating missing at random and missing not at
+random scenarios in datasets comprising qualitative features is the most challenging issue in the related
+work and, therefore, should be the focus of future work in the field.},
+
+  Keywords                 = {Data preprocessing; missing data generation; missing data mechanisms},
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {mnar; mechanisms}
+}

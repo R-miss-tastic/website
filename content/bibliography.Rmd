@@ -334,16 +334,19 @@ create_ref_buttons(selected_refs, c(0,3,4), "hot_misc")
 <div class="panel panel-default">
 <div class="panel-heading" role="tab" id="h_ml">
 <h4 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#ml" aria-expanded="false" aria-controls="ml">Likelihood-based approaches</a>
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="#ml" aria-expanded="false" aria-controls="ml">Inference with missing values</a>
 </h4>
 </div>
 <div id="ml" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_ml">
 <div class="panel-body">
-<p align="justify">Likelihood-based approaches in the presence of missing values are designed for statistical inference from incomplete data. More precisely, if the missingness mechanism is ignorable (in a certain sense that is explained in the _Missing values mechanisms_ section) then one can attempt to infer the model parameters by maximizing the likelihood on the observed values. When the mechanism cannot be ignored, then a specific model for it needs to be assumed.
+<p align="justify">The most popular approach to deal with missing values for statistical inference tasks is likelihood-based approaches that can deal with incomplete data. More precisely, if the missingness mechanism is ignorable (in a certain sense that is explained in the _Missing values mechanisms_ section) then one can attempt to infer the model parameters by maximizing the likelihood on the observed values. When the mechanism cannot be ignored, then a specific model for it needs to be assumed.
 The main algorithm available for performing maximum likelihood estimation (ML) with missing values, is the _Expectation Maximization_ (EM) algorithm. This algorithm requires the knowledge of the joint distribution of $X = (X_{obs}, X_{mis})$ and its implementation is not straightforward since it involves integrals which cannot always be computed easily. Once the model parameters are estimated, one can impute the missing values using this estimated information on the data model.
 </p>
+<p align="justify">
+And there exist also other methods that allow for statistical inference with missing values and that are not using likelihood maximization.
+</p>
 ```{r, ml_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-tags <- c("ml","fiml","em", "mcem", "mle")
+tags <- c("ml","fiml","em", "mcem", "mle","inference")
 selected_refs <- select_refs(refs,tags)
 ```
 

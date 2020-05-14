@@ -150,7 +150,8 @@ Conference papers (1)
 </div>
 </div>
 <!-- Reports, theses, etc. -->
-<br> <!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<br>
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
 <p align="justify">
 If you are rather new to the subject and wish to start with less formal and more application-based introductions or if you look for general high-level advices on handling missing data we suggest the following publications:
 </p>
@@ -204,7 +205,8 @@ Journal articles (6)
 </div>
 <!-- Conference papers -->
 <!-- Reports, theses, etc. -->
-<br> <!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<br>
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
 <p align="justify">
 Furthermore you can have a look at the following statistical journals which regularly contain recent results related to handling missing data:
 </p>
@@ -212,7 +214,8 @@ Furthermore you can have a look at the following statistical journals which regu
 <li><p><a href="https://rss.onlinelibrary.wiley.com/journal/17409713" target="_blank">Significance</a> (bimonthly magazine)</p></li>
 <li><p><a href="http://www3.stat.sinica.edu.tw/statistica/" target="_blank">Statistica sinica</a> (quarterly journal; Volume 28, Number 4, October 2018 on <em>Data Missing Not at Random</em>)</p></li>
 <li><p><a href="https://www.imstat.org/journals-and-publications/statistical-science/" target="_blank">Statistical Science</a> (quarterly journal; Volume 33, Number 2, May 2018 on <em>Missing Data</em>)</p></li>
-<li><a href="https://www.tandfonline.com/action/journalInformation?show=aimsScope&amp;journalCode=utas20" target="_blank">The American Statistician</a> (quarterly journal) <br></li>
+<li><a href="https://www.tandfonline.com/action/journalInformation?show=aimsScope&amp;journalCode=utas20" target="_blank">The American Statistician</a> (quarterly journal)
+<br></li>
 </ul>
 </div>
 </div>
@@ -229,7 +232,10 @@ Furthermore you can have a look at the following statistical journals which regu
 <p align="justify">
 The first intuitive and probably most applied solution in data analyses to deal with missing values is to delete the partial observations and to work excusively on the individuals with complete information. This has several drawbacks, among others it introduces an estimation bias in most cases (more precisely in cases where the missingness is not independent of the data). In order to reduce this bias one can reweight the complete observations to compensate for the deletion of incomplete individuals in the dataset. The weights are defined by inverse probabilities, for instance the inverse of the probability for each individual of being fully observed. This method is known as <em>inverse probability weighting</em> and is described in detail in the publications below. We split the references in two parts: handling missing values in survey data and performing causal inference in the presence of missing values, both requiring the use of weighting methods.
 </p>
-</br> <!-- --------------------------------------------------------------------------------------------------------------------------- --> <font size="+1"><b> For survey data analysis</b></font> <!-- --------------------------------------------------------------------------------------------------------------------------- -->
+</br>
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<font size="+1"><b> For survey data analysis</b></font>
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
 <p align="justify">
 Such weighting methods are widely used on survey data in order to correct for unbalanced sampling fractions by balancing the empirical distributions of the observed covariates to recover the structure of the target population.
 </p>
@@ -282,7 +288,10 @@ Journal articles (9)
 </div>
 <!-- Conference papers -->
 <!-- Reports, theses, etc. -->
-</br> <!-- --------------------------------------------------------------------------------------------------------------------------- --> <font size="+1"><b>Methods in common with causal inference</b></font> <!-- --------------------------------------------------------------------------------------------------------------------------- -->
+</br>
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<font size="+1"><b>Methods in common with causal inference</b></font>
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
 <p align="justify">
 Inverse probability weighting is also considered in causal inference: A bias is induced by the presence of confounders, i.e. variables which interact with both covariates and outcome. Hence, if the goal is to estimate causal relationships between covariates and outcome it is necessary to account for the potential effect of confounders – a selection bias – on the result of causal inference.
 </p>
@@ -417,13 +426,17 @@ Journal articles (7)
 <div class="panel panel-default">
 <div id="h_ml" class="panel-heading" role="tab">
 <h4 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#ml" aria-expanded="false" aria-controls="ml">Likelihood-based approaches</a>
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="#ml" aria-expanded="false" aria-controls="ml">Inference with missing values</a>
 </h4>
 </div>
 <div id="ml" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_ml">
 <div class="panel-body">
 <p align="justify">
-Likelihood-based approaches in the presence of missing values are designed for statistical inference from incomplete data. More precisely, if the missingness mechanism is ignorable (in a certain sense that is explained in the <em>Missing values mechanisms</em> section) then one can attempt to infer the model parameters by maximizing the likelihood on the observed values. When the mechanism cannot be ignored, then a specific model for it needs to be assumed. The main algorithm available for performing maximum likelihood estimation (ML) with missing values, is the <em>Expectation Maximization</em> (EM) algorithm. This algorithm requires the knowledge of the joint distribution of <span class="math inline">\(X = (X_{obs}, X_{mis})\)</span> and its implementation is not straightforward since it involves integrals which cannot always be computed easily. Once the model parameters are estimated, one can impute the missing values using this estimated information on the data model.
+The most popular approach to deal with missing values for statistical inference tasks is likelihood-based approaches that can deal with incomplete data. More precisely, if the missingness mechanism is ignorable (in a certain sense that is explained in the <em>Missing values mechanisms</em> section) then one can attempt to infer the model parameters by maximizing the likelihood on the observed values. When the mechanism cannot be ignored, then a specific model for it needs to be assumed.
+The main algorithm available for performing maximum likelihood estimation (ML) with missing values, is the <em>Expectation Maximization</em> (EM) algorithm. This algorithm requires the knowledge of the joint distribution of <span class="math inline">\(X = (X_{obs}, X_{mis})\)</span> and its implementation is not straightforward since it involves integrals which cannot always be computed easily. Once the model parameters are estimated, one can impute the missing values using this estimated information on the data model.
+</p>
+<p align="justify">
+And there exist also other methods that allow for statistical inference with missing values and that are not using likelihood maximization.
 </p>
 <!-- Books and book chapters -->
 <div class="container">
@@ -439,7 +452,7 @@ Books and book chapters (1)
 <!-- Journal articles -->
 <div class="container">
 <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#ml_journals">
-Journal articles (17)
+Journal articles (18)
 </button>
 <div id="ml_journals" class="collapse">
 <ul>
@@ -503,6 +516,10 @@ Journal articles (17)
 <li><pref><cite>Tchetgen Tchetgen, E. J., L. Wang, and B. Sun. <font color="#428bca">Discrete choice models for nonmonotone nonignorable missing data: identification and inference</font>. In: <em>Statistica Sinica</em> 28.4 (2018), pp. 2069–2088.</cite></pref>
 <div>
 <a href="https://doi.org/10.5705/ss.202016.0325" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Xue, F. and A. Qu. <font color="#428bca">Integrating multi-source block-wise missing data in model selection</font>. In: <em>Journal of the American Statistical Association</em> (2020), pp. 1–36.</cite></pref>
+<div>
+<a href="https://doi.org/10.1080/01621459.2020.1751176" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
 </div></li>
 <li><pref><cite>Zhou, Y., R. J. A. Little, and J. D. Kalbfleisch. <font color="#428bca">Block-conditional missing at random models for missing data</font>. In: <em>Statistical Science</em> 25.4 (2010), pp. 517–532.</cite></pref>
 <div>
@@ -644,7 +661,7 @@ Conference papers (1)
 </button>
 <div id="imp_conf" class="collapse">
 <ul>
-<li><pref><cite>Tran, L., X. Liu, J. Zhou, et al. <font color="#428bca">Missing Modalities Imputation via Cascaded Residual Autoencoder</font>. In: <em>2017 IEEE Conference on Computer Vision and PAttern Recognition (CVPR)</em>. (Jul. 21, 2017-Jul. 26, 2017). Ed. by -. IEEE, 2017, pp. 4971-4980.</cite></pref>
+<li><pref><cite>Tran, L., X. Liu, J. Zhou, et al. <font color="#428bca">Missing Modalities Imputation via Cascaded Residual Autoencoder</font>. In: <em>2017 IEEE Conference on Computer Vision and PAttern Recognition (CVPR)</em>. (Jul. 21, 2017-Jul. 26, 2017). Ed. by -. IEEE, 2017, pp. 4971-4980.</cite></pref>
 <div>
 <a href="https://doi.org/10.1109/CVPR.2017.528" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
 </div></li>
@@ -698,7 +715,7 @@ Books and book chapters (2)
 <!-- Journal articles -->
 <div class="container">
 <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#mi_journals">
-Journal articles (28)
+Journal articles (29)
 </button>
 <div id="mi_journals" class="collapse">
 <ul>
@@ -778,6 +795,10 @@ Journal articles (28)
 <div>
 <a href="https://doi.org/10.1080/01621459.2016.1174132" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
 </div></li>
+<li><pref><cite>Quartagno, M. and J. R. Carpenter. <font color="#428bca">Multiple imputation for discrete data: Evaluation of the joint latent normal model</font>. In: <em>Biometrical Journal</em> 61.4 (2019), pp. 1003–1019.</cite></pref>
+<div>
+<a href="https://doi.org/10.1002/bimj.201800222" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
 <li><pref><cite>Robins, J. M. and N. Wang. <font color="#428bca">Inference for imputation estimators</font>. In: <em>Biometrika</em> 87.1 (2000), pp. 113-124.</cite></pref>
 <div>
 <a href="https://www.jstor.org/stable/2673565" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
@@ -824,7 +845,7 @@ Conference papers (1)
 </button>
 <div id="mi_conf" class="collapse">
 <ul>
-<li><pref><cite>Gondara, L. and K. Wang. <font color="#428bca">MIDA: Multiple Imputation using Denoising Autoencoders</font>. In: <em>Proceedings of the 22nd Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD 2018)</em>. (Jun. 03, 2018-Jun. 06, 2018). Ed. by D. Phung, V. Tseng, G. Webb, B. Ho, M. Ganji and L. Rashidi. Lecture Notes in Computer Science. Springer International Publishing, 2018, pp. 260-272. ISBN: 3319930404.</cite></pref>
+<li><pref><cite>Gondara, L. and K. Wang. <font color="#428bca">MIDA: Multiple Imputation using Denoising Autoencoders</font>. In: <em>Proceedings of the 22nd Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD 2018)</em>. (Jun. 03, 2018-Jun. 06, 2018). Ed. by D. Phung, V. Tseng, G. Webb, B. Ho, M. Ganji and L. Rashidi. Lecture Notes in Computer Science. Springer International Publishing, 2018, pp. 260-272. ISBN: 3319930404.</cite></pref>
 <div>
 <a href="https://doi.org/10.1007/978-3-319-93040-4_21" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a><a href="https://arxiv.org/abs/1705.02737" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
 </div></li>
@@ -906,7 +927,7 @@ Conference papers (1)
 </button>
 <div id="tree_conf" class="collapse">
 <ul>
-<li><pref><cite>Chen, T. and C. Guestrin. <font color="#428bca">XGBoost: A Scalable Tree Boosting System</font>. In: <em>Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining</em>. (Aug. 13, 2016-Aug. 17, 2016). Ed. by -. New York, NY, USA: ACM, 2016, pp. 785-794. ISBN: 0450342322.</cite></pref>
+<li><pref><cite>Chen, T. and C. Guestrin. <font color="#428bca">XGBoost: A Scalable Tree Boosting System</font>. In: <em>Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining</em>. (Aug. 13, 2016-Aug. 17, 2016). Ed. by -. New York, NY, USA: ACM, 2016, pp. 785-794. ISBN: 0450342322.</cite></pref>
 <div>
 <a href="https://doi.org/10.1145/2939672.2939785" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
 </div></li>
@@ -966,7 +987,7 @@ Conference papers (7)
 </button>
 <div id="dl_conf" class="collapse">
 <ul>
-<li><pref><cite>Bengio, Y. and F. Gingras. <font color="#428bca">Recurrent neural networks for missing or asynchronous data</font>. In: <em>Proceedings of the 8th International Conference on Neural Information Processing Systems</em>. (Nov. 27, 1995-Dec. 02, 1995). Ed. by -. Cambridge, MA, USA: MIT Press, 1995, pp. 395-401.</cite></pref>
+<li><pref><cite>Bengio, Y. and F. Gingras. <font color="#428bca">Recurrent neural networks for missing or asynchronous data</font>. In: <em>Proceedings of the 8th International Conference on Neural Information Processing Systems</em>. (Nov. 27, 1995-Dec. 02, 1995). Ed. by -. Cambridge, MA, USA: MIT Press, 1995, pp. 395-401.</cite></pref>
 <div>
 <a href="http://papers.nips.cc/paper/1126-recurrent-neural-networks-for-missing-or-asynchronous-data.pdf" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
 </div></li>
@@ -974,23 +995,23 @@ Conference papers (7)
 <div>
 <a href="https://doi.org/10.1145/3269206.3272005" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a><a href="http://doi.acm.org/10.1145/3269206.3272005" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
 </div></li>
-<li><pref><cite>Gondara, L. and K. Wang. <font color="#428bca">MIDA: Multiple Imputation using Denoising Autoencoders</font>. In: <em>Proceedings of the 22nd Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD 2018)</em>. (Jun. 03, 2018-Jun. 06, 2018). Ed. by D. Phung, V. Tseng, G. Webb, B. Ho, M. Ganji and L. Rashidi. Lecture Notes in Computer Science. Springer International Publishing, 2018, pp. 260-272. ISBN: 3319930404.</cite></pref>
+<li><pref><cite>Gondara, L. and K. Wang. <font color="#428bca">MIDA: Multiple Imputation using Denoising Autoencoders</font>. In: <em>Proceedings of the 22nd Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD 2018)</em>. (Jun. 03, 2018-Jun. 06, 2018). Ed. by D. Phung, V. Tseng, G. Webb, B. Ho, M. Ganji and L. Rashidi. Lecture Notes in Computer Science. Springer International Publishing, 2018, pp. 260-272. ISBN: 3319930404.</cite></pref>
 <div>
 <a href="https://doi.org/10.1007/978-3-319-93040-4_21" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a><a href="https://arxiv.org/abs/1705.02737" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
 </div></li>
-<li><pref><cite>Goodfellow, I., M. Mirza, A. Courville, et al. <font color="#428bca">Multi-Prediction Deep Boltzmann Machines</font>. In: <em>Proceedings of the 26th International Conference on Neural Information Processing Systems</em>. (Dec. 05, 2013-Dec. 10, 2013). Ed. by C. Burges, L. Bottou, M. Welling, Z. Ghahramani and K. Weinberger. Advances in Neural Information Processing Systems 26. Curran Associates, Inc., 2013, pp. 548–556.</cite></pref>
+<li><pref><cite>Goodfellow, I., M. Mirza, A. Courville, et al. <font color="#428bca">Multi-Prediction Deep Boltzmann Machines</font>. In: <em>Proceedings of the 26th International Conference on Neural Information Processing Systems</em>. (Dec. 05, 2013-Dec. 10, 2013). Ed. by C. Burges, L. Bottou, M. Welling, Z. Ghahramani and K. Weinberger. Advances in Neural Information Processing Systems 26. Curran Associates, Inc., 2013, pp. 548–556.</cite></pref>
 <div>
 <a href="http://papers.nips.cc/paper/5024-multi-prediction-deep-boltzmann-machines.pdf" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
 </div></li>
-<li><pref><cite>Nowicki, R. K., R. Scherer, and L. Rutkowski. <font color="#428bca">Novel rough neural network for classification with missing data</font>. In: <em>21st International Conference on Methods and Models in Automation and Robotics (MMAR)</em>. (Sep. 29, 2016-Sep. 01, 2016). Ed. by -. IEEE, 2016, pp. 820–825.</cite></pref>
+<li><pref><cite>Nowicki, R. K., R. Scherer, and L. Rutkowski. <font color="#428bca">Novel rough neural network for classification with missing data</font>. In: <em>21st International Conference on Methods and Models in Automation and Robotics (MMAR)</em>. (Sep. 29, 2016-Sep. 01, 2016). Ed. by -. IEEE, 2016, pp. 820–825.</cite></pref>
 <div>
 <a href="https://doi.org/10.1109/MMAR.2016.7575243" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
 </div></li>
-<li><pref><cite>Tran, L., X. Liu, J. Zhou, et al. <font color="#428bca">Missing Modalities Imputation via Cascaded Residual Autoencoder</font>. In: <em>2017 IEEE Conference on Computer Vision and PAttern Recognition (CVPR)</em>. (Jul. 21, 2017-Jul. 26, 2017). Ed. by -. IEEE, 2017, pp. 4971-4980.</cite></pref>
+<li><pref><cite>Tran, L., X. Liu, J. Zhou, et al. <font color="#428bca">Missing Modalities Imputation via Cascaded Residual Autoencoder</font>. In: <em>2017 IEEE Conference on Computer Vision and PAttern Recognition (CVPR)</em>. (Jul. 21, 2017-Jul. 26, 2017). Ed. by -. IEEE, 2017, pp. 4971-4980.</cite></pref>
 <div>
 <a href="https://doi.org/10.1109/CVPR.2017.528" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
 </div></li>
-<li><pref><cite>Yoon, J., J. Jordon, and M. van der Schaar. <font color="#428bca">GAIN: Missing Data Imputation using Generative Adversarial Nets</font>. In: <em>Proceedings of the 35th International Conference on Machine Learning</em>. (Jul. 10, 2018-Jul. 15, 2018). Ed. by J. Dy and A. Krause. Vol. 80. Proceedings of Machine Learning Research. Stockholmsmässan, Stockholm Sweden: PMLR, 2018, pp. 5689–5698.</cite></pref>
+<li><pref><cite>Yoon, J., J. Jordon, and M. van der Schaar. <font color="#428bca">GAIN: Missing Data Imputation using Generative Adversarial Nets</font>. In: <em>Proceedings of the 35th International Conference on Machine Learning</em>. (Jul. 10, 2018-Jul. 15, 2018). Ed. by J. Dy and A. Krause. Vol. 80. Proceedings of Machine Learning Research. Stockholmsmässan, Stockholm Sweden: PMLR, 2018, pp. 5689–5698.</cite></pref>
 <div>
 <a href="http://proceedings.mlr.press/v80/yoon18a.html" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
 </div></li>
@@ -1123,7 +1144,7 @@ Journal articles (37)
 <div>
 <a href="https://doi.org/10.1111/1467-9574.00075" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
 </div></li>
-<li><pref><cite>Reiter, J. P. and M. Sadinle. <font color="#428bca">Itemwise conditionally independent nonresponse modelling for incomplete multivariate data</font>. In: <em>Biometrika</em> 104.1 (Jan. 2017), pp. 207-220. eprint: <a href="http://oup.prod.sis.lan/biomet/article-pdf/104/1/207/13066719/asw063.pdf" class="uri">http://oup.prod.sis.lan/biomet/article-pdf/104/1/207/13066719/asw063.pdf</a>.</cite></pref>
+<li><pref><cite>Reiter, J. P. and M. Sadinle. <font color="#428bca">Itemwise conditionally independent nonresponse modelling for incomplete multivariate data</font>. In: <em>Biometrika</em> 104.1 (Jan. 2017), pp. 207-220. eprint: <a href="http://oup.prod.sis.lan/biomet/article-pdf/104/1/207/13066719/asw063.pdf" class="uri">http://oup.prod.sis.lan/biomet/article-pdf/104/1/207/13066719/asw063.pdf</a>.</cite></pref>
 <div>
 <a href="https://doi.org/10.1093/biomet/asw063" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a><a href="https://doi.org/10.1093/biomet/asw063" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
 </div></li>
@@ -1218,7 +1239,7 @@ Conference papers (2)
 <div>
 <a href="https://doi.org/10.1007/978-1-4684-6316-3_14" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
 </div></li>
-<li><pref><cite>Mohan, K., F. Thoemmes, and J. Pearl. <font color="#428bca">Estimation with Incomplete Data: The Linear Case</font>. In: <em>Proceedings of the Twenty-Seventh International Joint Conference on Artificial Intelligence, IJCAI-18</em>. International Joint Conferences on Artificial Intelligence Organization, Jul. 2018, pp. 5082–5088.</cite></pref>
+<li><pref><cite>Mohan, K., F. Thoemmes, and J. Pearl. <font color="#428bca">Estimation with Incomplete Data: The Linear Case</font>. In: <em>Proceedings of the Twenty-Seventh International Joint Conference on Artificial Intelligence, IJCAI-18</em>. International Joint Conferences on Artificial Intelligence Organization, Jul. 2018, pp. 5082–5088.</cite></pref>
 <div>
 <a href="https://doi.org/10.24963/ijcai.2018/705" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a><a href="https://doi.org/10.24963/ijcai.2018/705" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
 </div></li>
