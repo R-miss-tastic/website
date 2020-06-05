@@ -361,7 +361,7 @@ weight: 2
                   <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#josse_cirm">
                     <div class="col-12">Treatment Effect Estimation with Missing Attributes<br>
                     <small>
-                      <p>(Julie Josse, talk at CIRM virtual conference on Mathematical Methods of Modern Statistics , 2020)</p>
+                      <p>(Julie Josse, talk at CIRM virtual conference on Mathematical Methods of Modern Statistics, 2020)</p>
                     </small>
                   </div>
                   </a>
