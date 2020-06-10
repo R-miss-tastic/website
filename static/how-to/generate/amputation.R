@@ -430,12 +430,12 @@ produce_MAR_MNAR <- function(data, mechanism, perc.missing, idx.incomplete, idx.
       
           
       #all the variables can be covariates
-      if(length(idx.covariates[,1])!=length(which(idx.incomplete==1))){
+      if(length(idx.covariates[,1]) != length(idx.incomplete)){
         
         if(length(idx.covariates[,1])==1 & length(idx.covariates[1,])==length(data[1,])){
-          idx.covariates <- matrix(rep(idx.covariates,times = length(which(idx.incomplete==1))), nrow = length(which(idx.incomplete==1)), byrow = TRUE)
+          idx.covariates <- matrix(rep(idx.covariates,times = length(idx.incomplete)), nrow = length(idx.incomplete), byrow = TRUE)
         }else{
-          idx.covariates <- matrix(rep(1,times = length(which(idx.incomplete==1))*length(data[1,])), nrow = length(which(idx.incomplete==1)), byrow = TRUE)
+          idx.covariates <- matrix(rep(1,times = length(idx.incomplete)*length(data[1,])), nrow = length(idx.incomplete), byrow = TRUE)
           if(mechanism=="MAR"){
             diag(idx.covariates) <- 0
           }
@@ -451,9 +451,9 @@ produce_MAR_MNAR <- function(data, mechanism, perc.missing, idx.incomplete, idx.
   
     
       #this matrix will be used to run mice
-      missingness.matrix <- matrix(rep(1, times=length(which(idx.incomplete==1))*length(data[1,])), nrow = length(which(idx.incomplete==1)))
+      missingness.matrix <- matrix(rep(1, times=length(data[1,])*length(data[1,])), nrow = length(data[1,]))
       
-      for (i in which(idx.incomplete==1)){
+      for (i in idx.incomplete){
         missingness.matrix[i,i] <- 0
       }
       
@@ -596,8 +596,8 @@ produce_MAR_MNAR <- function(data, mechanism, perc.missing, idx.incomplete, idx.
   
   
   not.missing <- as.matrix(not.missing)
-  for (i in seq_len(length(which(idx.incomplete==1)))){
-    temp <- mice::ampute(not.missing, patterns = missingness.matrix[i,], weights = weights.covariates[i,],prop = perc.missing, bycases = TRUE)$amp
+  for (i in idx.incomplete){
+    temp <- mice::ampute(not.missing, patterns = missingness.matrix[i,], weights = weights.covariates[which(i == idx.incomplete),],prop = perc.missing, bycases = TRUE)$amp
     data.incomp[,which(missingness.matrix[i,]==0)] <- temp[,which(missingness.matrix[i,]==0)]
     # need to handle categorical variables (revert the one_hot encoding)!
     idx_newNA <- pmax(idx_newNA, as.matrix(is.na(temp)))   
