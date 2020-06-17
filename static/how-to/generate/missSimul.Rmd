@@ -13,7 +13,7 @@ output:
     toc_depth: '3'
 linkcolor: blue
 link-citations: yes
-bibliography: ../bibliography.bib
+bibliography: bibliography.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -38,6 +38,9 @@ We generate a small example of observations $\mathbf{X}$:
 suppressPackageStartupMessages(require(MASS))
 suppressPackageStartupMessages(require(norm))
 suppressPackageStartupMessages(require(VIM))
+suppressPackageStartupMessages(require(ggplot2))
+suppressPackageStartupMessages(require(naniar))
+
 source("amputation.R")
 set.seed(1)
 # Sample data generation ------------------------------------------------------
@@ -117,7 +120,7 @@ matrixplot(X.mcar, cex.axis = 0.5, interactive = F)
 
 The main function `produce_NA` allows generating missing values in various ways. These can be specified through different arguments: 
 
-produce_NA(data, mechanism = "MCAR", perc.missing = 0.5, idx.incomplete = NULL, idx.covariates = NULL, weights.covariates = NULL, by.patterns = FALSE, patterns = NULL, freq.patterns = NULL, weights.patterns = NULL, logit.model = "RIGHT", seed = NULL)
+produce_NA(data, mechanism = "MCAR", perc.missing = 0.5, self.mask=NULL, idx.incomplete = NULL, idx.covariates = NULL, weights.covariates = NULL, by.patterns = FALSE, patterns = NULL, freq.patterns = NULL, weights.patterns = NULL, logit.model = "RIGHT", seed = NULL)
 
 ## Mechanisms
 
@@ -163,7 +166,7 @@ matrixplot(X.mar,  cex.axis = 0.5, interactive = F)
 #### Definition
 The observations are said to be Missing Not At Random (MNAR) in all other cases.
 
-#### Example
+#### Example 1: logistic model with missing values as predictors
 ```{r mnar_data}
 # Sample mnar missing data -----------------------------------------
 mnar <- produce_NA(X.complete, mechanism="MNAR", perc.missing = 0.2)
@@ -174,6 +177,26 @@ R.mnar <- mnar$idx_newNA
 writeLines(paste0("Percentage of newly generated missing values: ", sum(R.mnar)/prod(dim(R.mnar))))
 matrixplot(X.mnar,  cex.axis = 0.5, interactive = F)
 ```
+
+#### Example 2: self-masking MNAR (for quantitative variables)
+```{r mnar_data_self-mask}
+# Sample mnar missing data -----------------------------------------
+mnar <- produce_NA(X.complete, mechanism="MNAR", perc.missing = 0.2, self.mask="lower", idx.incomplete = c(1,1,0,0))
+
+X.mnar <- mnar$data.incomp
+R.mnar <- mnar$idx_newNA
+
+writeLines(paste0("Percentage of newly generated missing values: ", 100*sum(R.mnar)/prod(dim(R.mnar))))
+writeLines(paste0("Percentage of newly generated missing values (only w.r.t. to incomplete variables): ", 100*sum(R.mnar)/prod(dim(R.mnar[,1:2]))))
+matrixplot(X.mnar,  cex.axis = 0.5, interactive = F)
+
+ggplot(data=data.frame(X1=X.mnar[,1], X2=X.mnar[,2]),
+       aes(x = X1,
+           y = X2)) +
+  geom_miss_point()
+```
+
+Note that the proportion of missing values specified in the function call refers to the proportion w.r.t. the incomplete variables. Hence if you select half of your variables, to contain missing values and choose `perc.missing=0.2`, then the total proportion of missing values in the entire matrix/data.frame will be 0.2/2 = 0.1.
 
 <!-- ### Mixed mechanisms -->
 
@@ -295,10 +318,27 @@ matrixplot(X.mar,  cex.axis = 0.5, interactive = F)
 
 - `seed`: specify a seed for the random values generator, useful to obtain reproducible examples.
 
-# Session info
+## Full list of arguments
 
 ```{r}
-sessionInfo()
+#' @param data [data.frame, matrix] (mixed) data table (n x p)
+#' @param mechanism [string] either one of "MCAR", "MAR", "MNAR"; default is "MCAR"
+#' @param self.mask [string] either NULL or one of "sym", "upper", "lower"; default is NULL
+#' @param perc.missing [positive double] proportion of missing values, between 0 and 1; default is 0.5
+#' @param idx.incomplete [array] indices of variables to generate missing values for; if NULL then missing values in all variables are possible; default is NULL
+#' @param idx.covariates [matrix] binary matrix such that entries in row i that are equal to 1 indicate covariates that incluence missingness of variable i (sum(idx.incomplete) x p); if NULL then all covariates contribute; default is NULL
+#' @param weights.covariates [matrix] matrix of same size as idx.covariates with weights in row i for contribution of each covariate to missingness model of variable i; if NULL then a (regularized) logistic model is fitted; default is NULL
+#' @param by.patterns [boolean] generate missing values according to (pre-specified) patterns; default is FALSE
+#' @param patterns [matrix] binary matrix with 1=observed, 0=missing (n_pattern x p); default is NULL
+#' @param freq.patterns [array] array of size n_pattern containing desired proportion of each pattern; if NULL then mice::ampute.default.freq will be called ; default is NULL
+#' @param weights.patterns [matrix] weights used to calculate weighted sum scores (n_pattern x p); if NULL then mice::ampute.default.weights will be called; default is NULL
+#' @param logit.model [string] either one of "RIGHT","LEFT","MID","TAIL"; default is "RIGHT"
+#' @param seed [natural integer] seed for random numbers generator; default is NULL
+#' 
+#' @return A list with the following elements
+#' \item{data.init}{original data.frame}
+#' \item{data.incomp}{data.frame with the newly generated missing values, observed values correspond to the values from the initial data.frame}
+#' \item{idx_newNA}{a boolean data.frame indicating the indices of the newly generated missing values}
 ```
 
 # References

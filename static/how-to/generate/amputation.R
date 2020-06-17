@@ -3,9 +3,9 @@ suppressPackageStartupMessages(require(mice))
 suppressPackageStartupMessages(require(mltools))
 
 imputeMean <- function(df, args_list = NULL){
+  df <- data.frame(df)
   df_imp <- df
-  vars_real <- colnames(df)[sapply(df, is.numeric) & !sapply(df, is.integer)]
-  vars_int <- colnames(df)[sapply(df, is.integer)]
+  vars_real <- colnames(df)[sapply(df, is.numeric)]
   vars_factor <- colnames(df)[!sapply(df, is.numeric)]
   
   if (length(vars_real) >0){
@@ -16,13 +16,6 @@ imputeMean <- function(df, args_list = NULL){
     }
     df_imp[ , vars_real] <- sapply(1:length(vars_real), 
                                    function(x) ifelse(is.na(df_imp[,vars_real[x]]), mean_real[x], df_imp[,vars_real[x]]))
-  }
-  
-  if (length(vars_int) > 0 ){
-    mode_int <- as.vector(apply(data.frame(df[, vars_int]), MARGIN=2,
-                                FUN = function(x) as.integer(as.character(as.data.frame(table(x))[which.max(table(x)),1]))))
-    df_imp[ , vars_int] <- sapply(1:length(vars_int), 
-                                  function(x) ifelse(is.na(df_imp[,vars_int[x]]), mode_int[x], df_imp[,vars_int[x]]))
   }
   
   if (length(vars_factor) > 0 ){
@@ -79,10 +72,34 @@ logit.bypatterns <- function(data,patterns,mechanism){
   return(logit.weights)
 }
 
-
+#' generation of missing values on complete or incomplete data 
+#' according to different missingness mechanisms and patterns
+#' 
+#' @param data [data.frame, matrix] (mixed) data table (n x p)
+#' @param mechanism [string] either one of "MCAR", "MAR", "MNAR"; default is "MCAR"
+#' @param self.mask [string] either NULL or one of "sym", "upper", "lower"; default is NULL
+#' @param perc.missing [positive double] proportion of missing values, between 0 and 1; default is 0.5
+#' @param idx.incomplete [array] indices of variables to generate missing values for; if NULL then missing values in all variables are possible; default is NULL
+#' @param idx.covariates [matrix] binary matrix such that entries in row i that are equal to 1 indicate covariates that incluence missingness of variable i (sum(idx.incomplete) x p); if NULL then all covariates contribute; default is NULL
+#' @param weights.covariates [matrix] matrix of same size as idx.covariates with weights in row i for contribution of each covariate to missingness model of variable i; if NULL then a (regularized) logistic model is fitted; default is NULL
+#' @param by.patterns [boolean] generate missing values according to (pre-specified) patterns; default is FALSE
+#' @param patterns [matrix] binary matrix with 1=observed, 0=missing (n_pattern x p); default is NULL
+#' @param freq.patterns [array] array of size n_pattern containing desired proportion of each pattern; if NULL then mice::ampute.default.freq will be called ; default is NULL
+#' @param weights.patterns [matrix] weights used to calculate weighted sum scores (n_pattern x p); if NULL then mice::ampute.default.weights will be called; default is NULL
+#' @param logit.model [string] either one of "RIGHT","LEFT","MID","TAIL"; default is "RIGHT"
+#' @param seed [natural integer] seed for random numbers generator; default is NULL
+#' 
+#' @return A list with the following elements
+#' \item{data.init}{original data.frame}
+#' \item{data.incomp}{data.frame with the newly generated missing values, observed values correspond to the values from the initial data.frame}
+#' \item{idx_newNA}{a boolean data.frame indicating the indices of the newly generated missing values}
+#'
+#' @export
+#' @import mice mltools gdata LiblineaR glmnet dplyr
 produce_NA <- function(data, 
                        mechanism = "MCAR", #c("MCAR", "MAR", "MNAR"),
                        perc.missing = 0.5, 
+                       self.mask = NULL, #c("sym","upper","lower")
                        idx.incomplete = NULL,
                        idx.covariates = NULL,
                        weights.covariates = NULL,
@@ -101,14 +118,17 @@ produce_NA <- function(data,
   stopifnot((mechanism == "MCAR" & !(is.null(perc.missing))) |
                 (mechanism %in% c("MAR", "MNAR")))
   
-  if (is.matrix(data)){
+  if (is.matrix(data)) {
     data <- data.frame(data)
   }
   
+  if (!is.null(self.mask)){
+    self.mask <- tolower(self.mask)
+  }
   
-  if (mechanism == "MCAR"){
+  if (mechanism == "MCAR") {
     return(produce_MCAR(data, perc.missing, idx.incomplete))
-  }else{
+  } else {
     
     # temporary fix to handle factors
     # (transform them to numeric and revert the conversion in the end)
@@ -130,7 +150,7 @@ produce_NA <- function(data,
     #  data <- as.data.frame(sapply(data, as.numeric))
     # }
     
-    if(by.patterns==TRUE){
+    if (by.patterns==TRUE) {
       
       if(is.null(patterns)){
         if(sum(is.na(data))==0){
@@ -235,7 +255,7 @@ produce_NA <- function(data,
               }
               data <- data.frame(mltools::one_hot(data.table::as.data.table(data)))
             }
-            perc.missing <- perc.missing / sum(apply(patterns, 1, FUN = function(x) sum(x==0)))
+            perc.missing <- perc.missing / sum(apply(patterns, 1, FUN = function(x) sum(x==0))*freq.patterns)
           }else{
             
             if (sum(sapply(data, FUN=is.factor))!= 0){
@@ -306,7 +326,7 @@ produce_NA <- function(data,
               "idx_newNA" = idx_newNA)) 
       
 
-    }else{ #by.patterns==FALSE
+    } else{ #by.patterns==FALSE
       
       #code adapted from mice package, accessed: May 10
       if (!is.null(weights.covariates)) {
@@ -326,7 +346,7 @@ produce_NA <- function(data,
           
         }
         
-        #have to make sure the weights.covariates and the covariates selected match each other
+        # # have to make sure the weights.covariates and the covariates selected match each other
         if(is.null(idx.covariates)){
           idx.covariates <- (weights.covariates >= 0)
         }
@@ -346,10 +366,10 @@ produce_NA <- function(data,
       
       if (!(mechanism == "MCAR")){
         if (length(vars_factor) == 0){
-          return(produce_MAR_MNAR(data, mechanism, perc.missing, idx.incomplete, idx.covariates, weights.covariates, logit.model))
+          return(produce_MAR_MNAR(data, mechanism, perc.missing, self.mask, idx.incomplete, idx.covariates, weights.covariates, logit.model))
         }
         
-        tmp <- produce_MAR_MNAR(data, mechanism, perc.missing, idx.incomplete, idx.covariates, weights.covariates, logit.model)
+        tmp <- produce_MAR_MNAR(data, mechanism, perc.missing, self.mask, idx.incomplete, idx.covariates, weights.covariates, logit.model)
         
         if (length(vars_factor) > 0){
           for (i in 1:length(vars_factor)){
@@ -379,7 +399,7 @@ produce_MCAR <- function(data, perc.missing, idx.incomplete){
   
   if (is.null(idx.incomplete)){
     p.incomp <- p
-    idx.incomplete <- c(1:p)# I added this
+    idx.incomplete <- rep(1, p)
   } else {
     p.incomp <- length(idx.incomplete)
   }
@@ -412,11 +432,69 @@ produce_MCAR <- function(data, perc.missing, idx.incomplete){
 }
 
 
-produce_MAR_MNAR <- function(data, mechanism, perc.missing, idx.incomplete, idx.covariates, weights.covariates, logit.model){
+produce_MAR_MNAR <- function(data, mechanism, perc.missing, self.mask, idx.incomplete, idx.covariates, weights.covariates, logit.model){
   #check if there are non-numeric variables
   #if (any(vapply(data, function(x) !(is.numeric(x) | is.factor(x)), logical(1)))) {
   #  data <- as.data.frame(sapply(data, as.numeric))
   #}
+  
+  if (!is.null(self.mask)){
+    data.incomp <- data
+    idx_newNA <- matrix(rep(FALSE, prod(dim(data))), nrow = nrow(data), ncol = ncol(data))
+    if (self.mask == "sym"){
+      p.miss <- min(0.495, perc.missing+0.1)
+      if (sum(idx.incomplete) == 1){
+        quantiles <- rbind(quantile(data[,which(idx.incomplete==1)], p.miss, na.rm=T),
+                           quantile(data[,which(idx.incomplete==1)], 1-p.miss, na.rm=T))
+        
+      } else {
+        quantiles <- rbind(apply(data[,which(idx.incomplete==1)], 2, function(x) quantile(x, p.miss, na.rm=T)),
+                           apply(data[,which(idx.incomplete==1)], 2, function(x) quantile(x, 1-p.miss, na.rm=T)))
+      }
+      ct <- 1
+      for (j in which(idx.incomplete==1)){
+        idx_newNA[,j] <- rbinom(nrow(data), 1, 
+                                pmax(data[,j]<=min(quantiles[,ct]), 
+                                     data[,j]>max(quantiles[,ct]))*dplyr::if_else(perc.missing <= 0.475, perc.missing/p.miss/2, perc.missing/2))
+        ct <- ct+1
+      }
+    }
+    if (self.mask == "upper"){
+      p.miss <- min(0.99, perc.missing+0.1)
+      if (sum(idx.incomplete) == 1){
+        quantiles <- quantile(data[,which(idx.incomplete==1)], 1-p.miss, na.rm=T)
+        
+      } else {
+        quantiles <- apply(data[,which(idx.incomplete==1)], 2, function(x) quantile(x, 1-p.miss, na.rm=T))
+      }
+      ct <- 1
+      for (j in which(idx.incomplete==1)){
+        idx_newNA[,j] <- rbinom(nrow(data), 1, (data[,j]>quantiles[ct])*dplyr::if_else(perc.missing <= 0.89, perc.missing/p.miss, perc.missing))
+        ct <- ct+1
+      }
+    }
+    if (self.mask == "lower"){
+      p.miss <- min(0.99, perc.missing+0.1)
+      if (sum(idx.incomplete) == 1){
+        quantiles <- quantile(data[,which(idx.incomplete==1)], p.miss, na.rm=T)
+      } else {
+        quantiles <- apply(data[,which(idx.incomplete==1)], 2, function(x) quantile(x, p.miss, na.rm=T))
+      }
+      ct <- 1
+      for (j in which(idx.incomplete==1)){
+        idx_newNA[,j] <- rbinom(nrow(data), 1, (data[,j]<=quantiles[ct])*dplyr::if_else(perc.missing <= 0.89, perc.missing/p.miss, perc.missing))
+        ct <- ct+1
+      }
+    }
+    
+    idx_newNA <- apply(idx_newNA, c(1,2), as.logical)
+    data.incomp[idx_newNA] <- NA
+    data.incomp[is.na(data)] <- NA #re-storing original missing data
+    
+    return(list("data.init" = data,
+                "data.incomp" = data.incomp,
+                "idx_newNA" = idx_newNA))
+  }
   
   data.orig <- data
   
@@ -454,7 +532,7 @@ produce_MAR_MNAR <- function(data, mechanism, perc.missing, idx.incomplete, idx.
       missingness.matrix <- matrix(rep(1, times=length(which(idx.incomplete==1))*length(data[1,])), nrow = length(which(idx.incomplete==1)))
       
       for (i in which(idx.incomplete==1)){
-        missingness.matrix[i,i] <- 0
+        missingness.matrix[i,which(idx.incomplete==1)[i]] <- 0
       }
       
       #checking if there are categorical variables
@@ -477,18 +555,25 @@ produce_MAR_MNAR <- function(data, mechanism, perc.missing, idx.incomplete, idx.
       
     }else{
     
-      if(!is.null(logit.model)){
+      if(is.null(logit.model) | is.null(weights.covariates)){
         warning("Logit model will default to RIGHT if weights.covariates is not specified")
         logit.model == "RIGHT"
       }
       
-      if(is.null(idx.incomplete)){
-        idx.incomplete <- matrix(rep(0,times=length(data[1,])), nrow = 1) 
+      if (is.null(idx.incomplete)) {
+        idx.incomplete <- matrix(rep(0,times=ncol(data)), nrow = 1) 
         idx.incomplete[which(apply(data, 2, function(x) (sum(is.na(x)) >0)) == TRUE)] <- 1 #missing variables will remain the same as in the original data
       }
       
+      if (is.null(idx.covariates)) {
+        idx.covariates <- matrix(rep(1, times = sum(idx.incomplete==1)*ncol(data)), nrow = sum(idx.incomplete==1), byrow = TRUE)
+        if (mechanism=="MAR") {
+          diag(idx.covariates) <- 0
+        }
+      }
+      
       #check covariate matrix : all the variables can be covariates
-      if(length(idx.covariates[,1])!=length(which(idx.incomplete==1))){
+      if (length(idx.covariates[,1])!=length(which(idx.incomplete==1))){
         
         if(length(idx.covariates[,1])==1 & length(idx.covariates[1,])==length(data[1,])){
           idx.covariates <- matrix(rep(idx.covariates,times = length(which(idx.incomplete==1))), nrow = length(which(idx.incomplete==1)), byrow = TRUE)
@@ -502,10 +587,10 @@ produce_MAR_MNAR <- function(data, mechanism, perc.missing, idx.incomplete, idx.
       
 
       #this matrix will be used to run mice
-      missingness.matrix <- matrix(rep(1, times=length(which(idx.incomplete==1))*length(data[1,])), nrow = length(which(idx.incomplete==1)))
+      missingness.matrix <- matrix(rep(1, times=length(which(idx.incomplete==1))*ncol(data)), nrow = length(which(idx.incomplete==1)))
       
-      for (i in which(idx.incomplete==1)){
-        missingness.matrix[i,i] <- 0
+      for (i in 1:sum(idx.incomplete)){
+        missingness.matrix[i,which(idx.incomplete==1)[i]] <- 0
       }
       
       weights.covariates <- idx.covariates*0
@@ -533,7 +618,7 @@ produce_MAR_MNAR <- function(data, mechanism, perc.missing, idx.incomplete, idx.
       }
       
       #covariates weights will come from logit regression
-      for (i in seq_len(length(which(idx.incomplete==1)))){
+      for (i in seq_len(sum(idx.incomplete))){
         
         newcol <- rep(0,times=nrow(data))
         
@@ -541,30 +626,55 @@ produce_MAR_MNAR <- function(data, mechanism, perc.missing, idx.incomplete, idx.
         missingrows <- which(apply(data,1,function(x) is.na(x[i])) == TRUE)
         
         newcol[missingrows] <- 1
-        idx_col <- union(which(missingness.matrix[i,]==0),which(idx.covariates[i,]==0))
+        idx_col <- union(which(missingness.matrix[i,]==0), which(idx.covariates[i,]==0))
         
         subdata <- as.data.frame(cbind(not.missing[,-idx_col],"newcol"=newcol))
         
         weights.covariates[i,]<- 0
-        weights.covariates[i,which(idx.covariates[i,]==1 & !(missingness.matrix[i,]==0))] <- glm(newcol ~ . , data = subdata, family = binomial)$coefficients[-1]
+        if (length(unique(newcol))==1){
+          weights.covariates[i,] <- 1/ncol(weights.covariates)
+        } else {
+          if (nrow(subdata) >= ncol(subdata)-1){
+            weights.covariates[i,which(idx.covariates[i,]==1 & !(missingness.matrix[i,]==0))] <- glm(newcol ~ . , data = subdata, family = binomial)$coefficients[-1]
+          } else {
+            x <- model.matrix(~.-1, data = subdata[, 1:(ncol(subdata)-1)])
+            cv.fit <- NULL
+            try(cv.fit <- glmnet::cv.glmnet(x=x, 
+                                        y=subdata$newcol, alpha = 0,
+                                        family = "binomial"), silent = T)
+            if (is.null(cv.fit)){
+              lambda.max <- max(svd(x)$d)
+              lambda <- runif(1, 0.2, 0.8)*lambda.max
+            } else {
+              lambda <- cv.fit$lambda.min
+            }
+            glm_mod <- NULL
+            try(glm_mod <- glmnet::glmnet(x=x, y=subdata$newcol, alpha = 0, family = "binomial",
+                                      lambda = lambda), silent = T)
+            if (!is.null(glm_mod)){
+              coefs <- as.vector(glm_mod$beta)
+            } else {
+              coefs <- LiblineaR::LiblineaR(x, subdata$newcol, type=0)$W[1:ncol(x)]
+            }
+            weights.covariates[i, which(idx.covariates[i,]==1 & !(missingness.matrix[i,]==0))] <- coefs
+          }
+        }
         
-        #is this correct? based on what mice will do next
-        if(idx.covariates[i,i] ==1){
-          weights.covariates[i,i] <- mean(weights.covariates[i,setdiff(which(idx.covariates[i,]==1),c(i))])
+        if(idx.covariates[i,which(idx.incomplete==1)[i]]==1){
+          weights.covariates[i,which(idx.incomplete==1)[i]] <- mean(weights.covariates[i,setdiff(which(idx.covariates[i,]==1),c(i))])
         }
       }
-      
     }
 
-  }else{
+  }else{ # weights.covariates not null
     
     not.missing <- as.data.frame(imputeMean(data)) 
     
     #this matrix will be used to run mice
-    missingness.matrix <- matrix(rep(1, times=length(which(idx.incomplete==1))*length(data[1,])), nrow = length(which(idx.incomplete==1)))
+    missingness.matrix <- matrix(rep(1, times=length(which(idx.incomplete==1))*ncol(data)), nrow = length(which(idx.incomplete==1)))
     
-    for (i in which(idx.incomplete==1)){
-      missingness.matrix[i,i] <- 0
+    for (i in 1:sum(idx.incomplete)){
+      missingness.matrix[i,which(idx.incomplete==1)[i]] <- 0
     }
     
     #check if there are categorical variables
@@ -597,7 +707,7 @@ produce_MAR_MNAR <- function(data, mechanism, perc.missing, idx.incomplete, idx.
   
   not.missing <- as.matrix(not.missing)
   for (i in seq_len(length(which(idx.incomplete==1)))){
-    temp <- mice::ampute(not.missing, patterns = missingness.matrix[i,], weights = weights.covariates[i,],prop = perc.missing, bycases = TRUE)$amp
+    temp <- mice::ampute(not.missing, patterns = missingness.matrix[i,], weights = weights.covariates[i,], prop = perc.missing*mean(!is.na(data))*length(idx.incomplete)/sum(idx.incomplete), bycases = TRUE)$amp
     data.incomp[,which(missingness.matrix[i,]==0)] <- temp[,which(missingness.matrix[i,]==0)]
     # need to handle categorical variables (revert the one_hot encoding)!
     idx_newNA <- pmax(idx_newNA, as.matrix(is.na(temp)))   
