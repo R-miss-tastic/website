@@ -61,7 +61,37 @@ logit.bypatterns <- function(data,patterns,mechanism){
     
     subdata <- cbind(meandata[,-variablesmissing],"newcol"=newcol)
     
-    logit.weights[i,-variablesmissing] <- glm(newcol ~ ., data = subdata, family = binomial)$coefficients[-1]
+
+    if (length(unique(newcol))==1){
+      logit.weights[i,-variablesmissing] <- 1/ncol(logit.weights)
+    } else {
+      if (nrow(subdata) >= ncol(subdata)-1){
+        logit.weights[i,-variablesmissing] <- glm(newcol ~ ., data = subdata, family = binomial)$coefficients[-1]
+        
+    } else {
+        x <- model.matrix(~.-1, data = subdata[, 1:(ncol(subdata)-1)])
+        cv.fit <- NULL
+        try(cv.fit <- glmnet::cv.glmnet(x=x, 
+                                        y=subdata$newcol, alpha = 0,
+                                        family = "binomial"), silent = T)
+        if (is.null(cv.fit)){
+          lambda.max <- max(svd(x)$d)
+          lambda <- runif(1, 0.2, 0.8)*lambda.max
+        } else {
+          lambda <- cv.fit$lambda.min
+        }
+        glm_mod <- NULL
+        try(glm_mod <- glmnet::glmnet(x=x, y=subdata$newcol, alpha = 0, family = "binomial",
+                                      lambda = lambda), silent = T)
+        if (!is.null(glm_mod)){
+          coefs <- as.vector(glm_mod$beta)
+        } else {
+          coefs <- LiblineaR::LiblineaR(x, subdata$newcol, type=0)$W[1:ncol(x)]
+        }
+        logit.weights[i,-variablesmissing] <- coefs
+      }
+    }
+    
     
     if(mechanism=="MNAR"){
       
@@ -86,6 +116,7 @@ logit.bypatterns <- function(data,patterns,mechanism){
 #' @param patterns [matrix] binary matrix with 1=observed, 0=missing (n_pattern x p); default is NULL
 #' @param freq.patterns [array] array of size n_pattern containing desired proportion of each pattern; if NULL then mice::ampute.default.freq will be called ; default is NULL
 #' @param weights.patterns [matrix] weights used to calculate weighted sum scores (n_pattern x p); if NULL then mice::ampute.default.weights will be called; default is NULL
+#' @param use.all [boolean] use all observations, including incomplete observations, for amputation when amputing by patterns (only relevant if initial data is incomplete and by.pattern=T); default is FALSE
 #' @param logit.model [string] either one of "RIGHT","LEFT","MID","TAIL"; default is "RIGHT"
 #' @param seed [natural integer] seed for random numbers generator; default is NULL
 #' 
@@ -107,6 +138,7 @@ produce_NA <- function(data,
                        patterns = NULL,
                        freq.patterns = NULL,
                        weights.patterns = NULL,
+                       use.all = FALSE, 
                        logit.model = "RIGHT",#c("RIGHT","LEFT","MID","TAIL")
                        seed = NULL) 
   {
@@ -132,7 +164,7 @@ produce_NA <- function(data,
     
     # temporary fix to handle factors
     # (transform them to numeric and revert the conversion in the end)
-    
+    orig.data <- data
     vars_factor <- colnames(data)[!sapply(data, is.numeric)]
     if (length(vars_factor)==1){
       levels_factor <- list(gdata::mapLevels(x=data[,vars_factor]))
@@ -142,6 +174,7 @@ produce_NA <- function(data,
     }
     data[,vars_factor] <- sapply(data[,vars_factor], as.integer)
     data <- as.data.frame(data)
+    
     
     # end temporary fix
     
@@ -156,7 +189,7 @@ produce_NA <- function(data,
         if(sum(is.na(data))==0){
           patterns <- mice::ampute.default.patterns(length(data[1,]))
           weights.patterns <- mice::ampute.default.weights(patterns,mechanism)
-          freq.weights <- mice::ampute.default.freq(patterns)
+          freq.patterns <- mice::ampute.default.freq(patterns)
           #check if there are categorical variables
           if (sum(sapply(data, FUN=is.factor))!= 0){
             for (i in which(sapply(data, FUN=is.factor))){
@@ -182,13 +215,20 @@ produce_NA <- function(data,
           data_names <- colnames(data)
           MD_patterns <- MD_patterns[, data_names]
           MD_patterns <- MD_patterns[-c(1, nrow(MD_patterns)), ]
-          index <- as.numeric(rownames(MD_patterns)) >= 0.1*sum(apply(is.na(data),1,function(x) sum(x)>=1))
+          index <- as.numeric(rownames(MD_patterns)) >= 0.05*sum(apply(is.na(data),1,function(x) sum(x)>=1))
           patterns <- MD_patterns[index, ]
           
-          totrows <- as.numeric(rownames(patterns))
-          freq.patterns <- totrows/sum(totrows)
+          if (is.null(rownames(patterns))) {
+            freq.patterns <- 1
+          } else {
+            totrows <- as.numeric(rownames(patterns))
+            freq.patterns <- totrows/sum(totrows)
+          }
           # End of code taken from miss.compare package, accessed: May 10
           
+          if (is.null(dim(patterns))){
+            patterns <- matrix(patterns,nrow = 1)
+          }
           weights.patterns <- logit.bypatterns(data,patterns,mechanism) #this will deal with categorical variables internally
          
           
@@ -255,7 +295,7 @@ produce_NA <- function(data,
               }
               data <- data.frame(mltools::one_hot(data.table::as.data.table(data)))
             }
-            perc.missing <- perc.missing / sum(apply(patterns, 1, FUN = function(x) sum(x==0))*freq.patterns)
+            #perc.missing <- perc.missing / sum(apply(patterns, 1, FUN = function(x) sum(x==0))*freq.patterns)
           }else{
             
             if (sum(sapply(data, FUN=is.factor))!= 0){
@@ -293,33 +333,81 @@ produce_NA <- function(data,
             totrows <- as.numeric(rownames(MD_patterns[patternsrows,]))
             freq.patterns <- totrows/sum(totrows)
             
-            perc.missing <- perc.missing / sum(apply(patterns, 1, FUN = function(x) sum(x==0))*freq.patterns)
+            #perc.missing <- perc.missing / sum(apply(patterns, 1, FUN = function(x) sum(x==0))*freq.patterns)
           }
         }
         
       }
       
-      complete_data <- data[apply(is.na(data),1,function(x) (sum(x)>=1)==0),]
+      if (!use.all){
+        complete_data <- data[apply(is.na(data),1,function(x) (sum(x)>=1)==0),]
+        
+        incomplete_data <- data[apply(is.na(data),1,function(x) (sum(x)>=1)>=1),]
+        perc.missing <- (perc.missing - dplyr::if_else(nrow(incomplete_data)==0, 0, mean(is.na(incomplete_data)))*nrow(incomplete_data)/nrow(orig.data)) * nrow(orig.data)/nrow(complete_data)
+        
+        idx.patterns.var <- which(apply(patterns, 2, function(x) sum(x==0)>0))
+        perc.missing <- perc.missing  / sum(apply(patterns, 1, FUN = function(x) sum(x==0))*freq.patterns) 
       
-      incomplete_data <- data[apply(is.na(data),1,function(x) (sum(x)>=1)>=1),]
-      
-      amputed <- mice::ampute(complete_data,prop = perc.missing,patterns = patterns,freq=freq.patterns, mech = mechanism, weights = weights.patterns, type = logit.model, bycases = FALSE)
-      
-      idx_newNA <- matrix(rep(FALSE, prod(dim(incomplete_data))), nrow = nrow(incomplete_data), ncol = ncol(incomplete_data))
-      idx_newNA <- rbind(idx_newNA, is.na(amputed$amp))
-      
-      data.incomp <- rbind(incomplete_data,amputed$amp)
-      
-    
-      if (length(vars_factor) > 0){
-        for (i in 1:length(vars_factor)){
-          data[,vars_factor[[i]]] <- as.factor(data[,vars_factor[[i]]])
-          data.incomp[,vars_factor[[i]]] <- as.factor(data.incomp[,vars_factor[[i]]])
-          
-          gdata::mapLevels(x=data[,vars_factor[[i]]]) <- levels_factor[[i]]
-          gdata::mapLevels(x=data.incomp[,vars_factor[[i]]]) <- levels_factor[[i]]
+        amputed <- mice::ampute(complete_data, prop = perc.missing,
+                                patterns = patterns,freq=freq.patterns, 
+                                mech = mechanism, weights = weights.patterns, 
+                                type = logit.model, bycases = FALSE)
+        
+        tmp <- amputed$amp
+        if (length(vars_factor) > 0){
+          for (i in 1:length(vars_factor)){
+            data[,vars_factor[[i]]] <- as.factor(data[,vars_factor[[i]]])
+            complete_data[,vars_factor[[i]]] <- as.factor(complete_data[,vars_factor[[i]]])
+            incomplete_data[,vars_factor[[i]]] <- as.factor(incomplete_data[,vars_factor[[i]]])
+            tmp[,vars_factor[[i]]] <- as.factor(tmp[,vars_factor[[i]]])
+            
+            gdata::mapLevels(x=data[,vars_factor[[i]]]) <- levels_factor[[i]]
+            gdata::mapLevels(x=tmp[,vars_factor[[i]]]) <- levels_factor[[i]]
+            gdata::mapLevels(x=complete_data[,vars_factor[[i]]]) <- levels_factor[[i]]
+            gdata::mapLevels(x=incomplete_data[,vars_factor[[i]]]) <- levels_factor[[i]]
+          }
         }
+        idx_newNA <- matrix(rep(FALSE, prod(dim(incomplete_data))), nrow = nrow(incomplete_data), ncol = ncol(incomplete_data))
+        
+        idx_newNA <- rbind(idx_newNA, is.na(tmp))
+        data.incomp <- rbind(incomplete_data, tmp)
+        
+      }  
+      if (use.all) {
+        idx.patterns.var <- which(apply(patterns, 2, function(x) sum(x==0)>0))
+        perc.missing <- perc.missing  / sum(apply(patterns, 1, FUN = function(x) sum(x==0))*freq.patterns) 
+        
+        not.missing <- as.data.frame(imputeMean(data)) 
+        idx_newNA <- matrix(rep(FALSE, prod(dim(orig.data))), nrow = nrow(orig.data), ncol = ncol(orig.data))
+
+        if (sum(sapply(data, FUN=is.factor))!= 0){
+          data <- data.frame(mltools::one_hot(data.table::as.data.table(data)))
+          not.missing <- data.frame(mltools::one_hot(data.table::as.data.table(not.missing)))
+        }
+        
+        not.missing <- as.matrix(not.missing)
+        amputed <- mice::ampute(not.missing, prop = perc.missing*mean(!is.na(orig.data)), 
+                                patterns = patterns,freq=freq.patterns, 
+                                mech = mechanism, weights = weights.patterns, 
+                                type = logit.model, bycases = FALSE)
+        data.incomp <- amputed$amp
+        if (length(vars_factor) > 0){
+          for (i in 1:length(vars_factor)){
+            data[,vars_factor[[i]]] <- as.factor(data[,vars_factor[[i]]])
+            data.incomp[,vars_factor[[i]]] <- as.factor(data.incomp[,vars_factor[[i]]])
+            
+            gdata::mapLevels(x=data[,vars_factor[[i]]]) <- levels_factor[[i]]
+            gdata::mapLevels(x=data.incomp[,vars_factor[[i]]]) <- levels_factor[[i]]
+          }
+        }
+        
+        idx_newNA <- pmax(idx_newNA, as.matrix(is.na(data.incomp)))   
+        idx_newNA <- apply(idx_newNA, c(1,2), as.logical)
+        data.incomp[is.na(data)] <- NA #re-storing original missing data
+        
       }
+      
+      
       
       return(list("data.init" = data,
               "data.incomp" = data.incomp,
@@ -531,7 +619,7 @@ produce_MAR_MNAR <- function(data, mechanism, perc.missing, self.mask, idx.incom
       #this matrix will be used to run mice
       missingness.matrix <- matrix(rep(1, times=length(which(idx.incomplete==1))*length(data[1,])), nrow = length(which(idx.incomplete==1)))
       
-      for (i in which(idx.incomplete==1)){
+      for (i in 1:length(which(idx.incomplete==1))) {
         missingness.matrix[i,which(idx.incomplete==1)[i]] <- 0
       }
       
