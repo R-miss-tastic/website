@@ -34,7 +34,7 @@ The data can be composed of quantitative and/or qualitative values, hence $\math
 Missing values are indicated as `NA` (not available) and we define an indicator matrix $\mathbf{R}\in\{0,1\}^{n\times p}$ such that $R_{ij}=1$ if $X_{ij}$ is observed and $R_{ij}=0$ otherwise. We call this matrix $\mathbf{R}$ the response (or missingness) pattern of the observations $\mathbf{X}$. According to this pattern, we can partition the observations $\mathbf{X}$ into observed and missing: $\mathbf{X} = (\mathbf{X}^{obs}, \mathbf{X}^{mis})$.
 
 We generate a small example of observations $\mathbf{X}$:
-```{r generate_data}
+```{r prepare}
 suppressPackageStartupMessages(require(MASS))
 suppressPackageStartupMessages(require(norm))
 suppressPackageStartupMessages(require(VIM))
@@ -43,6 +43,9 @@ suppressPackageStartupMessages(require(naniar))
 
 source("amputation.R")
 set.seed(1)
+```
+
+```{r generate_data}
 # Sample data generation ------------------------------------------------------
 # Generate complete data
 mu.X <- c(1, 1)
@@ -100,19 +103,19 @@ X.miss <- produce_NA(X.complete, mechanism="MCAR", perc.missing = 0.2)
 X.mcar <- X.miss$data.incomp
 R.mcar <- X.miss$idx_newNA
 
-writeLines(paste0("Percentage of newly generated missing values: ", sum(R.mcar)/prod(dim(R.mcar))))
+writeLines(paste0("Percentage of newly generated missing values: ", 100*sum(R.mcar)/prod(dim(R.mcar)), " %"))
 matrixplot(X.mcar, cex.axis = 0.5, interactive = F)
 ```
 
 On incomplete data:
 ```{r minimal_example_2}
 # Minimal example for generating missing data on an incomplete data set ------------------------
-X.miss <- produce_NA(rbind(X.complete[1:50,], X.mcar[51:100,]) , mechanism="MCAR", perc.missing = 0.2)
+X.miss <- produce_NA(rbind(X.complete[1:50,], X.mcar[51:100,]), mechanism="MCAR", perc.missing = 0.2)
 
 X.mcar <- X.miss$data.incomp
 R.mcar <- X.miss$idx_newNA
 
-writeLines(paste0("Percentage of newly generated missing values: ", sum(R.mcar)/prod(dim(R.mcar))))
+writeLines(paste0("Percentage of newly generated missing values: ", 100*sum(R.mcar)/prod(dim(R.mcar)), " %"))
 matrixplot(X.mcar, cex.axis = 0.5, interactive = F)
 ```
 
@@ -120,7 +123,7 @@ matrixplot(X.mcar, cex.axis = 0.5, interactive = F)
 
 The main function `produce_NA` allows generating missing values in various ways. These can be specified through different arguments: 
 
-produce_NA(data, mechanism = "MCAR", perc.missing = 0.5, self.mask=NULL, idx.incomplete = NULL, idx.covariates = NULL, weights.covariates = NULL, by.patterns = FALSE, patterns = NULL, freq.patterns = NULL, weights.patterns = NULL, logit.model = "RIGHT", seed = NULL)
+`produce_NA(data, mechanism = "MCAR", perc.missing = 0.5, self.mask=NULL, idx.incomplete = NULL, idx.covariates = NULL, weights.covariates = NULL, by.patterns = FALSE, patterns = NULL, freq.patterns = NULL, weights.patterns = NULL, use.all=FALSE, logit.model = "RIGHT", seed = NULL)`
 
 ## Mechanisms
 
@@ -139,7 +142,7 @@ mcar <- produce_NA(X.complete, mechanism="MCAR", perc.missing = 0.2)
 X.mcar <- mcar$data.incomp
 R.mcar <- mcar$idx_newNA
 
-writeLines(paste0("Percentage of newly generated missing values: ", sum(R.mcar)/prod(dim(R.mcar))))
+writeLines(paste0("Percentage of newly generated missing values: ", 100*sum(R.mcar)/prod(dim(R.mcar)), " %"))
 matrixplot(X.mcar,  cex.axis = 0.5, interactive = F)
 ```
 
@@ -157,7 +160,7 @@ mar <- produce_NA(X.complete, mechanism="MAR", perc.missing = 0.2)
 X.mar <- mar$data.incomp
 R.mar <- mar$idx_newNA
 
-writeLines(paste0("Percentage of newly generated missing values: ", sum(R.mar)/prod(dim(R.mar))))
+writeLines(paste0("Percentage of newly generated missing values: ", 100*sum(R.mar)/prod(dim(R.mar)), " %"))
 matrixplot(X.mar,  cex.axis = 0.5, interactive = F)
 ```
 
@@ -174,7 +177,7 @@ mnar <- produce_NA(X.complete, mechanism="MNAR", perc.missing = 0.2)
 X.mnar <- mnar$data.incomp
 R.mnar <- mnar$idx_newNA
 
-writeLines(paste0("Percentage of newly generated missing values: ", sum(R.mnar)/prod(dim(R.mnar))))
+writeLines(paste0("Percentage of newly generated missing values: ", 100*sum(R.mnar)/prod(dim(R.mnar)), " %"))
 matrixplot(X.mnar,  cex.axis = 0.5, interactive = F)
 ```
 
@@ -186,8 +189,8 @@ mnar <- produce_NA(X.complete, mechanism="MNAR", perc.missing = 0.2, self.mask="
 X.mnar <- mnar$data.incomp
 R.mnar <- mnar$idx_newNA
 
-writeLines(paste0("Percentage of newly generated missing values: ", 100*sum(R.mnar)/prod(dim(R.mnar))))
-writeLines(paste0("Percentage of newly generated missing values (only w.r.t. to incomplete variables): ", 100*sum(R.mnar)/prod(dim(R.mnar[,1:2]))))
+writeLines(paste0("Percentage of newly generated missing values: ", 100*sum(R.mnar)/prod(dim(R.mnar)), " %"))
+writeLines(paste0("Percentage of newly generated missing values (only w.r.t. to incomplete variables): ", 100*sum(R.mnar)/prod(dim(R.mnar[,1:2])), " %"))
 matrixplot(X.mnar,  cex.axis = 0.5, interactive = F)
 
 ggplot(data=data.frame(X1=X.mnar[,1], X2=X.mnar[,2]),
@@ -196,7 +199,7 @@ ggplot(data=data.frame(X1=X.mnar[,1], X2=X.mnar[,2]),
   geom_miss_point()
 ```
 
-Note that the proportion of missing values specified in the function call refers to the proportion w.r.t. the incomplete variables. Hence if you select half of your variables, to contain missing values and choose `perc.missing=0.2`, then the total proportion of missing values in the entire matrix/data.frame will be 0.2/2 = 0.1.
+Note that the proportion of missing values specified in the function call refers to the **proportion w.r.t. the incomplete variables**. Hence if you select half of your variables, to contain missing values and choose `perc.missing=0.2`, then the total proportion of missing values in the entire matrix/data.frame will be 0.2/2 = 0.1.
 
 <!-- ### Mixed mechanisms -->
 
@@ -206,16 +209,15 @@ If you want to generate missing values only for a certain subset of variables, y
 
 ```{r idx.incomplete}
 # Sample missing data for the first two variables in X ---------------------------------------
-miss <- produce_NA(X.complete, mechanism="MCAR", perc.missing = 0.2, idx.incomplete = c(1, 2))
+miss <- produce_NA(X.complete, mechanism="MCAR", perc.missing = 0.2, idx.incomplete = c(1, 1, 1, 0))
 
 X.miss <- miss$data.incomp
 R.miss <- miss$idx_newNA
 
-writeLines(paste0("Percentage of newly generated missing values (only w.r.t. to incomplete variables): ", sum(R.miss)/prod(dim(R.miss[,1:2]))))
+writeLines(paste0("Percentage of newly generated missing values (only w.r.t. to incomplete variables): ", 100*sum(R.miss)/prod(dim(R.miss[,1:3])), " %"))
 matrixplot(X.miss,  cex.axis = 0.5, interactive = F)
 ```
 
-Note that the proportion of missing values specified in the function call refers to the proportion w.r.t. the incomplete variables. Hence if you select half of your variables, to contain missing values and choose `perc.missing=0.2`, then the total proportion of missing values in the entire matrix/data.frame will be 0.2/2 = 0.1.
 
 
 ## Mice specific arguments
@@ -229,16 +231,16 @@ In order to stay close to this `ampute` function from `mice` we adopted (and ada
 If you want to generate MAR or MNAR missing values, you can specify which variables will be used in the missingness model. You need to specify the variables that you want to use with a binary vector. For instance if you want to use variables 1 to 3 out of 7 variales, then you specify `idx.covariates = c(1,1,1,0,0,0,0)`.
 And you need to specify their weights as well, i.e. their contribution in the model. For instance `weights.covariates = c(1/3, 1/3, 1/3, 0, 0, 0, 0)`
 
-Remark: if you choose `mechanism="MAR"` and `idx.incomplete = c(1,2)`, then `idx.covariates` must be of the form `c(0,0,*,*,...,*)` where `*` can be either 0 or a positive weight.
+Remark: if you choose `mechanism="MAR"` and `idx.incomplete = c(1,1,0,0,...,0)`, then `idx.covariates` must be of the form `c(0,0,*,*,...,*)` where `*` can be either 0 or a positive weight.
 
 ```{r idx.covariates}
 # Sample missing data for the first two variables in X ---------------------------------------
-miss <- produce_NA(X.complete, mechanism="MAR", perc.missing = 0.2, idx.incomplete = c(1), idx.covariates = c(0,1,0,0), weights.covariates = c(0,1,0,0))
+miss <- produce_NA(X.complete, mechanism="MAR", perc.missing = 0.2, idx.incomplete = c(1, 0, 0, 0), idx.covariates = c(0,1,0,0), weights.covariates = c(0,1,0,0))
 
 X.miss <- miss$data.incomp
 R.miss <- miss$idx_newNA
 
-writeLines(paste0("Percentage of newly generated missing values (only w.r.t. to incomplete variables): ", sum(R.miss)/length(R.miss[,1])))
+writeLines(paste0("Percentage of newly generated missing values (only w.r.t. to incomplete variables): ", 100*sum(R.miss)/length(R.miss[,1]), " %"))
 matrixplot(X.miss,  cex.axis = 0.5, interactive = F)
 ```
 
@@ -269,31 +271,31 @@ miss <- produce_NA(X.complete, mechanism="MAR", perc.missing = 0.2, by.patterns 
 X.miss <- miss$data.incomp
 R.miss <- miss$idx_newNA
 
-writeLines(paste0("Percentage of newly generated missing values (only w.r.t. to incomplete variables): ", sum(R.miss)/prod(dim(R.miss))))
+writeLines(paste0("Percentage of newly generated missing values (only w.r.t. to incomplete variables): ", 100*sum(R.miss)/prod(dim(R.miss)), " %"))
 matrixplot(X.miss,  cex.axis = 0.5, interactive = F)
 ```
 
 Specify different patterns:
 ```{r patterns_2}
 # Sample missing data by using the by.patterns option and user-specified patterns ----
-miss <- produce_NA(X.complete, mechanism="MAR", perc.missing = 0.2, idx.incomplete = c(1,4), by.patterns = T, patterns = matrix(c(0,1,1,1,                                                                                                                  1,1,1,0), ncol = 4, byrow=T))
+miss <- produce_NA(X.complete, mechanism="MAR", perc.missing = 0.2, idx.incomplete = c(1,0,0,1), by.patterns = T, patterns = matrix(c(0,1,1,1,                                                                                                                  1,1,1,0), ncol = 4, byrow=T))
 
 X.miss <- miss$data.incomp
 R.miss <- miss$idx_newNA
 
-writeLines(paste0("Percentage of newly generated missing values (only w.r.t. to incomplete variables): ", sum(R.miss)/(dim(R.miss)[1]*2)))
+writeLines(paste0("Percentage of newly generated missing values (only w.r.t. to incomplete variables): ", 100*sum(R.miss)/(dim(R.miss)[1]*2), " %"))
 matrixplot(X.miss,  cex.axis = 0.5, interactive = F)
 ```
 
 Additionally specify the frequency of each pattern:
 ```{r patterns_3}
 # Sample missing data by using the by.patterns option and user-specified patterns ----
-miss <- produce_NA(X.complete, mechanism="MAR", perc.missing = 0.2, idx.incomplete = c(1,3,4), by.patterns = T, patterns = matrix(c(0,1,1,1,                                                                                                                  1,1,0,0), ncol = 4, byrow=T), freq.patterns = c(0.2, 0.8))
+miss <- produce_NA(X.complete, mechanism="MAR", perc.missing = 0.2, idx.incomplete = c(1,0,1,1), by.patterns = T, patterns  = matrix(c(0,1,1,1,                                                                                                                  1,1,0,0), ncol = 4, byrow=T), freq.patterns = c(0.2, 0.8))
 
 X.miss <- miss$data.incomp
 R.miss <- miss$idx_newNA
 
-writeLines(paste0("Percentage of newly generated missing values (only w.r.t. to incomplete variables): ", sum(R.miss)/(dim(R.miss)[1]*3)))
+writeLines(paste0("Percentage of newly generated missing values (only w.r.t. to incomplete variables): ", 100*sum(R.miss)/(dim(R.miss)[1]*3), " %"))
 matrixplot(X.miss,  cex.axis = 0.5, interactive = F)
 ```
 
@@ -310,7 +312,7 @@ miss <- produce_NA(X.complete, mechanism="MAR", perc.missing = 0.2, logit.model 
 X.miss <- miss$data.incomp
 R.miss <- miss$idx_newNA
 
-writeLines(paste0("Percentage of newly generated missing values: ", sum(R.miss)/prod(dim(R.miss))))
+writeLines(paste0("Percentage of newly generated missing values: ", 100*sum(R.miss)/prod(dim(R.miss)), " %"))
 matrixplot(X.mar,  cex.axis = 0.5, interactive = F)
 ```
 
@@ -332,6 +334,7 @@ matrixplot(X.mar,  cex.axis = 0.5, interactive = F)
 #' @param patterns [matrix] binary matrix with 1=observed, 0=missing (n_pattern x p); default is NULL
 #' @param freq.patterns [array] array of size n_pattern containing desired proportion of each pattern; if NULL then mice::ampute.default.freq will be called ; default is NULL
 #' @param weights.patterns [matrix] weights used to calculate weighted sum scores (n_pattern x p); if NULL then mice::ampute.default.weights will be called; default is NULL
+#' @param use.all [boolean] use all observations, including incomplete observations, for amputation when amputing by patterns (only relevant if initial data is incomplete and by.pattern=T); default is FALSE
 #' @param logit.model [string] either one of "RIGHT","LEFT","MID","TAIL"; default is "RIGHT"
 #' @param seed [natural integer] seed for random numbers generator; default is NULL
 #' 

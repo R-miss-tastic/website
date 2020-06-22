@@ -346,8 +346,8 @@ produce_NA <- function(data,
         perc.missing <- (perc.missing - dplyr::if_else(nrow(incomplete_data)==0, 0, mean(is.na(incomplete_data)))*nrow(incomplete_data)/nrow(orig.data)) * nrow(orig.data)/nrow(complete_data)
         
         idx.patterns.var <- which(apply(patterns, 2, function(x) sum(x==0)>0))
-        perc.missing <- perc.missing  / sum(apply(patterns, 1, FUN = function(x) sum(x==0))*freq.patterns) 
-      
+        perc.missing <- perc.missing  / sum(apply(patterns, 1, FUN = function(x) sum(x==0))*freq.patterns) * (length(idx.patterns.var)/ncol(orig.data))
+        
         amputed <- mice::ampute(complete_data, prop = perc.missing,
                                 patterns = patterns,freq=freq.patterns, 
                                 mech = mechanism, weights = weights.patterns, 
@@ -456,7 +456,6 @@ produce_NA <- function(data,
         if (length(vars_factor) == 0){
           return(produce_MAR_MNAR(data, mechanism, perc.missing, self.mask, idx.incomplete, idx.covariates, weights.covariates, logit.model))
         }
-        
         tmp <- produce_MAR_MNAR(data, mechanism, perc.missing, self.mask, idx.incomplete, idx.covariates, weights.covariates, logit.model)
         
         if (length(vars_factor) > 0){
@@ -489,12 +488,12 @@ produce_MCAR <- function(data, perc.missing, idx.incomplete){
     p.incomp <- p
     idx.incomplete <- rep(1, p)
   } else {
-    p.incomp <- length(idx.incomplete)
+    p.incomp <- sum(idx.incomplete)
   }
   
   # identify and count initial missing values
   idx_initNA <- is.na(data)
-  nb_initNA <- sum(idx_initNA[, idx.incomplete]) 
+  nb_initNA <- sum(idx_initNA[, which(idx.incomplete==1)]) 
   
   # check that there are enough observed values to 
   # generate perc.missing*(n*p.incomp) new missing values 
@@ -503,8 +502,11 @@ produce_MCAR <- function(data, perc.missing, idx.incomplete){
   # generate perc.missing*(n*p.incomp) missing values 
   # (without overlap with the initial missing values)
   idx_newNA <- matrix(rep(FALSE, n*p), nrow = n, ncol = p)
-  idx_newNA[which(!idx_initNA[,idx.incomplete])] <- (runif(n*p.incomp - nb_initNA) <= perc.missing*(1 + nb_initNA/(n*p.incomp)))
-
+  if (nb_initNA != 0){
+    idx_newNA[!idx_initNA[,which(idx.incomplete==1)]] <- (runif(n*p.incomp - nb_initNA) <= (perc.missing*(1+nb_initNA/(p.incomp*n))))
+  } else {
+    idx_newNA[,which(idx.incomplete==1)] <- (runif(n*p.incomp) <= (perc.missing))
+  }
   # # avoid having empty observations
   # if (p == p.incomp){  
   #   idx_newNA[rowSums(idx_newNA)==p, sample(p,1)] <- FALSE 
@@ -795,7 +797,7 @@ produce_MAR_MNAR <- function(data, mechanism, perc.missing, self.mask, idx.incom
   
   not.missing <- as.matrix(not.missing)
   for (i in seq_len(length(which(idx.incomplete==1)))){
-    temp <- mice::ampute(not.missing, patterns = missingness.matrix[i,], weights = weights.covariates[i,], prop = perc.missing*mean(!is.na(data))*length(idx.incomplete)/sum(idx.incomplete), bycases = TRUE)$amp
+    temp <- mice::ampute(not.missing, patterns = missingness.matrix[i,], weights = weights.covariates[i,], prop = perc.missing*mean(!is.na(data)), bycases = TRUE)$amp
     data.incomp[,which(missingness.matrix[i,]==0)] <- temp[,which(missingness.matrix[i,]==0)]
     # need to handle categorical variables (revert the one_hot encoding)!
     idx_newNA <- pmax(idx_newNA, as.matrix(is.na(temp)))   
