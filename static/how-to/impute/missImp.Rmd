@@ -1,23 +1,23 @@
 ---
 title: "How to impute missing values?"
-author: "Genevieve Robin, Aude Sportisse"
+author: "Genevieve Robin, Imke Mayer, Aude Sportisse"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
   html_document:
     number_sections: yes
     toc: yes
     toc_depth: 3
-    toc_float: yes
+    toc_float: yes 
   pdf_document:
     toc: yes
     toc_depth: '3'
 linkcolor: blue
-link-citations: yes
+link-citations: yess
 bibliography: bibliography.bib
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, cache=TRUE)
 ```
 
 If you have a dataset which contains missing values, it is relevant to impute the missing values, mainly for two reasons: (i) these values may be particularly interesting in themselves or (ii) the fully completed data is required to perform some estimation method that does not handle the missing data. 
@@ -26,11 +26,10 @@ In this section we provide, for some of the main packages (the list is of course
 
 | Package       | Data Types    | Underlying Method   | Imputation | Computational Time| Comments |
 | ------------- |:--------------| ------------------- |------------|:-------------:|--------------|
-| Amelia        | quantitative and binary  |multivariate gaussian model| multiple | +| Binary variables modeled as Gaussians|
+| softImpute    | quantitative  |low-rank matrix completion | single| + |Very fast, strong theoretical guarantees, regularization parameter to tune |
 | mice          | mixed         |multivariate imputation by chained equations | multiple   | -  | Very flexible to data types, no parameter to tune |
 | missForest    | mixed         |random forests| single|-| Requires large sample sizes, no parameter to tune |
 | missMDA       | mixed         |component methods| single/multiple | + | Rank parameter to tune |
-| softImpute    | quantitative  |low-rank matrix completion | single| + |Very fast, strong theoretical guarantees, regularization parameter to tune |
 
 
 ```{r libraries, message=FALSE, error=FALSE, warning=FALSE}
@@ -38,35 +37,48 @@ library(Amelia)
 library(mice)
 library(missForest)
 library(missMDA)
+library(MASS)
 library(softImpute)
-```
-
-Consider the Los Angeles ozone pollution data in 1976, available in R using the function data. 
-
-```{r pressure, echo = FALSE, results=FALSE}
-data(ozone)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
 ```
 
 
-This dataset already contains some missing values. 
+# Description of imputation methods on synthetic data
 
+Let us consider a gaussian data matrix of size $n$ times $p$. 
 
-```{r, echo=FALSE}
-summary(ozone)
+```{r synthetic data}
+n <- 1000
+p <- 10
+mu.X <- rep(1, 10)
+Sigma.X <- diag(0.5, ncol = 10, nrow = 10) + matrix(0.5, nrow = 10, ncol =
+10)
+X <- mvrnorm(n, mu.X, Sigma.X)
+head(X)
 ```
 
 
-# softImpute
+We introduce some missing (here MCAR) values in the data matrix. One uses the function **produce_NA** detailed in "amputation.R" available in the related R source code of ["How to generate missing values?"](https://rmisstastic.netlify.com/workflows/). 
+
+```{r}
+source('amputation.R')
+
+XproduceNA <- produce_NA(X, mechanism = "MCAR", perc.missing = 0.3)
+XNA <- as.matrix(as.data.frame(XproduceNA$data.incomp))
+```
+
+
+## softImpute
 
 The [`softImpute` package](https://cran.r-project.org/web/packages/softImpute/index.html) can be used to impute quantitative data. It fits a low-rank matrix approximation to a matrix with missing values via nuclear-norm regularization. A [vignette is available online](https://web.stanford.edu/~hastie/swData/softImpute/vignette.html), as well as the original article [@hastie2015matrix].
 
-The softImpute function computes, based on an incomplete data set, a low-dimensional factorization which can be used to impute the missing values. The function is used as follows:
+The **softImpute** function computes, based on an incomplete data set, a low-dimensional factorization which can be used to impute the missing values. The function is used as follows:
 
 ```{r softImpute}
-# keep only quantitative variables
-dat_miss_quanti <- as.matrix(ozone[, 1:11]) 
 # perform softImpute
-sft <- softImpute(x=dat_miss_quanti, rank.max=2, lambda=0, type=c("als", "svd"))
+sft <- softImpute(x = XNA, rank.max = 2, lambda = 0, type = c("als", "svd"))
 ```
 
 The main arguments are the following (more details can be found on the help page).
@@ -83,16 +95,14 @@ To compute the imputed data set based on the softImpute results, one may use the
 
 ```{r softImpute-impute}
 # compute the factorization
-dat_imp_sft <- sft$u%*%diag(sft$d)%*%t(sft$v)
+X.sft <- sft$u %*% diag(sft$d) %*% t(sft$v)
 # replace missing values by computed values
-dat_imp_sft[which(!is.na(dat_miss_quanti))] <- dat_miss_quanti[which(!is.na(dat_miss_quanti))] 
+X.sft[which(!is.na(XNA))] <- XNA[which(!is.na(XNA))] 
 ```
 
-To calibrate the parameter lambda, one may perform cross-validation, the code is given below. One uses the function produce_NA detailed in "amputation.R" available in the related R source code of ["How to generate missing values?"](https://rmisstastic.netlify.com/workflows/). 
+To calibrate the parameter lambda, one may perform cross-validation, the code is given below. 
 
 ```{r softImpute-CrossValidation, warning=FALSE}
-source('amputation.R')
-
 cv_sft <- function(y,
                    N = 10,
                    len = 20) {
@@ -109,14 +119,14 @@ cv_sft <- function(y,
     exp(seq(log(lambda1.min), log(lambda1.max), length.out = len))
   ylist <-
     lapply(1:N, function(k)
-      produce_NA(as.matrix(y),perc.missing = 0.2))$data.incomp
+      produce_NA(as.matrix(y), perc.missing = 0.2))$data.incomp
   res.cv <- lapply(1:N, function(k) {
     sapply(1:len,
            function(i) {
-             yy <-produce_NA(as.matrix(y),perc.missing = 0.2)$data.incomp
+             yy <-produce_NA(as.matrix(y), perc.missing = 0.2)$data.incomp
              res <-
                softImpute(as.matrix(yy),
-                          lambda = grid.lambda1[i])
+                          lambda = grid.lambda1[i], maxit = 1000)
              u <- res$u
              d <- res$d
              v <- res$v
@@ -136,24 +146,28 @@ cv_sft <- function(y,
   lambda <- grid.lambda1[l]
   return(lambda)
 }
-lambda_sft <- cv_sft(dat_miss_quanti)
-
 ```
 
 Then, the imputation procedure can be performed using the value of lambda computed with cross-validation (the other parameters are set to their default value):
 
 ```{r softImpute-impute-crossval}
-sft <- softImpute(x=dat_miss_quanti, lambda=lambda_sft)
-dat_imp_sft <- sft$u%*%diag(sft$d)%*%t(sft$v)
-dat_imp_sft[which(!is.na(dat_miss_quanti))] <- dat_miss_quanti[which(!is.na(dat_miss_quanti))]
-head(dat_imp_sft)
+lambda_sft <- cv_sft(XNA)
+sft <- softImpute(x = XNA, lambda = lambda_sft)
+X.sft <- sft$u %*% diag(sft$d) %*% t(sft$v)
+X.sft[which(!is.na(XNA))] <- XNA[which(!is.na(XNA))]
+head(X.sft)
 ```
 
-# mice
+## mice
 
-The [`mice` package](https://CRAN.R-project.org/package=mice) implements a multiple imputation methods for multivariate missing data. It can impute mixes of continuous, binary, unordered categorical and ordered categorical data, as well as two-level data. The original article describing the software, as well as the source package and example code are available online [@mice].
+The [`mice` package](https://CRAN.R-project.org/package=mice) implements a multiple imputation methods for multivariate missing data. It can impute mixes of continuous, binary, unordered categorical and ordered categorical data, as well as two-level data. The original article describing the software, as well as the source package [@mice] and example code are available online [here](https://github.com/stefvanbuuren/mice).
 
-The mice function computes, based on an incomplete data set, multiple imputations by chained equations and thus returns $m$ imputed data sets. 
+The **mice** function computes, based on an incomplete data set, multiple imputations by chained equations and thus returns $m$ imputed data sets. 
+
+```{r mice, results=FALSE}
+mice_mice <- mice(data = XNA, m = 5, method = "pmm") #contains m=5 completed datasets.
+#mice::complete(mice_mice, 1) #get back the first completed dataset of the five available in mice_res
+```
 
 The main arguments are the following (more details can be found on the help page).
 
@@ -165,18 +179,307 @@ The main arguments are the following (more details can be found on the help page
 
 In this case the predictive mean matching method is performed. Other imputation methods can be used, type `methods(mice)` for a list of the available imputation methods.
 
-```{r mice, results=FALSE}
-mice_mice <- mice(ozone,m=5,method="pmm") #contains m=5 completed datasets.
-#get back the first completed dataset of the five available in mice_res
-mice::complete(mice_mice,1)
+We aggregate the complete datasets using the mean of the imputations. 
+
+```{r mice-aggregation}
+IMP <- 0
+for (i in 1:5) { IMP <- IMP + mice::complete(mice_mice, i)}
+X.mice  <-  IMP/5  #5 is the default number of multiple imputations
+head(X.mice)
 ```
 
-The pool function combines all the results together based on Rubin’s rules.
 
-```{r mice pool}
-mice_with <- with(mice_mice, exp = lm(maxO3 ~ T9 + Ne9))
-pool(mice_with) 
+## missForest
+
+The [`missForest` package](https://cran.r-project.org/web/packages/missForest/index.html) can be used to impute mixed-type data (continuous or categorical data). 
+
+The **missForest** function predicts missing values by training a random forest on the observed values of a data matrix. A vignette is available [online](https://stat.ethz.ch/education/semesters/ss2012/ams/paper/missForest_1.2.pdf) as well as the original paper [@missforest]. 
+
+```{r missForest, message=FALSE, results = "hide"}
+forest <- missForest(xmis = XNA, maxiter = 20, ntree = 100)
 ```
+
+The main arguments are the following (more details can be found on the help page).
+
+* `xmis`: the data set with missing values (matrix).
+
+* `maxiter`: maximum number of iterations to be performed given the stopping criterion is not met beforehand.
+
+* `ntree`: number of trees for each forest.
+
+
+```{r missForest imputation}
+X.forest<- forest$ximp
+head(X.forest)
+```
+
+
+## missMDA
+
+The [`missForest` package](https://cran.r-project.org/web/packages/missMDA/index.html) serves to impute mixed-type data (continuous or categorical data). 
+
+The **imputePCA** function imputes missing values applying by using principal component methods. The missing values are predicted using the iterative PCA algorithm for a predefined number of dimensions. Some informations are available in the original article [@missMDA]. 
+
+```{r imputePCA}
+pca <- imputePCA(X = XNA, ncp = 2, scale = TRUE, method = c("Regularized","EM"))
+```
+
+
+The main argument are the following (more details can be found on the help page).
+
+* `X`: the data set with missing values (matrix).
+
+* `ncp`: number of components used to to predict the missing entries.
+
+* `scale`: if TRUE, it implies that the same weight is given for each variable.
+
+
+The single imputation step requires tuning the number of dimensions used to impute the data. We use the function **estim_ncpPCA** which estimates the number of the dimensions using a cross-validation. 
+
+```{r imputePCA with estimation ncp}
+ncp.pca <- estim_ncpPCA(XNA)$ncp
+pca <- imputePCA(XNA, ncp = ncp.pca)
+X.pca <- pca$comp
+head(X.pca)
+```
+
+
+# Comparaison on synthetic data
+
+We compare the methods presented above for different percentage of missing values and for different missing-data mechanisms: 
+
+* Missing Completely At Random (MCAR) if the probability of being missing is the same for all observations
+
+* Missing At Random (MAR) if the probability of being missing only depends on observed values.
+
+* Missing Not At Random (MNAR) if the unavailability of the data depends on both observed and unobserved data such as its value itself.
+
+The cause of missingness shoud be studied before making a choice of imputation method.
+
+We compare the methods in terms of MSE, i.e.:
+$$MSE(X^{imp}) = \frac{1}{n_{NA}}\sum_{i}\sum_{j} 1_{X^{NA}_{ij}=NA}(X^{imp}_{ij} - X_{ij})^2$$
+where $n_{NA} = \sum_{i}\sum_{j} 1_{X^{NA}_{ij}=NA}$ is the number of missing entries in $X^{NA}$.
+
+Note that in order to evaluate this error, we need to know the true values of the missing entries.
+```{r mse}
+MSE <- function(X, Xtrue, mask) {
+  return(sqrt(sum((as.matrix(X) * mask - as.matrix(Xtrue) * mask) ^ 2) / sum(mask)))
+}
+```
+
+
+The function **HowToImpute** compares the methods above with the imputation by the mean (the benchmark method). It computes the results (aggregation of the results for several simulations) of the methods for different percentage of missing values and missing-data mechanisms. The arguments are the following. 
+
+* `X`: the data set with missing values (matrix).
+
+* `perc.list`: list containing the different percentage of missing values. 
+
+* `mecha.list`: list containing the different missing-data mechanisms ("MCAR","MAR" or "MNAR"). 
+
+* `nbsim`: number of simulations performed. 
+
+It returns a table containing the mean of the results for the simulations performed. 
+
+```{r HowToImpute}
+HowToImpute <- function(X , perc.list , mecha.list , nbsim){
+  
+  perc_mecha.matrix <- matrix(perc.list, nrow = length(mecha.list) * length(perc.list), ncol = 2)
+  perc_mecha.matrix[, 2] <- as.vector(sapply(mecha.list, rep, length(perc.list)))
+
+  results.all <- apply(perc_mecha.matrix, 1, function(perc_mecha) { 
+    
+    perc <- as.numeric(perc_mecha[1])
+    mecha <- perc_mecha[2]
+    
+    results.couple <- lapply(1:nbsim, function(iter){
+      
+      XproduceNA <- produce_NA(as.matrix(X), mechanism = mecha, perc.missing = perc)
+      XNA <- as.matrix(as.data.frame(XproduceNA$data.incomp))
+      
+      ## Mean
+      X.mean <- imputeMean(XNA)
+      
+      ## MICE
+      temp <- mice(XNA, printFlag = FALSE, method = "pmm") # for the predictive mean matching method  ## remove.collinear = FALSE
+      IMP <- 0
+      for (i in 1:5) { IMP <- IMP + mice::complete(temp, i)}
+      X.mice  <-  IMP/5  #5 is the default number of multiple imputations
+      
+      ## PCA
+      ncp.pca <- estim_ncpPCA(XNA)$ncp
+      pca <- imputePCA(XNA, ncp = ncp.pca)
+      X.pca <- pca$comp
+      
+      ## SoftImpute
+      lambda_sft <- cv_sft(XNA)
+      sft <- softImpute(x = XNA, lambda = lambda_sft, rank.max = min(10,ncol(XNA)-1))
+      X.sft <- sft$u%*%diag(sft$d)%*%t(sft$v)
+      X.sft[which(!is.na(XNA))] <- XNA[which(!is.na(XNA))]
+      
+      ## RandomForest
+      forest <- missForest(XNA, verbose = FALSE)
+      X.forest<- forest$ximp
+      
+      
+      mse <- sapply(list( X.pca, X.forest,  X.mice, X.sft,  X.mean), MSE, Xtrue = as.data.frame(X), mask = is.na(XNA))
+      
+      cbind.data.frame(mse)
+      
+    })
+    
+    results <- Reduce("+", results.couple) / length(results.couple)
+    rownames(results) <- c("X.pca", "X.forest",  "X.mice", "X.soft", "X.mean")
+    return(results)
+  })
+
+  names(results.all) <- paste0(perc_mecha.matrix[,1], " ", perc_mecha.matrix[,2])
+  
+  resdf <- as.data.frame(results.all)
+  colnames(resdf) <- paste0(rep(perc.list,length(mecha.list)), " ", rep(mecha.list, each = 2))
+  
+  return(resdf)
+}
+
+```
+
+
+```{r results synthetic data, message = FALSE, error = FALSE, warning = FALSE, results = "hide"}
+perc.list = c(0.2, 0.5, 0.7)
+mecha.list = c("MCAR", "MAR", "MNAR")
+res <- HowToImpute(X , perc.list = c(0.2, 0.5, 0.7), mecha.list = c("MCAR", "MAR", "MNAR"), nbsim = 3)
+```
+
+```{r print results synthetic data, echo = FALSE}
+print(res)
+```
+
+
+```{r plot synthetic data, echo = FALSE}
+resonecol <- rbind(res[1, ])
+for (col in 2:ncol(res)){
+  resonecol <- rbind(resonecol, res[col, ])
+}
+plotdf <- do.call(c, res)
+plotdf <- as.data.frame(plotdf)
+names(plotdf) <- 'mse'
+meth <- rep(c("PCA", "RandomForest",  "Mice", "SoftImpute", "Mean"), length(perc.list) * length(mecha.list))
+plotdf <- cbind(plotdf, meth)
+perc <- rep(rep(as.character(perc.list), each = 5),length(mecha.list))
+plotdf <- cbind(plotdf, perc)
+mecha <- rep(mecha.list, each = 5 * length(perc.list))
+plotdf <- cbind(plotdf, mecha)
+```
+
+```{r MCAR synthetic data, error = FALSE, warning = FALSE, message = FALSE, echo = FALSE}
+ggplot(plotdf[plotdf$mecha == "MCAR", ]) + geom_point(aes(x = perc, y = mse, color = meth), size = 1.8) + ylab("MSE") + xlab("Percentage of NA") + geom_path(aes(x = perc, y = mse, color = meth, group = meth)) + ggtitle("MCAR") + labs(color = "Methods")
+```
+
+```{r MAR synthetic data, error = FALSE, warning = FALSE, message = FALSE, echo = FALSE}
+ggplot(plotdf[plotdf$mecha == "MAR", ]) + geom_point(aes(x= perc, y = mse, color = meth), size = 1.8) + ylab("MSE") + xlab("Percentage of NA") + geom_path(aes(x = perc, y = mse, color = meth, group = meth)) + ggtitle("MAR") + labs(color = "Methods")
+```
+
+```{r MNAR synthetic data, error = FALSE, warning = FALSE, message = FALSE, echo = FALSE}
+ggplot(plotdf[plotdf$mecha == "MNAR", ])+geom_point(aes(x = perc, y = mse,color = meth), size = 1.8) + ylab("MSE") + xlab("Percentage of NA") + geom_path(aes(x = perc, y = mse, color = meth, group = meth)) + ggtitle("MNAR") + labs(color = "Methods")
+```
+
+```{r all synthetic data, message = FALSE, echo = FALSE}
+ggplot(plotdf) + geom_point(aes(x = perc, y = mse, color = meth, shape = mecha), size = 1.8) + ylab("MSE") + xlab("Percentage of NA") + geom_path(aes(x = perc, y = mse, color = meth, group = meth))
+```
+
+
+# Comparison on real data
+
+We will now compare the methods on real data set taken from the UCI repository [@dua_graff_2019]. In the present workflow, we propose a selection of several data sets:
+
+- Seeds (221x7)
+- Wine Quality - Red (1599x11)
+- Wine Quality - White (4898x11)
+- Slump (103x9)
+- Movement (360x90)
+- Decathlon (41x10)
+
+But you can replace the data.frame `don` with any dataset you want to test the methods on.
+
+
+```{r}
+name_data <- "slump"
+
+if (tolower(name_data) == "seeds"){
+ don <-read.csv("https://archive.ics.uci.edu/ml/machine-learning-databases/00236/seeds_dataset.txt", sep = "\t", header  = FALSE)
+ don <- don[, -ncol(don)]
+}
+if (tolower(name_data) == "wine_red"){
+  don <-read.csv("https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv", sep = ";")
+  don <- don[, -ncol(don)]
+}
+if (tolower(name_data) == "wine_white"){
+  don <-read.csv("https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv", sep = ";")
+  don <- don[, -ncol(don)]
+}
+if (tolower(name_data) == "slump"){
+  don <-read.csv("https://archive.ics.uci.edu/ml/machine-learning-databases/concrete/slump/slump_test.data", sep = ",", header = TRUE, row.names=1)
+  don <- don[, -ncol(don)]
+}
+```
+
+You can choose to scale data prior to running the experiments, which implies that the variable have the same weight in the analysis. Scaling data may be performed on complete data sets but is more difficult for incomplete data sets. Let us keep in mind that it is more realistic to not scale data. 
+
+```{r scale data}
+scale <- TRUE
+if(scale){
+  meanX <- apply(don, 2, mean)
+  don <- t(t(don) - meanX)
+  etX <- apply(don, 2, sd)
+  don <- t(t(don)/etX)
+}
+```
+
+
+```{r results real data, message = FALSE, error = FALSE, warning = FALSE, results = "hide"}
+perc.list <- c(0.2, 0.4, 0.5, 0.7)
+mecha.list <- c("MCAR", "MAR", "MNAR")
+nbsim <- 3
+res <- HowToImpute(don, perc.list, mecha.list, nbsim)
+```
+
+```{r print results real data, echo = FALSE}
+print(res)
+```
+
+
+```{r plot real data, echo = FALSE}
+resonecol <- rbind(res[1, ])
+for (col in 2:ncol(res)){
+  resonecol <- rbind(resonecol, res[col, ])
+}
+plotdf <- do.call(c, res)
+plotdf <- as.data.frame(plotdf)
+names(plotdf) <- 'mse'
+meth <- rep(c("PCA", "RandomForest",  "Mice", "SoftImpute", "Mean"), length(perc.list) * length(mecha.list))
+plotdf <- cbind(plotdf, meth)
+perc <- rep(rep(as.character(perc.list), each = 5),length(mecha.list))
+plotdf <- cbind(plotdf, perc)
+mecha <- rep(mecha.list, each = 5 * length(perc.list))
+plotdf <- cbind(plotdf, mecha)
+```
+
+```{r MCAR real data, message = FALSE, echo = FALSE}
+ggplot(plotdf[plotdf$mecha == "MCAR", ]) + geom_point(aes(x = perc, y = mse, color = meth), size = 1.8) + ylab("MSE") + xlab("Percentage of NA") + geom_path(aes(x = perc, y = mse, color = meth, group = meth)) + ggtitle("MCAR") + labs(color = "Methods")
+```
+
+```{r MAR real data, message = FALSE, echo = FALSE}
+ggplot(plotdf[plotdf$mecha == "MAR", ]) + geom_point(aes(x= perc, y = mse, color = meth), size = 1.8) + ylab("MSE") + xlab("Percentage of NA") + geom_path(aes(x = perc, y = mse, color = meth, group = meth)) + ggtitle("MAR") + labs(color = "Methods")
+```
+
+```{r MNAR real data, message = FALSE, echo = FALSE}
+ggplot(plotdf[plotdf$mecha == "MNAR", ])+geom_point(aes(x = perc, y = mse,color = meth), size = 1.8) + ylab("MSE") + xlab("Percentage of NA") + geom_path(aes(x = perc, y = mse, color = meth, group = meth)) + ggtitle("MNAR") + labs(color = "Methods")
+```
+
+```{r all real data, message = FALSE, echo = FALSE}
+ggplot(plotdf) + geom_point(aes(x = perc, y = mse, color = meth, shape = mecha), size = 1.8) + ylab("MSE") + xlab("Percentage of NA") + geom_path(aes(x = perc, y = mse, color = meth, group = meth))
+```
+
+
 
 # Session info
 
