@@ -3,14 +3,14 @@ title: "How to impute missing values?"
 author: "Genevieve Robin, Imke Mayer, Aude Sportisse"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
   html_document:
     number_sections: yes
     toc: yes
     toc_depth: 3
     toc_float: yes 
-  pdf_document:
-    toc: yes
-    toc_depth: '3'
 linkcolor: blue
 link-citations: yess
 bibliography: bibliography.bib
@@ -50,6 +50,7 @@ library(ggplot2)
 Let us consider a gaussian data matrix of size $n$ times $p$. 
 
 ```{r synthetic data}
+set.seed(123)
 n <- 1000
 p <- 10
 mu.X <- rep(1, 10)
@@ -280,7 +281,7 @@ The function **HowToImpute** compares the methods above with the imputation by t
 
 It returns a table containing the mean of the results for the simulations performed. 
 
-```{r HowToImpute}
+```{r HowToImpute, echo = FALSE}
 HowToImpute <- function(X , perc.list , mecha.list , nbsim){
   
   perc_mecha.matrix <- matrix(perc.list, nrow = length(mecha.list) * length(perc.list), ncol = 2)
@@ -300,7 +301,7 @@ HowToImpute <- function(X , perc.list , mecha.list , nbsim){
       X.mean <- imputeMean(XNA)
       
       ## MICE
-      temp <- mice(XNA, printFlag = FALSE, method = "pmm") # for the predictive mean matching method  ## remove.collinear = FALSE
+      temp <- mice(XNA, printFlag = FALSE, method = "pmm", remove.collinear = FALSE) # for the predictive mean matching method
       IMP <- 0
       for (i in 1:5) { IMP <- IMP + mice::complete(temp, i)}
       X.mice  <-  IMP/5  #5 is the default number of multiple imputations
@@ -313,7 +314,7 @@ HowToImpute <- function(X , perc.list , mecha.list , nbsim){
       ## SoftImpute
       lambda_sft <- cv_sft(XNA)
       sft <- softImpute(x = XNA, lambda = lambda_sft, rank.max = min(10,ncol(XNA)-1))
-      X.sft <- sft$u%*%diag(sft$d)%*%t(sft$v)
+      X.sft <- sft$u %*% diag(sft$d) %*% t(sft$v)
       X.sft[which(!is.na(XNA))] <- XNA[which(!is.na(XNA))]
       
       ## RandomForest
@@ -335,7 +336,7 @@ HowToImpute <- function(X , perc.list , mecha.list , nbsim){
   names(results.all) <- paste0(perc_mecha.matrix[,1], " ", perc_mecha.matrix[,2])
   
   resdf <- as.data.frame(results.all)
-  colnames(resdf) <- paste0(rep(perc.list,length(mecha.list)), " ", rep(mecha.list, each = 2))
+  colnames(resdf) <- paste0(perc_mecha.matrix[,1], " ", perc_mecha.matrix[,2])#paste0(rep(perc.list,length(mecha.list)), " ", rep(mecha.list, each = 2))
   
   return(resdf)
 }
@@ -343,14 +344,15 @@ HowToImpute <- function(X , perc.list , mecha.list , nbsim){
 ```
 
 
-```{r results synthetic data, message = FALSE, error = FALSE, warning = FALSE, results = "hide"}
+```{r results synthetic data, error = FALSE, warning = FALSE, message = FALSE, results = "hide"}
 perc.list = c(0.2, 0.5, 0.7)
 mecha.list = c("MCAR", "MAR", "MNAR")
-res <- HowToImpute(X , perc.list = c(0.2, 0.5, 0.7), mecha.list = c("MCAR", "MAR", "MNAR"), nbsim = 3)
+res <- HowToImpute(X, perc.list = c(0.2, 0.5, 0.7), mecha.list = c("MCAR", "MAR", "MNAR"), nbsim = 2)
 ```
 
+
 ```{r print results synthetic data, echo = FALSE}
-print(res)
+res
 ```
 
 
@@ -434,51 +436,32 @@ if(scale){
 }
 ```
 
+We can then apply the HowToImpute function. The results are presented below. 
 
-```{r results real data, message = FALSE, error = FALSE, warning = FALSE, results = "hide"}
+```{r results real data, error = FALSE, warning = FALSE, message = FALSE, echo = FALSE, results = "hide"}
 perc.list <- c(0.2, 0.4, 0.5, 0.7)
 mecha.list <- c("MCAR", "MAR", "MNAR")
-nbsim <- 3
+nbsim <- 2
 res <- HowToImpute(don, perc.list, mecha.list, nbsim)
-```
-
-```{r print results real data, echo = FALSE}
-print(res)
-```
-
-
-```{r plot real data, echo = FALSE}
-resonecol <- rbind(res[1, ])
+res
+resonecol <- rbind(res[1,])
 for (col in 2:ncol(res)){
-  resonecol <- rbind(resonecol, res[col, ])
+  resonecol <- rbind(resonecol,res[col,])
 }
-plotdf <- do.call(c, res)
+plotdf <- do.call(c,res)
 plotdf <- as.data.frame(plotdf)
 names(plotdf) <- 'mse'
-meth <- rep(c("PCA", "RandomForest",  "Mice", "SoftImpute", "Mean"), length(perc.list) * length(mecha.list))
+meth <- rep(c("PCA", "RandomForest",  "Mice", "SoftImpute",  "Mean"),length(perc.list)*length(mecha.list))
 plotdf <- cbind(plotdf, meth)
 perc <- rep(rep(as.character(perc.list), each = 5),length(mecha.list))
-plotdf <- cbind(plotdf, perc)
-mecha <- rep(mecha.list, each = 5 * length(perc.list))
-plotdf <- cbind(plotdf, mecha)
-```
-
-```{r MCAR real data, message = FALSE, echo = FALSE}
+plotdf <- cbind(plotdf,perc)
+mecha <- rep(mecha.list,each=5*length(perc.list))
+plotdf <- cbind(plotdf,mecha)
 ggplot(plotdf[plotdf$mecha == "MCAR", ]) + geom_point(aes(x = perc, y = mse, color = meth), size = 1.8) + ylab("MSE") + xlab("Percentage of NA") + geom_path(aes(x = perc, y = mse, color = meth, group = meth)) + ggtitle("MCAR") + labs(color = "Methods")
-```
-
-```{r MAR real data, message = FALSE, echo = FALSE}
 ggplot(plotdf[plotdf$mecha == "MAR", ]) + geom_point(aes(x= perc, y = mse, color = meth), size = 1.8) + ylab("MSE") + xlab("Percentage of NA") + geom_path(aes(x = perc, y = mse, color = meth, group = meth)) + ggtitle("MAR") + labs(color = "Methods")
-```
-
-```{r MNAR real data, message = FALSE, echo = FALSE}
 ggplot(plotdf[plotdf$mecha == "MNAR", ])+geom_point(aes(x = perc, y = mse,color = meth), size = 1.8) + ylab("MSE") + xlab("Percentage of NA") + geom_path(aes(x = perc, y = mse, color = meth, group = meth)) + ggtitle("MNAR") + labs(color = "Methods")
-```
-
-```{r all real data, message = FALSE, echo = FALSE}
 ggplot(plotdf) + geom_point(aes(x = perc, y = mse, color = meth, shape = mecha), size = 1.8) + ylab("MSE") + xlab("Percentage of NA") + geom_path(aes(x = perc, y = mse, color = meth, group = meth))
 ```
-
 
 
 # Session info
