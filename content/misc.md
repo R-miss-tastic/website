@@ -9,7 +9,7 @@ weight: 7
 ---
 
 #### Recent R package releases
-<i>Last update: 2020-03-11</i>
+<i>Last update: 2020-07-09</i>
 
 We regularly update recently released R packages handling missing values. This is a non-exhaustive list, if you have suggestions feel free to <a href="/contact/">contact us</a>.
 
