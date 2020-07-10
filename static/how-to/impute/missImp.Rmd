@@ -269,13 +269,13 @@ MSE <- function(X, Xtrue, mask) {
 ```
 
 
-The function **HowToImpute** compares the methods above with the imputation by the mean (the benchmark method). It computes the results (aggregation of the results for several simulations) of the methods for different percentage of missing values and missing-data mechanisms. The arguments are the following. 
+The function **HowToImpute** compares the methods above with the imputation by the mean (the benchmark method). It computes the results (aggregation of the results for several simulations) of the methods for different percentages of missing values and missing-data mechanisms. The arguments are the following. 
 
-* `X`: the data set with missing values (matrix).
+* `X`: the complete data set where the missing values will be introduced (matrix).
 
 * `perc.list`: list containing the different percentage of missing values. 
 
-* `mecha.list`: list containing the different missing-data mechanisms ("MCAR","MAR" or "MNAR"). 
+* `mecha.list`: list containing the different missing-data mechanisms ("MCAR","MAR", "MNAR"). 
 
 * `nbsim`: number of simulations performed. 
 
@@ -293,8 +293,9 @@ HowToImpute <- function(X , perc.list , mecha.list , nbsim){
     mecha <- perc_mecha[2]
     
     results.couple <- lapply(1:nbsim, function(iter){
-      
+
       XproduceNA <- produce_NA(as.matrix(X), mechanism = mecha, perc.missing = perc)
+      
       XNA <- as.matrix(as.data.frame(XproduceNA$data.incomp))
       
       ## Mean
@@ -336,7 +337,7 @@ HowToImpute <- function(X , perc.list , mecha.list , nbsim){
   names(results.all) <- paste0(perc_mecha.matrix[,1], " ", perc_mecha.matrix[,2])
   
   resdf <- as.data.frame(results.all)
-  colnames(resdf) <- paste0(perc_mecha.matrix[,1], " ", perc_mecha.matrix[,2])#paste0(rep(perc.list,length(mecha.list)), " ", rep(mecha.list, each = 2))
+  colnames(resdf) <- paste0(perc_mecha.matrix[,1], " ", perc_mecha.matrix[,2]) #paste0(rep(perc.list,length(mecha.list)), " ", rep(mecha.list, each = 2))
   
   return(resdf)
 }
@@ -347,7 +348,7 @@ HowToImpute <- function(X , perc.list , mecha.list , nbsim){
 ```{r results synthetic data, error = FALSE, warning = FALSE, message = FALSE, results = "hide"}
 perc.list = c(0.2, 0.5, 0.7)
 mecha.list = c("MCAR", "MAR", "MNAR")
-res <- HowToImpute(X, perc.list = c(0.2, 0.5, 0.7), mecha.list = c("MCAR", "MAR", "MNAR"), nbsim = 2)
+res <- HowToImpute(X, perc.list = c(0.2, 0.5, 0.7), mecha.list = c("MCAR", "MAR", "MNAR"), nbsim = 2) 
 ```
 
 
