@@ -3,14 +3,14 @@ title: "How to simulate missing values?"
 author: "Teresa Alves de Sousa, Imke Mayer"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
   html_document:
     number_sections: yes
     toc: yes
     toc_depth: 3
     toc_float: yes
-  pdf_document:
-    toc: yes
-    toc_depth: '3'
 linkcolor: blue
 link-citations: yes
 bibliography: bibliography.bib
@@ -342,6 +342,19 @@ matrixplot(X.mar,  cex.axis = 0.5, interactive = F)
 #' \item{data.init}{original data.frame}
 #' \item{data.incomp}{data.frame with the newly generated missing values, observed values correspond to the values from the initial data.frame}
 #' \item{idx_newNA}{a boolean data.frame indicating the indices of the newly generated missing values}
+```
+
+# Further resources
+
+For more guidance on how to report results from simulations with and without missing values, we recomment the following resources:
+
+- [Using simulation studies to evaluate statistical methods](https://onlinelibrary.wiley.com/doi/10.1002/sim.8086) (by Tim P. Morris, Ian R. White, and Michael J. Crowther)
+- [The Dance of the Mechanisms: How Observed Information Influences the Validity of Missingness Assumptions](https://journals.sagepub.com/doi/full/10.1177/0049124118799376) (by Rianne Margaretha Schouten and Gerko Vink)
+
+# Session info
+
+```{r}
+sessionInfo()
 ```
 
 # References

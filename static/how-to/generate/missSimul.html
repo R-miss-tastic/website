@@ -11,7 +11,7 @@
 
 <meta name="author" content="Teresa Alves de Sousa, Imke Mayer" />
 
-<meta name="date" content="2020-06-22" />
+<meta name="date" content="2020-07-17" />
 
 <title>How to simulate missing values?</title>
 
@@ -1512,14 +1512,14 @@ div.tocify {
 
 <h1 class="title toc-ignore">How to simulate missing values?</h1>
 <h4 class="author">Teresa Alves de Sousa, Imke Mayer</h4>
-<h4 class="date">22 June 2020</h4>
+<h4 class="date">17 July 2020</h4>
 
 </div>
 
 
 <p>Missing values occur in many domains and most datasets contain missing values (due to non-responses, lost records, machine failures, dataset fusions, etc.). These missing values have to be considered before or during analyses of these datasets.</p>
 <p>Now, if you have a method that deals with missing values, for instance imputation or estimation with missing values, how can you assess the performance of your method on a given dataset? If the data already contains missing values, than this does not help you since you generally do not have a ground truth for these missing values. So you will have to simulate missing values, i.e. you remove values – which you therefore know to be the ground truth – to generate missing values.</p>
-<p>The mechanisms generating missing values can be various but usually they are classified into three main categories defined by <span class="citation">(Rubin <a href="#ref-inference_missData">1976</a>)</span>: <em>missing completely at random</em> (MCAR), <em>missing at random</em> (MAR) and <em>missing not at random</em> (MNAR). The first two are also qualified as <em>ignorable</em> missing values mechanisms, for instance in likelihood-based approaches to handle missing values, whereas the MNAR mechanism generates <em>nonignorable</em> missing values. In the following we will briefly introduce each mechanism (with the definitions used widely in the literature) and propose ways of simulations missing values under these three mechanism assumptions. For more precise definitions we refer to references in the bibliography on the <a href="https://rmisstastic.netlify.com/" target="_blank">R-miss-tastic</a> website.</p>
+<p>The mechanisms generating missing values can be various but usually they are classified into three main categories defined by <span class="citation">(Rubin <a href="#ref-inference_missData" role="doc-biblioref">1976</a>)</span>: <em>missing completely at random</em> (MCAR), <em>missing at random</em> (MAR) and <em>missing not at random</em> (MNAR). The first two are also qualified as <em>ignorable</em> missing values mechanisms, for instance in likelihood-based approaches to handle missing values, whereas the MNAR mechanism generates <em>nonignorable</em> missing values. In the following we will briefly introduce each mechanism (with the definitions used widely in the literature) and propose ways of simulations missing values under these three mechanism assumptions. For more precise definitions we refer to references in the bibliography on the <a href="https://rmisstastic.netlify.com/" target="_blank">R-miss-tastic</a> website.</p>
 <div id="notations" class="section level1">
 <h1><span class="header-section-number">1</span> Notations</h1>
 <p>Let’s denote by <span class="math inline">\(\mathbf{X}\in\mathcal{X_1}\times\dots\times\mathcal{X_p}\)</span> the complete observations. We assume that <span class="math inline">\(\mathbf{X}\)</span> is a concatenation of <span class="math inline">\(p\)</span> columns <span class="math inline">\(X_j\in\mathcal{X_j}\)</span>, <span class="math inline">\(j\in\{1,\dots,p\}\)</span>, where <span class="math inline">\(dim(\mathcal{X_j})=n\)</span> for all <span class="math inline">\(j\)</span>.</p>
@@ -1557,7 +1557,7 @@ levels(X.complete[,4]) &lt;- c(&quot;F&quot;, &quot;E&quot;, &quot;D&quot;, &quo
 <p>Missing values can be generated following one or more of the three main missing values mechanisms (see below for details).</p>
 <p>If the data is already incomplete, it is possible to add a specific amount of additional missing values, in the already incomplete features or other complete features.</p>
 <p>Important: Currently there is no option available for the mains function <code>produce_NA</code> to specify that every observation must contain at least one value after amputation. Hence, in the data.frame output by <code>produce_NA</code> there might be empty observations.</p>
-<p>Except for the MCAR mechanism, our function <code>produce_NA</code> internally calls the <code>ampute</code> function of the <code>mice</code> R-package. See <span class="citation">(Schouten, Lugtig, and Vink <a href="#ref-mice-ampute">2018</a>)</span> for a detailed description of this latter function.</p>
+<p>Except for the MCAR mechanism, our function <code>produce_NA</code> internally calls the <code>ampute</code> function of the <code>mice</code> R-package. See <span class="citation">(Schouten, Lugtig, and Vink <a href="#ref-mice-ampute" role="doc-biblioref">2018</a>)</span> for a detailed description of this latter function.</p>
 </div>
 <div id="use-of-produce_na-with-default-settings" class="section level1">
 <h1><span class="header-section-number">3</span> Use of <code>produce_NA</code> with default settings</h1>
@@ -1800,35 +1800,85 @@ writeLines(paste0(&quot;Percentage of newly generated missing values: &quot;, 10
 </div>
 <div id="full-list-of-arguments" class="section level2">
 <h2><span class="header-section-number">4.5</span> Full list of arguments</h2>
-<pre class="r"><code>#' @param data [data.frame, matrix] (mixed) data table (n x p)
-#' @param mechanism [string] either one of &quot;MCAR&quot;, &quot;MAR&quot;, &quot;MNAR&quot;; default is &quot;MCAR&quot;
-#' @param self.mask [string] either NULL or one of &quot;sym&quot;, &quot;upper&quot;, &quot;lower&quot;; default is NULL
-#' @param perc.missing [positive double] proportion of missing values, between 0 and 1; default is 0.5
-#' @param idx.incomplete [array] indices of variables to generate missing values for; if NULL then missing values in all variables are possible; default is NULL
-#' @param idx.covariates [matrix] binary matrix such that entries in row i that are equal to 1 indicate covariates that incluence missingness of variable i (sum(idx.incomplete) x p); if NULL then all covariates contribute; default is NULL
-#' @param weights.covariates [matrix] matrix of same size as idx.covariates with weights in row i for contribution of each covariate to missingness model of variable i; if NULL then a (regularized) logistic model is fitted; default is NULL
-#' @param by.patterns [boolean] generate missing values according to (pre-specified) patterns; default is FALSE
-#' @param patterns [matrix] binary matrix with 1=observed, 0=missing (n_pattern x p); default is NULL
-#' @param freq.patterns [array] array of size n_pattern containing desired proportion of each pattern; if NULL then mice::ampute.default.freq will be called ; default is NULL
-#' @param weights.patterns [matrix] weights used to calculate weighted sum scores (n_pattern x p); if NULL then mice::ampute.default.weights will be called; default is NULL
-#' @param use.all [boolean] use all observations, including incomplete observations, for amputation when amputing by patterns (only relevant if initial data is incomplete and by.pattern=T); default is FALSE
-#' @param logit.model [string] either one of &quot;RIGHT&quot;,&quot;LEFT&quot;,&quot;MID&quot;,&quot;TAIL&quot;; default is &quot;RIGHT&quot;
-#' @param seed [natural integer] seed for random numbers generator; default is NULL
-#' 
-#' @return A list with the following elements
-#' \item{data.init}{original data.frame}
-#' \item{data.incomp}{data.frame with the newly generated missing values, observed values correspond to the values from the initial data.frame}
-#' \item{idx_newNA}{a boolean data.frame indicating the indices of the newly generated missing values}</code></pre>
+<pre class="r"><code>#&#39; @param data [data.frame, matrix] (mixed) data table (n x p)
+#&#39; @param mechanism [string] either one of &quot;MCAR&quot;, &quot;MAR&quot;, &quot;MNAR&quot;; default is &quot;MCAR&quot;
+#&#39; @param self.mask [string] either NULL or one of &quot;sym&quot;, &quot;upper&quot;, &quot;lower&quot;; default is NULL
+#&#39; @param perc.missing [positive double] proportion of missing values, between 0 and 1; default is 0.5
+#&#39; @param idx.incomplete [array] indices of variables to generate missing values for; if NULL then missing values in all variables are possible; default is NULL
+#&#39; @param idx.covariates [matrix] binary matrix such that entries in row i that are equal to 1 indicate covariates that incluence missingness of variable i (sum(idx.incomplete) x p); if NULL then all covariates contribute; default is NULL
+#&#39; @param weights.covariates [matrix] matrix of same size as idx.covariates with weights in row i for contribution of each covariate to missingness model of variable i; if NULL then a (regularized) logistic model is fitted; default is NULL
+#&#39; @param by.patterns [boolean] generate missing values according to (pre-specified) patterns; default is FALSE
+#&#39; @param patterns [matrix] binary matrix with 1=observed, 0=missing (n_pattern x p); default is NULL
+#&#39; @param freq.patterns [array] array of size n_pattern containing desired proportion of each pattern; if NULL then mice::ampute.default.freq will be called ; default is NULL
+#&#39; @param weights.patterns [matrix] weights used to calculate weighted sum scores (n_pattern x p); if NULL then mice::ampute.default.weights will be called; default is NULL
+#&#39; @param use.all [boolean] use all observations, including incomplete observations, for amputation when amputing by patterns (only relevant if initial data is incomplete and by.pattern=T); default is FALSE
+#&#39; @param logit.model [string] either one of &quot;RIGHT&quot;,&quot;LEFT&quot;,&quot;MID&quot;,&quot;TAIL&quot;; default is &quot;RIGHT&quot;
+#&#39; @param seed [natural integer] seed for random numbers generator; default is NULL
+#&#39; 
+#&#39; @return A list with the following elements
+#&#39; \item{data.init}{original data.frame}
+#&#39; \item{data.incomp}{data.frame with the newly generated missing values, observed values correspond to the values from the initial data.frame}
+#&#39; \item{idx_newNA}{a boolean data.frame indicating the indices of the newly generated missing values}</code></pre>
 </div>
+</div>
+<div id="further-resources" class="section level1">
+<h1><span class="header-section-number">5</span> Further resources</h1>
+<p>For more guidance on how to report results from simulations with and without missing values, we recomment the following resources:</p>
+<ul>
+<li><a href="https://onlinelibrary.wiley.com/doi/10.1002/sim.8086">Using simulation studies to evaluate statistical methods</a> (by Tim P. Morris, Ian R. White, and Michael J. Crowther)</li>
+<li><a href="https://journals.sagepub.com/doi/full/10.1177/0049124118799376">The Dance of the Mechanisms: How Observed Information Influences the Validity of Missingness Assumptions</a> (by Rianne Margaretha Schouten and Gerko Vink)</li>
+</ul>
+</div>
+<div id="session-info" class="section level1">
+<h1><span class="header-section-number">6</span> Session info</h1>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>## R version 4.0.2 (2020-06-22)
+## Platform: x86_64-apple-darwin17.0 (64-bit)
+## Running under: macOS Catalina 10.15.5
+## 
+## Matrix products: default
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] grid      stats     graphics  grDevices utils     datasets  methods  
+## [8] base     
+## 
+## other attached packages:
+## [1] mltools_0.3.5    mice_3.10.0      gdata_2.18.0     naniar_0.5.2    
+## [5] ggplot2_3.3.2    VIM_6.0.0        colorspace_1.4-1 norm_1.0-9.5    
+## [9] MASS_7.3-51.6   
+## 
+## loaded via a namespace (and not attached):
+##  [1] Rcpp_1.0.5        vcd_1.4-7         lattice_0.20-41   tidyr_1.1.0      
+##  [5] class_7.3-17      zoo_1.8-8         gtools_3.8.2      digest_0.6.25    
+##  [9] lmtest_0.9-37     R6_2.4.1          ranger_0.12.1     cellranger_1.1.0 
+## [13] backports_1.1.8   visdat_0.5.3      evaluate_0.14     e1071_1.7-3      
+## [17] pillar_1.4.6      rlang_0.4.7       curl_4.3          readxl_1.3.1     
+## [21] data.table_1.12.8 car_3.0-8         Matrix_1.2-18     rmarkdown_2.3    
+## [25] labeling_0.3      stringr_1.4.0     foreign_0.8-80    munsell_0.5.0    
+## [29] broom_0.7.0       compiler_4.0.2    xfun_0.15         pkgconfig_2.0.3  
+## [33] htmltools_0.5.0   nnet_7.3-14       tidyselect_1.1.0  tibble_3.0.3     
+## [37] rio_0.5.16        crayon_1.3.4      dplyr_1.0.0       laeken_0.5.1     
+## [41] withr_2.2.0       gtable_0.3.0      lifecycle_0.2.0   magrittr_1.5     
+## [45] scales_1.1.1      zip_2.0.4         stringi_1.4.6     carData_3.0-4    
+## [49] farver_2.0.3      sp_1.4-2          robustbase_0.93-6 ellipsis_0.3.1   
+## [53] vctrs_0.3.2       generics_0.0.2    boot_1.3-25       openxlsx_4.1.5   
+## [57] tools_4.0.2       forcats_0.5.0     glue_1.4.1        DEoptimR_1.0-8   
+## [61] purrr_0.3.4       hms_0.5.3         abind_1.4-5       yaml_2.2.1       
+## [65] knitr_1.29        haven_2.3.1</code></pre>
 </div>
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>
 <div id="refs" class="references">
 <div id="ref-inference_missData">
-<p>Rubin, Donald B. 1976. “Inference and Missing Data.” <em>Biometrika</em> 63 (3). [Oxford University Press, Biometrika Trust]: 581–92. <a href="http://www.jstor.org/stable/2335739">http://www.jstor.org/stable/2335739</a>.</p>
+<p>Rubin, Donald B. 1976. “Inference and Missing Data.” <em>Biometrika</em> 63 (3): 581–92. <a href="http://www.jstor.org/stable/2335739">http://www.jstor.org/stable/2335739</a>.</p>
 </div>
 <div id="ref-mice-ampute">
-<p>Schouten, Rianne Margaretha, Peter Lugtig, and Gerko Vink. 2018. “Generating Missing Values for Simulation Purposes: A Multivariate Amputation Procedure.” <em>Journal of Statistical Computation and Simulation</em> 88 (15). Taylor &amp; Francis: 2909–30.</p>
+<p>Schouten, Rianne Margaretha, Peter Lugtig, and Gerko Vink. 2018. “Generating Missing Values for Simulation Purposes: A Multivariate Amputation Procedure.” <em>Journal of Statistical Computation and Simulation</em> 88 (15): 2909–30.</p>
 </div>
 </div>
 </div>
