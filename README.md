@@ -1,4 +1,4 @@
-# Using the website
+# Using the website-This is an amazing website
 
 There are no pre-requisites to edit this website. to propose a change you just have to:
 1. Fork the repository
