@@ -5,6 +5,15 @@ There are no pre-requisites to edit this website. to propose a change you just h
 2. Edit the page you want to change (usually in /content)
 3. Create a Pull Request (you will be able to see your change in the Pull Request checks)
 
+# Libraries Required in local system
+
+1. numpy
+2. matplotlib
+3. seaborn
+4. pandas
+5. sklearn
+6. scipy
+
 ## Debuging locally
 To deploy the site locally (e.g. for debugging), you can :
 
