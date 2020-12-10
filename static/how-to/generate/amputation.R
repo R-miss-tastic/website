@@ -507,10 +507,10 @@ produce_MCAR <- function(data, perc.missing, idx.incomplete){
   } else {
     idx_newNA[,which(idx.incomplete==1)] <- (runif(n*p.incomp) <= (perc.missing))
   }
-  # # avoid having empty observations
-  # if (p == p.incomp){  
-  #   idx_newNA[rowSums(idx_newNA)==p, sample(p,1)] <- FALSE 
-  # }
+  # avoid having empty observations
+  if (p == p.incomp){
+    idx_newNA[rowSums(idx_newNA)==p, sample(p,1)] <- FALSE
+  }
   
   data.incomp <- data
   data.incomp[idx_newNA] <- NA
@@ -803,7 +803,16 @@ produce_MAR_MNAR <- function(data, mechanism, perc.missing, self.mask, idx.incom
     idx_newNA <- pmax(idx_newNA, as.matrix(is.na(temp)))   
     }
   idx_newNA <- apply(idx_newNA, c(1,2), as.logical)
- 
+  
+  # avoid having empty observations
+  if (p == sum(idx.incomplete)){
+    idxs_col <- sample(p,sum(rowSums(idx_newNA)==p), replace=T)
+    idxs_row <- which(rowSums(idx_newNA)==p)
+    for (i in seq_len(length(idxs_col))){
+      data.incomp[idxs_row[i], idxs_col[i]] <- data[idxs_row[i], idxs_col[i]]
+      idx_newNA[idxs_row[i], idxs_col[i]] <- FALSE
+    }
+  }
   data.incomp[is.na(data)] <- NA #re-storing original missing data
   
   
