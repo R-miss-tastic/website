@@ -805,9 +805,9 @@ produce_MAR_MNAR <- function(data, mechanism, perc.missing, self.mask, idx.incom
   idx_newNA <- apply(idx_newNA, c(1,2), as.logical)
   
   # avoid having empty observations
-  if (p == sum(idx.incomplete)){
-    idxs_col <- sample(p,sum(rowSums(idx_newNA)==p), replace=T)
-    idxs_row <- which(rowSums(idx_newNA)==p)
+  if (ncol(data) == sum(idx.incomplete)){
+    idxs_col <- sample(p,sum(rowSums(idx_newNA)==ncol(data)), replace=T)
+    idxs_row <- which(rowSums(idx_newNA)==ncol(data))
     for (i in seq_len(length(idxs_col))){
       data.incomp[idxs_row[i], idxs_col[i]] <- data[idxs_row[i], idxs_col[i]]
       idx_newNA[idxs_row[i], idxs_col[i]] <- FALSE
