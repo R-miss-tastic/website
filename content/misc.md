@@ -14,6 +14,10 @@ weight: 7
 We regularly update recently released R packages handling missing values. This is a non-exhaustive list, if you have suggestions feel free to <a href="/contact/">contact us</a>.
 
 <ul class="list-group" id="packages-list">
+<li class="list-group-item"><a href="https://cran.r-project.org/web/packages/NADIA/index.html" target="_blank"><code>NADIA</code>: NA Data Imputation Algorithms</a> (Authors: Jan Borowski, Piotr Fic, Katarzyna Woźnica)<br>
+    <img src="https://cranlogs.r-pkg.org/badges/NADIA" alt="CRAN Downloads" />
+    <img src="https://www.r-pkg.org/badges/last-release/NADIA" alt="CRAN Release" /> <br>
+	</li>
 <li class="list-group-item"><a href="https://cran.r-project.org/web/packages/misaem/index.html" target="_blank"><code>misaem</code>: Logistic regression with missing covariates—Parameter estimation, model selection and prediction within a joint-modeling framework</a> (Authors: Jiang W, Josse J, Lavielle M, Group T)<br>
     <img src="https://cranlogs.r-pkg.org/badges/misaem" alt="CRAN Downloads" />
     <img src="https://www.r-pkg.org/badges/last-release/misaem" alt="CRAN Release" /> <br>
