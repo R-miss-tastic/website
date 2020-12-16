@@ -91,11 +91,12 @@ def weights_init(layer):
   if type(layer) == nn.Linear: torch.nn.init.orthogonal_(layer.weight)
 
 
-def MIWAE(x_comp,X_miss,mask,h=128,d=1,K=20,bs=64,n_epochs=2002):
-    xhat_0 = x_comp*(1-mask)
+def MIWAE(X_miss,h=128,d=1,K=20,bs=64,n_epochs=2002):
+    mask = (1-np.isnan(X_miss).numpy()).astype(bool) 
+    xhat_0 = np.where(np.isnan(X_miss),0,X_miss)
     mask = (1-mask).astype(bool)
-    n = np.shape(x_comp)[0]
-    p = np.shape(x_comp)[1]
+    n = np.shape(X_miss)[0]
+    p = np.shape(X_miss)[1]
     p_z = td.Independent(td.Normal(loc=torch.zeros(d).cuda(),scale=torch.ones(d).cuda()),1)
     decoder = nn.Sequential(
         torch.nn.Linear(d, h),
