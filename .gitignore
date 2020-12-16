@@ -9,3 +9,4 @@ __pycache__/
 *-checkpoint.ipynb
 public/
 public/*.html
+*.DS_Store
