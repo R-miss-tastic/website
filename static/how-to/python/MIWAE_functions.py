@@ -11,6 +11,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.distributions as td
+from torch import nn, optim
 
 
 
@@ -88,4 +89,68 @@ def miwae_impute(iota_x,mask,L,d,p_z,encoder,decoder):
 
 def weights_init(layer):
   if type(layer) == nn.Linear: torch.nn.init.orthogonal_(layer.weight)
-   
+
+
+def MIWAE(x_comp,X_miss,mask,h=128,d=1,K=20,bs=64,n_epochs=2002):
+    xhat_0 = x_comp*(1-mask)
+    mask = (1-mask).astype(bool)
+    n = np.shape(x_comp)[0]
+    p = np.shape(x_comp)[1]
+    p_z = td.Independent(td.Normal(loc=torch.zeros(d).cuda(),scale=torch.ones(d).cuda()),1)
+    decoder = nn.Sequential(
+        torch.nn.Linear(d, h),
+        torch.nn.ReLU(),
+        torch.nn.Linear(h, h),
+        torch.nn.ReLU(),
+        torch.nn.Linear(h, 3*p),  # the decoder will output both the mean, the scale, and the number of degrees of freedoms (hence the 3*p)
+    )
+    encoder = nn.Sequential(
+        torch.nn.Linear(p, h),
+        torch.nn.ReLU(),
+        torch.nn.Linear(h, h),
+        torch.nn.ReLU(),
+        torch.nn.Linear(h, 2*d),  # the encoder will output both the mean and the diagonal covariance
+    )
+    encoder.cuda() # we'll use the GPU
+    decoder.cuda()    
+    optimizer = optim.Adam(list(encoder.parameters()) + list(decoder.parameters()),lr=1e-3)
+    xhat = np.copy(xhat_0) # This will be out imputed data matrix
+    
+    encoder.apply(weights_init)
+    decoder.apply(weights_init)
+    
+    for ep in range(1,n_epochs):
+      perm = np.random.permutation(n) # We use the "random reshuffling" version of SGD
+      batches_data = np.array_split(xhat_0[perm,], n/bs)
+      batches_mask = np.array_split(mask[perm,], n/bs)
+      for it in range(len(batches_data)):
+        optimizer.zero_grad()
+        encoder.zero_grad()
+        decoder.zero_grad()
+        b_data = torch.from_numpy(batches_data[it]).float().cuda()
+        b_mask = torch.from_numpy(batches_mask[it]).float().cuda()
+        loss = miwae_loss(iota_x = b_data, mask = b_mask, d=d, K=K, p_z=p_z, encoder=encoder, decoder=decoder)
+        loss.backward()
+        optimizer.step()
+        ### Imputation
+        xhat[~mask] = miwae_impute(iota_x = torch.from_numpy(xhat_0).float().cuda(),mask = torch.from_numpy(mask).float().cuda(),L=10,d=d,p_z=p_z,encoder=encoder,decoder=decoder).cpu().data.numpy()[~mask]
+    x_miwae = np.where(np.isnan(X_miss),xhat,X_miss)
+    return(x_miwae)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
