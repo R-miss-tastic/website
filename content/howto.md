@@ -18,14 +18,14 @@ For a straightforward application of some the most common methods we propose sev
 <br>
 <h3>How to (R notebook)...</h3>
 <ul class="list-group" id="workflows-list">
-<li class="list-group-item"> <a href="/how-to/generate/missSimul.html" target="_blank">... generate missing values?</a> (<a href="/how-to/generate/missSimul.pdf" target="_blank">PDF</a> and <a href="/how-to/generate/amputation.R" target="_blank">related R source code</a>)</li>
+<li class="list-group-item"> <a href="/how-to/generate/missSimul.html" target="_blank">... generate missing values?</a> (<a href="/how-to/generate/missSimul.pdf" target="_blank">PDF</a>)</li>
 <li class="list-group-item"> <a href="/how-to/estimate/missEstim.html" target="_blank">... estimate with missing values?</a> (<a href="/how-to/estimate/missEstim.pdf" target="_blank">PDF</a>)</li>
 <li class="list-group-item"> <a href="/how-to/impute/missImp.html" target="_blank">... impute missing values?</a> (<a href="/how-to/impute/missImp.pdf" target="_blank">PDF</a>)</li>
 </ul>
 
 
 
-<h5> How to (Python notebook) ...  </h5>
+<h3> How to (Python notebook) ...  </h3>
 <p align="justify"> 
 <ul class="list-group" id="workflows-list_py">
 <li class="list-group-item"> [... generate missing values?](/how-to/python/generate_html/How%20to%20generate%20missing%20values.html) ([Interactive notebook](https://mybinder.org/v2/gh/R-miss-tastic/website/master?filepath=static%2Fhow-to%2Fpython%2FHow%20to%20generate%20missing%20values.ipynb)) </li>
