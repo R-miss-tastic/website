@@ -29,7 +29,7 @@ For a straightforward application of some the most common methods we propose sev
 <p align="justify"> 
 <ul class="list-group" id="workflows-list_py">
 <li class="list-group-item"> [... generate missing values?](/how-to/python/generate_html/How%20to%20generate%20missing%20values.html) ([Interactive notebook](https://mybinder.org/v2/gh/R-miss-tastic/website/master?filepath=static%2Fhow-to%2Fpython%2FHow%20to%20generate%20missing%20values.ipynb)) </li>
-<li class="list-group-item">  [... impute with missing values?](/how-to/python/impute_html/Howtoimpute.html) ([Interactive notebook](https://mybinder.org/v2/gh/R-miss-tastic/website/master?filepath=static%2Fhow-to%2Fpython%2FHowtoimpute.ipynb))</li>
+<li class="list-group-item">  [... impute with missing values?](/how-to/python/Howtoimpute.html) ([Interactive notebook](https://mybinder.org/v2/gh/R-miss-tastic/website/master?filepath=static%2Fhow-to%2Fpython%2FHowtoimpute.ipynb))</li>
 
 </p>
 
