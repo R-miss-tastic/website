@@ -2,7 +2,7 @@
 date: "2018-10-24"
 author: "Imke Mayer"
 sharingicons: false
-linktitle: Contact & Contribute
+linktitle: Contact
 menu: navbar
 name: "Contact & Contribute"
 url: "/contact/"

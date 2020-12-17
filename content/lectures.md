@@ -301,7 +301,7 @@ weight: 2
                     </p>
                     <ul>
                       <li><a href="https://www.youtube.com/watch?v=z8IuuDe5oXs" target="_blank">A missing value tour in R (video)</a></li>
-                      <li><a href="http://juliejosse.com/wp-content/uploads/2019/07/useRjosse_2019.pdf" target="_blank">Slides for the talk</a></li>
+                      <li><a href="http://juliejosse.com/wp-content/uploads/2019/07/useRjosse_2019.pdf" target="_blank">Slides of the talk</a></li>
                     </ul>
                   </div>
                 </div>
@@ -352,6 +352,27 @@ weight: 2
                     </p>
                     <ul>
                       <li><a href="/tutorials/Moritz_slides_TimeSeries_2017.pdf" target="_blank">How to deal with Missing Data in Time Series and the <code>imputeTS</code> package</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header">
+                  <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#josse_cirm">
+                    <div class="col-12">Treatment Effect Estimation with Missing Attributes<br>
+                    <small>
+                      <p>(Julie Josse, talk at CIRM virtual conference on Mathematical Methods of Modern Statistics, 2020)</p>
+                    </small>
+                  </div>
+                  </a>
+                </div>
+                <div id="josse_cirm" class="collapse" data-parent="#accordion_special">  
+                  <div class="card-body">
+                    <p align="justify" style="margin-left:15px;">While the problem of missing values in the covariates has been considered very early in the causal inference literature, it remains difficult for practitioners to know which method to use, under which assumptions the different approaches are valid and whether the tools developed are also adapted to more complex data, e.g., for high-dimensional or mixed data. This talk provides a rigorous classification of existing methods according to the main underlying assumptions, which are based either on variants of the classical unconfoundedness assumption or relying on assumptions about the mechanism that generates the missing values. It also highlights two recent contributions on this topic: first an extension of classical doubly robust estimators that allows handling of missing attributes and second an approach to causal inference based on variational autoencoders in the case of latent confounding.
+                    </p>
+                    <ul>
+                      <li><a href="https://www.cirm-math.com/cirm-virtual-event-2146.html" target="_blank">Video</a></li>
+                      <li><a href="/tutorials/Josse_slides_CausalInference_2020.pdf" target="_blank">Slides of the talk</a></li>
                     </ul>
                   </div>
                 </div>
