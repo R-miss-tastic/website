@@ -20,16 +20,19 @@ bibliography: bibliography.bib
 knitr::opts_chunk$set(echo = TRUE, cache=TRUE)
 ```
 
-If you have a dataset which contains missing values, it is relevant to impute the missing values, mainly for two reasons: (i) these values may be particularly interesting in themselves or (ii) the fully completed data is required to perform some estimation method that does not handle the missing data. 
+The problem of missing data is ubiquitous in the practice of data analysis. Main approaches for handling missing data include imputation methods. In this Notebook, we first describe the main imputation methods available on R packages on synthetic data. Then, we compare them on both synthetic data for different missing-data mechanisms and percentage of missing values. Finally, we propose a function giving the comparison of the methods in one particular setting (missing-data mechanism, percentage of missing values) for a list of (complete) real datasets. 
 
-In this section we provide, for some of the main packages (the list is of course not thorough) to impute missing values, links to vignettes and tutorials, as well as a description of their main functionalities and reusable code. The goal is not to describe all the methods precisely, as many resources are already available, but rather to provide an overview of several imputation options. The methods we focus on are gathered in the table below.
+
+# Description of imputation methods on synthetic data
+
+In this section we provide, for some of the main packages (the list is of course not thorough) to impute missing values, links to vignettes and tutorials, as well as a description of their main functionalities and reusable code. The methods we focus on are gathered in the table below.
 
 | Package       | Data Types    | Underlying Method   | Imputation | Computational Time| Comments |
 | ------------- |:--------------| ------------------- |------------|:-------------:|--------------|
-| softImpute    | quantitative  |low-rank matrix completion | single| + |Very fast, strong theoretical guarantees, regularization parameter to tune |
+| softImpute    | quantitative  |low-rank matrix completion with nuclear norm penalities | single| + |Very fast, strong theoretical guarantees, regularization parameter to tune |
 | mice          | mixed         |multivariate imputation by chained equations | multiple   | -  | Very flexible to data types, no parameter to tune |
 | missForest    | mixed         |random forests| single|-| Requires large sample sizes, no parameter to tune |
-| missMDA       | mixed         |component methods| single/multiple | + | Rank parameter to tune |
+| missMDA       | mixed         |low-rank matrix completion with penality| single/multiple | + | Rank parameter to tune |
 
 
 ```{r libraries, message=FALSE, error=FALSE, warning=FALSE}
@@ -42,14 +45,15 @@ library(softImpute)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
+library(devtools)
 ```
 
 
-# Description of imputation methods on synthetic data
 
 Let us consider a gaussian data matrix of size $n$ times $p$. 
 
 ```{r synthetic data}
+#### Simulation of the data matrix ####
 set.seed(123)
 n <- 1000
 p <- 10
@@ -64,7 +68,9 @@ head(X)
 We introduce some missing (here MCAR) values in the data matrix. One uses the function **produce_NA** detailed in "amputation.R" available in the related R source code of ["How to generate missing values?"](https://rmisstastic.netlify.com/workflows/). 
 
 ```{r}
-source('amputation.R')
+source_url('https://raw.githubusercontent.com/R-miss-tastic/website/master/static/how-to/generate/amputation.R')
+
+#### Introduction of missing values ####
 
 XproduceNA <- produce_NA(X, mechanism = "MCAR", perc.missing = 0.3)
 XNA <- as.matrix(as.data.frame(XproduceNA$data.incomp))
@@ -101,57 +107,11 @@ X.sft <- sft$u %*% diag(sft$d) %*% t(sft$v)
 X.sft[which(!is.na(XNA))] <- XNA[which(!is.na(XNA))] 
 ```
 
-To calibrate the parameter lambda, one may perform cross-validation, the code is given below. 
-
-```{r softImpute-CrossValidation, warning=FALSE}
-cv_sft <- function(y,
-                   N = 10,
-                   len = 20) {
-  y <- as.matrix(y)
-  Y2 <- y
-  Y2[is.na(Y2)] <- 0
-  d <- dim(y)
-  n <- d[1]
-  p <- d[2]
-  m <- sum(!is.na(y))
-  lambda1.max <- max(svd(Y2)$d)
-  lambda1.min <- 1e-3*lambda1.max
-  grid.lambda1 <-
-    exp(seq(log(lambda1.min), log(lambda1.max), length.out = len))
-  ylist <-
-    lapply(1:N, function(k)
-      produce_NA(as.matrix(y), perc.missing = 0.2))$data.incomp
-  res.cv <- lapply(1:N, function(k) {
-    sapply(1:len,
-           function(i) {
-             yy <-produce_NA(as.matrix(y), perc.missing = 0.2)$data.incomp
-             res <-
-               softImpute(as.matrix(yy),
-                          lambda = grid.lambda1[i], maxit = 1000)
-             u <- res$u
-             d <- res$d
-             v <- res$v
-             if (is.null(dim(u))) {
-               res <- d * u %*% t(v)
-             } else {
-               res <- u %*% diag(d) %*% t(v)
-             }
-             imp <- as.matrix(yy)
-             imp[is.na(yy)] <- res[is.na(yy)]
-             return(sqrt(sum((res - y) ^ 2, na.rm = T)))
-           })
-    
-  })
-  res.cv <- colMeans(do.call(rbind, res.cv))
-  l <- which.min(res.cv)
-  lambda <- grid.lambda1[l]
-  return(lambda)
-}
-```
-
+To calibrate the parameter lambda, one may perform cross-validation, the code is given [here](https://github.com/R-miss-tastic/website/blob/master/static/how-to/impute/CrossValidation_softImpute.R). 
 Then, the imputation procedure can be performed using the value of lambda computed with cross-validation (the other parameters are set to their default value):
 
-```{r softImpute-impute-crossval}
+```{r softImpute-impute-crossval, warning=FALSE}
+source('https://raw.githubusercontent.com/R-miss-tastic/website/master/static/how-to/impute/CrossValidation_softImpute.R')
 lambda_sft <- cv_sft(XNA)
 sft <- softImpute(x = XNA, lambda = lambda_sft)
 X.sft <- sft$u %*% diag(sft$d) %*% t(sft$v)
@@ -178,9 +138,9 @@ The main arguments are the following (more details can be found on the help page
 
 * `method`: the imputation method to use. 
 
-In this case the predictive mean matching method is performed. Other imputation methods can be used, type `methods(mice)` for a list of the available imputation methods.
+By default, the predictive mean matching method is performed. Other imputation methods can be used, type `methods(mice)` for a list of the available imputation methods.
 
-We aggregate the complete datasets using the mean of the imputations. 
+We aggregate the complete datasets using the mean of the imputations to get a simple imputation.
 
 ```{r mice-aggregation}
 IMP <- 0
@@ -194,7 +154,7 @@ head(X.mice)
 
 The [`missForest` package](https://cran.r-project.org/web/packages/missForest/index.html) can be used to impute mixed-type data (continuous or categorical data). 
 
-The **missForest** function predicts missing values by training a random forest on the observed values of a data matrix. A vignette is available [online](https://stat.ethz.ch/education/semesters/ss2012/ams/paper/missForest_1.2.pdf) as well as the original paper [@missforest]. 
+The **missForest** function imputes missing values iteratively by training random forests. A vignette is available [online](https://stat.ethz.ch/education/semesters/ss2012/ams/paper/missForest_1.2.pdf) as well as the original paper [@missforest]. 
 
 ```{r missForest, message=FALSE, results = "hide"}
 forest <- missForest(xmis = XNA, maxiter = 20, ntree = 100)
@@ -217,9 +177,9 @@ head(X.forest)
 
 ## missMDA
 
-The [`missForest` package](https://cran.r-project.org/web/packages/missMDA/index.html) serves to impute mixed-type data (continuous or categorical data). 
+The [`missMDA` package](https://cran.r-project.org/web/packages/missMDA/index.html) serves to impute mixed-type data (continuous or categorical data). 
 
-The **imputePCA** function imputes missing values applying by using principal component methods. The missing values are predicted using the iterative PCA algorithm for a predefined number of dimensions. Some informations are available in the original article [@missMDA]. 
+The **imputePCA** function imputes missing values applying by using principal component methods. The missing values are predicted using the iterative PCA algorithm for a predefined number of dimensions. Some informations are available in the original article [@missMDA] and some videos are online [here](https://www.youtube.com/watch?v=OOM8_FH6_8o) or [here (in french)](https://www.youtube.com/watch?v=bdD9P3fGb70). 
 
 ```{r imputePCA}
 pca <- imputePCA(X = XNA, ncp = 2, scale = TRUE, method = c("Regularized","EM"))
@@ -235,17 +195,19 @@ The main argument are the following (more details can be found on the help page)
 * `scale`: if TRUE, it implies that the same weight is given for each variable.
 
 
-The single imputation step requires tuning the number of dimensions used to impute the data. We use the function **estim_ncpPCA** which estimates the number of the dimensions using a cross-validation. 
+The single imputation step requires tuning the number of dimensions used to impute the data. We use the function **estim_ncpPCA** which estimates the number of the dimensions using a cross-validation. Different cross-validation methods can be used to estimate the number of components, by default a generalized cross-validation is performed.  
 
 ```{r imputePCA with estimation ncp}
-ncp.pca <- estim_ncpPCA(XNA)$ncp
+ncp.pca <- estim_ncpPCA(XNA,method.cv="gcv")$ncp
 pca <- imputePCA(XNA, ncp = ncp.pca)
 X.pca <- pca$comp
 head(X.pca)
 ```
 
 
-# Comparaison on synthetic data
+# Numerical experiments to compare the different methods
+
+## Synthetic data
 
 We compare the methods presented above for different percentage of missing values and for different missing-data mechanisms: 
 
@@ -255,9 +217,7 @@ We compare the methods presented above for different percentage of missing value
 
 * Missing Not At Random (MNAR) if the unavailability of the data depends on both observed and unobserved data such as its value itself.
 
-The cause of missingness shoud be studied before making a choice of imputation method.
-
-We compare the methods in terms of MSE, i.e.:
+We compare the methods in terms of mean squared error (MSE), i.e.:
 $$MSE(X^{imp}) = \frac{1}{n_{NA}}\sum_{i}\sum_{j} 1_{X^{NA}_{ij}=NA}(X^{imp}_{ij} - X_{ij})^2$$
 where $n_{NA} = \sum_{i}\sum_{j} 1_{X^{NA}_{ij}=NA}$ is the number of missing entries in $X^{NA}$.
 
@@ -269,7 +229,9 @@ MSE <- function(X, Xtrue, mask) {
 ```
 
 
-The function **HowToImpute** compares the methods above with the imputation by the mean (the benchmark method). It computes the results (aggregation of the results for several simulations) of the methods for different percentages of missing values and missing-data mechanisms. The arguments are the following. 
+The function **HowToImpute** compares the methods above with the naive imputation by the mean in terms of MSE on a complete dataset. More particularly, the function allows to introduce missing values on the complete dataset using different percentages of missing values and missing-data mechanisms and gives the MSE of the methods for the different missing-value settings. The final MSE for one specific missing-value setting is computed by aggregating the MSE's obtained for several simulations, where the stochasticity comes from the process of drawing several times the missing-data pattern.
+
+The arguments are the following. 
 
 * `X`: the complete data set where the missing values will be introduced (matrix).
 
@@ -279,7 +241,7 @@ The function **HowToImpute** compares the methods above with the imputation by t
 
 * `nbsim`: number of simulations performed. 
 
-It returns a table containing the mean of the results for the simulations performed. 
+It returns a table containing the mean of the MSEs for the simulations performed. 
 
 ```{r HowToImpute, echo = FALSE}
 HowToImpute <- function(X , perc.list , mecha.list , nbsim){
@@ -337,7 +299,7 @@ HowToImpute <- function(X , perc.list , mecha.list , nbsim){
   names(results.all) <- paste0(perc_mecha.matrix[,1], " ", perc_mecha.matrix[,2])
   
   resdf <- as.data.frame(results.all)
-  colnames(resdf) <- paste0(perc_mecha.matrix[,1], " ", perc_mecha.matrix[,2]) #paste0(rep(perc.list,length(mecha.list)), " ", rep(mecha.list, each = 2))
+  colnames(resdf) <- paste0(perc_mecha.matrix[,1], " ", perc_mecha.matrix[,2])
   
   return(resdf)
 }
@@ -346,22 +308,18 @@ HowToImpute <- function(X , perc.list , mecha.list , nbsim){
 
 
 ```{r results synthetic data, error = FALSE, warning = FALSE, message = FALSE, results = "hide"}
-perc.list = c(0.2, 0.5, 0.7)
+perc.list = c(0.1, 0.3, 0.5)
 mecha.list = c("MCAR", "MAR", "MNAR")
-res <- HowToImpute(X, perc.list = c(0.2, 0.5, 0.7), mecha.list = c("MCAR", "MAR", "MNAR"), nbsim = 2) 
+res <- HowToImpute(X, perc.list = c(0.1, 0.3, 0.5), mecha.list = c("MCAR", "MAR", "MNAR"), nbsim = 2) 
 ```
 
 
-```{r print results synthetic data, echo = FALSE}
+```{r print results synthetic data, echo = TRUE}
 res
 ```
 
 
-```{r plot synthetic data, echo = FALSE}
-resonecol <- rbind(res[1, ])
-for (col in 2:ncol(res)){
-  resonecol <- rbind(resonecol, res[col, ])
-}
+```{r plot synthetic data, echo = TRUE}
 plotdf <- do.call(c, res)
 plotdf <- as.data.frame(plotdf)
 names(plotdf) <- 'mse'
@@ -373,96 +331,155 @@ mecha <- rep(mecha.list, each = 5 * length(perc.list))
 plotdf <- cbind(plotdf, mecha)
 ```
 
-```{r MCAR synthetic data, error = FALSE, warning = FALSE, message = FALSE, echo = FALSE}
+```{r MCAR synthetic data, error = FALSE, warning = FALSE, message = FALSE, echo = TRUE}
 ggplot(plotdf[plotdf$mecha == "MCAR", ]) + geom_point(aes(x = perc, y = mse, color = meth), size = 1.8) + ylab("MSE") + xlab("Percentage of NA") + geom_path(aes(x = perc, y = mse, color = meth, group = meth)) + ggtitle("MCAR") + labs(color = "Methods")
 ```
 
-```{r MAR synthetic data, error = FALSE, warning = FALSE, message = FALSE, echo = FALSE}
+```{r MAR synthetic data, error = FALSE, warning = FALSE, message = FALSE, echo = TRUE}
 ggplot(plotdf[plotdf$mecha == "MAR", ]) + geom_point(aes(x= perc, y = mse, color = meth), size = 1.8) + ylab("MSE") + xlab("Percentage of NA") + geom_path(aes(x = perc, y = mse, color = meth, group = meth)) + ggtitle("MAR") + labs(color = "Methods")
 ```
 
-```{r MNAR synthetic data, error = FALSE, warning = FALSE, message = FALSE, echo = FALSE}
+```{r MNAR synthetic data, error = FALSE, warning = FALSE, message = FALSE, echo = TRUE}
 ggplot(plotdf[plotdf$mecha == "MNAR", ])+geom_point(aes(x = perc, y = mse,color = meth), size = 1.8) + ylab("MSE") + xlab("Percentage of NA") + geom_path(aes(x = perc, y = mse, color = meth, group = meth)) + ggtitle("MNAR") + labs(color = "Methods")
 ```
 
-```{r all synthetic data, message = FALSE, echo = FALSE}
+```{r all synthetic data, message = FALSE, echo = TRUE}
 ggplot(plotdf) + geom_point(aes(x = perc, y = mse, color = meth, shape = mecha), size = 1.8) + ylab("MSE") + xlab("Percentage of NA") + geom_path(aes(x = perc, y = mse, color = meth, group = meth))
 ```
 
 
-# Comparison on real data
+## Real datasets
 
-We will now compare the methods on real data set taken from the UCI repository [@dua_graff_2019]. In the present workflow, we propose a selection of several data sets:
+We will now compare the methods on real complete data set taken from the UCI repository [@dua_graff_2019] in which we will introduce missing values.. In the present workflow, we propose a selection of several data sets (here, the data sets contain only quantitative variables) : 
 
-- Seeds (221x7)
 - Wine Quality - Red (1599x11)
 - Wine Quality - White (4898x11)
 - Slump (103x9)
 - Movement (360x90)
 - Decathlon (41x10)
 
-But you can replace the data.frame `don` with any dataset you want to test the methods on.
+But you can test the methods on any complete dataset you want.
 
 
 ```{r}
-name_data <- "slump"
+wine_white <- read.csv("https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv", sep = ";") 
+wine_white <- wine_white[, -ncol(wine_white)]
 
-if (tolower(name_data) == "seeds"){
- don <-read.csv("https://archive.ics.uci.edu/ml/machine-learning-databases/00236/seeds_dataset.txt", sep = "\t", header  = FALSE)
- don <- don[, -ncol(don)]
-}
-if (tolower(name_data) == "wine_red"){
-  don <-read.csv("https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv", sep = ";")
-  don <- don[, -ncol(don)]
-}
-if (tolower(name_data) == "wine_white"){
-  don <-read.csv("https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv", sep = ";")
-  don <- don[, -ncol(don)]
-}
-if (tolower(name_data) == "slump"){
-  don <-read.csv("https://archive.ics.uci.edu/ml/machine-learning-databases/concrete/slump/slump_test.data", sep = ",", header = TRUE, row.names=1)
-  don <- don[, -ncol(don)]
-}
+wine_red <- read.csv("https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv", sep = ";")
+wine_red <- wine_red[, -ncol(wine_red)]
+
+slump <-read.csv("https://archive.ics.uci.edu/ml/machine-learning-databases/concrete/slump/slump_test.data", sep = ",", header = TRUE, row.names=1)
+slump <- slump[, -ncol(slump)]
+
+movement <- read.csv("https://archive.ics.uci.edu/ml/machine-learning-databases/libras/movement_libras.data", sep = ",", header = FALSE)
+movement  <- movement[, -ncol(movement)]
+
+library(FactoMineR)
+data(decathlon)
+decathlon <- decathlon[, 1:10]
 ```
 
-You can choose to scale data prior to running the experiments, which implies that the variable have the same weight in the analysis. Scaling data may be performed on complete data sets but is more difficult for incomplete data sets. Let us keep in mind that it is more realistic to not scale data. 
+You can choose to scale data prior to running the experiments, which implies that the variable have the same weight in the analysis. Scaling data may be performed on complete data sets but is more difficult for incomplete data sets^[For MCAR values, the estimations of the standard deviation can be unbiased. However, for MNAR values, the estimators will suffer from biases.]. 
 
 ```{r scale data}
-scale <- TRUE
-if(scale){
-  meanX <- apply(don, 2, mean)
-  don <- t(t(don) - meanX)
-  etX <- apply(don, 2, sd)
-  don <- t(t(don)/etX)
+sc <- TRUE
+if(sc){
+  wine_white <- scale(wine_white)
+  wine_red <- scale(wine_red)
+  slump <- scale(slump)
+  movement <- scale(movement)
+  decathlon <- scale(decathlon)
 }
 ```
 
-We can then apply the HowToImpute function. The results are presented below. 
+We can then apply the **HowToImpute_real** function. It compares in terms of MSE several imputation methods for different complete datasets where missing values are introduced with a given percentage of missing values and a given missing-data mechanism.
 
-```{r results real data, error = FALSE, warning = FALSE, message = FALSE, echo = FALSE, results = "hide"}
-perc.list <- c(0.2, 0.4, 0.5, 0.7)
-mecha.list <- c("MCAR", "MAR", "MNAR")
+The arguments are the following. 
+
+* `datasets_list`: dictionnary of complete datasets.
+
+* `perc`: percentage of missing values.
+
+* `mecha`: missing-data mechanism ("MCAR","MAR" or "MNAR"). 
+
+* `nbsim`: number of simulations performed. 
+
+* `names_dataset`: list containing the names of the datasets (for plotting results).
+
+It returns a table containing the mean of the MSEs for the simulations performed. 
+
+```{r HowToImpute_real, echo = FALSE}
+HowToImpute_real <- function(datasets_list, perc , mecha , nbsim, names_dataset){
+  plotdf_fin <- NULL
+  for (dat in 1:length(datasets_list)){
+      res = HowToImpute(datasets_list[[dat]],perc,mecha,nbsim)
+      names(res) = names_dataset[[dat]]
+      if (dat==1){
+        resdf = res
+      }else{
+        resdf = cbind.data.frame(resdf,res)
+      }
+      plotdf <- do.call(c,res)
+      plotdf <- as.data.frame(plotdf)
+      names(plotdf) <- 'mse'
+      Methods <- rep(c("PCA", "RandomForest",  "Mice", "SoftImpute",  "Mean"))
+      plotdf <- cbind(plotdf, Methods)
+      Datasets <- rep(names_dataset[dat],5)
+      plotdf <- cbind(plotdf, Datasets)
+      if (is.null(plotdf_fin)){
+        plotdf_fin <- plotdf
+      }else{
+        plotdf_fin <- rbind(plotdf_fin,plotdf)
+      }
+  }
+  return(list(plot=plotdf_fin,res=resdf))
+}
+
+```
+
+```{r results real data, error = FALSE, warning = FALSE, message = FALSE, results = "hide"}
+datasets_list <- list(
+                  wine_white = wine_white,
+                  wine_red = wine_red,
+                  slump = slump,
+                  movement = movement,
+                  decathlon = decathlon
+                 )
+names_dataset <- c("winequality-white","winequality-red","slump","movement","decathlon")
+perc <- 0.2
+mecha <- "MCAR"
 nbsim <- 2
-res <- HowToImpute(don, perc.list, mecha.list, nbsim)
-res
-resonecol <- rbind(res[1,])
-for (col in 2:ncol(res)){
-  resonecol <- rbind(resonecol,res[col,])
-}
-plotdf <- do.call(c,res)
-plotdf <- as.data.frame(plotdf)
-names(plotdf) <- 'mse'
-meth <- rep(c("PCA", "RandomForest",  "Mice", "SoftImpute",  "Mean"),length(perc.list)*length(mecha.list))
-plotdf <- cbind(plotdf, meth)
-perc <- rep(rep(as.character(perc.list), each = 5),length(mecha.list))
-plotdf <- cbind(plotdf,perc)
-mecha <- rep(mecha.list,each=5*length(perc.list))
-plotdf <- cbind(plotdf,mecha)
-ggplot(plotdf[plotdf$mecha == "MCAR", ]) + geom_point(aes(x = perc, y = mse, color = meth), size = 1.8) + ylab("MSE") + xlab("Percentage of NA") + geom_path(aes(x = perc, y = mse, color = meth, group = meth)) + ggtitle("MCAR") + labs(color = "Methods")
-ggplot(plotdf[plotdf$mecha == "MAR", ]) + geom_point(aes(x= perc, y = mse, color = meth), size = 1.8) + ylab("MSE") + xlab("Percentage of NA") + geom_path(aes(x = perc, y = mse, color = meth, group = meth)) + ggtitle("MAR") + labs(color = "Methods")
-ggplot(plotdf[plotdf$mecha == "MNAR", ])+geom_point(aes(x = perc, y = mse,color = meth), size = 1.8) + ylab("MSE") + xlab("Percentage of NA") + geom_path(aes(x = perc, y = mse, color = meth, group = meth)) + ggtitle("MNAR") + labs(color = "Methods")
-ggplot(plotdf) + geom_point(aes(x = perc, y = mse, color = meth, shape = mecha), size = 1.8) + ylab("MSE") + xlab("Percentage of NA") + geom_path(aes(x = perc, y = mse, color = meth, group = meth))
+howimp_real <-  HowToImpute_real(
+                  datasets_list = list(
+                    wine_white = wine_white,
+                    wine_red = wine_red,
+                    slump = slump,
+                    movement = movement,
+                    decathlon = decathlon
+                  ) ,
+                  perc = 0.2,
+                  mech = "MCAR",
+                  nbsim = 2,
+                  names_dataset = c(
+                    "winequality-white",
+                    "winequality-red",
+                    "slump",
+                    "movement",
+                    "decathlon"
+                  )
+                )
+plotdf_fin <- howimp_real$plot
+res <- howimp_real$res
 ```
+
+```{r print results real data, echo = TRUE}
+res
+```
+
+```{r plot results real data, error = FALSE, warning = FALSE, message = FALSE, echo = TRUE}
+ggplot(data=plotdf_fin, aes(x =Datasets, y = mse, fill=Methods)) + geom_bar(stat="identity", position=position_dodge2(width = 1.01,preserve = "single"))
+```
+
 
 
 # Session info
@@ -470,6 +487,7 @@ ggplot(plotdf) + geom_point(aes(x = perc, y = mse, color = meth, shape = mecha),
 ```{r}
 sessionInfo()
 ```
+
 
 # References
 
