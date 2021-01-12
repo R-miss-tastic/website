@@ -570,14 +570,19 @@ create_ref_buttons(selected_refs, c(0,3,4), "dl_misc")
 <p align="justify">As mentioned in the above sections, it is necessary to make assumptions on the _mechanism generating the missing values_ or _response mechanism_ in order to work with missing values. Broadly speaking, these assumptions indicate how much the missingness is related to the data itself. The assumptions made on the mechanism impact further steps in the data analysis (since some types of missingness can induce a bias on the analysis results) and are therefore crucial for valid analyses of data in the presence of missing values. 
 </p>
 
-<p align="justify">More formally, the response mechanism is defined as the conditional distribution of $R$ given $X$, $f(R|X)$. This distribution can depend on some parameter $\psi$ so that we have $f(R|X;\psi)$. Little and Rubin (2002) defined three main categories of missing values depending on the form of the conditional distribution $f$:
+<p align="justify">More formally, both $X$ and $R$ are modeled as random variables and the response mechanism is defined as the conditional distribution of $R$ given $X$, $\mathbb{P}_R(R|X)$. This distribution can depend on some parameter $\phi$ so that we have $\mathbb{P}_R(R|X;\phi)$. Little and Rubin (2002) defined three main categories of missing values depending on the form of the conditional distribution $\mathbb{P}_R$:
 </p>
 
-- <p align="justify">Missing completely at random (MCAR): The missingness does not depend on the variables $X$, i.e.</p> $$f(R|X;\psi) = f(R;\psi).$$
+- <p align="justify">Missing completely at random (MCAR): The missingness does not depend on the variables $X=(X^\mathrm{obs},X^\mathrm{mis})$, denoting the observed variables and the missing ones as $X^\mathrm{obs}$ and $X^\mathrm{mis}$ respectively i.e.</p> $$\mathbb{P}_R(R|X^\mathrm{obs},X^\mathrm{mis};\phi) = \mathbb{P}_R(R;\phi), \forall \phi$$
 
-- <p align="justify">Missing at random (MAR): The missingness depends only on the observed variables $X_{obs}$, i.e.</p> $$f(R|X;\psi) = f(R|X_{obs};\psi),$$ <p align="justify">or alternatively $f(R|X^1;\psi) = f(R|X^2;\psi)$ for all $X^1 = (X^1_{obs},X^1_{mis})$ and $X^2 = (X^2_{obs},X^2_{mis})$ such that $X^1_{obs} = X^2_{obs}$.</p> 
+- <p align="justify">Missing at random (MAR): The missingness depends only on the observed variables $X_{obs}$, i.e.</p> $$\mathbb{P}_R(R|X^\mathrm{obs},X^\mathrm{mis};\phi) = \mathbb{P}_R(R|X^\mathrm{obs};\phi), \forall \phi,X^\mathrm{mis}$$ 
+<!-- <p align="justify">or alternatively $f(R|X^1;\psi) = f(R|X^2;\psi)$ for all $X^1 = (X^1_{obs},X^1_{mis})$ and $X^2 = (X^2_{obs},X^2_{mis})$ such that $X^1_{obs} = X^2_{obs}$.</p>  -->
 
-- <p align="justify">Missing not at random (MNAR): The missingness depends on the observed and missing values, i.e. $$f(R|X;\psi) \neq f(R|X_{obs};\psi).$$ To understand this definition, take the example of alcohol consumption: alcoholics are less inclined to reveal their alcohol consumption, therefore the probability of missing information on the alcohol consumption depends on the amount of consumption itself. Another simple example is the information on income or wealth which is missing more often for individuals of very high or very low income.
+- <p align="justify">Missing not at random (MNAR): The missingness is said MNAR in all other cases, i.e. the missingness depends on the missing values and potentially also on the observed values.
+
+<!-- i.e. $$\mathbb{P}_R(R|X;\phi) \neq \mathbb{P}_R(R|X^\mathrm{obs};\phi), \forall \phi, .$$  -->
+
+To understand this definition, take the example of alcohol consumption: alcoholics are less inclined to reveal their alcohol consumption, therefore the probability of missing information on the alcohol consumption depends on the amount of consumption itself. Another simple example is the information on income or wealth which is missing more often for individuals of very high or very low income.
 </p>
 
 <p align="justify">Note that MCAR is a special case of MAR and that these three categories are of increasing complexity with a large gap between the second and third. Indeed, most more or less generic methods which have been proposed in the last few decades are suited for data that is MAR. The case MNAR requires different techniques and further assumptions.
