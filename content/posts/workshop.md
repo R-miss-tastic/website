@@ -2,7 +2,7 @@
 date: 2020-04-10
 author: "R-miss-tastic"
 slug: workshop
-title: "News: (virtual) workshop on Missing Values at ICML"
+title: "Event: (virtual) workshop on Missing Values at ICML"
 categories: []
 tags: []
 description: ''
