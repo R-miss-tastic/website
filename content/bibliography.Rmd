@@ -459,6 +459,40 @@ create_ref_buttons(selected_refs, c(0,3,4), "mi_misc")
 <div class="panel-body">
 <p align="justify">The field of machine learning being dependent on the availability of (good) training data, it is -- in most real-world applications -- necessarily facing the issue of missing data. Hence there has been an increasing attention to how to handle missing data, in the features and the output, in order to _learn_ accurately from the data.
 </p>
+ 
+<font size="+1"><b>Algorithms for supervised learning</b></font>
+
+
+
+</p>
+```{r, algoml_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+tags <- c("supervised learning")
+selected_refs <- select_refs(refs,tags)
+```
+
+
+<!-- Books and book chapters -->
+```{r, algoml_print_books, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(5,6), "algoml_books")
+```
+
+<!-- Journal articles -->
+```{r, algoml_print_journal, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(2), "algoml_journals")
+```
+
+<!-- Conference papers -->
+```{r, algoml_print_conf, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(1), "algoml_conf")
+```
+
+<!-- Reports, theses, etc. -->
+```{r, algoml_print_misc, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(0,3,4), "algoml_misc")
+```
+
+
+<br>
 
 <font size="+1"><b>Trees and forests</b></font>
 
@@ -550,7 +584,7 @@ create_ref_buttons(selected_refs, c(0,3,4), "dl_misc")
 </p>
 
 <p align="justify">Note that Little and Rubin (2002) consider these three categories as _really missing values_ as opposed to _not really missing values_ where, in the case of categorical data, the missingness rather constitutes an additional category (for instance in a questionnaire with multiple choice answers, a participant can leave out a question because the category he wants to choose is not among the given choices).
-</p>
+</p> 
 
 <p align="justify">Another -- maybe complementary -- approach to consider and study different missing values mechanisms and problems consists in using graphical models, for instance *missingness graphs* or *m-graphs* (Mohan et al., 2013). These allow to represent multivariate dependencies and to study identifiability or recoverability for different (estimation or prediction) problems.
 
