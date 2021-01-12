@@ -636,6 +636,26 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Topics                   = {ml}
 }
 
+
+@Article{erler_etal_2019,
+ Title                    = {JointAI: joint analysis and imputation of incomplete data in R},
+  Author                   = {Erler, Nicole S and Rizopoulos, Dimitris and Lesaffre, Emmanuel MEH},
+  Journal                  = {arXiv preprint},
+  Year                     = {2019},
+
+  Archiveprefix            = {arXiv},
+  Arxivid                  = {1907.10867v3 },
+  Url                      = {https://arxiv.org/abs/1907.10867},
+
+  Abstract                 = {Missing data occur in many types of studies and typically complicate the analysis. Multiple imputation, either using joint modelling or the more flexible fully conditional specification approach, are popular and work well in standard settings. In settings involving non-linear associations or interactions, however, incompatibility of the imputation model with the analysis model is an issue often resulting in bias. Similarly, complex outcomes such as longitudinal or survival outcomes cannot be adequately handled by standard implementations. In this paper, we introduce the R package JointAI, which utilizes the Bayesian framework to perform simultaneous analysis and imputation in regression models with incomplete covariates. Using a fully Bayesian joint modelling approach it overcomes the issue of uncongeniality while retaining the attractive flexibility of fully conditional specification multiple imputation by specifying the joint distribution of analysis and imputation models as a sequence of univariate models that can be adapted to the type of variable. JointAI provides functions for Bayesian inference with generalized linear and generalized linear mixed models and extensions thereof as well as survival models and joint models for longitudinal and survival data, that take arguments analogous to corresponding well known functions for the analysis of complete data from base R and other packages. Usage and features of JointAI are described and illustrated using various examples and the theoretical background is outlined.},
+
+  Keywords                 = {multiple imputation; Bayesian inference; R},
+  Owner                    = {aude},
+  Timestamp                = {2021.01.12},
+  Topics                   = {multiple imputation}
+}
+
+
 @article{fang_etal_2018,
   Title                    = {Imputation-based adjusted score equations in generalized linear models with nonignorable missing covariate values},
   Author                   = {Fang, F. and Zhao, J. and Shao, J.},
@@ -1092,6 +1112,24 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Owner                    = {nathalie},
   Timestamp                = {2016.09.28},
   Topics                   = {factorial data analysis; imputation}
+}
+
+@Article{ipsen_etal_2020,
+  Title                    = {not-MIWAE: Deep generative modelling with missing not at random data},
+  Author                   = {Ipsen, Niels Bruun and Mattei, Pierre-Alexandre and Frellsen, Jes},
+  Journal                  = {arXiv preprint},
+  Year                     = {2020},
+
+  Archiveprefix            = {arXiv},
+  Arxivid                  = {2006.12871},
+  Url                      = {https://arxiv.org/abs/2006.12871},
+
+  Abstract                 = {When a missing process depends on the missing values themselves, it needs to be explicitly modelled and taken into account while doing likelihood-based inference. We present an approach for building and fitting deep latent variable models (DLVMs) in cases where the missing process is dependent on the missing data. Specifically, a deep neural network enables us to flexibly model the conditional distribution of the missingness pattern given the data. This allows for incorporating prior information about the type of missingness (e.g. self-censoring) into the model. Our inference technique, based on importance-weighted variational inference, involves maximising a lower bound of the joint likelihood. Stochastic gradients of the bound are obtained by using the reparameterisation trick both in latent space and data space. We show on various kinds of data sets and missingness patterns that explicitly modelling the missing process can be invaluable.},
+
+  Keywords                 = {mnar; deep learning},
+  Owner                    = {aude},
+  Timestamp                = {2021.01.12},
+  Topics                   = {deep learning; mnar}
 }
 
 @Article{ibrahim_etal_RSS1999,
@@ -1651,13 +1689,52 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Url                      = {http://www.jstor.org/stable/2345828},
 
   Abstract                 = {A procedure is derived for extracting the observed information matrix when the EM algorithm is used to find maximum likelihood estimates in incomplete data problems. The technique requires computation of a complete-data gradient vector or second derivative matrix, but not those associated with the incomplete data likelihood. In addition, a method useful in speeding up the convergence of the EM algorithm is developed. Two examples are presented.},
-
   ISSN                     = {00359246},
   Keywords                 = {EM algorithm; Observed Information; Maximum Likelihood; Speeding Convergence},
   Owner                    = {imke},
   Timestamp                = {2018.12.19},
   Topics                   = {ml; em}
 }
+
+@Article{ma_needell_2017,
+  Title                    = {Stochastic Gradient Descent for Linear Systems with Missing Data},
+  Author                   = {Ma, Anna and Needell, Deanna},
+  Journal                  = {Numerical Mathematics: Theory, Methods and Applications},
+  Number                   = {1},
+  Pages                    = {1-20},
+  Publisher	        = {Global-Science Press},
+  Volume                   = {12},
+  Year                     = {2017},
+
+  Abstract                 = {Traditional methods for solving linear systems have quickly become imprac- tical due to an increase in the size of available data. Utilizing massive amounts of data is further complicated when the data is incomplete or has missing entries. In this work, we address the obstacles presented when working with large data and incomplete data simultaneously. In particular, we propose to adapt the Stochastic Gradient Descent method to address missing data in linear systems. Our proposed algorithm, the Stochastic Gradient Descent for Missing Data method (mSGD), is introduced and theoretical convergence guarantees are provided. In addition, we include numerical experiments on simulated and real world data that demonstrate the usefulness of our method.},
+  Doi = {10.4208/nmtma.OA-2018-0066},
+  ISSN                     = {00359246},
+  Keywords                 = {supervised learning},
+  Owner                    = {aude},
+  Timestamp                = {2021.01.12},
+  Topics                   = {supervised learning}
+
+
+}
+
+
+@InProceedings{mattei2019miwae,
+  Title                    = {MIWAE: Deep generative modelling and imputation of incomplete data sets},
+  Author                   = {Mattei, Pierre-Alexandre and Frellsen, Jes},
+  Booktitle                = {Proceedings of the 36th International Conference on Machine Learning},
+  Publisher                = {Kamalika Chaudhuri and Ruslan Salakhutdinov},
+  Pages                    = {4413--4423},
+  Volume = {97}, 
+  Series = {Proceedings of Machine Learning Research},
+  Year                     = {2019},
+  Abstract = {We consider the problem of handling missing data with deep latent variable models (DLVMs). First, we present a simple technique to train DLVMs when the training set contains missing-at-random data. Our approach, called MIWAE, is based on the importance-weighted autoencoder (IWAE), and maximises a potentially tight lower bound of the log-likelihood of the observed data. Compared to the original IWAE, our algorithm does not induce any additional computational overhead due to the missing data. We also develop Monte Carlo techniques for single and multiple imputation using a DLVM trained on an incomplete data set. We illustrate our approach by training a convolutional DLVM on incomplete static binarisations of MNIST. Moreover, on various continuous data sets, we show that MIWAE provides extremely accurate single imputations, and is highly competitive with state-of-the-art methods.},
+  Url = {http://proceedings.mlr.press/v97/mattei19a.html},
+  Keywords                 = {deep learning; neural network},
+  Owner                    = {aude},
+  Timestamp                = {2021.01.12},
+  Topics                   = {deep learning}
+}
+
 
 @Book{mclachlan_krishnan_2008,
   Title                    = {The EM Algorithm and Extensions},
@@ -1903,6 +1980,49 @@ This paper reviews recent advances in missing data research using graphical mode
   Url                      = {https://arxiv.org/abs/1510.03924},
   Topics                   = {time series; imputation}
 }
+
+
+@InProceedings{morvan_etal_2020_a,
+  Title                    = {Linear predictor on linearly-generated data with missing values: non consistency and solutions},
+  Author                   = {Le Morvan, Marine and Prost, Nicolas and Josse, Julie and Moreau, Thomas and Scornet, Erwan and Varoquaux, Gael},
+  Booktitle                = {Proceedings of Machine Learning Research},
+  Year                     = {2020},
+  Pages = {3165–3174},
+  Volume = {108},
+  Series = {Proceedings of Machine Learning Research},
+  Editor                   = {-},
+  Eventdate                = {26–28 Aug 2020},
+
+  Abstract                 = {We consider building predictors when the data have missing values. We study the seemingly-simple case where the target to predict is a linear function of the fully-observed data and we show that, in the presence of missing values, the optimal predictor may not be linear. In the particular Gaussian case, it can be written as a linear function of multiway interactions between the observed data and the various missing-value indicators. Due to its intrinsic complexity, we study a simple approximation and prove generalization bounds with finite samples, highlighting regimes for which each method performs best. We then show that multilayer perceptrons with ReLU activation functions can be consistent, and can explore good trade-offs between the true model and approximations. Our study highlights the interesting family of models that are beneficial to fit with missing values depending on the amount of data available.},
+  Archiveprefix            = {arXiv},
+  Url                      = {https://arxiv.org/abs/2002.00658},
+   Keywords                 = {supervised learning},  
+  Eprint                   = {2002.00658v2},
+  Owner                    = {aude},
+  Timestamp                = {2021.01.12},
+  Topics                   = {supervised learning; neural network}
+}
+
+
+  @InProceedings{morvan_etal_2020_b,
+  Title                    = {NeuMiss networks: differentiable programming for supervised learning with missing values.},
+  Author                   =  {Le Morvan, Marine and Josse, Julie and Moreau, Thomas and Scornet, Erwan and Varoquaux, Gael},
+  Booktitle                = {Advances in Neural Information Processing Systems, 33},
+  Year                     = {2020},
+  Editor                   = {-},
+  Publisher                = {IEEE},
+
+  Eventdate                = {2020-12},
+
+  Abstract                 = {The presence of missing values makes supervised learning much more challenging. Indeed, previous work has shown that even when the response is a linear function of the complete data, the optimal predictor is a complex function of the observed entries and the missingness indicator. As a result, the computational or sample complexities of consistent approaches depend on the number of missing patterns, which can be exponential in the number of dimensions. In this work, we derive the analytical form of the optimal predictor under a linearity assumption and various missing data mechanisms including Missing at Random (MAR) and self-masking (Missing Not At Random). Based on a Neumann-series approximation of the optimal predictor, we propose a new principled architecture, named NeuMiss networks. Their originality and strength come from the use of a new type of non-linearity: the multiplication by the missingness indicator. We provide an upper bound on the Bayes risk of NeuMiss networks, and show that they have good predictive accuracy with both a number of parameters and a computational complexity independent of the number of missing data patterns. As a result they scale well to problems with many features, and remain statistically efficient for medium-sized samples. Moreover, we show that, contrary to procedures using EM or imputation, they are robust to the missing data mechanism, including difficult MNAR settings such as self-masking.},
+  Archiveprefix            = {arXiv},
+  Url                      = {https://arxiv.org/abs/2007.01627},
+  Eprint                   = {2007.01627v4},
+  
+  Keywords                 = {supervised learning; informative missing values},  
+  Owner                    = {aude},
+  Timestamp                = {2021.01.12},
+  Topics                   = {supervised learning}}
 
 @Article{murray_reiter_2016,
   Author                   = {Murray, J. S. and Reiter, J. P.},
@@ -2564,41 +2684,64 @@ Nonignorable; Nonparametric saturated; Sensitivity analysis.},
   Topics                   = {machine learning}
 }
 
+
 @Article{sportisse_etal_2018,
-  Title                    = {Imputation and low-rank estimation with Missing Non At Random data},
+  Title                    = {Imputation and low-rank estimation with Missing Not At Random data},
   Author                   = {Sportisse, Aude and Boyer, Claire and Josse, Julie},
-  Journal                  = {arXiv preprint},
-  archivePrefix            = {arXiv},
-  eprint                   = {1812.11409},
-  primaryClass             = {stat.ML},
-  Year                     = {2018},
-  Url                      = {https://arxiv.org/abs/1812.11409},
+  Journal                  = {Statistics and Computing},
+   Year                     = {2018},
+   Number                   = {6},
+   Pages                    = {1629-1643},
+   Volume                   = {30},
 
   Abstract                 = {Missing values challenge data analysis because many supervised and unsu-pervised learning methods cannot be applied directly to incomplete data. Matrix completion based on low-rank assumptions are very powerful solution for dealing with missing values. However, existing methods do not consider the case of informative missing values which are widely encountered in practice. This paper proposes matrix completion methods to recover Missing Not At Random (MNAR) data. Our first contribution is to suggest a model-based estimation strategy by modelling the missing mechanism distribution. An EM algorithm is then implemented, involving a Fast Iterative Soft-Thresholding Algorithm (FISTA). Our second contribution is to suggest a computationally efficient surrogate estimation by implicitly taking into account the joint distribution of the data and the missing mechanism: the data matrix is concatenated with the mask coding for the missing values ; a low-rank structure for exponential family is assumed on this new matrix, in order to encode links between variables and missing mechanisms. The methodology that has the great advantage of handling different missing value mechanisms is robust to model specification errors.},
+  Doi                      = {10.1007/s11222-020-09963-5},
   Keywords                 = {Informative missing values; denoising; matrix completion; accelerated proximal gradient method; EM algorithm; nuclear norm penalty},
-
   Owner                    = {imke},
   Timestamp                = {2019.03.28},
   Topics                   = {mnar}
 }
 
-@Article{sportisse_etal_2019,
+@InProceedings{sportisse_etal_2019,
   Title                    = {Estimation with informative missing data in the low-rank model with random effects},
-  Author                   = {Sportisse, Aude and Boyer, Claire and Josse, Julie},
-  Journal                  = {arXiv preprint},
-  archivePrefix            = {arXiv},
-  eprint                   = {1906.02493},
-  primaryClass             = {stat.ST},
-  Year                     = {2019},
+  Author                   =  {Sportisse, Aude and Boyer, Claire and Josse, Julie},
+  Booktitle                = {Advances in Neural Information Processing Systems, 33},
+  Year                     = {2020},
+  Editor                   = {-},
+  Publisher                = {IEEE},
 
-  Abstract                 = {Missing Not At Random values are considered to be non-ignorable and require defining a model for the missing values mechanismwhich involves strong a priori on the parametric form of the distribution and makes the inference or imputation tasks more complex. Methodologies to handle MNAR values also focus on simple settings assuming that only one variable (such as the outcome one) has missing entries. Recent work of Mohan and Pearl based on graphical models and causality show that specific settings of MNAR enable to recover some aspects of the distribution without specifying the MNAR mechanism. We pursue this line of research. Considering a data matrix generated from a probabilistic principal component analysis (PPCA) model containing several MNAR variables, not necessarily under the same self-masked missing mechanism, we propose estimators for the means, variances and covariances of the variables and study their consistency. The estimators present the great advantage of being computed by only using observed data. In addition, we propose an imputation method of the data matrix and an estimation of the PPCA loading matrix. We compare our proposal with results obtained for ignorable missing values based on the use of expectation-maximization algorithm.},
-  Keywords                 = {informative missing values; selection bias; latent variables; probabilistic principal
-component analysis; missingness graph; matrix completion},
+  Eventdate                = {2020-12},
 
+  Abstract                 = {Missing Not At Random values are considered to be non-ignorable and require defining a model for the missing values mechanism which involves strong a priori on the parametric form of the distribution and makes the inference or imputation tasks more complex. Methodologies to handle MNAR values also focus on simple settings assuming that only one variable (such as the outcome one) has missing entries. Recent work of Mohan and Pearl based on graphical models and causality show that specific settings of MNAR enable to recover some aspects of the distribution without specifying the MNAR mechanism. We pursue this line of research. Considering a data matrix generated from a probabilistic principal component analysis (PPCA) model containing several MNAR variables, not necessarily under the same self-masked missing mechanism, we propose estimators for the means, variances and covariances of the variables and study their consistency. The estimators present the great advantage of being computed by only using observed data. In addition, we propose an imputation method of the data matrix and an estimation of the PPCA loading matrix. We compare our proposal with results obtained for ignorable missing values based on the use of expectation-maximization algorithm.},
+  Archiveprefix            = {arXiv},
+  Url                      = {https://arxiv.org/abs/1906.02493},
+  Eprint                   = {1906.02493v3},
+  Keywords                 = {informative missing values; selection bias; latent variables; probabilistic principal component analysis; missingness graph; matrix completion},  
   Owner                    = {imke},
   Timestamp                = {2019.12.12},
-  Topics                   = {mnar; factorial data analysis}
-}
+  Topics                   = {mnar; factorial data analysis}}
+  
+  
+  @InProceedings{sportisse_etal_2020,
+  Title                    = {Debiasing Averaged Stochastic Gradient Descent to handle missing values},
+  Author                   =  {Sportisse, Aude and Boyer, Claire and Dieuleveut, Aymeric and Josse, Julie},
+  Booktitle                = {Advances in Neural Information Processing Systems, 33},
+  Year                     = {2020},
+  Editor                   = {-},
+  Publisher                = {IEEE},
+
+  Eventdate                = {2020-12},
+
+  Abstract                 = {Stochastic gradient algorithm is a key ingredient of many machine learning methods, particularly appropriate for large-scale learning. However, a major caveat of large data is their incompleteness. We propose an averaged stochastic gradient algorithm handling missing values in linear models. This approach has the merit to be free from the need of any data distribution modeling and to account for heterogeneous missing proportion. In both streaming and finite-sample settings, we prove that this algorithm achieves optimal convergence rate at the iteration, the same as without missing values. We show the convergence behavior and the relevance of the algorithm not only on synthetic data but also on real data sets, including those collected from medical register.},
+    Archiveprefix            = {arXiv},
+  Url                      = {https://arxiv.org/abs/2002.09338},
+  Eprint                   = {2002.09338v2},
+  Keywords                 = {informative missing values; selection bias; latent variables; probabilistic principal component analysis; missingness graph; matrix completion},  
+  Owner                    = {aude},
+  Timestamp                = {2021.01.12},
+  Topics                   = {supervised learning}}
+  
+
 
 @Article{stacklies_etal_B2007,
   Title                    = {{pcaMethods} -- a bioconductor package providing {PCA} methods for incomplete data},
