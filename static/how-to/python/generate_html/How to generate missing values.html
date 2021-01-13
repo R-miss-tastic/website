@@ -13017,45 +13017,6 @@ ul.typeahead-list  > li > a.pull-right {
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
-<style type="text/css">
-    
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-
-    </style>
 
 
 <style type="text/css">
@@ -13134,7 +13095,14 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Notations">Notations<a class="anchor-link" href="#Notations">&#182;</a></h1>
+<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Notations">Notations<a class="anchor-link" href="#Notations">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13144,6 +13112,35 @@ div#notebook {
 <p>Let's denote by $\mathbf{X}\in\mathcal{X_1}\times\dots\times\mathcal{X_p}$ the complete observations. We assume that $\mathbf{X}$ is a concatenation of $p$ columns $X_j\in\mathcal{X_j}$, $j\in\{1,\dots,p\}$, where $dim(\mathcal{X_j})=n$ for all $j$.</p>
 <p>The data can be composed of quantitative and/or qualitative values, hence $\mathcal{X_j}$ can be $\mathbb{R}^n$, $\mathbb{Z}^n$ or more generally $\mathcal{S}^n$ for any discrete set $S$.</p>
 <p>Missing values are indicated as <code>NA</code> (not available) and we define an indicator matrix $\mathbf{R}\in\{0,1\}^{n\times p}$ such that $R_{ij}=1$ if $X_{ij}$ is observed and $R_{ij}=0$ otherwise. We call this matrix $\mathbf{R}$ the response (or missingness) pattern of the observations $\mathbf{X}$. According to this pattern, we can partition the observations $\mathbf{X}$ into observed and missing: $\mathbf{X} = (\mathbf{X}^{obs}, \mathbf{X}^{mis})$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Definition-of-the-mechanisms">Definition of the mechanisms<a class="anchor-link" href="#Definition-of-the-mechanisms">&#182;</a></h2><p>In order to define the different missing values mechanisms, both $\mathbf{X}$ and $\mathbf{R}$ are modeled as random variables with probability distributions $\mathbb{P}_X$ and $\mathbb{P}_R$ respectively. We parametrize the missingness distribution $\mathbb{P}_R$ by a parameter $\phi$.</p>
+<h3 id="MCAR">MCAR<a class="anchor-link" href="#MCAR">&#182;</a></h3><p>The observations are said to be Missing Completely At Random (MCAR) if the probability that an observation is missing is independent of the variables and observations: the probability that an observation is missing does not depend on $(\mathbf{X}^{obs},\mathbf{X}^{mis})$. Formally this is:
+$$\mathbb{P}_R(R\,|\, X^{obs}, X^{mis}; \phi) = \mathbb{P}_R(R) \qquad \forall \, \phi.$$</p>
+<h3 id="MAR">MAR<a class="anchor-link" href="#MAR">&#182;</a></h3><p>The observations are said to be Missing At Random (MAR) if the probability that an observation is missing only depends on the observed data $\mathbf{X}^{obs}$. Formally,</p>
+$$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qquad \forall \,\phi,\, \forall \, X^{mis}.$$<h3 id="MNAR">MNAR<a class="anchor-link" href="#MNAR">&#182;</a></h3><p>The observations are said to be Missing Not At Random (MNAR) in all other cases, i.e. the missingness depends on the missing values and potentially also on the observed values.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Use-of-produce_NA-with-default-settings">Use of <code>produce_NA</code> with default settings<a class="anchor-link" href="#Use-of-produce_NA-with-default-settings">&#182;</a></h1><p>For now, with the main function <code>produce_NA</code>, it is possible to generate missing values only for quantitative data which are complete.</p>
+<p>Missing values can be generated following one or more of the three main missing values mechanisms (see below for details).</p>
+<p>The function is widely based on the code of Boris Muzellec available <a href="https://github.com/BorisMuzellec/MissingDataOT">here</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>We generate a small example of observations $\mathbf{X}$:</p>
 
 </div>
@@ -13156,7 +13153,7 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">utils</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 </pre></div>
@@ -13195,7 +13192,7 @@ div#notebook {
 <span class="n">Sigma_X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
 <span class="n">X_complete_cont</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">mu_X</span><span class="p">,</span> <span class="n">Sigma_X</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
 
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">poisson</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">poisson</span>
 
 <span class="n">lamb</span> <span class="o">=</span> <span class="mf">0.5</span>
 <span class="n">X_complete_discr</span> <span class="o">=</span> <span class="n">poisson</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">lamb</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
@@ -13211,7 +13208,7 @@ div#notebook {
 <span class="n">X_complete</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_complete</span><span class="p">)</span>
 <span class="n">X_complete</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_complete</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
 <span class="n">X_complete</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">]</span>
-<span class="n">X_complete</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">X_complete</span><span class="o">.</span><span class="n">head</span><span class="p">(</span>
 </pre></div>
 
     </div>
@@ -13303,17 +13300,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="What-data-can-be-handled">What data can be handled<a class="anchor-link" href="#What-data-can-be-handled">&#182;</a></h1><p>For now, with the main function <code>produce_NA</code>, it is possible to generate missing values only for quantitative data which are complete.</p>
-<p>Missing values can be generated following one or more of the three main missing values mechanisms (see below for details).</p>
-<p>The function is widely based on the code of Boris Muzellec available <a href="https://github.com/BorisMuzellec/MissingDataOT">here</a>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Use-of-produce_NA-with-default-settings">Use of produce_NA with default settings<a class="anchor-link" href="#Use-of-produce_NA-with-default-settings">&#182;</a></h1><h2 id="Minimal-set-of-arguments">Minimal set of arguments<a class="anchor-link" href="#Minimal-set-of-arguments">&#182;</a></h2><p>In order to generate missing values for given data, <code>produce_NA</code> requires the following arguments:</p>
+<h2 id="Minimal-set-of-arguments">Minimal set of arguments<a class="anchor-link" href="#Minimal-set-of-arguments">&#182;</a></h2><p>In order to generate missing values for given data, <code>produce_NA</code> requires the following arguments:</p>
 <ul>
 <li><p><code>X</code>: the initial data (can be only complete for now) as a matrix or data.frame</p>
 </li>
@@ -13500,17 +13487,15 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The main function <code>produce_NA</code> allows generating missing values in various ways. These can be specified through different arguments:</p>
 <p><code>produce_NA(X, p_miss, mecha = "MCAR", opt = None, p_obs = None, q = None)</code></p>
-<h2 id="Mechanisms">Mechanisms<a class="anchor-link" href="#Mechanisms">&#182;</a></h2><p>In order to define the different missing values mechanisms, both $\mathbf{X}$ and $\mathbf{R}$ are modeled as random variables with probability distributions $\mathbb{P}_X$ and $\mathbb{P}_R$ respectively. We parametrize the missingness distribution $\mathbb{P}_R$ by a parameter $\phi$.</p>
-
+<h2 id="Mechanisms">Mechanisms<a class="anchor-link" href="#Mechanisms">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="MCAR">MCAR<a class="anchor-link" href="#MCAR">&#182;</a></h3><h4 id="Definition">Definition<a class="anchor-link" href="#Definition">&#182;</a></h4><p>The observations are said to be Missing Completely At Random (MCAR) if the probability that an observation is missing is independent of the variables and observations: the probability that an observation is missing does not depend on $(\mathbf{X}^{obs},\mathbf{X}^{mis})$. Formally this is:
-$$\mathbb{P}_R(R\,|\, X^{obs}, X^{mis}; \phi) = \mathbb{P}_R(R) \qquad \forall \, \phi.$$</p>
-<h4 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h4>
+<h3 id="MCAR">MCAR<a class="anchor-link" href="#MCAR">&#182;</a></h3><p>Missing Completely At Random values are generated using only the desired proportion of missing values <code>p_miss</code>, i.e. each value have the same probability <code>p_miss</code> of being missing. Therefore, we generate missing values using a Bernoulli distribution of parameter <code>p_miss</code>.</p>
+
 </div>
 </div>
 </div>
@@ -13571,13 +13556,12 @@ $$\mathbb{P}_R(R\,|\, X^{obs}, X^{mis}; \phi) = \mathbb{P}_R(R) \qquad \forall \
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="MAR">MAR<a class="anchor-link" href="#MAR">&#182;</a></h3><h4 id="Definition">Definition<a class="anchor-link" href="#Definition">&#182;</a></h4><p>The observations are said to be Missing At Random (MAR) if the probability that an observation is missing only depends on the observed data $\mathbf{X}^{obs}$. Formally,</p>
-$$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qquad \forall \,\phi,\, \forall \, X^{mis}.$$<p>Missing At Random mechanism values are generated by using a logistic model. A subset of fully observed variables (with <em>no</em> missing values) is randomly selected. The remaining variables have missing values according to a logistic model (depending on the fully observed variables only) with random weights, re-scaled so as to attain the desired proportion of missing values on those variables.</p>
+<h3 id="MAR">MAR<a class="anchor-link" href="#MAR">&#182;</a></h3><p>Missing At Random mechanism values are generated by using a logistic model. A subset of fully observed variables (with <em>no</em> missing values) is randomly selected. The remaining variables have missing values according to a logistic model (depending on the fully observed variables only) with random weights, re-scaled so as to attain the desired proportion of missing values on those variables.</p>
 <p>There is an additional argument:</p>
 <ul>
 <li><code>p_obs</code>: the proportion of fully observed variables that will be used for the logistic masking model. Note that at least one variable is chosen to be observed</li>
 </ul>
-<h4 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h4>
+
 </div>
 </div>
 </div>
@@ -13638,12 +13622,11 @@ $$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qqu
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="MNAR">MNAR<a class="anchor-link" href="#MNAR">&#182;</a></h3><h4 id="Definition">Definition<a class="anchor-link" href="#Definition">&#182;</a></h4><p>The observations are said to be Missing Not At Random (MNAR) in all other cases.</p>
-<p>For generating MNAR data, an aditionnal argument should be given:</p>
+<h3 id="MNAR">MNAR<a class="anchor-link" href="#MNAR">&#182;</a></h3><p>For generating MNAR data, an aditionnal argument should be given:</p>
 <ul>
 <li><code>opt</code>: it indicates how the missing-data mechanism is generated; using a logistic regression, logistic regression for generating a self-masked MNAR mechanism ("selfmasked") or quantile censorship ("quantile")</li>
 </ul>
-<h4 id="Example-1:-MNAR-with-logistic-model">Example 1: MNAR with logistic model<a class="anchor-link" href="#Example-1:-MNAR-with-logistic-model">&#182;</a></h4>
+<h4 id="MNAR-with-logistic-model">MNAR with logistic model<a class="anchor-link" href="#MNAR-with-logistic-model">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -13723,13 +13706,14 @@ $$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qqu
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Example-2:-self-masked-MNAR">Example 2: self-masked MNAR<a class="anchor-link" href="#Example-2:-self-masked-MNAR">&#182;</a></h4>
+<h4 id="Self-masked-MNAR">Self-masked MNAR<a class="anchor-link" href="#Self-masked-MNAR">&#182;</a></h4>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>For self-masked MNAR values, the missingness of the variable $X_j$ only depends on the values of $X_j$.</p>
 <p>With <code>opt = "selfmasked"</code>, self-masked missing not at random are generated with a logistic self-masking model.</p>
 <p>Variables have missing values probabilities
     given by a logistic model, taking the same variable as input (hence, missingness is independent from one variable
@@ -13795,7 +13779,7 @@ $$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qqu
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Example-3:-MNAR-with-quantile-censorship">Example 3: MNAR with quantile censorship<a class="anchor-link" href="#Example-3:-MNAR-with-quantile-censorship">&#182;</a></h4>
+<h4 id="MNAR-with-quantile-censorship">MNAR with quantile censorship<a class="anchor-link" href="#MNAR-with-quantile-censorship">&#182;</a></h4>
 </div>
 </div>
 </div>
