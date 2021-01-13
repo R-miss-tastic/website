@@ -2,19 +2,21 @@
 title: "How to simulate missing values?"
 author: "Teresa Alves de Sousa, Imke Mayer"
 date: "`r format(Sys.time(), '%d %B %Y')`"
-output:
-  pdf_document:
+output: 
+  bookdown::pdf_document2:
     toc: yes
     toc_depth: '3'
-  html_document:
+  bookdown::html_document2:
     number_sections: yes
     toc: yes
     toc_depth: 3
-    toc_float: yes
+    toc_float: yes 
 linkcolor: blue
 link-citations: yes
 bibliography: bibliography.bib
 ---
+
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -26,22 +28,59 @@ Now, if you have a method that deals with missing values, for instance imputatio
 The mechanisms generating missing values can be various but usually they are classified into three main categories defined by [@inference_missData]: *missing completely at random* (MCAR), *missing at random* (MAR) and *missing not at random* (MNAR). The first two are also qualified as *ignorable* missing values mechanisms, for instance in likelihood-based approaches to handle missing values, whereas the MNAR mechanism generates *nonignorable* missing values.
 In the following we will briefly introduce each mechanism (with the definitions used widely in the literature) and propose ways of simulations missing values under these three mechanism assumptions. For more precise definitions we refer to references in the bibliography on the [R-miss-tastic](https://rmisstastic.netlify.com/){target="_blank"} website.
 
-# Notations
+# Introduction 
+
+## Notations
+
 Let's denote by $\mathbf{X}\in\mathcal{X_1}\times\dots\times\mathcal{X_p}$ the complete observations. We assume that $\mathbf{X}$ is a concatenation of $p$ columns $X_j\in\mathcal{X_j}$, $j\in\{1,\dots,p\}$, where $dim(\mathcal{X_j})=n$ for all $j$. 
 
 The data can be composed of quantitative and/or qualitative values, hence $\mathcal{X_j}$ can be $\mathbb{R}^n$, $\mathbb{Z}^n$ or more generally $\mathcal{S}^n$ for any discrete set $S$.
 
 Missing values are indicated as `NA` (not available) and we define an indicator matrix $\mathbf{R}\in\{0,1\}^{n\times p}$ such that $R_{ij}=1$ if $X_{ij}$ is observed and $R_{ij}=0$ otherwise. We call this matrix $\mathbf{R}$ the response (or missingness) pattern of the observations $\mathbf{X}$. According to this pattern, we can partition the observations $\mathbf{X}$ into observed and missing: $\mathbf{X} = (\mathbf{X}^{obs}, \mathbf{X}^{mis})$.
 
+## Definition of the mechanisms 
+
+In order to define the different missing values mechanisms, both $\mathbf{X}$ and $\mathbf{R}$ are modeled as random variables with probability distributions $\mathbb{P}_X$ and $\mathbb{P}_R$ respectively. We parametrize the missingness distribution $\mathbb{P}_R$ by a parameter $\phi$.
+
+### MCAR
+
+The observations are said to be Missing Completely At Random (MCAR) if the probability that an observation is missing is independent of the variables and observations: the probability that an observation is missing does not depend on $(\mathbf{X}^{obs},\mathbf{X}^{mis})$. Formally this is:
+$$\mathbb{P}_R(R\,|\, X^{obs}, X^{mis}; \phi) = \mathbb{P}_R(R) \qquad \forall \, \phi.$$
+
+### MAR
+
+The observations are said to be Missing At Random (MAR) if the probability that an observation is missing only depends on the observed data $\mathbf{X}^{obs}$. Formally,
+
+$$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qquad \forall \,\phi,\, \forall \, X^{mis}.$$
+
+### MNAR
+
+The observations are said to be Missing Not At Random (MNAR) in all other cases, i.e. the missingness depends on the missing values and potentially also on the observed values.
+
+
+# Use of `produce_NA` with default settings
+
+With the main function `produce_NA` it is possible to generate missing values for quantitative, categorical or mixed data, provided that it is available in form of a `data.frame` or `matrix`.
+
+Missing values can be generated following one or more of the three main missing values mechanisms (see below for details).
+
+If the data is already incomplete, it is possible to add a specific amount of additional missing values, in the already incomplete features or other complete features.
+
+Important: Currently there is no option available for the mains function `produce_NA` to specify that every observation must contain at least one value after amputation. Hence, in the data.frame output by `produce_NA` there might be empty observations.
+
+Except for the MCAR mechanism, our function `produce_NA` internally calls the `ampute` function of the `mice` R-package. See [@mice-ampute] for a detailed description of this latter function. A vignette for the function `ampute` is available [here](https://rianneschouten.github.io/mice_ampute/vignette/ampute.html). 
+
 We generate a small example of observations $\mathbf{X}$:
+
 ```{r prepare}
 suppressPackageStartupMessages(require(MASS))
 suppressPackageStartupMessages(require(norm))
 suppressPackageStartupMessages(require(VIM))
 suppressPackageStartupMessages(require(ggplot2))
 suppressPackageStartupMessages(require(naniar))
+library("devtools")
 
-source("amputation.R")
+source_url('https://raw.githubusercontent.com/R-miss-tastic/website/master/static/how-to/generate/amputation.R')
 set.seed(1)
 ```
 
@@ -64,18 +103,6 @@ X.complete[,4] <- as.factor(X.complete[,4])
 levels(X.complete[,4]) <- c("F", "E", "D", "C", "B", "A")
 ```
 
-# What data can be handled
-With the main function `produce_NA` it is possible to generate missing values for quantitative, categorical or mixed data, provided that it is available in form of a `data.frame` or `matrix`.
-
-Missing values can be generated following one or more of the three main missing values mechanisms (see below for details).
-
-If the data is already incomplete, it is possible to add a specific amount of additional missing values, in the already incomplete features or other complete features.
-
-Important: Currently there is no option available for the mains function `produce_NA` to specify that every observation must contain at least one value after amputation. Hence, in the data.frame output by `produce_NA` there might be empty observations.
-
-Except for the MCAR mechanism, our function `produce_NA` internally calls the `ampute` function of the `mice` R-package. See [@mice-ampute] for a detailed description of this latter function.
-
-# Use of `produce_NA` with default settings
 
 ## Minimal set of arguments
 
@@ -127,13 +154,9 @@ The main function `produce_NA` allows generating missing values in various ways.
 
 ## Mechanisms
 
-In order to define the different missing values mechanisms, both $\mathbf{X}$ and $\mathbf{R}$ are modeled as random variables with probability distributions $\mathbb{P}_X$ and $\mathbb{P}_R$ respectively. We parametrize the missingness distribution $\mathbb{P}_R$ by a parameter $\phi$.
-
 ### MCAR
-#### Definition
-The observations are said to be Missing Completely At Random (MCAR) if the probability that an observation is missing is independent of the variables and observations: the probability that an observation is missing does not depend on $(\mathbf{X}^{obs},\mathbf{X}^{mis})$. Formally this is:
-$$\mathbb{P}_R(R\,|\, X^{obs}, X^{mis}; \phi) = \mathbb{P}_R(R) \qquad \forall \, \phi.$$
-#### Example
+
+Missing Completely At Random values are generated using only the desired proportion of missing values `perc.missing`, i.e. each value have the same probability `perc.missings` of being missing. Therefore, we generate missing values using a Bernoulli distribution of parameter `perc.missing`. 
 
 ```{r mcar_data}
 # Sample mcar missing data -----------------------------------------
@@ -146,16 +169,40 @@ writeLines(paste0("Percentage of newly generated missing values: ", 100*sum(R.mc
 matrixplot(X.mcar,  cex.axis = 0.5, interactive = F)
 ```
 
-### MAR
-#### Definition
-The observations are said to be Missing At Random (MAR) if the probability that an observation is missing only depends on the observed data $\mathbf{X}^{obs}$. Formally,
+### MAR {#secmar}
 
-$$\mathbb{P}_R(R\,|\,X^{obs},X^{mis};\phi)=\mathbb{P}_R(R\,|\,X^{obs};\phi) \qquad \forall \,\phi,\, \forall \, X^{mis}.$$
+Missing At Random values are generated using a logistic model leading to `perc.missing` percent of missing values in each missing variable. 
 
-#### Example
+By default, all variables contain missing values (see Section \@ref(secincomp) for changing it). More precisely, for $$X=(X_1,X_2,X_3)=\begin{pmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9 \\
+10 & 11 & 12
+\end{pmatrix},$$ we generate missing values in $X_1$ using a logistic model depending on the variables $(X_2,X_3)$ (thus the missingness depend on the observed values) where $X_2$ and $X_3$ have the same weights  in the model (see Section \@ref(seccov) for changing it). 
+
+Then, there are two strategies: 
+
+* By default, we first generate missing values in $X_1$ and obtain a matrix containing missing values in the first column, which can be for example
+$$X_1^\mathrm{NA}=\begin{pmatrix}
+1  \\
+\mathrm{NA} \\
+7 \\
+10
+\end{pmatrix}.$$ We generate missing values in $X_2$ and $X_3$ in the same way to obtain $X_2^\mathrm{NA}$ and $X_3^\mathrm{NA}$. The final matrix is formed by
+$X^\mathrm{NA}=(X_1^\mathrm{NA},X_2^\mathrm{NA},X_3^\mathrm{NA})$. The rows which only contain missing values are handled by replacing one of the missing values (chosen randomly) by its value given in $X$.  
+
+* We can also generate missing values by patterns setting `by.patterns=T`. For $X\in \mathbb{R}^{n\times 2}$, by default the patterns matrix is 
+$$\begin{pmatrix}
+0 & 1 & 1 \\
+1 & 0 & 1 \\
+1 & 1 & 0
+\end{pmatrix},$$
+where `0` indicates that the variable should have missing values whereas `1` means that it should be oserved. In this case, there is a maximum of one missing data per row, since we generate missing values directly for the full matrix $X$ using the patterns matrix repeatedly (the frequency of each pattern can be specified, see Section \@ref(secpattern), by default they have the same frequency).
+We can also specify a patterns matrix (details are given in Section \@ref(secpattern)).
+
 ```{r mar_data}
 # Sample mar missing data ----------------------------------------
-mar <- produce_NA(X.complete, mechanism="MAR", perc.missing = 0.2)
+mar <- produce_NA(X.complete, mechanism="MAR", perc.missing = 0.2, by.patterns= F)
 
 X.mar <- mar$data.incomp
 R.mar <- mar$idx_newNA
@@ -164,15 +211,19 @@ writeLines(paste0("Percentage of newly generated missing values: ", 100*sum(R.ma
 matrixplot(X.mar,  cex.axis = 0.5, interactive = F)
 ```
 
+Here, note that the generation of missing values relies on the first definition "by pattern" of MAR mechanism, which has been introduced in [@inference_missData]. 
+
 ### MNAR
 
-#### Definition
-The observations are said to be Missing Not At Random (MNAR) in all other cases.
+#### Logistic model with missing values as predictors
 
-#### Example 1: logistic model with missing values as predictors
+Missing Not At Random values are generated using a logistic model leading to `perc.missing` percent of missing values in each missing variable. 
+
+By default, all variables will contain missing values (see Section \@ref(secincomp) for changing it). More precisely, for $X=(X_1,X_2,X_3)$ we will generate missing values in $X_1$ using a logistic model depending on the variables $(X_1,X_2,X_3)$ (thus the missingness depends on the missing and observed values). Then, the same method as in Section \@ref(secmar) is used. 
+
 ```{r mnar_data}
 # Sample mnar missing data -----------------------------------------
-mnar <- produce_NA(X.complete, mechanism="MNAR", perc.missing = 0.2)
+mnar <- produce_NA(X.complete, mechanism="MNAR", perc.missing = 0.2, by.patterns= F)
 
 X.mnar <- mnar$data.incomp
 R.mnar <- mnar$idx_newNA
@@ -181,7 +232,16 @@ writeLines(paste0("Percentage of newly generated missing values: ", 100*sum(R.mn
 matrixplot(X.mnar,  cex.axis = 0.5, interactive = F)
 ```
 
-#### Example 2: self-masking MNAR (for quantitative variables)
+#### Self-masked MNAR (for quantitative variables)
+
+For self-masked MNAR values, the missingness of the variable $X_j$ only depends on the values of $X_j$. 
+
+If the argument `self.mask` is filled in, self-masked missing Not At Random values are generated using a quantile censorship (three options: "sym", "upper", "lower").
+
+The variables for which missing values are generated can be given in the parameters `idx.incomplete`. Note that the proportion of missing values specified in the function call refers to the **proportion w.r.t. the incomplete variables**. Hence if you select half of your variables, to contain missing values and choose `perc.missing=0.2`, then the total proportion of missing values in the entire matrix/data.frame will be 0.2/2 = 0.1.
+
+
+
 ```{r mnar_data_self-mask}
 # Sample mnar missing data -----------------------------------------
 mnar <- produce_NA(X.complete, mechanism="MNAR", perc.missing = 0.2, self.mask="lower", idx.incomplete = c(1,1,0,0))
@@ -199,12 +259,10 @@ ggplot(data=data.frame(X1=X.mnar[,1], X2=X.mnar[,2]),
   geom_miss_point()
 ```
 
-Note that the proportion of missing values specified in the function call refers to the **proportion w.r.t. the incomplete variables**. Hence if you select half of your variables, to contain missing values and choose `perc.missing=0.2`, then the total proportion of missing values in the entire matrix/data.frame will be 0.2/2 = 0.1.
-
 <!-- ### Mixed mechanisms -->
 
 
-## Specify incomplete variables
+## Specify incomplete variables {#secincomp}
 If you want to generate missing values only for a certain subset of variables, you can specify them by providing their position in the matrix/data.frame:
 
 ```{r idx.incomplete}
@@ -226,7 +284,7 @@ In the `mice` package there exists a function that allows already to generate mi
 
 In order to stay close to this `ampute` function from `mice` we adopted (and adapted) some of its arguments.
 
-### Covariates and covariates weights
+### Covariates and covariates weights {#seccov}
 
 If you want to generate MAR or MNAR missing values, you can specify which variables will be used in the missingness model. You need to specify the variables that you want to use with a binary vector. For instance if you want to use variables 1 to 3 out of 7 variales, then you specify `idx.covariates = c(1,1,1,0,0,0,0)`.
 And you need to specify their weights as well, i.e. their contribution in the model. For instance `weights.covariates = c(1/3, 1/3, 1/3, 0, 0, 0, 0)`
@@ -244,7 +302,7 @@ writeLines(paste0("Percentage of newly generated missing values (only w.r.t. to 
 matrixplot(X.miss,  cex.axis = 0.5, interactive = F)
 ```
 
-### Patterns
+### Patterns  {#secpattern}
 One might want to specify certain response/missingness patterns that are more relevant than others for a given application. This is possible by passing a matrix or data.frame whose rows contain the different patterns one wishes to generate.
 Additionally it is possible to specify the frequency of each pattern. We refer to the [vignette of the mice::ampute function](https://www.gerkovink.com/Amputation_with_Ampute/Vignette/ampute.html){target="_blank"} for more details on this and other related options.
 
@@ -261,9 +319,6 @@ $$\begin{matrix}
 1 & 1 & 1 & 1 & \dots & 1 & 0
 \end{matrix}$$
 
-This means that `0` indicates that the variable should have missing values whereas `1` means that it should be observed.  
-
-Use default patterns:
 ```{r patterns_1}
 # Sample missing data by using the by.patterns option --------------------------------
 miss <- produce_NA(X.complete, mechanism="MAR", perc.missing = 0.2, by.patterns = T)
@@ -275,7 +330,9 @@ writeLines(paste0("Percentage of newly generated missing values (only w.r.t. to 
 matrixplot(X.miss,  cex.axis = 0.5, interactive = F)
 ```
 
-Specify different patterns:
+#### Specific patterns:
+
+We can also specify different patterns as follows. 
 ```{r patterns_2}
 # Sample missing data by using the by.patterns option and user-specified patterns ----
 miss <- produce_NA(X.complete, mechanism="MAR", perc.missing = 0.2, idx.incomplete = c(1,0,0,1), by.patterns = T, patterns = matrix(c(0,1,1,1,                                                                                                                  1,1,1,0), ncol = 4, byrow=T))
@@ -287,7 +344,8 @@ writeLines(paste0("Percentage of newly generated missing values (only w.r.t. to 
 matrixplot(X.miss,  cex.axis = 0.5, interactive = F)
 ```
 
-Additionally specify the frequency of each pattern:
+In addition, the frequency of each pattern can be chosen. 
+
 ```{r patterns_3}
 # Sample missing data by using the by.patterns option and user-specified patterns ----
 miss <- produce_NA(X.complete, mechanism="MAR", perc.missing = 0.2, idx.incomplete = c(1,0,1,1), by.patterns = T, patterns  = matrix(c(0,1,1,1,                                                                                                                  1,1,0,0), ncol = 4, byrow=T), freq.patterns = c(0.2, 0.8))
