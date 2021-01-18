@@ -30,7 +30,7 @@ For a straightforward application of some the most common methods we propose sev
 <ul class="list-group" id="workflows-list_py">
 <li class="list-group-item"> [... generate missing values?](/how-to/python/generate_html/How%20to%20generate%20missing%20values.html) ([Interactive notebook](https://mybinder.org/v2/gh/R-miss-tastic/website/1ea03c906557a7dac2e132e3c5d0b44e0ddda86d?filepath=static%2Fhow-to%2Fpython%2FHow%20to%20generate%20missing%20values.ipynb))</li>
 <li class="list-group-item">  [... impute missing values?](/how-to/python/Howtoimpute.html) ([Interactive notebook](https://mybinder.org/v2/gh/R-miss-tastic/website/1ea03c906557a7dac2e132e3c5d0b44e0ddda86d?filepath=static%2Fhow-to%2Fpython%2FHowtoimpute.ipynb))</li>
-<li class="list-group-item">  [... predict with missing values?](/how-to/python/predict_html/How%20to%20predict.html) ([Interactive notebook](https://mybinder.org/v2/gh/R-miss-tastic/website/1ea03c906557a7dac2e132e3c5d0b44e0ddda86d?filepath=static%2Fhow-to%2Fpython%2FHow%20to%20predict.ipynb))</li>
+<li class="list-group-item">  [... predict with missing values?](/how-to/python/predict_html/How%20to%20predict.html) ([Interactive notebook](https://gesis.mybinder.org/binder/v2/gh/R-miss-tastic/website/736db91ff466261464dceadb872cc9db81ffb32e?filepath=static%2Fhow-to%2Fpython%2FHow%20to%20predict.ipynb))</li>
 
 </p>
 
