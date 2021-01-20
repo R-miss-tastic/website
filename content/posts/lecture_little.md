@@ -1,5 +1,5 @@
 ---
-date: 2021-01-02
+date: 2021-01-03
 author: "R-miss-tastic"
 slug: lecture
 title: "Lecture by Rod Little"

@@ -1,5 +1,5 @@
 ---
-date: 2021-01-03
+date: 2021-01-04
 author: "R-miss-tastic"
 slug: faq
 title: "FAQ"

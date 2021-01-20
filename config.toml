@@ -10,7 +10,7 @@ theme = "hugo-theme-bootstrap4-blog"
 tags = ["missing values", "missing data", "imputation", "R", "incomplete data", "rmisstastic", "rmiss"]
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 # number of posts to show on home/category/tag pages (Default: 10)
-paginate = 3
+paginate = 4
 # optionally override the site's footer with custom copyright text
 # copyright = "Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/)."
 
