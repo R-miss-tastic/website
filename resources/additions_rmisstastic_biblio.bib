@@ -1,11 +1,134 @@
+% Encoding: UTF-8
+@article{nabi_etal_2020,
+  title={Full Law Identification In Graphical Models Of Missing Data: Completeness Results},
+  author={Nabi, Razieh and Bhattacharya, Rohit and Shpitser, Ilya},
+  journal={arXiv preprint arXiv:2004.04872},
+  year={2020},
+  Url={https://arxiv.org/abs/2004.04872},
+  Abstract={Missing data has the potential to affect analyses conducted in all fields of scientific study, including healthcare, economics, and the social sciences. Several approaches to unbiased inference in the presence of non-ignorable missingness rely on the specification of the target distribution and its missingness process as a probability distribution that factorizes with respect to a directed acyclic graph. In this paper, we address the longstanding question of the characterization of models that are identifiable within this class of missing data distributions. We provide the first completeness result in this field of study -- necessary and sufficient graphical conditions under which, the full data distribution can be recovered from the observed data distribution. We then simultaneously address issues that may arise due to the presence of both missing data and unmeasured confounding, by extending these graphical conditions and proofs of completeness, to settings where some variables are not just missing, but completely unobserved.},
+  Owner                    = {imke},
+  Timestamp             = {2021.01.19},
+  Topics                   = {mnar; diagnosis}
+}
+
+@article{zhao_2020,
+  title={Statistical inference for missing data mechanisms},
+  author={Zhao, Yang},
+  journal={Statistics in Medicine},
+  volume={39},
+  number={28},
+  pages={4325--4333},
+  year={2020},
+  publisher={Wiley Online Library},
+  Doi={10.1002/sim.8727},
+  Abstract={In the literature of statistical analysis with missing data there is a significant gap in statistical inference for missing data mechanisms especially for nonmonotone missing data, which has essentially restricted the use of the estimation methods which require estimating the missing data mechanisms. For example, the inverse probability weighting methods (Horvitz and Thompson, 1952; Little and Rubin, 2002), including the popular augmented inverse probability weighting (Robins et al, 1994), depend on sufficient models for the missing data mechanisms to reduce estimation bias while improving estimation efficiency. This research proposes a semiparametric likelihood method for estimating missing data mechanisms where an EM algorithm with closed form expressions for both E‐step and M‐step is used in evaluating the estimate (Zhao et al, 2009; Zhao, 2020). The asymptotic variance of the proposed estimator is estimated from the profile score function. The methods are general and robust. Simulation studies in various missing data settings are performed to examine the finite sample performance of the proposed method. Finally, we analysis the missing data mechanism of Duke cardiac catheterization coronary artery disease diagnostic data to illustrate the method.},
+  Owner                    = {imke},
+  Timestamp             = {2021.01.19},
+  Topics                   = {inference}
+}
+
+@article{rioux_etal_2020,
+  title={Reflection on modern methods: planned missing data designs for epidemiological research},
+  author={Rioux, Charlie and Lewin, Antoine and Odejimi, Omolola A and Little, Todd D},
+  journal={International Journal of Epidemiology},
+  Doi={10.1093/ije/dyaa042},
+  Abstract={Taking advantage of the ability of modern missing data treatments in epidemiological research (e.g. multiple imputation) to recover power while avoiding bias in the presence of data that is missing completely at random, planned missing data designs allow researchers to deliberately incorporate missing data into a research design. A planned missing data design may be done by randomly assigning participants to have missing items in a questionnaire (multiform design) or missing occasions of measurement in a longitudinal study (wave-missing design), or by administering an expensive gold-standard measure to a random subset of participants while the whole sample is administered a cheaper measure (two-method design). Although not common in epidemiology, these designs have been recommended for decades by methodologists for their benefits--notably that data collection costs are minimized and participant burden is reduced, which can increase validity. This paper describes the multiform, wave-missing and two-method designs, including their benefits, their impact on bias and power, and other factors that must be taken into consideration when implementing them in an epidemiological study design.},
+  Owner                    = {imke},
+  Timestamp             = {2021.01.19},
+  Topics                   = {design}
+}
+
+@article{lee_etal_2020,
+  title={Framework for the Treatment And Reporting of Missing data in Observational Studies: The TARMOS framework},
+  author={Lee, Katherine J and Tilling, Kate and Cornish, Rosie P and Little, Roderick JA and Bell, Melanie L and Goetghebeur, Els and Hogan, Joseph W and Carpenter, James R},
+  journal={arXiv preprint arXiv:2004.14066},
+  year={2020},
+  Url={https://arxiv.org/abs/2004.14066},
+  Abstract={Missing data are ubiquitous in medical research. Although there is increasing guidance on how to handle missing data, practice is changing slowly and misapprehensions abound, particularly in observational research. We present a practical framework for handling and reporting the analysis of incomplete data in observational studies, which we illustrate using a case study from the Avon Longitudinal Study of Parents and Children. The framework consists of three steps: 1) Develop an analysis plan specifying the analysis model and how missing data are going to be addressed. An important consideration is whether a complete records analysis is likely to be valid, whether multiple imputation or an alternative approach is likely to offer benefits, and whether a sensitivity analysis regarding the missingness mechanism is required. 2) Explore the data, checking the methods outlined in the analysis plan are appropriate, and conduct the pre-planned analysis. 3) Report the results, including a description of the missing data, details on how the missing data were addressed, and the results from all analyses, interpreted in light of the missing data and the clinical relevance. This framework seeks to support researchers in thinking systematically about missing data, and transparently reporting the potential effect on the study results.},
+  Owner                    = {imke},
+  Timestamp             = {2021.01.19},
+  Topics                   = {diagnosis}
+
+}
+
+@inproceedings{yoon_sull_2020,
+  title={GAMIN: Generative Adversarial Multiple Imputation Network for Highly Missing Data},
+  author={Yoon, Seongwook and Sull, Sanghoon},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={8456--8464},
+  year={2020},
+  Url={https://openaccess.thecvf.com/content_CVPR_2020/html/Yoon_GAMIN_Generative_Adversarial_Multiple_Imputation_Network_for_Highly_Missing_Data_CVPR_2020_paper.html},
+  Abstract={We propose a novel imputation method for highly missing data. Though most existing imputation methods focus on moderate missing rate, imputation for high missing rate over 80\% is still important but challenging. As we expect that multiple imputation is indispensable for high missing rate, we propose a generative adversarial multiple imputation network (GAMIN) based on generative adversarial network (GAN) for multiple imputation. Compared with similar imputation methods adopting GAN, our method has three novel contributions: 1) We propose a novel imputation architecture which generates candidates of imputation. 2) We present a confidence prediction method to perform reliable multiple imputation. 3) We realize them with GAMIN and train it using novel loss functions based on the confidence. We synthesized highly missing datasets using MNIST and CelebA to perform various experiments. The results show that our method outperforms baseline methods at high missing rate from 80\% to 95\%.},
+  Owner                    = {imke},
+  Timestamp             = {2021.01.19},
+  Topics                   = {deep learning; gan}
+}
+
+@article{khosravi_etal_2020,
+  title={Handling missing data in decision trees: A probabilistic approach},
+  author={Khosravi, Pasha and Vergari, Antonio and Choi, YooJung and Liang, Yitao and Broeck, Guy Van den},
+  journal={arXiv preprint arXiv:2006.16341},
+  year={2020},
+  Abstract={Decision trees are a popular family of models due to their attractive properties such as interpretability and ability to handle heterogeneous data. Concurrently, missing data is a prevalent occurrence that hinders performance of machine learning models. As such, handling missing data in decision trees is a well studied problem. In this paper, we tackle this problem by taking a probabilistic approach. At deployment time, we use tractable density estimators to compute the "expected prediction" of our models. At learning time, we fine-tune parameters of already learned trees by minimizing their "expected prediction loss" w.r.t. our density estimators. We provide brief experiments showcasing effectiveness of our methods compared to few baselines.},
+  Owner                    = {imke},
+  Timestamp             = {2021.01.19},
+  Topics                   = {decision tree}
+}
+
+@article{ross_etal_2020,
+  title={When Is a Complete-Case Approach to Missing Data Valid? The Importance of Effect-Measure Modification},
+  author={Ross, Rachael K and Breskin, Alexander and Westreich, Daniel},
+  journal={American Journal of Epidemiology},
+  volume={189},
+  number={12},
+  pages={1583--1589},
+  year={2020},
+  publisher={Oxford University Press},
+  Doi={10.1093/aje/kwaa124},
+  Abstract={When estimating causal effects, careful handling of missing data is needed to avoid bias. Complete-case analysis is commonly used in epidemiologic analyses. Previous work has shown that covariate-stratified effect estimates from complete-case analysis are unbiased when missingness is independent of the outcome conditional on the exposure and covariates. Here, we assess the bias of complete-case analysis for adjusted marginal effects when confounding is present under various causal structures of missing data. We show that estimation of the marginal risk difference requires an unbiased estimate of the unconditional joint distribution of confounders and any other covariates required for conditional independence of missingness and outcome. The dependence of missing data on these covariates must be considered to obtain a valid estimate of the covariate distribution. If none of these covariates are effect-measure modifiers on the absolute scale, however, the marginal risk difference will equal the stratified risk differences and the complete-case analysis will be unbiased when the stratified effect estimates are unbiased. Estimation of unbiased marginal effects in complete-case analysis therefore requires close consideration of causal structure and effect-measure modification.},
+  Owner                    = {imke},
+  Timestamp             = {2021.01.19},
+  Topics                   = {causal inference; complete case}
+}
+
+@inproceedings{zhao2020missing,
+  title={Missing value imputation for mixed data via gaussian copula},
+  author={Zhao, Yuxuan and Udell, Madeleine},
+  booktitle={Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery \& Data Mining},
+  pages={636--646},
+  year={2020},
+  Doi={10.1145/3394486.3403106},
+  Abstract={Missing data imputation forms the first critical step of many data analysis pipelines. The challenge is greatest for mixed data sets, including real, Boolean, and ordinal data, where standard techniques for imputation fail basic sanity checks: for example, the imputed values may not follow the same distributions as the data. This paper proposes a new semiparametric algorithm to impute missing values, with no tuning parameters. The algorithm models mixed data as a Gaussian copula. This model can fit arbitrary marginals for continuous variables and can handle ordinal variables with many levels, including Boolean variables as a special case. We develop an efficient approximate EM algorithm to estimate copula parameters from incomplete mixed data. The resulting model reveals the statistical associations among variables. Experimental results on several synthetic and real datasets show the superiority of our proposed algorithm to state-of-the-art imputation algorithms for mixed data.},
+  Owner                    = {imke},
+  Timestamp             = {2021.01.19},
+  Topics                   = {imputation; matrix completion}
+}
+
+@inproceedings{ipsen_etal_2020,
+  title={How to deal with missing data in supervised deep learning?},
+  author={Ipsen, Niels and Mattei, Pierre-Alexandre and Frellsen, Jes},
+  booktitle={ICML Workshop on the Art of Learning with Missing Values (Artemiss)},
+  year={2020},
+  Url={https://hal.inria.fr/hal-03044144/},
+  Abstract={The issue of missing data in supervised learning has been largely overlooked, especially in the deep learning community. We investigate strategies to adapt neural architectures to handle missing values. Here, we focus on regression and classification problems where the features are assumed to be missing at random. Of particular interest are schemes that allow to reuse as-is a neural discriminative architecture. One scheme involves imputing the missing values with learnable constants. We propose a second novel approach that leverages recent advances in deep generative modelling. More precisely, a deep latent variable model can be learned jointly with the discriminative model, using importance-weighted variational inference in an end-to-end way. This hybrid approach, which mimics multiple imputation, also allows to impute the data, by relying on both the discriminative and the generative model. We also discuss ways of using a pre-trained generative model to train the discriminative one. In domains where powerful deep generative models are available, the hybrid approach leads to large performance gains.},
+  Owner                    = {imke},
+  Timestamp             = {2021.01.19},
+  Topics                   = {deep learning; supervised learning}
+}
+
 @Article{nguyen_etal_2019,
-  title={Low-Rank Matrix Completion: A Contemporary Survey},
-  author={Nguyen, Luong Trung and Kim, Junhan and Shim, Byonghyo},
-  journal={IEEE Access},
-  volume={7},
-  pages={94215--94237},
-  year={2019},
-  publisher={IEEE}
+  author    = {Nguyen, Luong Trung and Kim, Junhan and Shim, Byonghyo},
+  journal   = {IEEE Access},
+  title     = {Low-Rank Matrix Completion: A Contemporary Survey},
+  year      = {2019},
+  pages     = {94215--94237},
+  volume    = {7},
+  publisher = {IEEE},
+  Doi={10.1109/ACCESS.2019.2928130},
+  Abstract={As a paradigm to recover unknown entries of a matrix from partial observations, low-rank matrix completion (LRMC) has generated a great deal of interest. Over the years, there have been lots of works on this topic, but it might not be easy to grasp the essential knowledge from these studies. This is mainly because many of these works are highly theoretical or a proposal of new LRMC technique. In this paper, we give a contemporary survey on LRMC. In order to provide a better view, insight, and understanding of potentials and limitations of the LRMC, we present early scattered results in a structured and accessible way. Specifically, we classify the state-of-the-art LRMC techniques into two main categories and then explain each category in detail. We next discuss the issues to be considered when one considers using the LRMC techniques. These include intrinsic properties required for the matrix recovery and how to exploit a special structure in the LRMC design. We also discuss the convolutional neural network (CNN)-based LRMC algorithms exploiting the graph structure of a low-rank matrix. Furthermore, we present the recovery performance and the computational complexity of state-of-the-art LRMC techniques. Our hope is that this paper will serve as a useful guide for practitioners and non-experts to catch the gist of the LRMC.},
+  owner     = {imke},
+  timestamp = {2021.01.19},
+  topics    = {imputation; matrix completion},
 }
 
 
@@ -26,21 +149,6 @@
     Owner                    = {imke},
     Timestamp                = {2020.02.27},
     Topics                   = {machine learning; ml}
-}
-
-@Article{muzellec_etal_2020,
-  Title                    = {Missing Data Imputation using Optimal Transport},
-  Author                   = {Boris Muzellec and Julie Josse and Claire Boyer and Marco Cuturi},
-  Year                     = {2020},
-  Eprint                   = {2002.03860},
-  ArchivePrefix            = {arXiv},
-  PrimaryClass             = {stat.ML},
-  Abstract                 = {Missing data is a crucial issue when applying machine learning algorithms to real-world datasets. Starting from the simple assumption that two batches extracted randomly from the same dataset should share the same distribution, we leverage optimal transport distances to quantify that criterion and turn it into a loss function to impute missing data values. We propose practical methods to minimize these losses using end-to-end learning, that can exploit or not parametric assumptions on the underlying distributions of values. We evaluate our methods on datasets from the UCI repository, in MCAR, MAR and MNAR settings. These experiments show that OT-based methods match or out-perform state-of-the-art imputation methods, even for high percentages of missing values.},
-  Keywords                 = {optimal transport; imputataion},
-
-  Owner                    = {imke},
-  Timestamp                = {2020.02.11},
-  Topics                   = {optimal transport; imputation}
 }
 
 @Article{andiojaya_haydar_2019,
@@ -89,7 +197,7 @@
   Pages                    = {7133--7171},
   Year                     = {2017},
   Publisher                = {JMLR.org},
-  Abstract                 = {Missing data is a common problem in real-world settings and for this reason has attracted significant attention in the statistical literature. We propose a flexible framework based on formal optimization to impute missing data with mixed continuous and categorical variables. This framework can readily incorporate various predictive models including Knearest neighbors, support vector machines, and decision tree based methods, and can be adapted for multiple imputation. We derive fast first-order methods that obtain high quality solutions in seconds following a general imputation algorithm opt.impute presented in this paper. We demonstrate that our proposed method improves out-of-sample accuracy in large-scale computational experiments across a sample of 84 data sets taken from the UCI Machine Learning Repository. In all scenarios of missing at random mechanisms and various missing percentages, opt.impute produces the best overall imputation in most data sets benchmarked against five other methods: mean impute, K-nearest neighbors, iterative knn, Bayesian PCA, and predictive-mean matching, with an average reduction in mean absolute error of 8.3% against the best cross-validated benchmark method. Moreover, opt.impute leads to improved out-of-sample performance of learning algorithms trained using the imputed data, demonstrated by computational experiments on 10 downstream tasks. For models trained using opt.impute single imputations with 50% data missing, the average out-of-sample R2 is 0.339 in the regression tasks and the average out-of-sample accuracy is 86.1% in the classification tasks, compared to 0.315 and 84.4% for the best cross-validated benchmark method. In the multiple imputation setting, downstream models trained using opt.impute obtain a statistically significant improvement over models trained using multivariate imputation by chained equations (mice) in 8/10 missing data scenarios considered.},
+  Abstract                 = {Missing data is a common problem in real-world settings and for this reason has attracted significant attention in the statistical literature. We propose a flexible framework based on formal optimization to impute missing data with mixed continuous and categorical variables. This framework can readily incorporate various predictive models including K nearest neighbors, support vector machines, and decision tree based methods, and can be adapted for multiple imputation. We derive fast first-order methods that obtain high quality solutions in seconds following a general imputation algorithm opt.impute presented in this paper. We demonstrate that our proposed method improves out-of-sample accuracy in large-scale computational experiments across a sample of 84 data sets taken from the UCI Machine Learning Repository. In all scenarios of missing at random mechanisms and various missing percentages, opt.impute produces the best overall imputation in most data sets benchmarked against five other methods: mean impute, K-nearest neighbors, iterative knn, Bayesian PCA, and predictive-mean matching, with an average reduction in mean absolute error of 8.3\% against the best cross-validated benchmark method. Moreover, opt.impute leads to improved out-of-sample performance of learning algorithms trained using the imputed data, demonstrated by computational experiments on 10 downstream tasks. For models trained using opt.impute single imputations with 50\% data missing, the average out-of-sample R2 is 0.339 in the regression tasks and the average out-of-sample accuracy is 86.1\% in the classification tasks, compared to 0.315 and 84.4\% for the best cross-validated benchmark method. In the multiple imputation setting, downstream models trained using opt.impute obtain a statistically significant improvement over models trained using multivariate imputation by chained equations (mice) in 8/10 missing data scenarios considered.},
   Keywords                 = {missing data imputation; K-NN; SVM; optimal decision trees},
 
   Owner                    = {imke},
@@ -125,7 +233,7 @@
   Publisher                = {Springer},
   DOI                      = {10.1007/s10844-019-00567-8},
 
-  Abstract                 = {Similarity search is fundamental to store and retrieve large volumes of complex data required by many real world applications. A useful mechanism for such concept is the query-by-similarity. Based on their topological properties, metric similarity functions can be used to index sets of data which can be queried effectively and efficiently by the so-called metric access methods. However, data produced by various application domains and the varying data types handled often lead to missing data, hence, they do not follow the metric similarity requirements. As a consequence, missing data cause distortions in the index structure and yield bias in the query answer. In this paper, we propose the Hollow-tree, a novel access method aimed at successfully retrieving data with missing attribute values. It employs new strategies for indexing and searching data elements, capable of handling the missing data issues when the cause of missingness is ignorable. The indexing strategy is based on a family of distance functions that allow measuring the distance between elements with missing values, along with a set of policies able to organize the elements in the index without causing distortions to its internal structure. The searching strategy employs fractal dimension property of the data to achieve accurate query answer while considering data with missing values part of the response. Results from experiments performed on a variety of real and synthetic data sets showed that, while other metric access methods deteriorate with small amounts of missing values, the Hollow-tree maintains a remarkable performance with almost 100% of precision and recall for range queries and more than 90% for k-nearest neighbor queries, for up to 40% of missing values.},
+  Abstract                 = {Similarity search is fundamental to store and retrieve large volumes of complex data required by many real world applications. A useful mechanism for such concept is the query-by-similarity. Based on their topological properties, metric similarity functions can be used to index sets of data which can be queried effectively and efficiently by the so-called metric access methods. However, data produced by various application domains and the varying data types handled often lead to missing data, hence, they do not follow the metric similarity requirements. As a consequence, missing data cause distortions in the index structure and yield bias in the query answer. In this paper, we propose the Hollow-tree, a novel access method aimed at successfully retrieving data with missing attribute values. It employs new strategies for indexing and searching data elements, capable of handling the missing data issues when the cause of missingness is ignorable. The indexing strategy is based on a family of distance functions that allow measuring the distance between elements with missing values, along with a set of policies able to organize the elements in the index without causing distortions to its internal structure. The searching strategy employs fractal dimension property of the data to achieve accurate query answer while considering data with missing values part of the response. Results from experiments performed on a variety of real and synthetic data sets showed that, while other metric access methods deteriorate with small amounts of missing values, the Hollow-tree maintains a remarkable performance with almost 100\% of precision and recall for range queries and more than 90\% for k-nearest neighbor queries, for up to 40\% of missing values.},
 
   Keywords                 = {Missing at random; Similarity search; Fractal dimension},
   Owner                    = {imke},

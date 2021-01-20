@@ -3,17 +3,17 @@ title: "How to perform parameters estimation with missing values?"
 author: "Pavlo Mozharovskyi, Wei Jiang, Manuel Pichon"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
   html_document:
     number_sections: yes
     toc: yes
     toc_depth: 3
     toc_float: yes
-  pdf_document:
-    toc: yes
-    toc_depth: '3'
 linkcolor: blue
 link-citations: yes
-bibliography: bibliography.bib
+bibliography: ../bibliography.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -242,22 +242,20 @@ The main function in package is `miss.saem` function, which returns the estimati
 library(misaem)
 
 # SAEM
-list.saem = miss.saem(X.obs,y,print_iter = FALSE)
+df.obs = data.frame(y, X.obs)
+miss.list = miss.glm(y~., data=df.obs, print_iter = FALSE, seed=100)
+
+# Summary
+print(summary(miss.list))
 
 # estimation of parameters
-print(list.saem$beta)
+print(miss.list$coefficients)
 ```
 
 And if you need to obtain the variance of estimation:
 ```{r}
-# SAEM with variance estimation
-list.saem = miss.saem(X.obs,y,var_cal = TRUE, print_iter = FALSE)
-
-# estimation of parameters
-print(list.saem$beta)
-
 # estimation of variance
-print(list.saem$var_obs)
+print(miss.list$var.covar)
 ```
 
 ### Parameter estimation with Multiple Imputation (MI)
