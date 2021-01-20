@@ -1,4 +1,136 @@
 % Encoding: UTF-8
+
+@Article{harel_etal_2009,
+  Title={Partial and latent ignorability in missing-data problems},
+  Author={Harel, Ofer and Schafer, Joseph L},
+  Journal={Biometrika},
+  Volume={96},
+  Number={1},
+  Pages={37--50},
+  Year={2009},
+  Publisher={Oxford University Press},
+  Abstract = {When an assumption of missing at random is untenable, it becomes necessary to model missing-data indicators, which carry information about the parameters of the complete-data population. Within a given application, however, researchers may believe that some aspects of missingness are ignorable but others are not. We argue that there are two different ways to formalize the notion that only part of the missingness is ignorable. These approaches correspond to assumptions that we call partially missing at random and latently missing at random. We explain these concepts and apply them in a latent-class analysis of survey questions with item nonresponse.},
+  Doi = {https://doi.org/10.1093/biomet/asn069}
+  Keywords = {mnar; multiple imputation; nonignorable missingness},
+  Topics = {mnar},
+  Owner                    = {aude},
+  Timestamp                = {2021.01.20}
+}
+
+@Article{seaman_etal_2013,
+  Title={What Is Meant by" Missing at Random"?},
+  Author={Seaman, Shaun and Galati, John and Jackson, Dan and Carlin, John},
+  Journal={Statistical Science},
+  Pages={257--268},
+  Year={2013},
+  Publisher={JSTOR},
+  Abstract = {The concept of missing at random is central in the literature on statistical analysis with missing data. In general, inference using incomplete data should be based not only on observed data values but should also take account of the pattern of missing values. However, it is often said that if data are missing at random, valid inference using likelihood approaches (including Bayesian) can be obtained ignoring the missingness mechanism. Unfortunately, the term "missing at random" has been used inconsistently and not always clearly; there has also been a lack of clarity around the meaning of "valid inference using likelihood". These issues have created potential for confusion about the exact conditions under which the missingness mechanism can be ignored, and perhaps fed confusion around the meaning of "analysis ignoring the missingness mechanism". Here we provide standardised precise definitions of "missing at random" and "missing completely at random", in order to promote unification of the theory. Using these definitions we clarify the conditions that suffice for "valid inference" to be obtained under a variety of inferential paradigms.},
+  Keywords = {mcar; ignorability; frequentist inference},
+  Topics = {mar},
+   Owner                    = {aude},
+  Timestamp                = {2021.01.20}
+}
+
+@article{hunt_elal_2003,
+  Title={Mixture model clustering for mixed data with missing information},
+  Author={Hunt, Lynette and Jorgensen, Murray},
+  Journal={Computational Statistics \& Data Analysis},
+  Volume={41},
+  Number={3-4},
+  Pages={429--440},
+  Year={2003},
+  Publisher={Elsevier},
+  Abstract = {One difficulty with classification studies is unobserved or missing observations that often occur in multivariate datasets. The mixture likelihood approach to clustering has been well developed and is much used, particularly for mixtures where the component distributions are multivariate normal. It is shown that this approach can be extended to analyse data with mixed categorical and continuous attributes and where some of the data are missing at random in the sense of Little and Rubin (Statistical Analysis with Mixing Data, Wiley, New York).},
+  Doi = {https://doi.org/10.1016/S0167-9473(02)00190-1}
+  Keywords = {clustering; mixed data; mar};,
+  Topics = {clustering},
+  Owner                    = {aude},
+  Timestamp                = {2021.01.20}
+}
+
+@Article{chi_etal_2016,
+  Title={k-pod: A method for k-means clustering of missing data},
+  Author={Chi, Jocelyn T and Chi, Eric C and Baraniuk, Richard G},
+  Journal={The American Statistician},
+  Volume={70},
+  Number={1},
+  Pages={91--99},
+  Year={2016},
+  Publisher={Taylor \& Francis}
+  Abstract = {The k-means algorithm is often used in clustering applications but its usage requires a complete data matrix. Missing data, however, are common in many applications. Mainstream approaches to clustering missing data reduce the missing data problem to a complete data formulation through either deletion or imputation but these solutions may incur significant costs. Our k-POD method presents a simple extension of k-means clustering for missing data that works even when the missingness mechanism is unknown, when external information is unavailable, and when there is significant missingness in the data.},
+  Doi = {https://doi.org/10.1080/00031305.2015.1086685}, 
+  Keywords = {clustering; k-means; imputation; missing data},
+  Topics = {clustering},
+  Owner                    = {aude},
+  Timestamp                = {2021.01.20}
+}
+
+
+@InProceedings{ma_etal_2019,
+Title = {Missing Not at Random in Matrix Completion: The Effectiveness of Estimating Missingness Probabilities Under a Low Nuclear Norm Assumption},
+Author = {Ma, Wei and Chen, George H},
+Booktitle = {Advances in Neural Information Processing Systems 32},
+Editor = {H. Wallach and H. Larochelle and A. Beygelzimer and F. d\textquotesingle Alch\'{e}-Buc and E. Fox and R. Garnett},
+Pages = {14900--14909},
+Year = {2019},
+Publisher = {Curran Associates, Inc.},
+Abstract = {Matrix completion is often applied to data with entries missing not at random (MNAR). For example, consider a recommendation system where users tend to only reveal ratings for items they like. In this case, a matrix completion method that relies on entries being revealed at uniformly sampled row and column indices can yield overly optimistic predictions of unseen user ratings. Recently, various papers have shown that we can reduce this bias in MNAR matrix completion if we know the probabilities of different matrix entries being missing. These probabilities are typically modeled using logistic regression or naive Bayes, which make strong assumptions and lack guarantees on the accuracy of the estimated probabilities. In this paper, we suggest a simple approach to estimating these probabilities that avoids these shortcomings. Our approach follows from the observation that missingness patterns in real data often exhibit low nuclear norm structure. We can then estimate the missingness probabilities by feeding the (always fully-observed) binary matrix specifying which entries are revealed to an existing nuclear-norm-constrained matrix completion algorithm by Davenport et al. [2014]. Thus, we tackle MNAR matrix completion by solving a different matrix completion problem first that recovers missingness probabilities. We establish finite-sample error bounds for how accurate these probability estimates are and how well these estimates debias standard matrix completion losses for the original matrix to be completed. Our experiments show that the proposed debiasing strategy can improve a variety of existing matrix completion algorithms, and achieves downstream matrix completion accuracy at least as good as logistic regression and naive Bayes debiasing baselines that require additional auxiliary information.},
+Url = {http://papers.nips.cc/paper/9628-missing-not-at-random-in-matrix-completion-the-effectiveness-of-estimating-missingness-probabilities-under-a-low-nuclear-norm-assumption.pdf}
+  Topics = {mnar},
+   Owner                    = {aude},
+  Timestamp                = {2021.01.20}
+}
+
+
+@Article{beunckens_etal_2008,
+  Title={A latent-class mixture model for incomplete longitudinal Gaussian data},
+  Author={Beunckens, Caroline and Molenberghs, Geert and Verbeke, Geert and Mallinckrodt, Craig},
+  Journal={Biometrics},
+  Volume={64},
+  Number={1},
+  Pages={96--105},
+  Year={2008},
+  Publisher={Wiley Online Library}, 
+  Abstract={In the analyses of incomplete longitudinal clinical trial data, there has been a shift, away from simple methods that are valid only if the data are missing completely at random, to more principled ignorable analyses, which are valid under the less restrictive missing at random assumption. The availability of the necessary standard statistical software nowadays allows for such analyses in practice. While the possibility of data missing not at random (MNAR) cannot be ruled out, it is argued that analyses valid under MNAR are not well suited for the primary analysis in clinical trials. Rather than either forgetting about or blindly shifting to an MNAR framework, the optimal place for MNAR analyses is within a sensitivity‐analysis context. One such route for sensitivity analysis is to consider, next to selection models, pattern‐mixture models or shared‐parameter models. The latter can also be extended to a latent‐class mixture model, the approach taken in this article. The performance of the so‐obtained flexible model is assessed through simulations and the model is applied to data from a depression trial.},
+  Doi = {https://doi.org/10.1111/j.1541-0420.2007.00837.x}, 
+  Topics = {mnar},
+   Owner                    = {aude},
+  Timestamp                = {2021.01.20}
+  
+}
+
+@Inproceedings{loh_etal_2011,
+ Author = {Loh, Po-ling and Wainwright, Martin J},
+ Booktitle = {Advances in Neural Information Processing Systems},
+ Editor = {J. Shawe-Taylor and R. Zemel and P. Bartlett and F. Pereira and K. Q. Weinberger},
+ Pages = {2726--2734},
+ Publisher = {Curran Associates, Inc.},
+ Title = {High-dimensional regression with noisy and missing data: Provable guarantees with non-convexity},
+ Url = {https://proceedings.neurips.cc/paper/2011/file/ab541d874c7bc19ab77642849e02b89f-Paper.pdf},
+ Volume = {24},
+ Year = {2011},
+Abstract = {Although the standard formulations of prediction problems involve fully-observed and noiseless data drawn in an i.i.d. manner, many applications involve noisy and/or missing data, possibly involving dependencies. We study these issues in the context of high-dimensional sparse linear regression, and propose novel estimators for the cases of noisy, missing, and/or dependent data. Many standard approaches to noisy or missing data, such as those using the EM algorithm, lead to optimization problems that are inherently non-convex, and it is difficult to establish theoretical guarantees on practical algorithms. While our approach also involves optimizing non-convex programs, we are able to both analyze the statistical error associated with any global optimum, and prove that a simple projected gradient descent algorithm will converge in polynomial time to a small neighborhood of the set of global minimizers. On the statistical side, we provide non-asymptotic bounds that hold with high probability for the cases of noisy, missing, and/or dependent data. On the computational side, we prove that under the same types of conditions required for statistical consistency, the projected gradient descent algorithm will converge at geometric rates to a near-global minimizer. We illustrate these theoretical predictions with simulations, showing agreement with the predicted scalings.},
+  Topics = {supervised learning},
+   Owner                    = {aude},
+  Timestamp                = {2021.01.20}
+}
+
+@Article{tang_etal_2017,
+  Title={Random forest missing data algorithms},
+  Author={Tang, Fei and Ishwaran, Hemant},
+  Journal={Statistical Analysis and Data Mining: The ASA Data Science Journal},
+  Volume={10},
+  Number={6},
+  Pages={363--377},
+  Year={2017},
+  Publisher={Wiley Online Library}
+  Abstract = {Random forest (RF) missing data algorithms are an attractive approach for imputing missing data. They have the desirable properties of being able to handle mixed types of missing data, they are adaptive to interactions and nonlinearity, and they have the potential to scale to big data settings. Currently there are many different RF imputation algorithms, but relatively little guidance about their efficacy. Using a large, diverse collection of data sets, imputation performance of various RF algorithms was assessed under different missing data mechanisms. Algorithms included proximity imputation, on the fly imputation, and imputation utilizing multivariate unsupervised and supervised splitting—the latter class representing a generalization of a new promising imputation algorithm called missForest. Our findings reveal RF imputation to be generally robust with performance improving with increasing correlation. Performance was good under moderate to high missingness, and even (in certain cases) when data was missing not at random.}
+  Doi = {https://doi.org/10.1002/sam.11348},
+  Owner                    = {aude},
+  Timestamp                = {2021.01.20}
+  Topics = {random forests; prediction; statistical learning}
+}
+
 @article{nabi_etal_2020,
   title={Full Law Identification In Graphical Models Of Missing Data: Completeness Results},
   author={Nabi, Razieh and Bhattacharya, Rohit and Shpitser, Ilya},
