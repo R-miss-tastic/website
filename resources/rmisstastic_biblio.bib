@@ -91,6 +91,23 @@
   Topics                   = {factorial data analysis; imputation}
 }
 
+@Article{audigier_etal_JSCS2015,
+  Title                    = {Multiple imputation for continuous variables using a {B}ayesian principal component analysis},
+  Author                   = {Audigier, V. and Husson, F. and Josse, J.},
+  Journal                  = {Journal of Statistical Computation and Simulation},
+  Year                     = {2015},
+  Number                   = {11},
+  Pages                    = {2140-2156},
+  Volume                   = {86},
+
+  Abstract                 = {We propose a multiple imputation method based on principal component analysis (PCA) to deal with incomplete continuous data. To reflect the uncertainty of the parameters from one imputation to the next, we use a Bayesian treatment of the PCA model. Using a simulation study and real data sets, the method is compared to two classical approaches: multiple imputation based on joint modelling and on fully conditional modelling. Contrary to the others, the proposed method can be easily used on data sets where the number of individuals is less than the number of variables and when the variables are highly correlated. In addition, it provides unbiased point estimates of quantities of interest, such as an expectation, a regression coefficient or a correlation coefficient, with a smaller mean squared error. Furthermore, the widths of the confidence intervals built for the quantities of interest are often smaller whilst ensuring a valid coverage.},
+  Doi                      = {10.1080/00949655.2015.1104683},
+  Keywords                 = {missing values; continuous data; multiple imputaiton; bayesian principal component analysis; data augmentation},
+  Owner                    = {alyssa},
+  Timestamp                = {2017.02.23},
+  Topics                   = {factorial data analysis; multiple imputation}
+}
+
 @Article{audigier_etal_SC2016,
   Title                    = {{MIMCA}: multiple imputation for categorical variables with multiple correspondence analysis},
   Author                   = {Audigier, V. and Husson, F. and Josse, J.},
@@ -110,23 +127,6 @@
   Owner                    = {alyssa},
   Publisher                = {Springer US},
   Timestamp                = {2017.07.06},
-  Topics                   = {factorial data analysis; multiple imputation}
-}
-
-@Article{audigier_etal_JSCS2015,
-  Title                    = {Multiple imputation for continuous variables using a {B}ayesian principal component analysis},
-  Author                   = {Audigier, V. and Husson, F. and Josse, J.},
-  Journal                  = {Journal of Statistical Computation and Simulation},
-  Year                     = {2015},
-  Number                   = {11},
-  Pages                    = {2140-2156},
-  Volume                   = {86},
-
-  Abstract                 = {We propose a multiple imputation method based on principal component analysis (PCA) to deal with incomplete continuous data. To reflect the uncertainty of the parameters from one imputation to the next, we use a Bayesian treatment of the PCA model. Using a simulation study and real data sets, the method is compared to two classical approaches: multiple imputation based on joint modelling and on fully conditional modelling. Contrary to the others, the proposed method can be easily used on data sets where the number of individuals is less than the number of variables and when the variables are highly correlated. In addition, it provides unbiased point estimates of quantities of interest, such as an expectation, a regression coefficient or a correlation coefficient, with a smaller mean squared error. Furthermore, the widths of the confidence intervals built for the quantities of interest are often smaller whilst ensuring a valid coverage.},
-  Doi                      = {10.1080/00949655.2015.1104683},
-  Keywords                 = {missing values; continuous data; multiple imputaiton; bayesian principal component analysis; data augmentation},
-  Owner                    = {alyssa},
-  Timestamp                = {2017.02.23},
   Topics                   = {factorial data analysis; multiple imputation}
 }
 
@@ -203,6 +203,27 @@
   Topics                   = {causal inference}
 }
 
+
+
+@Article{beaulac_rosenthal_2018,
+  Title                    = {BEST: A decision tree algorithm that handles missing values},
+  Author                   = {Beaulac, C{\'e}dric and Rosenthal, Jeffrey S},
+  Journal                  = {arXiv preprint},
+  archivePrefix            = {arXiv},
+  eprint                   = {1804.10168},
+  Year                     = {2018},
+  Url                      = {https://arxiv.org/pdf/1804.10168.pdf},
+
+  Abstract                 = {The main contribution of this paper is the development of a new decision tree algorithm. The proposed approach allows users to guide the algorithm through the data partitioning process. We believe this feature has many applications but in this paper we demonstrate how to utilize this algorithm to analyse data sets containing missing values. We tested our algorithm against simulated data sets with various missing data structures and a real data set. The results demonstrate that this new classification procedure efficiently handles missing values and produces results that are slightly more accurate and more interpretable than most common procedures without any imputations or pre-processing.},
+
+  Keywords                 = {cart; machine learning; variable importance analysis},
+
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {random forests; regression trees; variable selection}
+
+}
+
 @InProceedings{bengio_gingras_1995,
   Title                    = {Recurrent neural networks for missing or asynchronous data},
   Author                   = {Bengio, Y. and Gingras, F.},
@@ -221,6 +242,74 @@
   Timestamp                = {2018.11.08},
   Keywords                 = {machine learning; deep learning; rnn; sequential data},
   Topics                   = {deep learning; rnn}
+}
+
+@Article{bertsimas_etal_2017,
+  Title                    = {From predictive methods to missing data imputation: an optimization approach},
+  Author                   = {Bertsimas, Dimitris and Pawlowski, Colin and Zhuo, Ying Daisy},
+  Journal                  = {The Journal of Machine Learning Research},
+  Volume                   = {18},
+  Number                   = {1},
+  Pages                    = {7133--7171},
+  Year                     = {2017},
+  Publisher                = {JMLR.org},
+  Abstract                 = {Missing data is a common problem in real-world settings and for this reason has attracted significant attention in the statistical literature. We propose a flexible framework based on formal optimization to impute missing data with mixed continuous and categorical variables. This framework can readily incorporate various predictive models including K nearest neighbors, support vector machines, and decision tree based methods, and can be adapted for multiple imputation. We derive fast first-order methods that obtain high quality solutions in seconds following a general imputation algorithm opt.impute presented in this paper. We demonstrate that our proposed method improves out-of-sample accuracy in large-scale computational experiments across a sample of 84 data sets taken from the UCI Machine Learning Repository. In all scenarios of missing at random mechanisms and various missing percentages, opt.impute produces the best overall imputation in most data sets benchmarked against five other methods: mean impute, K-nearest neighbors, iterative knn, Bayesian PCA, and predictive-mean matching, with an average reduction in mean absolute error of 8.3\% against the best cross-validated benchmark method. Moreover, opt.impute leads to improved out-of-sample performance of learning algorithms trained using the imputed data, demonstrated by computational experiments on 10 downstream tasks. For models trained using opt.impute single imputations with 50\% data missing, the average out-of-sample R2 is 0.339 in the regression tasks and the average out-of-sample accuracy is 86.1\% in the classification tasks, compared to 0.315 and 84.4\% for the best cross-validated benchmark method. In the multiple imputation setting, downstream models trained using opt.impute obtain a statistically significant improvement over models trained using multivariate imputation by chained equations (mice) in 8/10 missing data scenarios considered.},
+  Keywords                 = {missing data imputation; K-NN; SVM; optimal decision trees},
+
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {imputation; knn; decision trees}
+}
+{ma_etal_2019,
+Title = {Missing Not at Random in Matrix Completion: The Effectiveness of Estimating Missingness Probabilities Under a Low Nuclear Norm Assumption},
+Author = {Ma, Wei and Chen, George H},
+Booktitle = {Advances in Neural Information Processing Systems 32},
+Editor = {H. Wallach and H. Larochelle and A. Beygelzimer and F. d\textquotesingle Alch\'{e}-Buc and E. Fox and R. Garnett},
+Pages = {14900--14909},
+Year = {2019},
+Publisher = {Curran Associates, Inc.},
+Abstract = {Matrix completion is often applied to data with entries missing not at random (MNAR). For example, consider a recommendation system where users tend to only reveal ratings for items they like. In this case, a matrix completion method that relies on entries being revealed at uniformly sampled row and column indices can yield overly optimistic predictions of unseen user ratings. Recently, various papers have shown that we can reduce this bias in MNAR matrix completion if we know the probabilities of different matrix entries being missing. These probabilities are typically modeled using logistic regression or naive Bayes, which make strong assumptions and lack guarantees on the accuracy of the estimated probabilities. In this paper, we suggest a simple approach to estimating these probabilities that avoids these shortcomings. Our approach follows from the observation that missingness patterns in real data often exhibit low nuclear norm structure. We can then estimate the missingness probabilities by feeding the (always fully-observed) binary matrix specifying which entries are revealed to an existing nuclear-norm-constrained matrix completion algorithm by Davenport et al. [2014]. Thus, we tackle MNAR matrix completion by solving a different matrix completion problem first that recovers missingness probabilities. We establish finite-sample error bounds for how accurate these probability estimates are and how well these estimates debias standard matrix completion losses for the original matrix to be completed. Our experiments show that the proposed debiasing strategy can improve a variety of existing matrix completion algorithms, and achieves downstream matrix completion accuracy at least as good as logistic regression and naive Bayes debiasing baselines that require additional auxiliary information.},
+Url = {http://papers.nips.cc/paper/9628-missing-not-at-random-in-matrix-completion-the-effectiveness-of-estimating-missingness-probabilities-under-a-low-nuclear-norm-assumption.pdf}
+  Topics = {mnar},
+   Owner                    = {aude},
+  Timestamp                = {2021.01.20}
+}
+
+
+@Article{beunckens_etal_2008,
+  Title={A latent-class mixture model for incomplete longitudinal Gaussian data},
+  Author={Beunckens, Caroline and Molenberghs, Geert and Verbeke, Geert and Mallinckrodt, Craig},
+  Journal={Biometrics},
+  Volume={64},
+  Number={1},
+  Pages={96--105},
+  Year={2008},
+  Publisher={Wiley Online Library}, 
+  Abstract={In the analyses of incomplete longitudinal clinical trial data, there has been a shift, away from simple methods that are valid only if the data are missing completely at random, to more principled ignorable analyses, which are valid under the less restrictive missing at random assumption. The availability of the necessary standard statistical software nowadays allows for such analyses in practice. While the possibility of data missing not at random (MNAR) cannot be ruled out, it is argued that analyses valid under MNAR are not well suited for the primary analysis in clinical trials. Rather than either forgetting about or blindly shifting to an MNAR framework, the optimal place for MNAR analyses is within a sensitivity‐analysis context. One such route for sensitivity analysis is to consider, next to selection models, pattern‐mixture models or shared‐parameter models. The latter can also be extended to a latent‐class mixture model, the approach taken in this article. The performance of the so‐obtained flexible model is assessed through simulations and the model is applied to data from a depression trial.},
+  Doi = {https://doi.org/10.1111/j.1541-0420.2007.00837.x}, 
+  Topics = {mnar},
+   Owner                    = {aude},
+  Timestamp                = {2021.01.20}
+  
+}
+
+@Article{bianchi_etal_2019,
+  Title                    = {Learning representations of multivariate time series with missing data},
+  Author                   = {Bianchi, Filippo Maria and Livi, Lorenzo and Mikalsen, Karl {\O}yvind and Kampffmeyer, Michael and Jenssen, Robert},
+  Journal                  = {Pattern Recognition},
+  Volume                   = {96},
+  Pages                    = {106973},
+  Year                     = {2019},
+  Publisher                = {Elsevier},
+  DOI                      = {10.1016/j.patcog.2019.106973},
+
+  Abstract                 = {Learning compressed representations of multivariate time series (MTS) facilitates data analysis in the presence of noise and redundant information, and for a large number of variates and time steps. However, classical dimensionality reduction approaches are designed for vectorial data and cannot deal explicitly with missing values. In this work, we propose a novel autoencoder architecture based on recurrent neural networks to generate compressed representations of MTS. The proposed model can process inputs characterized by variable lengths and it is specifically designed to handle missing data. Our autoencoder learns fixed-length vectorial representations, whose pairwise similarities are aligned to a kernel function that operates in input space and that handles missing values. This allows to learn good representations, even in the presence of a significant amount of missing data. To show the effectiveness of the proposed approach, we evaluate the quality of the learned representations in several classification tasks, including those involving medical data, and we compare to other methods for dimensionality reduction. Successively, we design two frameworks based on the proposed architecture: one for imputing missing data and another for one-class classification. Finally, we analyze under what circumstances an autoencoder with recurrent layers can learn better compressed representations of MTS than feed-forward architectures.},
+
+  Keywords                 = {Representation learning; Multivariate time series; Autoencoders; Recurrent neural networks; Kernel methods},
+
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {time series; deep learning; neural network}
 }
 
 @InProceedings{biessmann_CIKM2018,
@@ -268,6 +357,24 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Topics                   = {causal inference}
 }
 
+@Article{brinis_etal_2019,
+  Title                    = {Hollow-tree: a metric access method for data with missing values},
+  Author                   = {Brinis, Safia and Traina, Caetano and Traina, Agma JM},
+  Journal                  = {Journal of Intelligent Information Systems},
+  Pages                    = {1--28},
+  Year                     = {2019},
+  Publisher                = {Springer},
+  DOI                      = {10.1007/s10844-019-00567-8},
+
+  Abstract                 = {Similarity search is fundamental to store and retrieve large volumes of complex data required by many real world applications. A useful mechanism for such concept is the query-by-similarity. Based on their topological properties, metric similarity functions can be used to index sets of data which can be queried effectively and efficiently by the so-called metric access methods. However, data produced by various application domains and the varying data types handled often lead to missing data, hence, they do not follow the metric similarity requirements. As a consequence, missing data cause distortions in the index structure and yield bias in the query answer. In this paper, we propose the Hollow-tree, a novel access method aimed at successfully retrieving data with missing attribute values. It employs new strategies for indexing and searching data elements, capable of handling the missing data issues when the cause of missingness is ignorable. The indexing strategy is based on a family of distance functions that allow measuring the distance between elements with missing values, along with a set of policies able to organize the elements in the index without causing distortions to its internal structure. The searching strategy employs fractal dimension property of the data to achieve accurate query answer while considering data with missing values part of the response. Results from experiments performed on a variety of real and synthetic data sets showed that, while other metric access methods deteriorate with small amounts of missing values, the Hollow-tree maintains a remarkable performance with almost 100\% of precision and recall for range queries and more than 90\% for k-nearest neighbor queries, for up to 40\% of missing values.},
+
+  Keywords                 = {Missing at random; Similarity search; Fractal dimension},
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {classification; knn; clustering}
+
+}
+
 @Article{buck_JRSSB1960,
   Title                    = {A method of estimation of missing values in multivariate data suitable for use with an electronic computer},
   Author                   = {Buck, S. F.},
@@ -295,72 +402,6 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
 
   Owner                    = {nathalie},
   Timestamp                = {2018.06.06}
-}
-
-@Book{vanbuuren_FIMD2012,
-  Title                    = {Flexible Imputation of Missing Data},
-  Author                   = {van Buuren, S.},
-  Publisher                = {Chapman and Hall/CRC},
-  Year                     = {2018},
-
-  Address                  = {Boca Raton, FL},
-
-  Abstract                 = {Missing data pose challenges to real-life data analysis. Simple ad-hoc fixes, like deletion or mean imputation, only work under highly restrictive conditions, which are often not met in practice. Multiple imputation replaces each missing value by multiple plausible values. The variability between these replacements reflects our ignorance of the true (but missing) value. Each of the completed data set is then analyzed by standard methods, and the results are pooled to obtain unbiased estimates with correct confidence intervals. Multiple imputation is a general approach that also inspires novel solutions to old problems by reformulating the task at hand as a missing-data problem. This is the second edition of a popular book on multiple imputation, focused on explaining the application of methods through detailed worked examples using the MICE package as developed by the author. This new edition incorporates the recent developments in this fast-moving field. This class-tested book avoids mathematical and technical details as much as possible: formulas are accompanied by verbal statements that explain the formula in accessible terms. The book sharpens the reader’s intuition on how to think about missing data, and provides all the tools needed to execute a well-grounded quantitative analysis in the presence of missing data.},
-  Url                      = {https://stefvanbuuren.name/fimd/},
-  Owner                    = {imke},
-  Timestamp                = {2018.11.12},
-  Topics                   = {general}
-}
-
-@Article{vanbuuren_SMMR2007,
-  Title                    = {Multiple imputation of discrete and continuous data by fully conditional specification},
-  Author                   = {van Buuren, S.},
-  Journal                  = {Statistical Methods in Medical Research},
-  Year                     = {2007},
-  Pages                    = {219-242},
-  Volume                   = {16},
-
-  Abstract                 = {The goal of multiple imputation is to provide valid inferences for statistical estimates from incomplete data. To achieve that goal, imputed values should preserve the structure in the data, as well as the uncertainty about this structure, and include any knowledge about the process that generated the missing data. Two approaches for imputing multivariate data exist: joint modeling (JM) and fully conditional specification (FCS). JM is based on parametric statistical theory, and leads to imputation procedures whose statistical properties are known. JM is theoretically sound, but the joint model may lack flexibility needed to represent typical data features, potentially leading to bias. FCS is a semi-parametric and flexible alternative that specifies the multivariate model by a series of conditional models, one for each incomplete variable. FCS provides tremendous flexibility and is easy to apply, but its statistical properties are difficult to establish. Simulation work shows that FCS behaves very well in the cases studied. The present paper reviews and compares the approaches. JM and FCS were applied to pubertal development data of 3801 Dutch girls that had missing data on menarche (two categories), breast development (five categories) and pubic hair development (six stages). Imputations for these data were created under two models: a multivariate normal model with rounding and a conditionally specified discrete model. The JM approach introduced biases in the reference curves, whereas FCS did not. The paper concludes that FCS is a useful and easily applied flexible alternative to JM when no convenient and realistic joint distribution can be specified.},
-  Doi                      = {10.1177/0962280206074463},
-  Owner                    = {alyssa},
-  Timestamp                = {2016.09.27},
-  Topics                   = {multiple imputation; fcs}
-}
-
-@Article{vanbuuren_etal_JSCS2006,
-  Title                    = {Fully conditional specification in multivariate imputation},
-  Author                   = {van Buuren, S. and Brand, J. P. L. and Groothuis-Oudshoorn, C. G. M. and Rubin, D. B.},
-  Journal                  = {Journal of Statistical Computation and Simulation},
-  Year                     = {2006},
-  Number                   = {12},
-  Pages                    = {1049-1064},
-  Volume                   = {76},
-
-  Doi                      = {10.1080/10629360600810434},
-  Owner                    = {nathalie},
-  Timestamp                = {2016.09.28},
-  Topics                   = {fcs; multiple imputation}
-}
-
-@Article{vanbuuren_groothuisoudshoorn_JSS2011,
-  Title                    = {{MICE}: multivariate imputation by chained equations in {R}},
-  Author                   = {van Buuren, S. and Groothuis-Oudshoorn, K.},
-  Journal                  = {Journal of Statistical Software},
-  Year                     = {2011},
-  Pages                    = {3},
-  Volume                   = {45},
-
-  Abstract                 = {The R package mice imputes incomplete multivariate data by chained equations. The software mice 1.0 appeared in the year 2000 as an S-PLUS library, and in 2001 as an R package. mice 1.0 introduced predictor selection, passive imputation and automatic pooling. This article documents mice 2.9, which extends the functionality of mice 1.0 in several ways. In mice 2.9, the analysis of imputed data is made completely general, whereas the range ofmodels under which pooling works is substantially extended. mice 2.9 adds new functionality for imputing multilevel data, automatic predictor selection, data handling, post-processing imputed values, specialized pooling routines, model selection tools, and diagnostic graphs. Imputation of categorical data is improved in order to bypass problems caused by perfect prediction. Special attention is paid to transformations, sum scores, indices and interactions using passive imputation, and to the proper setup of the predictor matrix. mice 2.9 can be downloaded from the Comprehensive R Archive Network. This article provides a hands-on, stepwise approach to solve applied incomplete data problems.},
-  Archiveprefix            = {arXiv},
-  Arxivid                  = {NIHMS150003},
-  Doi                      = {10.18637/jss.v045.i03},
-  Eprint                   = {NIHMS150003},
-  ISBN                     = {9067436771},
-  ISSN                     = {1548-7660},
-  Owner                    = {alyssa},
-  Pmid                     = {22289957},
-  Timestamp                = {2017.10.16},
-  Topics                   = {multiple imputation; chained equations}
 }
 
 @Article{candes_etal_IEEETSP2013,
@@ -433,6 +474,27 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Timestamp                = {2018.10.30},
   Keywords                 = {large-scale machine learning},
   Topics                   = {random forests}
+}
+
+
+@Article{chen_reiter_2019,
+  Title                    = {Nonparametric Pattern-Mixture Models for Inference with Missing Data},
+  Author                   = {Chen, Yen-Chi and Sadinle, Mauricio},
+  Journal                  = {arXiv preprint},
+  archivePrefix            = {arXiv},
+  eprint                   = {1904.11085},
+  Year                     = {2019},
+  primaryClass             = {stat.ME},
+
+  Url                      = {https://arxiv.org/pdf/1904.11085.pdf},
+
+  Abstract                 = {Pattern-mixture models provide a transparent approach for handling missing data, where the full-data distribution is factorized in a way that explicitly shows the parts that can be estimated from observed data alone, and the parts that require identifying restrictions. We introduce a nonparametric estimator of the full-data distribution based on the pattern-mixture model factorization. Our approach uses the empirical observed-data distribution and augments it with a nonparametric estimator of the missing-data distributions under a given identifying restriction. Our results apply to a large class of donor-based identifying restrictions that encompasses commonly used ones and can handle
+both monotone and nonmonotone missingness. We propose a Monte Carlo procedure to derive point estimates of functionals of interest, and the bootstrap to construct confidence intervals.},
+  Keywords                 = {Bootstrap; Missingness mechanism; Nonignorable nonresponse; Nonparametric identification; Nonparametric inference},
+
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {mnar}
 }
 
 @Article{chen_shao_JOS2000,
@@ -636,23 +698,19 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Topics                   = {ml}
 }
 
-
 @Article{erler_etal_2019,
- Title                    = {JointAI: joint analysis and imputation of incomplete data in R},
-  Author                   = {Erler, Nicole S and Rizopoulos, Dimitris and Lesaffre, Emmanuel MEH},
-  Journal                  = {arXiv preprint},
-  Year                     = {2019},
-
-  Archiveprefix            = {arXiv},
-  Arxivid                  = {1907.10867v3 },
-  Url                      = {https://arxiv.org/abs/1907.10867},
-
-  Abstract                 = {Missing data occur in many types of studies and typically complicate the analysis. Multiple imputation, either using joint modelling or the more flexible fully conditional specification approach, are popular and work well in standard settings. In settings involving non-linear associations or interactions, however, incompatibility of the imputation model with the analysis model is an issue often resulting in bias. Similarly, complex outcomes such as longitudinal or survival outcomes cannot be adequately handled by standard implementations. In this paper, we introduce the R package JointAI, which utilizes the Bayesian framework to perform simultaneous analysis and imputation in regression models with incomplete covariates. Using a fully Bayesian joint modelling approach it overcomes the issue of uncongeniality while retaining the attractive flexibility of fully conditional specification multiple imputation by specifying the joint distribution of analysis and imputation models as a sequence of univariate models that can be adapted to the type of variable. JointAI provides functions for Bayesian inference with generalized linear and generalized linear mixed models and extensions thereof as well as survival models and joint models for longitudinal and survival data, that take arguments analogous to corresponding well known functions for the analysis of complete data from base R and other packages. Usage and features of JointAI are described and illustrated using various examples and the theoretical background is outlined.},
-
-  Keywords                 = {multiple imputation; Bayesian inference; R},
-  Owner                    = {aude},
-  Timestamp                = {2021.01.12},
-  Topics                   = {multiple imputation}
+  author        = {Erler, Nicole S and Rizopoulos, Dimitris and Lesaffre, Emmanuel MEH},
+  journal       = {arXiv preprint},
+  title         = {JointAI: joint analysis and imputation of incomplete data in R},
+  year          = {2019},
+  abstract      = {Missing data occur in many types of studies and typically complicate the analysis. Multiple imputation, either using joint modelling or the more flexible fully conditional specification approach, are popular and work well in standard settings. In settings involving non-linear associations or interactions, however, incompatibility of the imputation model with the analysis model is an issue often resulting in bias. Similarly, complex outcomes such as longitudinal or survival outcomes cannot be adequately handled by standard implementations. In this paper, we introduce the R package JointAI, which utilizes the Bayesian framework to perform simultaneous analysis and imputation in regression models with incomplete covariates. Using a fully Bayesian joint modelling approach it overcomes the issue of uncongeniality while retaining the attractive flexibility of fully conditional specification multiple imputation by specifying the joint distribution of analysis and imputation models as a sequence of univariate models that can be adapted to the type of variable. JointAI provides functions for Bayesian inference with generalized linear and generalized linear mixed models and extensions thereof as well as survival models and joint models for longitudinal and survival data, that take arguments analogous to corresponding well known functions for the analysis of complete data from base R and other packages. Usage and features of JointAI are described and illustrated using various examples and the theoretical background is outlined.},
+  archiveprefix = {arXiv},
+  arxivid       = {1907.10867v3},
+  keywords      = {multiple imputation; Bayesian inference; R},
+  owner         = {aude},
+  timestamp     = {2021.01.12},
+  topics        = {multiple imputation},
+  url           = {https://arxiv.org/abs/1907.10867},
 }
 
 
@@ -850,6 +908,29 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
 
 }
 
+@Article{golden_etal_2019,
+  Title                    = {Consequences of model misspecification for maximum likelihood estimation with missing data},
+  Author                   = {Golden, Richard M and Henley, Steven S and White, Halbert and Kashner, T Michael},
+  Journal                  = {Econometrics},
+  Volume                   = {7},
+  Number                   = {3},
+  Pages                    = {37},
+  Year                     = {2019},
+  Publisher                = {Multidisciplinary Digital Publishing Institute},
+  Doi                      = {10.3390/econometrics7030037},
+
+  Abstract                 = {Researchers are often faced with the challenge of developing statistical models with incomplete data. Exacerbating this situation is the possibility that either the researcher's complete-data model or the model of the missing-data mechanism is misspecified. In this article, we create a formal theoretical framework for developing statistical models and detecting model misspecification in the presence of incomplete data where maximum likelihood estimates are obtained by maximizing the
+observable-data likelihood function when the missing-data mechanism is assumed ignorable. First, we provide sufficient regularity conditions on the researcher's complete-data model to characterize the asymptotic behavior of maximum likelihood estimates in the simultaneous presence of both missing data and model misspecification. These results are then used to derive robust hypothesis testing
+methods for possibly misspecified models in the presence of Missing at Random (MAR) or Missing Not at Random (MNAR) missing data. Second, we introduce a method for the detection of model misspecification in missing data problems using recently developed Generalized Information Matrix Tests (GIMT). Third, we identify regularity conditions for the Missing Information Principle (MIP) to hold in the presence of model misspecification so as to provide useful computational covariance matrix estimation formulas. Fourth, we provide regularity conditions that ensure the observable-data expected negative log-likelihood function is convex in the presence of partially observable data when the amount of missingness is sufficiently small and the complete-data likelihood is convex. Fifth, we show that when the researcher has correctly specified a complete-data model with a convex negative likelihood function and an ignorable missing-data mechanism, then its strict local minimizer is the true parameter value for the complete-data model when the amount of missingness is sufficiently small. Our results thus provide new robust estimation, inference, and specification analysis methods for developing statistical models with incomplete data.},
+  Keywords                 = {asymptotic theory; ignorable; Generalized Information Matrix Test; misspecification;
+missing data; nonignorable; sandwich estimator; specification analysis},
+
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {ml; regression}
+
+}
+
 @InProceedings{gondara_wang_2018,
   Title                    = {MIDA: Multiple Imputation using Denoising Autoencoders},
   Author                   = {Gondara, L. and Wang, K.},
@@ -914,6 +995,23 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Topics                   = {general}
 }
 
+@Article{graham_etal_PS2007,
+  Title                    = {How many imputations are really needed? Some practical clarifications of multiple imputation theory},
+  Author                   = {Graham, John W. and Olchowski, Allison E. and Gilreath, Tamika E.},
+  Journal                  = {Prevention Science},
+  Year                     = {2007},
+  Number                   = {3},
+  Pages                    = {206-213},
+  Volume                   = {8},
+
+  Abstract                 = {Multiple imputation (MI) and full information maximum likelihood (FIML) are the two most common approaches to missing data analysis. In theory, MI and FIML are equivalent when identical models are tested using the same variables, and when m, the number of imputations performed with MI, approaches infinity. However, it is important to know how many imputations are necessary before MI and FIML are sufficiently equivalent in ways that are important to prevention scientists. MI theory suggests that small values of m, even on the order of three to five imputations, yield excellent results. Previous guidelines for sufficient m are based on relative efficiency, which involves the fraction of missing information (gamma) for the parameter being estimated, and m. In the present study, we used a Monte Carlo simulation to test MI models across several scenarios in which gamma and m were varied. Standard errors and p-values for the regression coefficient of interest varied as a function of m, but not at the same rate as relative efficiency. Most importantly, statistical power for small effect sizes diminished as m became smaller, and the rate of this power falloff was much greater than predicted by changes in relative efficiency. Based our findings, we recommend that researchers using MI should perform many more imputations than previously considered sufficient. These recommendations are based on gamma, and take into consideration one's tolerance for a preventable power falloff (compared to FIML) due to using too few imputations.},
+  Doi                      = {10.1007/s11121-007-0070-9},
+  Keywords                 = {multiple imputation; number of imputations; full information maximum likelihood; missing data; statistical power},
+  Owner                    = {nathalie},
+  Timestamp                = {2018.06.06},
+  Topics                   = {multiple imputation}
+}
+
 @InBook{graham_etal_SP1997,
   Title                    = {The Science of Prevention: Methodological Advances from Alcohol and Substance Abuse Research},
   Booktitle                = {The Science of Prevention: Methodological Advances from Alcohol and Substance Abuse Research},
@@ -937,21 +1035,23 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Topics                   = {}
 }
 
-@Article{graham_etal_PS2007,
-  Title                    = {How many imputations are really needed? Some practical clarifications of multiple imputation theory},
-  Author                   = {Graham, John W. and Olchowski, Allison E. and Gilreath, Tamika E.},
-  Journal                  = {Prevention Science},
-  Year                     = {2007},
-  Number                   = {3},
-  Pages                    = {206-213},
-  Volume                   = {8},
+@Article{heckman_AESM1976,
+  Title                    = {The common structure of statistical models of truncation, sample selection and limited dependent variables and a simple estimator for such models},
+  Author                   = {Heckman, J. J.},
+  Journal                  = {Annals of Economic and Social Measurement},
+  Year                     = {1976},
+  Number                   = {4},
+  Pages                    = {475-492},
+  Volume                   = {5},
 
-  Abstract                 = {Multiple imputation (MI) and full information maximum likelihood (FIML) are the two most common approaches to missing data analysis. In theory, MI and FIML are equivalent when identical models are tested using the same variables, and when m, the number of imputations performed with MI, approaches infinity. However, it is important to know how many imputations are necessary before MI and FIML are sufficiently equivalent in ways that are important to prevention scientists. MI theory suggests that small values of m, even on the order of three to five imputations, yield excellent results. Previous guidelines for sufficient m are based on relative efficiency, which involves the fraction of missing information (gamma) for the parameter being estimated, and m. In the present study, we used a Monte Carlo simulation to test MI models across several scenarios in which gamma and m were varied. Standard errors and p-values for the regression coefficient of interest varied as a function of m, but not at the same rate as relative efficiency. Most importantly, statistical power for small effect sizes diminished as m became smaller, and the rate of this power falloff was much greater than predicted by changes in relative efficiency. Based our findings, we recommend that researchers using MI should perform many more imputations than previously considered sufficient. These recommendations are based on gamma, and take into consideration one's tolerance for a preventable power falloff (compared to FIML) due to using too few imputations.},
-  Doi                      = {10.1007/s11121-007-0070-9},
-  Keywords                 = {multiple imputation; number of imputations; full information maximum likelihood; missing data; statistical power},
-  Owner                    = {nathalie},
-  Timestamp                = {2018.06.06},
-  Topics                   = {multiple imputation}
+  ISBN                     = {0691003637},
+  ISSN                     = {0361-8595},
+  Mendeley-groups          = {missing data},
+  Owner                    = {alyssa},
+  Pmid                     = {9590},
+  Timestamp                = {2017.10.25},
+  Topics                   = {mnar},
+  Url                      = {http://ideas.repec.org/h/nbr/nberch/10491.html}
 }
 
 @Article{heckman_E1979,
@@ -970,25 +1070,6 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Publisher                = {[Wiley, Econometric Society]},
   Timestamp                = {2017.10.25},
   Topics                   = {}
-}
-
-@Article{heckman_AESM1976,
-  Title                    = {The common structure of statistical models of truncation, sample selection and limited dependent variables and a simple estimator for such models},
-  Author                   = {Heckman, J. J.},
-  Journal                  = {Annals of Economic and Social Measurement},
-  Year                     = {1976},
-  Number                   = {4},
-  Pages                    = {475-492},
-  Volume                   = {5},
-
-  ISBN                     = {0691003637},
-  ISSN                     = {0361-8595},
-  Mendeley-groups          = {missing data},
-  Owner                    = {alyssa},
-  Pmid                     = {9590},
-  Timestamp                = {2017.10.25},
-  Topics                   = {mnar},
-  Url                      = {http://ideas.repec.org/h/nbr/nberch/10491.html}
 }
 
 @Article{hogan_laird_SM1997,
@@ -1047,23 +1128,6 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Topics                   = {multiple imputation}
 }
 
-@Article{hothorn_etal_2012,
-  Title                    = {Unbiased Recursive Partitioning: A Conditional Inference Framework},
-  Author                   = {Hothorn, T. and Hornik, K. and Zeileis, A.},
-  Journal                  = {Journal of Computational and Graphical Statistics},
-  Year                     = {2012},
-  Number                   = {3},
-  Pages                    = {651-674},
-  Volume                   = {15},
-
-  Abstract                 = {Recursive binary partitioning is a popular tool for regression analysis. Two fundamental problems of exhaustive search procedures usually applied to fit such models have been known for a long time: overfitting and a selection bias towards covariates with many possible splits or missing values. While pruning procedures are able to solve the overfitting problem, the variable selection bias still seriously affects the interpretability of tree-structured regression models. For some special cases unbiased procedures have been suggested, however lacking a common theoretical foundation. We propose a unified framework for recursive partitioning which embeds tree-structured regression models into a well defined theory of conditional inference procedures. Stopping criteria based on multiple test procedures are implemented and it is shown that the predictive performance of the resulting trees is as good as the performance of established exhaustive search procedures. It turns out that the partitions and therefore the models induced by both approaches are structurally different, confirming the need for an unbiased variable selection. Moreover, it is shown that the prediction accuracy of trees with early stopping is equivalent to the prediction accuracy of pruned trees with unbiased variable selection. The methodology presented here is applicable to all kinds of regression problems, including nominal, ordinal, numeric, censored as well as multivariate response variables and arbitrary measurement scales of the covariates. Data from studies on glaucoma classification, node positive breast cancer survival and mammography experience are re-analyzed.},
-  Doi                      = {10.1198/106186006X133933},
-  Keywords                 = {multiple testing; multivariate regression trees; ordinal regression trees; permutation tests; variable selection},
-  Owner                    = {imke},
-  Timestamp                = {2018.10.30},
-  Topics                   = {regression trees; variable selection}
-}
-
 @Article{horton_kleinman_2007,
   Title                    = {Much Ado About Nothing - A Comparison of Missing Data Methods and Software to Fit Incomplete Data Regression Models},
   Author                   = {Horton, N. J. and Kleinman, K. P.},
@@ -1080,6 +1144,23 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Owner                    = {imke},
   Timestamp                = {2018.11.07},
   Topics                   = {general_informal}
+}
+
+@Article{hothorn_etal_2012,
+  Title                    = {Unbiased Recursive Partitioning: A Conditional Inference Framework},
+  Author                   = {Hothorn, T. and Hornik, K. and Zeileis, A.},
+  Journal                  = {Journal of Computational and Graphical Statistics},
+  Year                     = {2012},
+  Number                   = {3},
+  Pages                    = {651-674},
+  Volume                   = {15},
+
+  Abstract                 = {Recursive binary partitioning is a popular tool for regression analysis. Two fundamental problems of exhaustive search procedures usually applied to fit such models have been known for a long time: overfitting and a selection bias towards covariates with many possible splits or missing values. While pruning procedures are able to solve the overfitting problem, the variable selection bias still seriously affects the interpretability of tree-structured regression models. For some special cases unbiased procedures have been suggested, however lacking a common theoretical foundation. We propose a unified framework for recursive partitioning which embeds tree-structured regression models into a well defined theory of conditional inference procedures. Stopping criteria based on multiple test procedures are implemented and it is shown that the predictive performance of the resulting trees is as good as the performance of established exhaustive search procedures. It turns out that the partitions and therefore the models induced by both approaches are structurally different, confirming the need for an unbiased variable selection. Moreover, it is shown that the prediction accuracy of trees with early stopping is equivalent to the prediction accuracy of pruned trees with unbiased variable selection. The methodology presented here is applicable to all kinds of regression problems, including nominal, ordinal, numeric, censored as well as multivariate response variables and arbitrary measurement scales of the covariates. Data from studies on glaucoma classification, node positive breast cancer survival and mammography experience are re-analyzed.},
+  Doi                      = {10.1198/106186006X133933},
+  Keywords                 = {multiple testing; multivariate regression trees; ordinal regression trees; permutation tests; variable selection},
+  Owner                    = {imke},
+  Timestamp                = {2018.10.30},
+  Topics                   = {regression trees; variable selection}
 }
 
 @Article{huisman_QQ2000,
@@ -1114,22 +1195,22 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Topics                   = {factorial data analysis; imputation}
 }
 
-@Article{ipsen_etal_2020,
-  Title                    = {not-MIWAE: Deep generative modelling with missing not at random data},
-  Author                   = {Ipsen, Niels Bruun and Mattei, Pierre-Alexandre and Frellsen, Jes},
-  Journal                  = {arXiv preprint},
-  Year                     = {2020},
+@Article{ibrahim_etal_2001,
+  Title                    = {Missing responses in generalised linear mixed models when the missing data mechanism is nonignorable},
+  Author                   = {Ibrahim, J. G. and Chen, M. and Lipsitz, S. R.},
+  Journal                  = {Biometrika},
+  Year                     = {2001},
+  Number                   = {2},
+  Pages                    = {551-564},
+  Volume                   = {88},
+  Publisher                = {Oxford University Press},
 
-  Archiveprefix            = {arXiv},
-  Arxivid                  = {2006.12871},
-  Url                      = {https://arxiv.org/abs/2006.12871},
-
-  Abstract                 = {When a missing process depends on the missing values themselves, it needs to be explicitly modelled and taken into account while doing likelihood-based inference. We present an approach for building and fitting deep latent variable models (DLVMs) in cases where the missing process is dependent on the missing data. Specifically, a deep neural network enables us to flexibly model the conditional distribution of the missingness pattern given the data. This allows for incorporating prior information about the type of missingness (e.g. self-censoring) into the model. Our inference technique, based on importance-weighted variational inference, involves maximising a lower bound of the joint likelihood. Stochastic gradients of the bound are obtained by using the reparameterisation trick both in latent space and data space. We show on various kinds of data sets and missingness patterns that explicitly modelling the missing process can be invaluable.},
-
-  Keywords                 = {mnar; deep learning},
-  Owner                    = {aude},
-  Timestamp                = {2021.01.12},
-  Topics                   = {deep learning; mnar}
+  Abstract                 = {We propose a method for estimating parameters in the generalised linear mixed model with nonignorable missing response data and with nonmonotone patterns of missing data in the response variable. We develop a Monte Carlo EM algorithm for estimating the parameters in the model via the Gibbs sampler. For the normal random effects model, we derive a novel analytical form for the E‐ and M‐steps, which is facilitated by integrating out the random effects. This form leads to a computationally feasible and extremely efficient Monte Carlo EM algorithm for computing maximum likelihood estimates and standard errors. In addition, we propose a very general joint multinomial model for the missing data indicators, which can be specified via a sequence of one‐dimensional conditional distributions. This multinomial model allows for an arbitrary correlation structure between the missing data indicators, and has the potential of reducing the number of nuisance parameters. Real datasets from the International Breast Cancer Study Group and an environmental study involving dyspnoea in cotton workers are presented to illustrate the proposed methods.},
+  Doi                      = {10.1093/biomet/88.2.551},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.11},
+  Keywords                 = {EM algorithm; Gibbs sampling; Maximum likelihood estimation; Missing data mechanism; Monte Carlo EM algorithm; Random effects model},
+  Topics                   = {em; mnar; glm; mcem; ml}
 }
 
 @Article{ibrahim_etal_RSS1999,
@@ -1149,24 +1230,6 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Owner                    = {imke},
   Timestamp                = {2018.11.07},
   Keywords                 = {EM algorithm; Gibbs sampling; Logistic regression; Maximum likelihood estimation; Missing data mechanism; Monte Carlo EM algorithm},
-  Topics                   = {em; mnar; glm; mcem; ml}
-}
-
-@Article{ibrahim_etal_2001,
-  Title                    = {Missing responses in generalised linear mixed models when the missing data mechanism is nonignorable},
-  Author                   = {Ibrahim, J. G. and Chen, M. and Lipsitz, S. R.},
-  Journal                  = {Biometrika},
-  Year                     = {2001},
-  Number                   = {2},
-  Pages                    = {551-564},
-  Volume                   = {88},
-  Publisher                = {Oxford University Press},
-
-  Abstract                 = {We propose a method for estimating parameters in the generalised linear mixed model with nonignorable missing response data and with nonmonotone patterns of missing data in the response variable. We develop a Monte Carlo EM algorithm for estimating the parameters in the model via the Gibbs sampler. For the normal random effects model, we derive a novel analytical form for the E‐ and M‐steps, which is facilitated by integrating out the random effects. This form leads to a computationally feasible and extremely efficient Monte Carlo EM algorithm for computing maximum likelihood estimates and standard errors. In addition, we propose a very general joint multinomial model for the missing data indicators, which can be specified via a sequence of one‐dimensional conditional distributions. This multinomial model allows for an arbitrary correlation structure between the missing data indicators, and has the potential of reducing the number of nuisance parameters. Real datasets from the International Breast Cancer Study Group and an environmental study involving dyspnoea in cotton workers are presented to illustrate the proposed methods.},
-  Doi                      = {10.1093/biomet/88.2.551},
-  Owner                    = {imke},
-  Timestamp                = {2018.11.11},
-  Keywords                 = {EM algorithm; Gibbs sampling; Maximum likelihood estimation; Missing data mechanism; Monte Carlo EM algorithm; Random effects model},
   Topics                   = {em; mnar; glm; mcem; ml}
 }
 
@@ -1205,25 +1268,53 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Website                  = {https://academic.oup.com/bioinformatic}
 }
 
-@InProceedings{jonsson_wohlin_ISSM2004,
-  Title                    = {An evaluation of k-nearest neighbour imputation using lIkert data},
-  Author                   = {J{\"{o}}nsson, P. and Wohlin, C.},
-  Booktitle                = {Proceedings of the 10th International Symposium on Software Metrics},
-  Year                     = {2004},
-  Editor                   = {-},
+@inproceedings{ipsen_etal_2020,
+  title={How to deal with missing data in supervised deep learning?},
+  author={Ipsen, Niels and Mattei, Pierre-Alexandre and Frellsen, Jes},
+  booktitle={ICML Workshop on the Art of Learning with Missing Values (Artemiss)},
+  year={2020},
+  Url={https://hal.inria.fr/hal-03044144/},
+  Abstract={The issue of missing data in supervised learning has been largely overlooked, especially in the deep learning community. We investigate strategies to adapt neural architectures to handle missing values. Here, we focus on regression and classification problems where the features are assumed to be missing at random. Of particular interest are schemes that allow to reuse as-is a neural discriminative architecture. One scheme involves imputing the missing values with learnable constants. We propose a second novel approach that leverages recent advances in deep generative modelling. More precisely, a deep latent variable model can be learned jointly with the discriminative model, using importance-weighted variational inference in an end-to-end way. This hybrid approach, which mimics multiple imputation, also allows to impute the data, by relying on both the discriminative and the generative model. We also discuss ways of using a pre-trained generative model to train the discriminative one. In domains where powerful deep generative models are available, the hybrid approach leads to large performance gains.},
+  Owner                    = {imke},
+  Timestamp             = {2021.01.19},
+  Topics                   = {deep learning; supervised learning}
+}
 
-  Address                  = {Chicago, IL, USA},
-  Pages                    = {1530-1435},
-  Publisher                = {IEEE},
+@Article{ipsen_etal_2020,
+  Title                    = {not-MIWAE: Deep generative modelling with missing not at random data},
+  Author                   = {Ipsen, Niels Bruun and Mattei, Pierre-Alexandre and Frellsen, Jes},
+  Journal                  = {arXiv preprint},
+  Year                     = {2020},
 
-  Abstract                 = {Studies in many different fields of research suffer from the problem of missing data. With missing data, statistical tests will lose power, results may be biased, or analysis may not be feasible at all. There are several ways to handle the problem, for example through imputation. With imputation, missing values are replaced with estimated values according to an imputation method or model. In the k-nearest neighbour (k-NN) method, a case is imputed using values from the k most similar cases. In this paper, we present an evaluation of the k-NN method using Likert data in a software engineering context. We simulate the method with different values of k and for different percentages of missing data. Our findings indicate that it is feasible to use the k-NN method with Likert data. We suggest that a suitable value of k is approximately the square root of the number of complete cases. We also show that by relaxing the method rules with respect to selecting neighbours, the ability of the method remains high for large amounts of missing data without affecting the quality of the imputation.},
-  Doi                      = {10.1109/METRIC.2004.1357895},
-  Eventdate                = {2004-09-14/2004-09-16},
-  ISBN                     = {0769521290},
-  ISSN                     = {15301435},
+  Archiveprefix            = {arXiv},
+  Arxivid                  = {2006.12871},
+  Url                      = {https://arxiv.org/abs/2006.12871},
+
+  Abstract                 = {When a missing process depends on the missing values themselves, it needs to be explicitly modelled and taken into account while doing likelihood-based inference. We present an approach for building and fitting deep latent variable models (DLVMs) in cases where the missing process is dependent on the missing data. Specifically, a deep neural network enables us to flexibly model the conditional distribution of the missingness pattern given the data. This allows for incorporating prior information about the type of missingness (e.g. self-censoring) into the model. Our inference technique, based on importance-weighted variational inference, involves maximising a lower bound of the joint likelihood. Stochastic gradients of the bound are obtained by using the reparameterisation trick both in latent space and data space. We show on various kinds of data sets and missingness patterns that explicitly modelling the missing process can be invaluable.},
+
+  Keywords                 = {mnar; deep learning},
+  Owner                    = {aude},
+  Timestamp                = {2021.01.12},
+  Topics                   = {deep learning; mnar}
+}
+
+@Article{jamshidian_etal_JSS2014,
+  Title                    = {{MissMech}: an {R} package for testing homoscedasticity, multivariate normality, and missing completely at random ({MCAR})},
+  Author                   = {Jamshidian, M. and Jalal, S. and Jansen, C.},
+  Journal                  = {Journal of Statistical Software},
+  Year                     = {2014},
+  Number                   = {6},
+  Pages                    = {1-31},
+  Volume                   = {56},
+
+  Abstract                 = {Researchers are often faced with analyzing data sets that are not complete. To prop- erly analyze such data sets requires the knowledge of the missing data mechanism. If data are missing completely at random (MCAR), then many missing data analysis techniques lead to valid inference. Thus, tests of MCAR are desirable. The package MissMech implements two tests developed by Jamshidian and Jalal (2010) for this purpose. These tests can be run using a function called TestMCARNormality. One of the tests is valid if data are normally distributed, and another test does not require any distributional assumptions for the data. In addition to testing MCAR, in some special cases, the function TestMCARNormality is also able to test whether data have a multivariate normal distribution. As a bonus, the functions in MissMech can also be used for the following additional tasks: (i) test of homoscedasticity for several groups when data are completely observed, (ii) perform the k-sample test of Anderson-Darling to determine whether k groups of univariate data come from the same distribution, (iii) impute incomplete data sets using two methods, one where normality is assumed and one where no specific distributional assumptions are made, (iv) obtain normal-theory maximum likelihood estimates for mean and covariance matrix when data are incomplete, along with their standard errors, and finally (v) perform the Neyman's test of uniformity. All of these features are explained in the paper, including examples.},
+  Doi                      = {10.18637/jss.v056.i06},
+  ISBN                     = {1548-7660},
+  ISSN                     = {1548-7660},
+  Keywords                 = {anderson-darling; goodness of fit test; hawkins; homogeneity of covariances; incomplete data; maximum likelihood estimate; missing data; neyman; imputation,s test,test},
   Owner                    = {alyssa},
-  Timestamp                = {2017.05.29},
-  Topics                   = {knn}
+  Timestamp                = {2017.05.09},
+  Topics                   = {diagnosis}
 }
 
 @Article{jamshidian_jalal_P2010,
@@ -1245,25 +1336,6 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Keywords                 = {covariance structures; k-sample test; missing data; multiple imputation; nonparametric test; structural equations; test of homogeneity of covariances},
   Owner                    = {alyssa},
   Pmid                     = {21720450},
-  Timestamp                = {2017.05.09},
-  Topics                   = {diagnosis}
-}
-
-@Article{jamshidian_etal_JSS2014,
-  Title                    = {{MissMech}: an {R} package for testing homoscedasticity, multivariate normality, and missing completely at random ({MCAR})},
-  Author                   = {Jamshidian, M. and Jalal, S. and Jansen, C.},
-  Journal                  = {Journal of Statistical Software},
-  Year                     = {2014},
-  Number                   = {6},
-  Pages                    = {1-31},
-  Volume                   = {56},
-
-  Abstract                 = {Researchers are often faced with analyzing data sets that are not complete. To prop- erly analyze such data sets requires the knowledge of the missing data mechanism. If data are missing completely at random (MCAR), then many missing data analysis techniques lead to valid inference. Thus, tests of MCAR are desirable. The package MissMech implements two tests developed by Jamshidian and Jalal (2010) for this purpose. These tests can be run using a function called TestMCARNormality. One of the tests is valid if data are normally distributed, and another test does not require any distributional assumptions for the data. In addition to testing MCAR, in some special cases, the function TestMCARNormality is also able to test whether data have a multivariate normal distribution. As a bonus, the functions in MissMech can also be used for the following additional tasks: (i) test of homoscedasticity for several groups when data are completely observed, (ii) perform the k-sample test of Anderson-Darling to determine whether k groups of univariate data come from the same distribution, (iii) impute incomplete data sets using two methods, one where normality is assumed and one where no specific distributional assumptions are made, (iv) obtain normal-theory maximum likelihood estimates for mean and covariance matrix when data are incomplete, along with their standard errors, and finally (v) perform the Neyman's test of uniformity. All of these features are explained in the paper, including examples.},
-  Doi                      = {10.18637/jss.v056.i06},
-  ISBN                     = {1548-7660},
-  ISSN                     = {1548-7660},
-  Keywords                 = {anderson-darling; goodness of fit test; hawkins; homogeneity of covariances; incomplete data; maximum likelihood estimate; missing data; neyman; imputation,s test,test},
-  Owner                    = {alyssa},
   Timestamp                = {2017.05.09},
   Topics                   = {diagnosis}
 }
@@ -1322,72 +1394,42 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Topics                   = {ml; regression}
 }
 
+@InProceedings{jonsson_wohlin_ISSM2004,
+  Title                    = {An evaluation of k-nearest neighbour imputation using lIkert data},
+  Author                   = {J{\"{o}}nsson, P. and Wohlin, C.},
+  Booktitle                = {Proceedings of the 10th International Symposium on Software Metrics},
+  Year                     = {2004},
+  Editor                   = {-},
 
+  Address                  = {Chicago, IL, USA},
+  Pages                    = {1530-1435},
+  Publisher                = {IEEE},
 
-@Article{josse_etal_JC2012,
-  Title                    = {Handling missing values with regularized iterative multiple correspondance analysis},
-  Author                   = {Josse, Julie and Chavent, Marie and Liquet, Benoi and Husson, Fran\c{c}ois},
-  Journal                  = {Journal of Classification},
-  Year                     = {2012},
-  Number                   = {1},
-  Pages                    = {91-116},
-  Volume                   = {29},
-
-  Abstract                 = {A common approach to deal with missing values in multivariate exploratory data analysis consists in minimizing the loss function over all non-missing elements, which can be achieved by EM-type algorithms where an iterative imputation of the missing values is performed during the estimation of the axes and components. This paper proposes such an algorithm, named iterative multiple correspondence analysis, to handle missing values in multiple correspondence analysis (MCA). The algorithm, based on an iterative PCA algorithm, is described and its properties are studied. We point out the overfitting problem and propose a regularized version of the algorithm to overcome this major issue. Finally, performances of the regularized iterative MCA algorithm (implemented in the R-package named missMDA) are assessed from both simulations and a real dataset. Results are promising with respect to other methods such as the missing-data passive modified margin method, an adaptation of the missing passive method used in Gifi’s Homogeneity analysis framework.},
-  Doi                      = {10.1007/s00357-012-9097-0},
-  Keywords                 = {multiple correspondence analysis; categorical data; missing values; imputation; regularization},
+  Abstract                 = {Studies in many different fields of research suffer from the problem of missing data. With missing data, statistical tests will lose power, results may be biased, or analysis may not be feasible at all. There are several ways to handle the problem, for example through imputation. With imputation, missing values are replaced with estimated values according to an imputation method or model. In the k-nearest neighbour (k-NN) method, a case is imputed using values from the k most similar cases. In this paper, we present an evaluation of the k-NN method using Likert data in a software engineering context. We simulate the method with different values of k and for different percentages of missing data. Our findings indicate that it is feasible to use the k-NN method with Likert data. We suggest that a suitable value of k is approximately the square root of the number of complete cases. We also show that by relaxing the method rules with respect to selecting neighbours, the ability of the method remains high for large amounts of missing data without affecting the quality of the imputation.},
+  Doi                      = {10.1109/METRIC.2004.1357895},
+  Eventdate                = {2004-09-14/2004-09-16},
+  ISBN                     = {0769521290},
+  ISSN                     = {15301435},
   Owner                    = {alyssa},
-  Timestamp                = {2017.02.22},
-  Topics                   = {factorial data analysis; imputation}
+  Timestamp                = {2017.05.29},
+  Topics                   = {knn}
 }
 
-@Article{josse_husson_JSS2016,
-  Title                    = {{missMDA}: a package for handling missing values in multivariate data analysis},
-  Author                   = {Josse, J. and Husson, F.},
-  Journal                  = {Journal of Statistical Software},
-  Year                     = {2016},
-  Number                   = {1},
-  Pages                    = {1-31},
-  Volume                   = {70},
+@Article{josse_etal_2019,
+  Title                    = {On the consistency of supervised learning with missing values},
+  Author                   = {Josse, Julie and Prost, Nicolas and Scornet, Erwan and Varoquaux, Ga{\"e}l},
+  Journal                  = {arXiv preprint},
+  archivePrefix            = {arXiv},
+  eprint                   = {1902.06931},
+  primaryClass             = {stat.ML},
+  Year                     = {2019},
+  Url                      = {https://arxiv.org/abs/1902.06931},
 
-  Doi                      = {10.18637/jss.v070.i01},
-  Owner                    = {nathalie},
-  Timestamp                = {2016.10.17},
-  Topics                   = {multiple imputation; factorial data analysis}
-}
-
-@Article{josse_husson_JSFdS2012,
-  Title                    = {Handling missing values in exploratory multivariate data analysis methods},
-  Author                   = {Josse, J. and Husson, F.},
-  Journal                  = {Journal de la Soci\'et\'e Fran\c{c}aise de Statistique},
-  Year                     = {2012},
-  Number                   = {2},
-  Pages                    = {79-99},
-  Volume                   = {153},
-
-  Abstract                 = {This paper is a written version of the talk Julie Josse delivered at the 44 Journ{\'{e}}es de Statistique (Bruxelles, 2012), when being awarded the Marie-Jeanne Laurent-Duhamel prize for her Ph.D. dissertation by the French Statistical Society. It proposes an overview of some results, proposed in Julie Josse and Fran{\c{c}}ois Husson's papers, as well as new challenges in the field of handling missing values in exploratory multivariate data analysis methods and especially in principal component analysis (PCA). First we describe a regularized iterative PCA algorithm to provide point estimates of the principal axes and components and to overcome the major issue of overfitting. Then, we give insight in the parameters variance using a non parametric multiple imputation procedure. Finally, we discuss the problem of the choice of the number of dimensions and we detail cross-validation approximation criteria. The proposed methodology is implemented in the R package missMDA. R{\'{e}}sum{\'{e}} : Cet article fait suite {\`{a}} la conf{\'{e}}rence de Julie Josse sur ses travaux de th{\`{e}}se lors de la r{\'{e}}ception du prix Marie-Jeanne Laurent-Duhamel, dans le cadre des 44e Journ{\'{e}}es de Statistique (Bruxelles, 2012). Il reprend les principaux r{\'{e}}sultats des papiers de Julie Josse et Fran{\c{c}}ois Husson sur la gestion des donn{\'{e}}es manquantes en analyse factorielle et d{\'{e}}crit de nouvelles avanc{\'{e}}es sur le sujet. Dans un premier temps, nous d{\'{e}}taillons un algorithme d'ACP it{\'{e}}rative r{\'{e}}gularis{\'{e}}e qui permet d'estimer les axes et composantes principales en pr{\'{e}}sence de donn{\'{e}}es manquantes et qui pallie le probl{\`{e}}me majeur du surajustement. L'estimation ponctuelle est enrichie par la construction de zone de confiance. Une m{\'{e}}thode d'imputation multiple non-param{\'{e}}trique est alors d{\'{e}}velopp{\'{e}}e pour prendre en compte l'incertitude due aux donn{\'{e}}es manquantes. Enfin, nous abordons le probl{\`{e}}me r{\'{e}}current du choix du nombre de dimensions et d{\'{e}}finissons des approximations de la validation crois{\'{e}}e de type validation crois{\'{e}}e g{\'{e}}n{\'{e}}ralis{\'{e}}e. Tous ces travaux sont mis {\`{a}} disposition de l'utilisateur gr{\^{a}}ce au package missMDA du logiciel libre R.},
-  ISSN                     = {2102-6238},
-  Owner                    = {alyssa},
-  Timestamp                = {2016.09.27},
-  Topics                   = {multiple imputation; factorial data analysis},
-  Url                      = {http://publications-sfds.fr/ojs/index.php/J-SFdS/article/view/122/112}
-}
-
-@Article{josse_etal_JSFdS2009,
-  Title                    = {Gestion des donn\'ees manquantes en {A}nalyse en {C}omposantes {P}rincipales},
-  Author                   = {Josse, J. and Husson, F. and Pag\`es, J.},
-  Journal                  = {Journal de la Soci\'et\'e Fran\c{c}aise de Statistique},
-  Year                     = {2009},
-  Number                   = {2},
-  Pages                    = {28-51},
-  Volume                   = {150},
-
-  Abstract                 = {An approach commonly used to handle missing values in Principal Component Analysis (PCA) consists in ignoring the missing values by optimizing the loss function over all non-missing ele- ments. This can be achieved by several methods, including the use of NIPALS, weighted regression or iterative PCA. The latter is based on iterative imputation of the missing elements during the es- timation of the parameters, and can be seen as a particular EM algorithm. First, we review theses approaches with respect to the criterion minimization. This presentation gives a good understanding of their properties and the difficulties encountered. Then, we point out the problem of overfitting and we show how the probabilistic formulation of PCA (Tipping {\&} Bishop, 1997) offers a proper and convenient regularization term to overcome this problem. Finally, the performances of the new algorithm are compared to those of the other algorithms from simulations.},
-  Keywords                 = {ACP; ACP probabiliste; ACP-GEM; algorithme EM; donn\'ees manquantes; moindres carr\'es altern\'es pond\'er\'es; surajustement},
-  Owner                    = {alyssa},
-  Timestamp                = {2016.11.30},
-  Topics                   = {factorial data analysis; imputation},
-  Url                      = {http://journal-sfds.fr/ojs/index.php/J-SFdS/article/view/33/27}
+  Abstract                 = {In many application settings, the data are plagued with missing features. These hinder data analysis. An abundant literature addresses missing values in an inferential framework, where the aim is to estimate parameters and their variance from incomplete tables. Here, we consider supervised-learning settings where the objective is to best predict a target when missing values appear in both training and test sets. We analyze which missing-values strategies lead to good prediction. We show the consistency of two approaches to estimating the prediction function. The most striking one shows that the widely-used mean imputation prior to learning method is consistent when missing values are not informative. This is in contrast with inferential settings as mean imputation is known to have serious drawbacks in terms of deformation of the joint and marginal distribution of the data. That such a simple approach can be consistent has important consequences in practice. This result holds asymptotically when the learning algorithm is consistent in itself. We contribute additional analysis on decision trees as they can naturally tackle empirical risk minimization with missing values. This is due to their ability to handle the half-discrete nature of variables with missing values. After comparing theoretically and empirically different missing-values strategies in trees, we recommend using the missing incorporated in attributes method as it can handle both non-informative and informative missing values.},
+  Keywords                 = {Imputation; decision trees; expectation maximization},
+  Owner                    = {imke},
+  Timestamp                = {2019.03.17},
+  Topics                   = {random trees; random forests}
 }
 
 @Article{josse_etal_ADAC2011,
@@ -1407,21 +1449,72 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Topics                   = {multiple imputation; factorial data analysis}
 }
 
-@Article{josse_etal_2019,
-  Title                    = {On the consistency of supervised learning with missing values},
-  Author                   = {Josse, Julie and Prost, Nicolas and Scornet, Erwan and Varoquaux, Ga{\"e}l},
-  Journal                  = {arXiv preprint},
-  archivePrefix            = {arXiv},
-  eprint                   = {1902.06931},
-  primaryClass             = {stat.ML},
-  Year                     = {2019},
-  Url                      = {https://arxiv.org/abs/1902.06931},
 
-  Abstract                 = {In many application settings, the data are plagued with missing features. These hinder data analysis. An abundant literature addresses missing values in an inferential framework, where the aim is to estimate parameters and their variance from incomplete tables. Here, we consider supervised-learning settings where the objective is to best predict a target when missing values appear in both training and test sets. We analyze which missing-values strategies lead to good prediction. We show the consistency of two approaches to estimating the prediction function. The most striking one shows that the widely-used mean imputation prior to learning method is consistent when missing values are not informative. This is in contrast with inferential settings as mean imputation is known to have serious drawbacks in terms of deformation of the joint and marginal distribution of the data. That such a simple approach can be consistent has important consequences in practice. This result holds asymptotically when the learning algorithm is consistent in itself. We contribute additional analysis on decision trees as they can naturally tackle empirical risk minimization with missing values. This is due to their ability to handle the half-discrete nature of variables with missing values. After comparing theoretically and empirically different missing-values strategies in trees, we recommend using the missing incorporated in attributes method as it can handle both non-informative and informative missing values.},
-  Keywords                 = {Imputation; decision trees; expectation maximization},
-  Owner                    = {imke},
-  Timestamp                = {2019.03.17},
-  Topics                   = {random trees; random forests}
+
+@Article{josse_etal_JC2012,
+  Title                    = {Handling missing values with regularized iterative multiple correspondance analysis},
+  Author                   = {Josse, Julie and Chavent, Marie and Liquet, Benoi and Husson, Fran\c{c}ois},
+  Journal                  = {Journal of Classification},
+  Year                     = {2012},
+  Number                   = {1},
+  Pages                    = {91-116},
+  Volume                   = {29},
+
+  Abstract                 = {A common approach to deal with missing values in multivariate exploratory data analysis consists in minimizing the loss function over all non-missing elements, which can be achieved by EM-type algorithms where an iterative imputation of the missing values is performed during the estimation of the axes and components. This paper proposes such an algorithm, named iterative multiple correspondence analysis, to handle missing values in multiple correspondence analysis (MCA). The algorithm, based on an iterative PCA algorithm, is described and its properties are studied. We point out the overfitting problem and propose a regularized version of the algorithm to overcome this major issue. Finally, performances of the regularized iterative MCA algorithm (implemented in the R-package named missMDA) are assessed from both simulations and a real dataset. Results are promising with respect to other methods such as the missing-data passive modified margin method, an adaptation of the missing passive method used in Gifi’s Homogeneity analysis framework.},
+  Doi                      = {10.1007/s00357-012-9097-0},
+  Keywords                 = {multiple correspondence analysis; categorical data; missing values; imputation; regularization},
+  Owner                    = {alyssa},
+  Timestamp                = {2017.02.22},
+  Topics                   = {factorial data analysis; imputation}
+}
+
+@Article{josse_etal_JSFdS2009,
+  Title                    = {Gestion des donn\'ees manquantes en {A}nalyse en {C}omposantes {P}rincipales},
+  Author                   = {Josse, J. and Husson, F. and Pag\`es, J.},
+  Journal                  = {Journal de la Soci\'et\'e Fran\c{c}aise de Statistique},
+  Year                     = {2009},
+  Number                   = {2},
+  Pages                    = {28-51},
+  Volume                   = {150},
+
+  Abstract                 = {An approach commonly used to handle missing values in Principal Component Analysis (PCA) consists in ignoring the missing values by optimizing the loss function over all non-missing ele- ments. This can be achieved by several methods, including the use of NIPALS, weighted regression or iterative PCA. The latter is based on iterative imputation of the missing elements during the es- timation of the parameters, and can be seen as a particular EM algorithm. First, we review theses approaches with respect to the criterion minimization. This presentation gives a good understanding of their properties and the difficulties encountered. Then, we point out the problem of overfitting and we show how the probabilistic formulation of PCA (Tipping {\&} Bishop, 1997) offers a proper and convenient regularization term to overcome this problem. Finally, the performances of the new algorithm are compared to those of the other algorithms from simulations.},
+  Keywords                 = {ACP; ACP probabiliste; ACP-GEM; algorithme EM; donn\'ees manquantes; moindres carr\'es altern\'es pond\'er\'es; surajustement},
+  Owner                    = {alyssa},
+  Timestamp                = {2016.11.30},
+  Topics                   = {factorial data analysis; imputation},
+  Url                      = {http://journal-sfds.fr/ojs/index.php/J-SFdS/article/view/33/27}
+}
+
+@Article{josse_husson_JSFdS2012,
+  Title                    = {Handling missing values in exploratory multivariate data analysis methods},
+  Author                   = {Josse, J. and Husson, F.},
+  Journal                  = {Journal de la Soci\'et\'e Fran\c{c}aise de Statistique},
+  Year                     = {2012},
+  Number                   = {2},
+  Pages                    = {79-99},
+  Volume                   = {153},
+
+  Abstract                 = {This paper is a written version of the talk Julie Josse delivered at the 44 Journ{\'{e}}es de Statistique (Bruxelles, 2012), when being awarded the Marie-Jeanne Laurent-Duhamel prize for her Ph.D. dissertation by the French Statistical Society. It proposes an overview of some results, proposed in Julie Josse and Fran{\c{c}}ois Husson's papers, as well as new challenges in the field of handling missing values in exploratory multivariate data analysis methods and especially in principal component analysis (PCA). First we describe a regularized iterative PCA algorithm to provide point estimates of the principal axes and components and to overcome the major issue of overfitting. Then, we give insight in the parameters variance using a non parametric multiple imputation procedure. Finally, we discuss the problem of the choice of the number of dimensions and we detail cross-validation approximation criteria. The proposed methodology is implemented in the R package missMDA. R{\'{e}}sum{\'{e}} : Cet article fait suite {\`{a}} la conf{\'{e}}rence de Julie Josse sur ses travaux de th{\`{e}}se lors de la r{\'{e}}ception du prix Marie-Jeanne Laurent-Duhamel, dans le cadre des 44e Journ{\'{e}}es de Statistique (Bruxelles, 2012). Il reprend les principaux r{\'{e}}sultats des papiers de Julie Josse et Fran{\c{c}}ois Husson sur la gestion des donn{\'{e}}es manquantes en analyse factorielle et d{\'{e}}crit de nouvelles avanc{\'{e}}es sur le sujet. Dans un premier temps, nous d{\'{e}}taillons un algorithme d'ACP it{\'{e}}rative r{\'{e}}gularis{\'{e}}e qui permet d'estimer les axes et composantes principales en pr{\'{e}}sence de donn{\'{e}}es manquantes et qui pallie le probl{\`{e}}me majeur du surajustement. L'estimation ponctuelle est enrichie par la construction de zone de confiance. Une m{\'{e}}thode d'imputation multiple non-param{\'{e}}trique est alors d{\'{e}}velopp{\'{e}}e pour prendre en compte l'incertitude due aux donn{\'{e}}es manquantes. Enfin, nous abordons le probl{\`{e}}me r{\'{e}}current du choix du nombre de dimensions et d{\'{e}}finissons des approximations de la validation crois{\'{e}}e de type validation crois{\'{e}}e g{\'{e}}n{\'{e}}ralis{\'{e}}e. Tous ces travaux sont mis {\`{a}} disposition de l'utilisateur gr{\^{a}}ce au package missMDA du logiciel libre R.},
+  ISSN                     = {2102-6238},
+  Owner                    = {alyssa},
+  Timestamp                = {2016.09.27},
+  Topics                   = {multiple imputation; factorial data analysis},
+  Url                      = {http://publications-sfds.fr/ojs/index.php/J-SFdS/article/view/122/112}
+}
+
+@Article{josse_husson_JSS2016,
+  Title                    = {{missMDA}: a package for handling missing values in multivariate data analysis},
+  Author                   = {Josse, J. and Husson, F.},
+  Journal                  = {Journal of Statistical Software},
+  Year                     = {2016},
+  Number                   = {1},
+  Pages                    = {1-31},
+  Volume                   = {70},
+
+  Doi                      = {10.18637/jss.v070.i01},
+  Owner                    = {nathalie},
+  Timestamp                = {2016.10.17},
+  Topics                   = {multiple imputation; factorial data analysis}
 }
 
 @Article{kaiser_JSI2014,
@@ -1495,6 +1588,17 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Topics                   = {random trees; random forests; prediction; statistical learning}
 }
 
+@article{khosravi_etal_2020,
+  title={Handling missing data in decision trees: A probabilistic approach},
+  author={Khosravi, Pasha and Vergari, Antonio and Choi, YooJung and Liang, Yitao and Broeck, Guy Van den},
+  journal={arXiv preprint arXiv:2006.16341},
+  year={2020},
+  Abstract={Decision trees are a popular family of models due to their attractive properties such as interpretability and ability to handle heterogeneous data. Concurrently, missing data is a prevalent occurrence that hinders performance of machine learning models. As such, handling missing data in decision trees is a well studied problem. In this paper, we tackle this problem by taking a probabilistic approach. At deployment time, we use tractable density estimators to compute the "expected prediction" of our models. At learning time, we fine-tune parameters of already learned trees by minimizing their "expected prediction loss" w.r.t. our density estimators. We provide brief experiments showcasing effectiveness of our methods compared to few baselines.},
+  Owner                    = {imke},
+  Timestamp             = {2021.01.19},
+  Topics                   = {decision tree}
+}
+
 @Book{kim_shao_2013,
   Title                    = {Statistical Methods for Handling Incomplete Data},
   Author                   = {Kim, J. K. and Shao, J.},
@@ -1565,6 +1669,24 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
  Topics                    = {mi}
  }
 
+@Article{larose_etal_2019,
+  Title                    = {The impact of missing values on different measures of uncertainty},
+  Author                   = {Larose, Chantal and Dey, Dipak K and Harel, Ofer},
+  Journal                  = {Statistica Sinica},
+  Volume                   = {29},
+  Number                   = {2},
+  Pages                    = {551--566},
+  Year                     = {2019},
+  Doi                      = {10.5705/ss.202016.0073},
+
+  Abstract                 = {Entropy quantifies uncertainty in a data set. Intuition tells us that missing values should increase the uncertainty in a data set, but the affect of missing values on entropy has never been quantified. This paper develops formulae for the entropy of incomplete normal data under different missingness mechanisms. The results are compared to the fraction of missing information, which quantifies uncertainty in parameter estimates due to missing values, to compare the two measurements of uncertainty.},
+
+  Keywords                 = {Entropy; fraction of missing information; missing data; multiple imputation},
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {mnar; multiple imputation}
+}
+
 @Article{lee_etal_2018,
   Title                    = {Optimal design when outcome values are not missing at random},
   Author                   = {Lee, K. M. and Mitra, R. and Biedermann, S.},
@@ -1584,40 +1706,17 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Topics                   = {mnar}
 }
 
-@Article{little_JASA1995,
-  Title                    = {Modeling the drop-out mechanism in repeated-measures studies},
-  Author                   = {Little, R. J. A.},
-  Journal                  = {Journal of the American Statistical Association},
-  Year                     = {1995},
-  Number                   = {431},
-  Pages                    = {1112-1121},
-  Volume                   = {90},
+@article{lee_etal_2020,
+  title={Framework for the Treatment And Reporting of Missing data in Observational Studies: The TARMOS framework},
+  author={Lee, Katherine J and Tilling, Kate and Cornish, Rosie P and Little, Roderick JA and Bell, Melanie L and Goetghebeur, Els and Hogan, Joseph W and Carpenter, James R},
+  journal={arXiv preprint arXiv:2004.14066},
+  year={2020},
+  Url={https://arxiv.org/abs/2004.14066},
+  Abstract={Missing data are ubiquitous in medical research. Although there is increasing guidance on how to handle missing data, practice is changing slowly and misapprehensions abound, particularly in observational research. We present a practical framework for handling and reporting the analysis of incomplete data in observational studies, which we illustrate using a case study from the Avon Longitudinal Study of Parents and Children. The framework consists of three steps: 1) Develop an analysis plan specifying the analysis model and how missing data are going to be addressed. An important consideration is whether a complete records analysis is likely to be valid, whether multiple imputation or an alternative approach is likely to offer benefits, and whether a sensitivity analysis regarding the missingness mechanism is required. 2) Explore the data, checking the methods outlined in the analysis plan are appropriate, and conduct the pre-planned analysis. 3) Report the results, including a description of the missing data, details on how the missing data were addressed, and the results from all analyses, interpreted in light of the missing data and the clinical relevance. This framework seeks to support researchers in thinking systematically about missing data, and transparently reporting the potential effect on the study results.},
+  Owner                    = {imke},
+  Timestamp             = {2021.01.19},
+  Topics                   = {diagnosis}
 
-  Abstract                 = {Subjects often drop out of longitudinal studies prematurely, yielding unbalanced data with unequal numbers of measures for each subject. Modern software programs for handling unbalanced longitudinal data improve on methods that discard the incomplete cases by including all the data, but also yield biased inferences under plausible models for the drop-out process. This article discusses methods that simultaneously model the data and the drop-out process within a unified model-based framework. Models are classified into two broad classes--random-coefficient selection models and random-coefficient pattern-mixture models--depending on how the joint distribution of the data and drop-out mechanism is factored. Inference is likelihood-based, via maximum likelihood or Bayesian methods. A number of examples in the literature are placed in this framework, and possible extensions outlined. Data collection on the nature of the drop-out process is advocated to guide the choice of model. In cases where the drop-out mechanism is not well understood, sensitivity analyses are suggested to assess the effect on inferences about target quantities of alternative assumptions about the drop-out process.},
-  Doi                      = {10.2307/2291350},
-  Keywords                 = {attrition; longitudinal data; missing data; nonrandom nonresponse; selection bias},
-  Owner                    = {alyssa},
-  Timestamp                = {2016.12.12},
-  Topics                   = {mnar}
-}
-
-@Article{little_JASA1993,
-  Title                    = {Pattern-mixture models for multivariate incomplete data},
-  Author                   = {Little, R. J. A.},
-  Journal                  = {Journal of the American Statistical Association},
-  Year                     = {1993},
-  Number                   = {421},
-  Pages                    = {125-134},
-  Volume                   = {88},
-
-  Abstract                 = {Consider a random sample on variables X1, ..., XV with some values of XV missing. Selection models specify the distribution of X1, ..., XV over respondents and nonrespondents to XV, and the conditional distribution that XV is missing given X1, ..., XV. In contrast, pattern-mixture models specify the conditional distribution of X1, ..., XV given that XV is observed or missing respectively and the marginal distribution of the binary indicator for whether or not XV is missing. For multivariate data with a general pattern of missing values, the literature has tended to adopt the selection-modeling approach (see for example Little and Rubin); here, pattern-mixture models are proposed for this more general problem. Pattern-mixture models are chronically underidentified; in particular for the case of univariate nonresponse mentioned above, there are no data on the distribution of XV given X1, ..., XV-1 in the stratum with XV missing. Thus the models require restrictions or prior information to identify the parameters. Complete-case restrictions tie unidentified parameters to their (identified) analogs in the stratum of complete cases. Alternative types of restriction tie unidentified parameters to parameters in other missing-value patterns or sets of such patterns. This large set of possible identifying restrictions yields a rich class of missing-data models. Unlike ignorable selection models, which generally requires iterative methods except for special missing-data patterns, some pattern-mixture models yield explicit ML estimates for general patterns. Such models are readily amenable to Bayesian methods and form a convenient basis for multiple imputation. Some previously considered noniterative estimation methods are shown to be maximum likelihood (ML) under a pattern-mixture model. For example, Buck's method for continuous data, corrected as in Beale and Little (1975), and Brown's estimators for nonrandomly missing data are ML for pattern-mixture models with particular complete-case restrictions. Available-case analyses, where the mean and variance of Xj are computed using all cases with Xj observed and the correlation (or covariance) of Xj and Xk is computed using all cases with Xj and Xk observed, are also close to ML for another pattern-mixture model. Asymptotic theory for this class of estimators is outlined.},
-  Doi                      = {10.2307/2290705},
-  ISSN                     = {01621459},
-  Keywords                 = {parametric models; statistical estimation; statistical models; missing data; covariance matrices; statistical variance; modeling; mathematical models; data models; sample mean},
-  Owner                    = {alyssa},
-  Publisher                = {[American Statistical Association, Taylor \& Francis, Ltd.]},
-  Timestamp                = {2017.11.14},
-  Topics                   = {mnar}
 }
 
 @Article{little_JASA1988,
@@ -1640,23 +1739,6 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Topics                   = {diagnosis}
 }
 
-@Book{little_rubin_SAMD2002,
-  Title                    = {Statistical Analysis with Missing Data},
-  Author                   = {Little, R. J. A. and Rubin, D. B.},
-  Publisher                = {Wiley},
-  Year                     = {2002},
-
-  Booktitle                = {Statistical analysis with missing data Second edition},
-  Doi                      = {10.2307/1533221},
-  ISBN                     = {0471183865},
-  ISSN                     = {00324663},
-  Owner                    = {alyssa},
-  Pages                    = {408},
-  Pmid                     = {10403256},
-  Timestamp                = {2016.09.27},
-  Topics                   = {general}
-}
-
 @Article{little_JASA1992,
   Title                    = {Regression with missing {X}'s: a review},
   Author                   = {Little, R. J. A.},
@@ -1677,6 +1759,95 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Topics                   = {ml}
 }
 
+@Article{little_JASA1993,
+  Title                    = {Pattern-mixture models for multivariate incomplete data},
+  Author                   = {Little, R. J. A.},
+  Journal                  = {Journal of the American Statistical Association},
+  Year                     = {1993},
+  Number                   = {421},
+  Pages                    = {125-134},
+  Volume                   = {88},
+
+  Abstract                 = {Consider a random sample on variables X1, ..., XV with some values of XV missing. Selection models specify the distribution of X1, ..., XV over respondents and nonrespondents to XV, and the conditional distribution that XV is missing given X1, ..., XV. In contrast, pattern-mixture models specify the conditional distribution of X1, ..., XV given that XV is observed or missing respectively and the marginal distribution of the binary indicator for whether or not XV is missing. For multivariate data with a general pattern of missing values, the literature has tended to adopt the selection-modeling approach (see for example Little and Rubin); here, pattern-mixture models are proposed for this more general problem. Pattern-mixture models are chronically underidentified; in particular for the case of univariate nonresponse mentioned above, there are no data on the distribution of XV given X1, ..., XV-1 in the stratum with XV missing. Thus the models require restrictions or prior information to identify the parameters. Complete-case restrictions tie unidentified parameters to their (identified) analogs in the stratum of complete cases. Alternative types of restriction tie unidentified parameters to parameters in other missing-value patterns or sets of such patterns. This large set of possible identifying restrictions yields a rich class of missing-data models. Unlike ignorable selection models, which generally requires iterative methods except for special missing-data patterns, some pattern-mixture models yield explicit ML estimates for general patterns. Such models are readily amenable to Bayesian methods and form a convenient basis for multiple imputation. Some previously considered noniterative estimation methods are shown to be maximum likelihood (ML) under a pattern-mixture model. For example, Buck's method for continuous data, corrected as in Beale and Little (1975), and Brown's estimators for nonrandomly missing data are ML for pattern-mixture models with particular complete-case restrictions. Available-case analyses, where the mean and variance of Xj are computed using all cases with Xj observed and the correlation (or covariance) of Xj and Xk is computed using all cases with Xj and Xk observed, are also close to ML for another pattern-mixture model. Asymptotic theory for this class of estimators is outlined.},
+  Doi                      = {10.2307/2290705},
+  ISSN                     = {01621459},
+  Keywords                 = {parametric models; statistical estimation; statistical models; missing data; covariance matrices; statistical variance; modeling; mathematical models; data models; sample mean},
+  Owner                    = {alyssa},
+  Publisher                = {[American Statistical Association, Taylor \& Francis, Ltd.]},
+  Timestamp                = {2017.11.14},
+  Topics                   = {mnar}
+}
+
+@Article{little_JASA1995,
+  Title                    = {Modeling the drop-out mechanism in repeated-measures studies},
+  Author                   = {Little, R. J. A.},
+  Journal                  = {Journal of the American Statistical Association},
+  Year                     = {1995},
+  Number                   = {431},
+  Pages                    = {1112-1121},
+  Volume                   = {90},
+
+  Abstract                 = {Subjects often drop out of longitudinal studies prematurely, yielding unbalanced data with unequal numbers of measures for each subject. Modern software programs for handling unbalanced longitudinal data improve on methods that discard the incomplete cases by including all the data, but also yield biased inferences under plausible models for the drop-out process. This article discusses methods that simultaneously model the data and the drop-out process within a unified model-based framework. Models are classified into two broad classes--random-coefficient selection models and random-coefficient pattern-mixture models--depending on how the joint distribution of the data and drop-out mechanism is factored. Inference is likelihood-based, via maximum likelihood or Bayesian methods. A number of examples in the literature are placed in this framework, and possible extensions outlined. Data collection on the nature of the drop-out process is advocated to guide the choice of model. In cases where the drop-out mechanism is not well understood, sensitivity analyses are suggested to assess the effect on inferences about target quantities of alternative assumptions about the drop-out process.},
+  Doi                      = {10.2307/2291350},
+  Keywords                 = {attrition; longitudinal data; missing data; nonrandom nonresponse; selection bias},
+  Owner                    = {alyssa},
+  Timestamp                = {2016.12.12},
+  Topics                   = {mnar}
+}
+
+@Book{little_rubin_SAMD2002,
+  Title                    = {Statistical Analysis with Missing Data},
+  Author                   = {Little, R. J. A. and Rubin, D. B.},
+  Publisher                = {Wiley},
+  Year                     = {2002},
+
+  Booktitle                = {Statistical analysis with missing data Second edition},
+  Doi                      = {10.2307/1533221},
+  ISBN                     = {0471183865},
+  ISSN                     = {00324663},
+  Owner                    = {alyssa},
+  Pages                    = {408},
+  Pmid                     = {10403256},
+  Timestamp                = {2016.09.27},
+  Topics                   = {general}
+}
+
+@Inproceedings{loh_etal_2011,
+ Author = {Loh, Po-ling and Wainwright, Martin J},
+ Booktitle = {Advances in Neural Information Processing Systems},
+ Editor = {J. Shawe-Taylor and R. Zemel and P. Bartlett and F. Pereira and K. Q. Weinberger},
+ Pages = {2726--2734},
+ Publisher = {Curran Associates, Inc.},
+ Title = {High-dimensional regression with noisy and missing data: Provable guarantees with non-convexity},
+ Url = {https://proceedings.neurips.cc/paper/2011/file/ab541d874c7bc19ab77642849e02b89f-Paper.pdf},
+ Volume = {24},
+ Year = {2011},
+Abstract = {Although the standard formulations of prediction problems involve fully-observed and noiseless data drawn in an i.i.d. manner, many applications involve noisy and/or missing data, possibly involving dependencies. We study these issues in the context of high-dimensional sparse linear regression, and propose novel estimators for the cases of noisy, missing, and/or dependent data. Many standard approaches to noisy or missing data, such as those using the EM algorithm, lead to optimization problems that are inherently non-convex, and it is difficult to establish theoretical guarantees on practical algorithms. While our approach also involves optimizing non-convex programs, we are able to both analyze the statistical error associated with any global optimum, and prove that a simple projected gradient descent algorithm will converge in polynomial time to a small neighborhood of the set of global minimizers. On the statistical side, we provide non-asymptotic bounds that hold with high probability for the cases of noisy, missing, and/or dependent data. On the computational side, we prove that under the same types of conditions required for statistical consistency, the projected gradient descent algorithm will converge at geometric rates to a near-global minimizer. We illustrate these theoretical predictions with simulations, showing agreement with the predicted scalings.},
+  Topics = {supervised learning},
+   Owner                    = {aude},
+  Timestamp                = {2021.01.20}
+}
+
+
+@Misc{londschien_etal_2019,
+    Title                    = {Change point detection for graphical models in presence of missing values},
+    Author                   = {Malte Londschien and Solt Kov{\'a}cs and Peter B{\"u}hlmann},
+    Year                     = {2019},
+    Eprint                   = {1907.05409},
+    ArchivePrefix            = {arXiv},
+    PrimaryClass             = {stat.ML},
+    Abstract                 = {We propose estimation methods for change points in high-dimensional
+    covariance structures with an emphasis on challenging scenarios with missing values.
+    We advocate three imputation like methods and investigate their implications on common
+    losses used for change point detection. We also discuss how model selection methods
+    have to be adapted to the setting of incomplete data. The methods are compared in a
+    simulation study and applied to real data examples from environmental monitoring
+    systems as well as financial time series.},
+    Owner                    = {imke},
+    Timestamp                = {2020.02.27},
+    Topics                   = {machine learning; ml}
+}
+
 @Article{louis_JRSS1982,
   Title                    = {Finding the Observed Information Matrix when Using the EM Algorithm},
   Author                   = {Louis, Thomas A.},
@@ -1694,6 +1865,22 @@ In this paper, we explore the MPA's underlying assumptions by using causal diagr
   Owner                    = {imke},
   Timestamp                = {2018.12.19},
   Topics                   = {ml; em}
+}
+
+@Article{ludtke_etal_2019,
+  Title                    = {Regression models involving nonlinear effects with missing data: A sequential modeling approach using Bayesian estimation.},
+  Author                   = {L{\"u}dtke, Oliver and Robitzsch, Alexander and West, Stephen G},
+  Journal                  = {Psychological methods},
+  Year                     = {2019},
+  Publisher                = {American Psychological Association},
+  Doi                      = {10.1037/met0000233},
+
+  Abstract                 = {When estimating multiple regression models with incomplete predictor variables, it is necessary to specify a joint distribution for the predictor variables. A convenient assumption is that this distribution is a joint normal distribution, the default in many statistical software packages. This distribution will in general be misspecified if the predictors with missing data have nonlinear effects (e.g., x2) or are included in interaction terms (e.g., x.z). In the present article, we discuss a sequential modeling approach that can be applied to decompose the joint distribution of the variables into 2 parts: (a) a part that is due to the model of interest and (b) a part that is due to the model for the incomplete predictors. We demonstrate how the sequential modeling approach can be used to implement a multiple imputation strategy based on Bayesian estimation techniques that can accommodate rather complex substantive regression models with nonlinear effects and also allows a flexible treatment of auxiliary variables. In 4 simulation studies, we showed that the sequential modeling approach can be applied to estimate nonlinear effects in regression models with missing values on continuous, categorical, or skewed predictor variables under a broad range of conditions and investigated the robustness of the proposed approach against distributional misspecifications. We developed the R package mdmb, which facilitates a user-friendly application of the sequential modeling approach, and we present a real-data example that illustrates the flexibility of the software.},
+  Keywords                 = {Interaction effects; Multiple imputation; Multiple regression},
+
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {ml; regression}
 }
 
 @Article{ma_needell_2017,
@@ -1868,20 +2055,19 @@ If you find nothing nonsensical in this reviewer's comments, then the current ar
 }
 
 @TechReport{mohan_pearl_2019,
-  Author                   = {Mohan, K. and Pearl, J.},
-  Title                    = {Graphical Models for Processing Missing Data},
-  Institution              = {Department of Computer Science, University of California, Los Angeles},
-  Address                  = {CA},
-  Year                     = {2019},
-  Number                   = {R-473-L},
-  Note                     = {Forthcoming, Journal of American Statistical Association (JASA)},
-  Abstract                 = {
-This paper reviews recent advances in missing data research using graphical models to represent multivariate dependencies. We first examine the limitations of tra- ditional frameworks from three different perspectives: transparency, estimability and testability. We then show how procedures based on graphical models can overcome these limitations and provide meaningful performance guarantees even when data are Missing Not At Random (MNAR). In particular, we identify conditions that guarantee consistent estimation in broad categories of missing data problems, and derive procedures for implementing this estimation. Finally we derive testable implications for missing data models in both MAR (Missing At Random) and MNAR categories.},
-  Url                      = {http://ftp.cs.ucla.edu/pub/stat\_ser/r473-L.pdf},
-  Keywords                 = {Missing data; Graphical Models; Testability; Recoverability; Non-Ignorable; Missing Not At Random (MNAR)},
-  Owner                    = {imke},
-  Timestamp                = {2019.07.29},
-  Topics                   = {mnar}
+  author      = {Mohan, K. and Pearl, J.},
+  institution = {Department of Computer Science, University of California, Los Angeles},
+  title       = {Graphical Models for Processing Missing Data},
+  year        = {2019},
+  address     = {CA},
+  note        = {Forthcoming, Journal of American Statistical Association (JASA)},
+  number      = {R-473-L},
+  abstract    = {This paper reviews recent advances in missing data research using graphical models to represent multivariate dependencies. We first examine the limitations of tra- ditional frameworks from three different perspectives: transparency, estimability and testability. We then show how procedures based on graphical models can overcome these limitations and provide meaningful performance guarantees even when data are Missing Not At Random (MNAR). In particular, we identify conditions that guarantee consistent estimation in broad categories of missing data problems, and derive procedures for implementing this estimation. Finally we derive testable implications for missing data models in both MAR (Missing At Random) and MNAR categories.},
+  keywords    = {Missing data; Graphical Models; Testability; Recoverability; Non-Ignorable; Missing Not At Random (MNAR)},
+  owner       = {imke},
+  timestamp   = {2019.07.29},
+  topics      = {mnar},
+  url         = {http://ftp.cs.ucla.edu/pub/stat\_ser/r473-L.pdf},
 }
 
 
@@ -1897,22 +2083,6 @@ This paper reviews recent advances in missing data research using graphical mode
   ISBN                     = {9781439854624},
   Owner                    = {alyssa},
   Timestamp                = {2017.11.14},
-  Topics                   = {general}
-}
-
-@Book{molenberghs_kenward_2007,
-  Title                    = {Missing Data in Clinical Studies},
-  Author                   = {Molenberghs, G. and Kenward, M. G.},
-  Publisher                = {Wiley},
-  Year                     = {2007},
-
-  Address                  = {Chichester, West Sussex, UK},
-
-  Abstract                 = {Missing Data in Clinical Studies provides a comprehensive account of the problems arising when data from clinical and related studies are incomplete, and presents the reader with approaches to effectively address them. The text provides a critique of conventional and simple methods before moving on to discuss more advanced approaches. The authors focus on practical and modeling concepts, providing an extensive set of case studies to illustrate the problems described. Provides a practical guide to the analysis of clinical trials and related studies with missing data. Examines the problems caused by missing data, enabling a complete understanding of how to overcome them. Presents conventional, simple methods to tackle these problems, before addressing more advanced approaches, including sensitivity analysis, and the MAR missingness mechanism. Illustrated throughout with real-life case studies and worked examples from clinical trials. Details the use and implementation of the necessary statistical software, primarily SAS. Missing Data in Clinical Studies has been developed through a series of courses and lectures. Its practical approach will appeal to applied statisticians and biomedical researchers, in particular those in the biopharmaceutical industry, medical and public health organisations. Graduate students of biostatistics will also find much of benefit.},
-  Doi                      = {10.1002/9780470510445},
-  ISBN                     = {9780470849811},
-  Owner                    = {imke},
-  Timestamp                = {2018.10.26},
   Topics                   = {general}
 }
 
@@ -1933,6 +2103,22 @@ This paper reviews recent advances in missing data research using graphical mode
   Owner                    = {alyssa},
   Timestamp                = {2017.11.14},
   Topics                   = {mnar}
+}
+
+@Book{molenberghs_kenward_2007,
+  Title                    = {Missing Data in Clinical Studies},
+  Author                   = {Molenberghs, G. and Kenward, M. G.},
+  Publisher                = {Wiley},
+  Year                     = {2007},
+
+  Address                  = {Chichester, West Sussex, UK},
+
+  Abstract                 = {Missing Data in Clinical Studies provides a comprehensive account of the problems arising when data from clinical and related studies are incomplete, and presents the reader with approaches to effectively address them. The text provides a critique of conventional and simple methods before moving on to discuss more advanced approaches. The authors focus on practical and modeling concepts, providing an extensive set of case studies to illustrate the problems described. Provides a practical guide to the analysis of clinical trials and related studies with missing data. Examines the problems caused by missing data, enabling a complete understanding of how to overcome them. Presents conventional, simple methods to tackle these problems, before addressing more advanced approaches, including sensitivity analysis, and the MAR missingness mechanism. Illustrated throughout with real-life case studies and worked examples from clinical trials. Details the use and implementation of the necessary statistical software, primarily SAS. Missing Data in Clinical Studies has been developed through a series of courses and lectures. Its practical approach will appeal to applied statisticians and biomedical researchers, in particular those in the biopharmaceutical industry, medical and public health organisations. Graduate students of biostatistics will also find much of benefit.},
+  Doi                      = {10.1002/9780470510445},
+  ISBN                     = {9780470849811},
+  Owner                    = {imke},
+  Timestamp                = {2018.10.26},
+  Topics                   = {general}
 }
 
 @Article{molnar_etal_CMAJ2008,
@@ -2041,6 +2227,33 @@ This paper reviews recent advances in missing data research using graphical mode
   Timestamp                = {2018.11.12},
   Topics                   = {multiple imputation}
 }
+{tang_etal_2017,
+  Title={Random forest missing data algorithms},
+  Author={Tang, Fei and Ishwaran, Hemant},
+  Journal={Statistical Analysis and Data Mining: The ASA Data Science Journal},
+  Volume={10},
+  Number={6},
+  Pages={363--377},
+  Year={2017},
+  Publisher={Wiley Online Library}
+  Abstract = {Random forest (RF) missing data algorithms are an attractive approach for imputing missing data. They have the desirable properties of being able to handle mixed types of missing data, they are adaptive to interactions and nonlinearity, and they have the potential to scale to big data settings. Currently there are many different RF imputation algorithms, but relatively little guidance about their efficacy. Using a large, diverse collection of data sets, imputation performance of various RF algorithms was assessed under different missing data mechanisms. Algorithms included proximity imputation, on the fly imputation, and imputation utilizing multivariate unsupervised and supervised splitting—the latter class representing a generalization of a new promising imputation algorithm called missForest. Our findings reveal RF imputation to be generally robust with performance improving with increasing correlation. Performance was good under moderate to high missingness, and even (in certain cases) when data was missing not at random.}
+  Doi = {https://doi.org/10.1002/sam.11348},
+  Owner                    = {aude},
+  Timestamp                = {2021.01.20}
+  Topics = {random forests; prediction; statistical learning}
+}
+
+@article{nabi_etal_2020,
+  title={Full Law Identification In Graphical Models Of Missing Data: Completeness Results},
+  author={Nabi, Razieh and Bhattacharya, Rohit and Shpitser, Ilya},
+  journal={arXiv preprint arXiv:2004.04872},
+  year={2020},
+  Url={https://arxiv.org/abs/2004.04872},
+  Abstract={Missing data has the potential to affect analyses conducted in all fields of scientific study, including healthcare, economics, and the social sciences. Several approaches to unbiased inference in the presence of non-ignorable missingness rely on the specification of the target distribution and its missingness process as a probability distribution that factorizes with respect to a directed acyclic graph. In this paper, we address the longstanding question of the characterization of models that are identifiable within this class of missing data distributions. We provide the first completeness result in this field of study -- necessary and sufficient graphical conditions under which, the full data distribution can be recovered from the observed data distribution. We then simultaneously address issues that may arise due to the presence of both missing data and unmeasured confounding, by extending these graphical conditions and proofs of completeness, to settings where some variables are not just missing, but completely unobserved.},
+  Owner                    = {imke},
+  Timestamp             = {2021.01.19},
+  Topics                   = {mnar; diagnosis}
+}
 
 @Book{national_research_council_2010,
   Title                    = {The Prevention and Treatment of Missing Data in Clinical Trials},
@@ -2056,6 +2269,21 @@ This paper reviews recent advances in missing data research using graphical mode
   Owner                    = {imke},
   Timestamp                = {2018.10.26},
   Topics                   = {general_informal}
+}
+
+@Article{nguyen_etal_2019,
+  author    = {Nguyen, Luong Trung and Kim, Junhan and Shim, Byonghyo},
+  journal   = {IEEE Access},
+  title     = {Low-Rank Matrix Completion: A Contemporary Survey},
+  year      = {2019},
+  pages     = {94215--94237},
+  volume    = {7},
+  publisher = {IEEE},
+  Doi={10.1109/ACCESS.2019.2928130},
+  Abstract={As a paradigm to recover unknown entries of a matrix from partial observations, low-rank matrix completion (LRMC) has generated a great deal of interest. Over the years, there have been lots of works on this topic, but it might not be easy to grasp the essential knowledge from these studies. This is mainly because many of these works are highly theoretical or a proposal of new LRMC technique. In this paper, we give a contemporary survey on LRMC. In order to provide a better view, insight, and understanding of potentials and limitations of the LRMC, we present early scattered results in a structured and accessible way. Specifically, we classify the state-of-the-art LRMC techniques into two main categories and then explain each category in detail. We next discuss the issues to be considered when one considers using the LRMC techniques. These include intrinsic properties required for the matrix recovery and how to exploit a special structure in the LRMC design. We also discuss the convolutional neural network (CNN)-based LRMC algorithms exploiting the graph structure of a low-rank matrix. Furthermore, we present the recovery performance and the computational complexity of state-of-the-art LRMC techniques. Our hope is that this paper will serve as a useful guide for practitioners and non-experts to catch the gist of the LRMC.},
+  owner     = {imke},
+  timestamp = {2021.01.19},
+  topics    = {imputation; matrix completion},
 }
 
 @InProceedings{nowicki_etal_2016,
@@ -2280,6 +2508,18 @@ Nonignorable; Nonparametric saturated; Sensitivity analysis.},
   Topics                   = {knn; random forests}
 }
 
+@article{rioux_etal_2020,
+  title={Reflection on modern methods: planned missing data designs for epidemiological research},
+  author={Rioux, Charlie and Lewin, Antoine and Odejimi, Omolola A and Little, Todd D},
+  journal={International Journal of Epidemiology},
+  Doi={10.1093/ije/dyaa042},
+  Year={2020},
+  Abstract={Taking advantage of the ability of modern missing data treatments in epidemiological research (e.g. multiple imputation) to recover power while avoiding bias in the presence of data that is missing completely at random, planned missing data designs allow researchers to deliberately incorporate missing data into a research design. A planned missing data design may be done by randomly assigning participants to have missing items in a questionnaire (multiform design) or missing occasions of measurement in a longitudinal study (wave-missing design), or by administering an expensive gold-standard measure to a random subset of participants while the whole sample is administered a cheaper measure (two-method design). Although not common in epidemiology, these designs have been recommended for decades by methodologists for their benefits--notably that data collection costs are minimized and participant burden is reduced, which can increase validity. This paper describes the multiform, wave-missing and two-method designs, including their benefits, their impact on bias and power, and other factors that must be taken into consideration when implementing them in an epidemiological study design.},
+  Owner                    = {imke},
+  Timestamp             = {2021.01.19},
+  Topics                   = {design}
+}
+
 @Article{robins_etal_JASA1994,
   Title                    = {Estimation of Regression Coefficients When Some Regressors are not Always Observed},
   Author                   = {Robins, J. M. and Rotnitzky, A. and Zhao, L. P.},
@@ -2368,6 +2608,41 @@ Nonignorable; Nonparametric saturated; Sensitivity analysis.},
   Topics                   = {mnar}
 }
 
+@Article{rubin_B1976,
+  Title                    = {Inference and missing data},
+  Author                   = {Rubin, D. B.},
+  Journal                  = {Biometrika},
+  Year                     = {1976},
+  Number                   = {3},
+  Pages                    = {581-592},
+  Volume                   = {63},
+
+  Abstract                 = {When making sampling distribution inferences about the parameter of the data, theta, it is appropriate to ignore the process that causes missing data if the missing data are "missing at random" and the observed data are "observed at random", but these inferences are generally conditional on the observed pattern of missing data. When making direct-likelihood or Bayesian inferences about theta, it is appropriate to ignore the process that causes missing data if the missing data are missing at random and the parameter of the missing data process is "distinct" from theta. These conditions are the weakest general conditions under which ignoring the process that causes missing data always leads to correct inferences.},
+  Doi                      = {10.1093/biomet/63.3.581},
+  Keywords                 = {Bayesian inference; incomplete data; likelikhood inference; missing at random; missing data; observed at random; sampling distribution inference},
+  Owner                    = {nathalie},
+  Timestamp                = {2018.04.16},
+  Topics                   = {ml}
+}
+
+@Article{rubin_JASA1977,
+  Title                    = {Formalizing subjective notions about the effect of nonrespondents in sample surveys},
+  Author                   = {Rubin, D. B.},
+  Journal                  = {Journal of the American Statistical Association},
+  Year                     = {1977},
+  Number                   = {359},
+  Pages                    = {538-543},
+  Volume                   = {72},
+
+  Abstract                 = {A method is given for estimating, in a subjective sense, the effect of nonresponse in sample surveys. Based on Bayesian techniques, this method produces a subjective probability interval for the statistic that would have been calculated if all nonrespondents had responded. Background information which is recorded for both respondents and nonrespondents plays an important role in sharpening the subjective interval. Real survey data of 660 schools with 188 nonrespondents indicates that the method can be useful in practical problems. The general idea can be applied to any problem with nonrespondents or missing data.},
+  Doi                      = {10.2307/2286214},
+  ISSN                     = {01621459},
+  Owner                    = {alyssa},
+  Publisher                = {American Statistical Association, Taylor \& Francis},
+  Timestamp                = {2016.12.12},
+  Topics                   = {survey}
+}
+
 @Article{rubin_JASA2012,
   Title                    = {Multiple imputation after 18+ years},
   Author                   = {Rubin, D. B.},
@@ -2401,41 +2676,6 @@ Nonignorable; Nonparametric saturated; Sensitivity analysis.},
   Topics                   = {multiple imputation}
 }
 
-@Article{rubin_JASA1977,
-  Title                    = {Formalizing subjective notions about the effect of nonrespondents in sample surveys},
-  Author                   = {Rubin, D. B.},
-  Journal                  = {Journal of the American Statistical Association},
-  Year                     = {1977},
-  Number                   = {359},
-  Pages                    = {538-543},
-  Volume                   = {72},
-
-  Abstract                 = {A method is given for estimating, in a subjective sense, the effect of nonresponse in sample surveys. Based on Bayesian techniques, this method produces a subjective probability interval for the statistic that would have been calculated if all nonrespondents had responded. Background information which is recorded for both respondents and nonrespondents plays an important role in sharpening the subjective interval. Real survey data of 660 schools with 188 nonrespondents indicates that the method can be useful in practical problems. The general idea can be applied to any problem with nonrespondents or missing data.},
-  Doi                      = {10.2307/2286214},
-  ISSN                     = {01621459},
-  Owner                    = {alyssa},
-  Publisher                = {American Statistical Association, Taylor \& Francis},
-  Timestamp                = {2016.12.12},
-  Topics                   = {survey}
-}
-
-@Article{rubin_B1976,
-  Title                    = {Inference and missing data},
-  Author                   = {Rubin, D. B.},
-  Journal                  = {Biometrika},
-  Year                     = {1976},
-  Number                   = {3},
-  Pages                    = {581-592},
-  Volume                   = {63},
-
-  Abstract                 = {When making sampling distribution inferences about the parameter of the data, theta, it is appropriate to ignore the process that causes missing data if the missing data are "missing at random" and the observed data are "observed at random", but these inferences are generally conditional on the observed pattern of missing data. When making direct-likelihood or Bayesian inferences about theta, it is appropriate to ignore the process that causes missing data if the missing data are missing at random and the parameter of the missing data process is "distinct" from theta. These conditions are the weakest general conditions under which ignoring the process that causes missing data always leads to correct inferences.},
-  Doi                      = {10.1093/biomet/63.3.581},
-  Keywords                 = {Bayesian inference; incomplete data; likelikhood inference; missing at random; missing data; observed at random; sampling distribution inference},
-  Owner                    = {nathalie},
-  Timestamp                = {2018.04.16},
-  Topics                   = {ml}
-}
-
 @Article{sadinle_reiter_2018,
   Title                    = {Sequential Identification of Nonignorable Missing Data Mechanisms},
   Author                   = {Sadinle, M. and Reiter, J. P.},
@@ -2455,6 +2695,59 @@ Nonignorable; Nonparametric saturated; Sensitivity analysis.},
   Topics                   = {mnar; sensitivity analysis}
 }
 
+@Article{sadinle_reiter_2019,
+  Title                    = {Sequentially additive nonignorable missing data modeling using auxiliary marginal information},
+  Author                   = {Sadinle, Mauricio and Reiter, Jerome P},
+  Journal                  = {arXiv preprint},
+  archivePrefix            = {arXiv},
+  eprint                   = {1902.06043},
+  Year                     = {2019},
+  primaryClass             = {stat.ME},
+  Url                      = {https://arxiv.org/pdf/1902.06043.pdf},
+
+  Abstract                 = {We study a class of missingness mechanisms, called sequentially additive nonignorable, for modeling multivariate data with item nonresponse. These mechanisms
+explicitly allow the probability of nonresponse for each variable to depend on the value
+of that variable, thereby representing nonignorable missingness mechanisms. These
+missing data models are identified by making use of auxiliary information on marginal
+distributions, such as marginal probabilities for multivariate categorical variables or
+moments for numeric variables. We present theory proving identification results, and
+illustrate the use of these mechanisms in an application.},
+  Keywords                 = {Information projection; Missing not at random; Nonmonotone nonresponse;
+Nonparametric identification; Observational equivalence},
+
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {mnar}
+}
+
+@Article{santos_etal_2019,
+  Title                    = {Generating Synthetic Missing Data: A Review by Missing Mechanism},
+  Author                   = {Santos, Miriam Seoane and Pereira, Ricardo Cardoso and Costa, Adriana Fonseca and Soares, Jastin Pompeu and Santos, Jo{\~a}o and Abreu, Pedro Henriques},
+  Journal                  = {IEEE Access},
+  Volume                   = {7},
+  Pages                    = {11651--11667},
+  Year                     = {2019},
+  Publisher                = {IEEE},
+  Doi                      = {10.1109/ACCESS.2019.2891360},
+
+  Abstract                 = {The performance evaluation of imputation algorithms often involves the generation of missing
+values. Missing values can be inserted in only one feature (univariate configuration) or in several features
+(multivariate configuration) at different percentages (missing rates) and according to distinct missing
+mechanisms, namely, missing completely at random, missing at random, and missing not at random. Since
+the missing data generation process defines the basis for the imputation experiments (configuration, missing
+rate, and missing mechanism), it is essential that it is appropriately applied; otherwise, conclusions derived
+from ill-defined setups may be invalid. The goal of this paper is to review the different approaches to
+synthetic missing data generation found in the literature and discuss their practical details, elaborating on
+their strengths and weaknesses. Our analysis revealed that creating missing at random and missing not at
+random scenarios in datasets comprising qualitative features is the most challenging issue in the related
+work and, therefore, should be the focus of future work in the field.},
+
+  Keywords                 = {Data preprocessing; missing data generation; missing data mechanisms},
+  Owner                    = {imke},
+  Timestamp                = {2019.12.12},
+  Topics                   = {mnar; mechanisms}
+}
+
 
 @Article{santos_etal_2019,
   Title                    = {Generating Synthetic Missing Data: A Review by Missing Mechanism},
@@ -2469,26 +2762,6 @@ Nonignorable; Nonparametric saturated; Sensitivity analysis.},
   Owner                    = {imke},
   Timestamp                = {2019.12.12},
   Topics                   = {mnar; simulation}
-}
-
-
-@Article{schafer_SMMR1999,
-  Title                    = {Multiple imputation: a primer},
-  Author                   = {Schafer, J. L.},
-  Journal                  = {Statistical Methods in Medical Research},
-  Year                     = {1999},
-  Number                   = {1},
-  Pages                    = {3-15},
-  Volume                   = {8},
-
-  Abstract                 = {In recent years, multiple imputation has emerged as a convenient and flexible paradigm for analysing data with missing values. Essential features of multiple imputation are reviewed, with answers to frequently asked questions about using the method in practice.},
-  Doi                      = {10.1191/096228099671525676},
-  ISBN                     = {0962-2802 (Print)},
-  ISSN                     = {09622802},
-  Owner                    = {alyssa},
-  Pmid                     = {10347857},
-  Timestamp                = {2016.09.27},
-  Topics                   = {multiple imputation}
 }
 
 @Book{schafer_AIMD1997,
@@ -2539,6 +2812,56 @@ Nonignorable; Nonparametric saturated; Sensitivity analysis.},
   Topics                   = {multiple imputation}
 }
 
+
+@Article{schafer_SMMR1999,
+  Title                    = {Multiple imputation: a primer},
+  Author                   = {Schafer, J. L.},
+  Journal                  = {Statistical Methods in Medical Research},
+  Year                     = {1999},
+  Number                   = {1},
+  Pages                    = {3-15},
+  Volume                   = {8},
+
+  Abstract                 = {In recent years, multiple imputation has emerged as a convenient and flexible paradigm for analysing data with missing values. Essential features of multiple imputation are reviewed, with answers to frequently asked questions about using the method in practice.},
+  Doi                      = {10.1191/096228099671525676},
+  ISBN                     = {0962-2802 (Print)},
+  ISSN                     = {09622802},
+  Owner                    = {alyssa},
+  Pmid                     = {10347857},
+  Timestamp                = {2016.09.27},
+  Topics                   = {multiple imputation}
+}
+{harel_etal_2009,
+  Title={Partial and latent ignorability in missing-data problems},
+  Author={Harel, Ofer and Schafer, Joseph L},
+  Journal={Biometrika},
+  Volume={96},
+  Number={1},
+  Pages={37--50},
+  Year={2009},
+  Publisher={Oxford University Press},
+  Abstract = {When an assumption of missing at random is untenable, it becomes necessary to model missing-data indicators, which carry information about the parameters of the complete-data population. Within a given application, however, researchers may believe that some aspects of missingness are ignorable but others are not. We argue that there are two different ways to formalize the notion that only part of the missingness is ignorable. These approaches correspond to assumptions that we call partially missing at random and latently missing at random. We explain these concepts and apply them in a latent-class analysis of survey questions with item nonresponse.},
+  Doi = {https://doi.org/10.1093/biomet/asn069}
+  Keywords = {mnar; multiple imputation; nonignorable missingness},
+  Topics = {mnar},
+  Owner                    = {aude},
+  Timestamp                = {2021.01.20}
+}
+
+@Article{seaman_etal_2013,
+  Title={What Is Meant by" Missing at Random"?},
+  Author={Seaman, Shaun and Galati, John and Jackson, Dan and Carlin, John},
+  Journal={Statistical Science},
+  Pages={257--268},
+  Year={2013},
+  Publisher={JSTOR},
+  Abstract = {The concept of missing at random is central in the literature on statistical analysis with missing data. In general, inference using incomplete data should be based not only on observed data values but should also take account of the pattern of missing values. However, it is often said that if data are missing at random, valid inference using likelihood approaches (including Bayesian) can be obtained ignoring the missingness mechanism. Unfortunately, the term "missing at random" has been used inconsistently and not always clearly; there has also been a lack of clarity around the meaning of "valid inference using likelihood". These issues have created potential for confusion about the exact conditions under which the missingness mechanism can be ignored, and perhaps fed confusion around the meaning of "analysis ignoring the missingness mechanism". Here we provide standardised precise definitions of "missing at random" and "missing completely at random", in order to promote unification of the theory. Using these definitions we clarify the conditions that suffice for "valid inference" to be obtained under a variety of inferential paradigms.},
+  Keywords = {mcar; ignorability; frequentist inference},
+  Topics = {mar},
+   Owner                    = {aude},
+  Timestamp                = {2021.01.20}
+}
+
 @Article{seaman_etal_2013,
   Title                    = {What Is Meant by "Missing at Random"?},
   Author                   = {Seaman, S. and Galati, J. and Jackson, D. and Carlin, J.},
@@ -2558,22 +2881,6 @@ Nonignorable; Nonparametric saturated; Sensitivity analysis.},
   Topics                   = {mar}
 }
 
-@Article{seaman_white_SMMR2011,
-  Title                    = {Review of inverse probability weighting for dealing with missing data},
-  Author                   = {Seaman, S. R. and White, I. R.},
-  Journal                  = {Statistical Methods in Medical Research},
-  Year                     = {2011},
-  Number                   = {3},
-  Pages                    = {278-295},
-  Volume                   = {22},
-
-  Abstract                 = {The simplest approach to dealing with missing data is to restrict the analysis to complete cases, i.e. individuals with no missing values. This can induce bias, however. Inverse probability weighting (IPW) is a commonly used method to correct this bias. It is also used to adjust for unequal sampling fractions in sample surveys. This article is a review of the use of IPW in epidemiological research. We describe how the bias in the complete-case analysis arises and how IPW can remove it. IPW is compared with multiple imputation (MI) and we explain why, despite MI generally being more efficient, IPW may sometimes be preferred. We discuss the choice of missingness model and methods such as weight truncation, weight stabilisation and augmented IPW. The use of IPW is illustrated on data from the 1958 British Birth Cohort},
-  Doi                      = {10.1177/0962280210395740},
-  Owner                    = {alyssa},
-  Timestamp                = {2017.03.06},
-  Topics                   = {causal inference}
-}
-
 @article{seaman_vansteelandt_SS2018,
   Title                    = {Introduction to Double Robust Methods for Incomplete Data},
   Author                   = {Seaman, Shaun R and Vansteelandt, Stijn},
@@ -2591,6 +2898,22 @@ Nonignorable; Nonparametric saturated; Sensitivity analysis.},
 
   Owner                    = {imke},
   Timestamp                = {2019.03.28},
+  Topics                   = {causal inference}
+}
+
+@Article{seaman_white_SMMR2011,
+  Title                    = {Review of inverse probability weighting for dealing with missing data},
+  Author                   = {Seaman, S. R. and White, I. R.},
+  Journal                  = {Statistical Methods in Medical Research},
+  Year                     = {2011},
+  Number                   = {3},
+  Pages                    = {278-295},
+  Volume                   = {22},
+
+  Abstract                 = {The simplest approach to dealing with missing data is to restrict the analysis to complete cases, i.e. individuals with no missing values. This can induce bias, however. Inverse probability weighting (IPW) is a commonly used method to correct this bias. It is also used to adjust for unequal sampling fractions in sample surveys. This article is a review of the use of IPW in epidemiological research. We describe how the bias in the complete-case analysis arises and how IPW can remove it. IPW is compared with multiple imputation (MI) and we explain why, despite MI generally being more efficient, IPW may sometimes be preferred. We discuss the choice of missingness model and methods such as weight truncation, weight stabilisation and augmented IPW. The use of IPW is illustrated on data from the 1958 British Birth Cohort},
+  Doi                      = {10.1177/0962280210395740},
+  Owner                    = {alyssa},
+  Timestamp                = {2017.03.06},
   Topics                   = {causal inference}
 }
 
@@ -3070,6 +3393,87 @@ Nonignorable; Nonparametric saturated; Sensitivity analysis.},
   Topics                   = {imputation; time series}
 }
 
+@Article{vanbuuren_etal_JSCS2006,
+  Title                    = {Fully conditional specification in multivariate imputation},
+  Author                   = {van Buuren, S. and Brand, J. P. L. and Groothuis-Oudshoorn, C. G. M. and Rubin, D. B.},
+  Journal                  = {Journal of Statistical Computation and Simulation},
+  Year                     = {2006},
+  Number                   = {12},
+  Pages                    = {1049-1064},
+  Volume                   = {76},
+
+  Doi                      = {10.1080/10629360600810434},
+  Owner                    = {nathalie},
+  Timestamp                = {2016.09.28},
+  Topics                   = {fcs; multiple imputation}
+}
+
+@Book{vanbuuren_FIMD2012,
+  Title                    = {Flexible Imputation of Missing Data},
+  Author                   = {van Buuren, S.},
+  Publisher                = {Chapman and Hall/CRC},
+  Year                     = {2018},
+
+  Address                  = {Boca Raton, FL},
+
+  Abstract                 = {Missing data pose challenges to real-life data analysis. Simple ad-hoc fixes, like deletion or mean imputation, only work under highly restrictive conditions, which are often not met in practice. Multiple imputation replaces each missing value by multiple plausible values. The variability between these replacements reflects our ignorance of the true (but missing) value. Each of the completed data set is then analyzed by standard methods, and the results are pooled to obtain unbiased estimates with correct confidence intervals. Multiple imputation is a general approach that also inspires novel solutions to old problems by reformulating the task at hand as a missing-data problem. This is the second edition of a popular book on multiple imputation, focused on explaining the application of methods through detailed worked examples using the MICE package as developed by the author. This new edition incorporates the recent developments in this fast-moving field. This class-tested book avoids mathematical and technical details as much as possible: formulas are accompanied by verbal statements that explain the formula in accessible terms. The book sharpens the reader’s intuition on how to think about missing data, and provides all the tools needed to execute a well-grounded quantitative analysis in the presence of missing data.},
+  Url                      = {https://stefvanbuuren.name/fimd/},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.12},
+  Topics                   = {general}
+}
+
+@Article{vanbuuren_groothuisoudshoorn_JSS2011,
+  Title                    = {{MICE}: multivariate imputation by chained equations in {R}},
+  Author                   = {van Buuren, S. and Groothuis-Oudshoorn, K.},
+  Journal                  = {Journal of Statistical Software},
+  Year                     = {2011},
+  Pages                    = {3},
+  Volume                   = {45},
+
+  Abstract                 = {The R package mice imputes incomplete multivariate data by chained equations. The software mice 1.0 appeared in the year 2000 as an S-PLUS library, and in 2001 as an R package. mice 1.0 introduced predictor selection, passive imputation and automatic pooling. This article documents mice 2.9, which extends the functionality of mice 1.0 in several ways. In mice 2.9, the analysis of imputed data is made completely general, whereas the range ofmodels under which pooling works is substantially extended. mice 2.9 adds new functionality for imputing multilevel data, automatic predictor selection, data handling, post-processing imputed values, specialized pooling routines, model selection tools, and diagnostic graphs. Imputation of categorical data is improved in order to bypass problems caused by perfect prediction. Special attention is paid to transformations, sum scores, indices and interactions using passive imputation, and to the proper setup of the predictor matrix. mice 2.9 can be downloaded from the Comprehensive R Archive Network. This article provides a hands-on, stepwise approach to solve applied incomplete data problems.},
+  Archiveprefix            = {arXiv},
+  Arxivid                  = {NIHMS150003},
+  Doi                      = {10.18637/jss.v045.i03},
+  Eprint                   = {NIHMS150003},
+  ISBN                     = {9067436771},
+  ISSN                     = {1548-7660},
+  Owner                    = {alyssa},
+  Pmid                     = {22289957},
+  Timestamp                = {2017.10.16},
+  Topics                   = {multiple imputation; chained equations}
+}
+
+@Article{vanbuuren_SMMR2007,
+  Title                    = {Multiple imputation of discrete and continuous data by fully conditional specification},
+  Author                   = {van Buuren, S.},
+  Journal                  = {Statistical Methods in Medical Research},
+  Year                     = {2007},
+  Pages                    = {219-242},
+  Volume                   = {16},
+
+  Abstract                 = {The goal of multiple imputation is to provide valid inferences for statistical estimates from incomplete data. To achieve that goal, imputed values should preserve the structure in the data, as well as the uncertainty about this structure, and include any knowledge about the process that generated the missing data. Two approaches for imputing multivariate data exist: joint modeling (JM) and fully conditional specification (FCS). JM is based on parametric statistical theory, and leads to imputation procedures whose statistical properties are known. JM is theoretically sound, but the joint model may lack flexibility needed to represent typical data features, potentially leading to bias. FCS is a semi-parametric and flexible alternative that specifies the multivariate model by a series of conditional models, one for each incomplete variable. FCS provides tremendous flexibility and is easy to apply, but its statistical properties are difficult to establish. Simulation work shows that FCS behaves very well in the cases studied. The present paper reviews and compares the approaches. JM and FCS were applied to pubertal development data of 3801 Dutch girls that had missing data on menarche (two categories), breast development (five categories) and pubic hair development (six stages). Imputations for these data were created under two models: a multivariate normal model with rounding and a conditionally specified discrete model. The JM approach introduced biases in the reference curves, whereas FCS did not. The paper concludes that FCS is a useful and easily applied flexible alternative to JM when no convenient and realistic joint distribution can be specified.},
+  Doi                      = {10.1177/0962280206074463},
+  Owner                    = {alyssa},
+  Timestamp                = {2016.09.27},
+  Topics                   = {multiple imputation; fcs}
+}
+
+@Article{vanderwal_geskus_JSS2011,
+  Title                    = {{ipw}: an {R} package for inverse probability weighting},
+  Author                   = {van der Wal, Willem M. and Geskus, Ronald B.},
+  Journal                  = {Journal of Statistical Software},
+  Year                     = {2011},
+  Number                   = {13},
+  Volume                   = {43},
+
+  Abstract                 = {We describe the R package ipw for estimating inverse probability weights. We show how to use the package to fit marginal structural models through inverse probability weighting, to estimate causal effects. Our package can be used with data from a point treatment situation as well as with a time-varying exposure and time-varying confounders. It can be used with binomial, categorical, ordinal and continuous exposure variables.},
+  Doi                      = {10.18637/jss.v043.i13},
+  Owner                    = {nathalie},
+  Timestamp                = {2018.06.07},
+  Topics                   = {causal inference}
+}
+
 @Article{vandevelden_bijmolt_P2006,
   Title                    = {Generalized canonical correlation analysis of matrices with missing rows: a simulation study},
   Author                   = {van de Velden, M. and Bijmolt, T. H. A.},
@@ -3082,6 +3486,43 @@ Nonignorable; Nonparametric saturated; Sensitivity analysis.},
   Owner                    = {nathalie},
   Timestamp                = {2016.09.28},
   Topics                   = {factorial data analysis}
+}
+
+@Article{vansteelandt_etal_2007,
+  Title                    = {Estimation of regression models for the mean of repeated outcomes under nonignorable nonmonotone nonresponse},
+  Author                   = {Vansteelandt, S. and Rotnitzky, A. and Robins, J.},
+  Journal                  = {Biometrika},
+  Volume                   = {94},
+  Number                   = {4},
+  Pages                    = {841--860},
+  Year                     = {2007},
+  Publisher                = {Oxford University Press},
+
+  Abstract                 = {We propose a new class of models for making inference about the mean of a vector of repeated outcomes when the outcome vector is incompletely observed in some study units and missingness is nonmonotone. Each model in our class is indexed by a set of unidentified selection-bias functions which quantify the residual association of the outcome at each occasion t and the probability that this outcome is missing after adjusting for variables observed prior to time t and for the past nonresponse pattern. In particular, selection-bias functions equal to zero encode the investigator's a priori belief that nonresponse of the next outcome does not depend on that outcome after adjusting for the observed past. We call this assumption sequential explainability. Since each model in our class is nonparametric, it fits the data perfectly well. As such, our models are ideal for conducting sensitivity analyses aimed at evaluating the impact that different degrees of departure from sequential explainability have on inference about the marginal means of interest. Although the marginal means are identified under each of our models, their estimation is not feasible in practice because it requires the auxiliary estimation of conditional expectations and probabilities given high-dimensional variables. We henceforth discuss the estimation of the marginal means under each model in our class assuming, additionally, that at each occasion either one of the following two models holds: a parametric model for the conditional probability of nonresponse given current outcomes and past recorded data or a parametric model for the conditional mean of the outcome on the nonrespondents given the past recorded data. We call the resulting procedure 2^T-multiply robust as it protects at each of the T time points against misspecification of one of these two working models, although not against simultaneous misspecification of both. We extend our proposed class of models and estimators to incorporate data configurations which include baseline covariates and a parametric model for the conditional mean of the vector of repeated outcomes given the baseline covariates.},
+  Doi                      = {10.1093/biomet/asm070},
+  Owner                    = {imke},
+  Timestamp                = {2018.11.11},
+  Keywords                 = {double robustness; generalized estimating equations; intermittent missingness; longitudinal study; missing at random; semiparametric inference},
+  Topics                   = {mar; longitudinal}
+}
+
+@Article{vansteelandt_etal_M2010,
+  Title                    = {Analysis of incomplete data using inverse probability weighting and doubly robust estimators},
+  Author                   = {Vansteelandt, Stijn and Carpenter, James and Kenward, Michael G},
+  Journal                  = {Methodology -- European Journal of Research Methods for the Behavioral and Social Sciences},
+  Year                     = {2010},
+  Volume                   = {6},
+  Number                   = {1},
+  Pages                    = {37--48},
+  Location                 = {Tilburg, The Netherlands},
+  Doi                      = {10.1027/1614-2241/a000005},
+
+  Abstract                 = {This article reviews inverse probability weighting methods and doubly robust estimation methods for the analysis of incomplete data sets. We first consider methods for estimating a population mean when the outcome is missing at random, in the sense that measured covariates can explain whether or not the outcome is observed. We then sketch the rationale of these methods and elaborate on their usefulness in the presence of influential inverse weights. We finally outline how to apply these methods in a variety of settings, such as for fitting regression models with incomplete outcomes or covariates, emphasizing the use of standard software programs.},
+  Keywords                 = {extrapolation; doubly robust estimation; extreme weights; Horvitz-Thompson estimator; inverse probability weighting; missing data; multiple imputation; regression models; repeated outcomes; inference; nonresponse},
+
+  Owner                    = {imke},
+  Timestamp                = {2018.12.19},
+  Topics                   = {ipw}
 }
 
 @Article{verbanck_etal_SC2015,
@@ -3132,58 +3573,6 @@ Nonignorable; Nonparametric saturated; Sensitivity analysis.},
   Owner                    = {nathalie},
   Timestamp                = {2016.09.27},
   Topics                   = {multiple imputation; hot-deck}
-}
-
-@Article{vanderwal_geskus_JSS2011,
-  Title                    = {{ipw}: an {R} package for inverse probability weighting},
-  Author                   = {van der Wal, Willem M. and Geskus, Ronald B.},
-  Journal                  = {Journal of Statistical Software},
-  Year                     = {2011},
-  Number                   = {13},
-  Volume                   = {43},
-
-  Abstract                 = {We describe the R package ipw for estimating inverse probability weights. We show how to use the package to fit marginal structural models through inverse probability weighting, to estimate causal effects. Our package can be used with data from a point treatment situation as well as with a time-varying exposure and time-varying confounders. It can be used with binomial, categorical, ordinal and continuous exposure variables.},
-  Doi                      = {10.18637/jss.v043.i13},
-  Owner                    = {nathalie},
-  Timestamp                = {2018.06.07},
-  Topics                   = {causal inference}
-}
-
-@Article{vansteelandt_etal_M2010,
-  Title                    = {Analysis of incomplete data using inverse probability weighting and doubly robust estimators},
-  Author                   = {Vansteelandt, Stijn and Carpenter, James and Kenward, Michael G},
-  Journal                  = {Methodology -- European Journal of Research Methods for the Behavioral and Social Sciences},
-  Year                     = {2010},
-  Volume                   = {6},
-  Number                   = {1},
-  Pages                    = {37--48},
-  Location                 = {Tilburg, The Netherlands},
-  Doi                      = {10.1027/1614-2241/a000005},
-
-  Abstract                 = {This article reviews inverse probability weighting methods and doubly robust estimation methods for the analysis of incomplete data sets. We first consider methods for estimating a population mean when the outcome is missing at random, in the sense that measured covariates can explain whether or not the outcome is observed. We then sketch the rationale of these methods and elaborate on their usefulness in the presence of influential inverse weights. We finally outline how to apply these methods in a variety of settings, such as for fitting regression models with incomplete outcomes or covariates, emphasizing the use of standard software programs.},
-  Keywords                 = {extrapolation; doubly robust estimation; extreme weights; Horvitz-Thompson estimator; inverse probability weighting; missing data; multiple imputation; regression models; repeated outcomes; inference; nonresponse},
-
-  Owner                    = {imke},
-  Timestamp                = {2018.12.19},
-  Topics                   = {ipw}
-}
-
-@Article{vansteelandt_etal_2007,
-  Title                    = {Estimation of regression models for the mean of repeated outcomes under nonignorable nonmonotone nonresponse},
-  Author                   = {Vansteelandt, S. and Rotnitzky, A. and Robins, J.},
-  Journal                  = {Biometrika},
-  Volume                   = {94},
-  Number                   = {4},
-  Pages                    = {841--860},
-  Year                     = {2007},
-  Publisher                = {Oxford University Press},
-
-  Abstract                 = {We propose a new class of models for making inference about the mean of a vector of repeated outcomes when the outcome vector is incompletely observed in some study units and missingness is nonmonotone. Each model in our class is indexed by a set of unidentified selection-bias functions which quantify the residual association of the outcome at each occasion t and the probability that this outcome is missing after adjusting for variables observed prior to time t and for the past nonresponse pattern. In particular, selection-bias functions equal to zero encode the investigator's a priori belief that nonresponse of the next outcome does not depend on that outcome after adjusting for the observed past. We call this assumption sequential explainability. Since each model in our class is nonparametric, it fits the data perfectly well. As such, our models are ideal for conducting sensitivity analyses aimed at evaluating the impact that different degrees of departure from sequential explainability have on inference about the marginal means of interest. Although the marginal means are identified under each of our models, their estimation is not feasible in practice because it requires the auxiliary estimation of conditional expectations and probabilities given high-dimensional variables. We henceforth discuss the estimation of the marginal means under each model in our class assuming, additionally, that at each occasion either one of the following two models holds: a parametric model for the conditional probability of nonresponse given current outcomes and past recorded data or a parametric model for the conditional mean of the outcome on the nonrespondents given the past recorded data. We call the resulting procedure 2^T-multiply robust as it protects at each of the T time points against misspecification of one of these two working models, although not against simultaneous misspecification of both. We extend our proposed class of models and estimators to incorporate data configurations which include baseline covariates and a parametric model for the conditional mean of the vector of repeated outcomes given the baseline covariates.},
-  Doi                      = {10.1093/biomet/asm070},
-  Owner                    = {imke},
-  Timestamp                = {2018.11.11},
-  Keywords                 = {double robustness; generalized estimating equations; intermittent missingness; longitudinal study; missing at random; semiparametric inference},
-  Topics                   = {mar; longitudinal}
 }
 
 @Book{wainer_1986,
@@ -3345,6 +3734,19 @@ various missing mechanisms.},
   url       = {http://proceedings.mlr.press/v80/yoon18a.html},
 }
 
+@inproceedings{yoon_sull_2020,
+  title={GAMIN: Generative Adversarial Multiple Imputation Network for Highly Missing Data},
+  author={Yoon, Seongwook and Sull, Sanghoon},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={8456--8464},
+  year={2020},
+  Url={https://openaccess.thecvf.com/content_CVPR_2020/html/Yoon_GAMIN_Generative_Adversarial_Multiple_Imputation_Network_for_Highly_Missing_Data_CVPR_2020_paper.html},
+  Abstract={We propose a novel imputation method for highly missing data. Though most existing imputation methods focus on moderate missing rate, imputation for high missing rate over 80\% is still important but challenging. As we expect that multiple imputation is indispensable for high missing rate, we propose a generative adversarial multiple imputation network (GAMIN) based on generative adversarial network (GAN) for multiple imputation. Compared with similar imputation methods adopting GAN, our method has three novel contributions: 1) We propose a novel imputation architecture which generates candidates of imputation. 2) We present a confidence prediction method to perform reliable multiple imputation. 3) We realize them with GAMIN and train it using novel loss functions based on the confidence. We synthesized highly missing datasets using MNIST and CelebA to perform various experiments. The results show that our method outperforms baseline methods at high missing rate from 80\% to 95\%.},
+  Owner                    = {imke},
+  Timestamp             = {2021.01.19},
+  Topics                   = {deep learning; gan}
+}
+
 @Article{zhang_etal_2018,
   Title                    = {Missing Value Imputation Based on Deep Generative Models},
   Author                   = {Zhang, H. and Xie, P. and Xing, E.},
@@ -3377,6 +3779,35 @@ various missing mechanisms.},
   Owner                    = {alyssa},
   Timestamp                = {2017.02.20},
   Topics                   = {imputation; knn}
+}
+
+@article{zhao_2020,
+  title={Statistical inference for missing data mechanisms},
+  author={Zhao, Yang},
+  journal={Statistics in Medicine},
+  volume={39},
+  number={28},
+  pages={4325--4333},
+  year={2020},
+  publisher={Wiley Online Library},
+  Doi={10.1002/sim.8727},
+  Abstract={In the literature of statistical analysis with missing data there is a significant gap in statistical inference for missing data mechanisms especially for nonmonotone missing data, which has essentially restricted the use of the estimation methods which require estimating the missing data mechanisms. For example, the inverse probability weighting methods (Horvitz and Thompson, 1952; Little and Rubin, 2002), including the popular augmented inverse probability weighting (Robins et al, 1994), depend on sufficient models for the missing data mechanisms to reduce estimation bias while improving estimation efficiency. This research proposes a semiparametric likelihood method for estimating missing data mechanisms where an EM algorithm with closed form expressions for both E‐step and M‐step is used in evaluating the estimate (Zhao et al, 2009; Zhao, 2020). The asymptotic variance of the proposed estimator is estimated from the profile score function. The methods are general and robust. Simulation studies in various missing data settings are performed to examine the finite sample performance of the proposed method. Finally, we analysis the missing data mechanism of Duke cardiac catheterization coronary artery disease diagnostic data to illustrate the method.},
+  Owner                    = {imke},
+  Timestamp             = {2021.01.19},
+  Topics                   = {inference}
+}
+
+@inproceedings{zhao2020missing,
+  title={Missing value imputation for mixed data via gaussian copula},
+  author={Zhao, Yuxuan and Udell, Madeleine},
+  booktitle={Proceedings of the 26th ACM SIGKDD International Conference on Knowledge Discovery \& Data Mining},
+  pages={636--646},
+  year={2020},
+  Doi={10.1145/3394486.3403106},
+  Abstract={Missing data imputation forms the first critical step of many data analysis pipelines. The challenge is greatest for mixed data sets, including real, Boolean, and ordinal data, where standard techniques for imputation fail basic sanity checks: for example, the imputed values may not follow the same distributions as the data. This paper proposes a new semiparametric algorithm to impute missing values, with no tuning parameters. The algorithm models mixed data as a Gaussian copula. This model can fit arbitrary marginals for continuous variables and can handle ordinal variables with many levels, including Boolean variables as a special case. We develop an efficient approximate EM algorithm to estimate copula parameters from incomplete mixed data. The resulting model reveals the statistical associations among variables. Experimental results on several synthetic and real datasets show the superiority of our proposed algorithm to state-of-the-art imputation algorithms for mixed data.},
+  Owner                    = {imke},
+  Timestamp             = {2021.01.19},
+  Topics                   = {imputation; matrix completion}
 }
 
 @Article{zhou_etal_2010,
@@ -3415,5 +3846,3 @@ various missing mechanisms.},
   Timestamp                = {2019.07.05},
   Topics                   = {factorial data analysis; imputation; causal inference}
 }
-
-@Comment{jabref-meta: databaseType:bibtex;}
