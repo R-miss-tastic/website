@@ -370,6 +370,39 @@ create_ref_buttons(selected_refs, c(1), "ml_conf")
 create_ref_buttons(selected_refs, c(0,3,4), "ml_misc")
 ```
 <br>
+
+<font size="+1"><b>Regression</b></font>
+
+
+```{r, regr_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+tags <- c("regression", "regressions")
+selected_refs <- select_refs(refs,tags)
+```
+
+
+<!-- Books and book chapters -->
+```{r, regr_print_books, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(5,6), "regr_books")
+```
+
+<!-- Journal articles -->
+```{r, regr_print_journal, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(2), "regr_journals")
+```
+
+<!-- Conference papers -->
+```{r, regr_print_conf, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(1), "regr_conf")
+```
+
+<!-- Reports, theses, etc. -->
+```{r, regr_print_misc, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(0,3,4), "regr_misc")
+```
+
+
+<br>
+
 </div>
 </div>
 </div>
@@ -404,6 +437,39 @@ create_ref_buttons(selected_refs, c(1), "imp_conf")
 ```{r, imp_print_misc, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 create_ref_buttons(selected_refs, c(0,3,4), "imp_misc")
 ```
+<br>
+
+<font size="+1"><b>Matrix factorization</b></font>
+<p align="justify">A special case of imputation is matrix completion that exploits structural assumptions about the row and column spaces to impute the missing values.
+</p>
+
+```{r, mf_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+tags <- c("matrix completion", "matrix factorization")
+selected_refs <- select_refs(refs,tags)
+```
+
+
+<!-- Books and book chapters -->
+```{r, mf_print_books, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(5,6), "mf_books")
+```
+
+<!-- Journal articles -->
+```{r, mf_print_journal, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(2), "mf_journals")
+```
+
+<!-- Conference papers -->
+```{r, mf_print_conf, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(1), "mf_conf")
+```
+
+<!-- Reports, theses, etc. -->
+```{r, mf_print_misc, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(0,3,4), "mf_misc")
+```
+
+
 <br>
 </div>
 </div>
@@ -463,7 +529,6 @@ create_ref_buttons(selected_refs, c(0,3,4), "mi_misc")
 <font size="+1"><b>Algorithms for supervised learning</b></font>
 
 
-
 </p>
 ```{r, algoml_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 tags <- c("supervised learning")
@@ -489,6 +554,39 @@ create_ref_buttons(selected_refs, c(1), "algoml_conf")
 <!-- Reports, theses, etc. -->
 ```{r, algoml_print_misc, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 create_ref_buttons(selected_refs, c(0,3,4), "algoml_misc")
+```
+
+
+<br>
+
+<font size="+1"><b>Algorithms for unsupervised learning</b></font>
+
+
+</p>
+```{r, clust_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+tags <- c("unsupervised learning", "clustering")
+selected_refs <- select_refs(refs,tags)
+```
+
+
+<!-- Books and book chapters -->
+```{r, clust_print_books, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(5,6), "clust_books")
+```
+
+<!-- Journal articles -->
+```{r, clust_print_journal, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(2), "clust_journals")
+```
+
+<!-- Conference papers -->
+```{r, clust_print_conf, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(1), "clust_conf")
+```
+
+<!-- Reports, theses, etc. -->
+```{r, clust_print_misc, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(0,3,4), "clust_misc")
 ```
 
 
@@ -562,7 +660,7 @@ create_ref_buttons(selected_refs, c(0,3,4), "dl_misc")
 <div class="panel panel-default">
 <div class="panel-heading" role="tab" id="h_mnar">
 <h4 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#mnar" aria-expanded="false" aria-controls="mnar">Missing values mechanisms</a>
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="#mnar" aria-expanded="false" aria-controls="mnar">Missing values mechanisms and identifiability</a>
 </h4>
 </div>
 <div id="mnar" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_mnar">
@@ -593,8 +691,11 @@ To understand this definition, take the example of alcohol consumption: alcoholi
 
 <p align="justify">Another -- maybe complementary -- approach to consider and study different missing values mechanisms and problems consists in using graphical models, for instance *missingness graphs* or *m-graphs* (Mohan et al., 2013). These allow to represent multivariate dependencies and to study identifiability or recoverability for different (estimation or prediction) problems.
 
+<p align="justify">Finally, another line of research considers the occurrence of missing values beforehand and addresses the question of how to anticipate or control the occurrence of missing values in a study design.
+</p>
+
 ```{r, mnar_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-tags <- c("mnar","mar", "diagnosis")
+tags <- c("mnar","mar", "diagnosis", "design")
 selected_refs <- select_refs(refs,tags)
 ```
 
