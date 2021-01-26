@@ -260,20 +260,8 @@
   Timestamp                = {2019.12.12},
   Topics                   = {imputation; knn; decision trees}
 }
-{ma_etal_2019,
-Title = {Missing Not at Random in Matrix Completion: The Effectiveness of Estimating Missingness Probabilities Under a Low Nuclear Norm Assumption},
-Author = {Ma, Wei and Chen, George H},
-Booktitle = {Advances in Neural Information Processing Systems 32},
-Editor = {H. Wallach and H. Larochelle and A. Beygelzimer and F. d\textquotesingle Alch\'{e}-Buc and E. Fox and R. Garnett},
-Pages = {14900--14909},
-Year = {2019},
-Publisher = {Curran Associates, Inc.},
-Abstract = {Matrix completion is often applied to data with entries missing not at random (MNAR). For example, consider a recommendation system where users tend to only reveal ratings for items they like. In this case, a matrix completion method that relies on entries being revealed at uniformly sampled row and column indices can yield overly optimistic predictions of unseen user ratings. Recently, various papers have shown that we can reduce this bias in MNAR matrix completion if we know the probabilities of different matrix entries being missing. These probabilities are typically modeled using logistic regression or naive Bayes, which make strong assumptions and lack guarantees on the accuracy of the estimated probabilities. In this paper, we suggest a simple approach to estimating these probabilities that avoids these shortcomings. Our approach follows from the observation that missingness patterns in real data often exhibit low nuclear norm structure. We can then estimate the missingness probabilities by feeding the (always fully-observed) binary matrix specifying which entries are revealed to an existing nuclear-norm-constrained matrix completion algorithm by Davenport et al. [2014]. Thus, we tackle MNAR matrix completion by solving a different matrix completion problem first that recovers missingness probabilities. We establish finite-sample error bounds for how accurate these probability estimates are and how well these estimates debias standard matrix completion losses for the original matrix to be completed. Our experiments show that the proposed debiasing strategy can improve a variety of existing matrix completion algorithms, and achieves downstream matrix completion accuracy at least as good as logistic regression and naive Bayes debiasing baselines that require additional auxiliary information.},
-Url = {http://papers.nips.cc/paper/9628-missing-not-at-random-in-matrix-completion-the-effectiveness-of-estimating-missingness-probabilities-under-a-low-nuclear-norm-assumption.pdf}
-  Topics = {mnar},
-   Owner                    = {aude},
-  Timestamp                = {2021.01.20}
-}
+
+
 
 
 @Article{beunckens_etal_2008,
@@ -1285,7 +1273,6 @@ missing data; nonignorable; sandwich estimator; specification analysis},
   Author                   = {Ipsen, Niels Bruun and Mattei, Pierre-Alexandre and Frellsen, Jes},
   Journal                  = {arXiv preprint},
   Year                     = {2020},
-
   Archiveprefix            = {arXiv},
   Arxivid                  = {2006.12871},
   Url                      = {https://arxiv.org/abs/2006.12871},
@@ -1549,7 +1536,7 @@ missing data; nonignorable; sandwich estimator; specification analysis},
   Eprint                   = {1806.00811},
   Owner                    = {imke},
   Timestamp                = {2018.11.12},
-  Topics                   = {causal inference}
+  Topics                   = {causal inference; matrix factorization}
 }
 
 @Article{kalton_kasprzyk_SM1986,
@@ -1904,6 +1891,21 @@ Abstract = {Although the standard formulations of prediction problems involve fu
 
 }
 
+@inproceedings{ma_etal_2019,
+Title = {Missing Not at Random in Matrix Completion: The Effectiveness of Estimating Missingness Probabilities Under a Low Nuclear Norm Assumption},
+Author = {Ma, Wei and Chen, George H},
+Booktitle = {Advances in Neural Information Processing Systems 32},
+Editor = {H. Wallach and H. Larochelle and A. Beygelzimer and F. d\textquotesingle Alch\'{e}-Buc and E. Fox and R. Garnett},
+Pages = {14900--14909},
+Year = {2019},
+Publisher = {Curran Associates, Inc.},
+Abstract = {Matrix completion is often applied to data with entries missing not at random (MNAR). For example, consider a recommendation system where users tend to only reveal ratings for items they like. In this case, a matrix completion method that relies on entries being revealed at uniformly sampled row and column indices can yield overly optimistic predictions of unseen user ratings. Recently, various papers have shown that we can reduce this bias in MNAR matrix completion if we know the probabilities of different matrix entries being missing. These probabilities are typically modeled using logistic regression or naive Bayes, which make strong assumptions and lack guarantees on the accuracy of the estimated probabilities. In this paper, we suggest a simple approach to estimating these probabilities that avoids these shortcomings. Our approach follows from the observation that missingness patterns in real data often exhibit low nuclear norm structure. We can then estimate the missingness probabilities by feeding the (always fully-observed) binary matrix specifying which entries are revealed to an existing nuclear-norm-constrained matrix completion algorithm by Davenport et al. [2014]. Thus, we tackle MNAR matrix completion by solving a different matrix completion problem first that recovers missingness probabilities. We establish finite-sample error bounds for how accurate these probability estimates are and how well these estimates debias standard matrix completion losses for the original matrix to be completed. Our experiments show that the proposed debiasing strategy can improve a variety of existing matrix completion algorithms, and achieves downstream matrix completion accuracy at least as good as logistic regression and naive Bayes debiasing baselines that require additional auxiliary information.},
+Url = {http://papers.nips.cc/paper/9628-missing-not-at-random-in-matrix-completion-the-effectiveness-of-estimating-missingness-probabilities-under-a-low-nuclear-norm-assumption.pdf},
+  Topics = {matrix completion},
+   Owner                    = {aude},
+  Timestamp                = {2021.01.20}
+}
+
 
 @InProceedings{mattei2019miwae,
   Title                    = {MIWAE: Deep generative modelling and imputation of incomplete data sets},
@@ -2017,7 +2019,7 @@ If you find nothing nonsensical in this reviewer's comments, then the current ar
 
   Owner                    = {imke},
   Timestamp                = {2018.11.11},
-  Topics                   = {mnar}
+  Topics                   = {mnar; clustering}
 }
 
 @Article{moeur_stage_FS1995,
@@ -2227,7 +2229,20 @@ If you find nothing nonsensical in this reviewer's comments, then the current ar
   Timestamp                = {2018.11.12},
   Topics                   = {multiple imputation}
 }
-{tang_etal_2017,
+
+@inproceedings{muzellec2020missing,
+  title={Missing Data Imputation using Optimal Transport},
+  author={Muzellec, Boris and Josse, Julie and Boyer, Claire and Cuturi, Marco},
+  booktitle={International Conference on Machine Learning},
+  pages={7130--7140},
+  year={2020},
+  organization={PMLR},
+  Owner                    = {imke},
+  Timestamp                = {2021.01.25},
+  Topics                   = {multiple imputation}
+}
+
+@Article{tang_etal_2017,
   Title={Random forest missing data algorithms},
   Author={Tang, Fei and Ishwaran, Hemant},
   Journal={Statistical Analysis and Data Mining: The ASA Data Science Journal},
@@ -2235,12 +2250,12 @@ If you find nothing nonsensical in this reviewer's comments, then the current ar
   Number={6},
   Pages={363--377},
   Year={2017},
-  Publisher={Wiley Online Library}
-  Abstract = {Random forest (RF) missing data algorithms are an attractive approach for imputing missing data. They have the desirable properties of being able to handle mixed types of missing data, they are adaptive to interactions and nonlinearity, and they have the potential to scale to big data settings. Currently there are many different RF imputation algorithms, but relatively little guidance about their efficacy. Using a large, diverse collection of data sets, imputation performance of various RF algorithms was assessed under different missing data mechanisms. Algorithms included proximity imputation, on the fly imputation, and imputation utilizing multivariate unsupervised and supervised splitting—the latter class representing a generalization of a new promising imputation algorithm called missForest. Our findings reveal RF imputation to be generally robust with performance improving with increasing correlation. Performance was good under moderate to high missingness, and even (in certain cases) when data was missing not at random.}
+  Publisher={Wiley Online Library},
+  Abstract = {Random forest (RF) missing data algorithms are an attractive approach for imputing missing data. They have the desirable properties of being able to handle mixed types of missing data, they are adaptive to interactions and nonlinearity, and they have the potential to scale to big data settings. Currently there are many different RF imputation algorithms, but relatively little guidance about their efficacy. Using a large, diverse collection of data sets, imputation performance of various RF algorithms was assessed under different missing data mechanisms. Algorithms included proximity imputation, on the fly imputation, and imputation utilizing multivariate unsupervised and supervised splitting—the latter class representing a generalization of a new promising imputation algorithm called missForest. Our findings reveal RF imputation to be generally robust with performance improving with increasing correlation. Performance was good under moderate to high missingness, and even (in certain cases) when data was missing not at random.},
   Doi = {https://doi.org/10.1002/sam.11348},
   Owner                    = {aude},
-  Timestamp                = {2021.01.20}
-  Topics = {random forests; prediction; statistical learning}
+  Timestamp                = {2021.01.20},
+  Topics = {imputation}
 }
 
 @article{nabi_etal_2020,
@@ -2283,7 +2298,7 @@ If you find nothing nonsensical in this reviewer's comments, then the current ar
   Abstract={As a paradigm to recover unknown entries of a matrix from partial observations, low-rank matrix completion (LRMC) has generated a great deal of interest. Over the years, there have been lots of works on this topic, but it might not be easy to grasp the essential knowledge from these studies. This is mainly because many of these works are highly theoretical or a proposal of new LRMC technique. In this paper, we give a contemporary survey on LRMC. In order to provide a better view, insight, and understanding of potentials and limitations of the LRMC, we present early scattered results in a structured and accessible way. Specifically, we classify the state-of-the-art LRMC techniques into two main categories and then explain each category in detail. We next discuss the issues to be considered when one considers using the LRMC techniques. These include intrinsic properties required for the matrix recovery and how to exploit a special structure in the LRMC design. We also discuss the convolutional neural network (CNN)-based LRMC algorithms exploiting the graph structure of a low-rank matrix. Furthermore, we present the recovery performance and the computational complexity of state-of-the-art LRMC techniques. Our hope is that this paper will serve as a useful guide for practitioners and non-experts to catch the gist of the LRMC.},
   owner     = {imke},
   timestamp = {2021.01.19},
-  topics    = {imputation; matrix completion},
+  topics    = {matrix completion},
 }
 
 @InProceedings{nowicki_etal_2016,
@@ -3022,7 +3037,7 @@ work and, therefore, should be the focus of future work in the field.},
   Keywords                 = {Informative missing values; denoising; matrix completion; accelerated proximal gradient method; EM algorithm; nuclear norm penalty},
   Owner                    = {imke},
   Timestamp                = {2019.03.28},
-  Topics                   = {mnar}
+  Topics                   = {matrix completion}
 }
 
 @InProceedings{sportisse_etal_2019,
