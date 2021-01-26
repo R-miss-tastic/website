@@ -1,5 +1,5 @@
 ---
-title: "How to simulate missing values?"
+title: "How to generate missing values?"
 author: "Teresa Alves de Sousa, Imke Mayer"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output: 
@@ -211,7 +211,7 @@ writeLines(paste0("Percentage of newly generated missing values: ", 100*sum(R.ma
 matrixplot(X.mar,  cex.axis = 0.5, interactive = F)
 ```
 
-Here, note that the generation of missing values relies on the first definition "by pattern" of MAR mechanism, which has been introduced in [@inference_missData]. 
+Here, note that the generation of missing values relies on the first definition "by pattern" of MAR mechanism, which has been introduced in [@inference_missData]. There exist other ways to generate missing values as described in the Python Notebook  [How generate missing values?](https://rmisstastic.netlify.app/how-to/python/generate_html/how%20to%20generate%20missing%20values). 
 
 ### MNAR
 
