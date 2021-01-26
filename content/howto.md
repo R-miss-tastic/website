@@ -10,7 +10,7 @@ weight: 1
 
 <h2>How to handle missing values in practice ? </h2>
 
-<p align="justify">How to handle these missing values if we want to do estimation, inference, prediction, etc.?</i> There doesn't exist a unique method to answer to this question. We propose several workflows in both R and Python to compare the most common methods, including in particular multiple imputation (MissMDA in R, IterativeImputer in Python), low rank methods (softImpute) and some recent methods implemented in Python using optimal transport (Sinkhorn imputation) and autoencoders (MIWAE). </p>
+<p align="justify">How to handle missing values if we want to do estimation, inference or prediction ?</i> There doesn't exist a unique method to answer to this question. We propose several workflows in both R and Python to compare the most common methods, including in particular multiple imputation (missMDA in R, IterativeImputer in Python), low rank methods (softImpute) and some recent methods implemented in Python using optimal transport (Sinkhorn imputation) and autoencoders (MIWAE). </p>
 
 
 
