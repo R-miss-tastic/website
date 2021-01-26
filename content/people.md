@@ -34,6 +34,7 @@ weight: 6
 <li class="list-group-item"> <a href="https://www.mrc-bsu.cam.ac.uk/people/in-alphabetical-order/n-to-s/shaun-seaman/" target="_blank">Shaun Seaman</a> (University of Cambridge)</li>
 <li class="list-group-item"> <a href="https://www.cs.jhu.edu/~ilyas/" target="_blank">Ilya Shpitser</a> (Johns Hopkins University)</li>
 <li class="list-group-item"> <a href="https://statistics.wharton.upenn.edu/profile/ett/" target="_blank">Eric J. Tchetgen Tchetgen</a> (University of Pennsylvania)</li>
+<li class="list-group-item"> <a href="https://people.orie.cornell.edu/mru8/" target="_blank">Madeleine Udell</a> (Cornell University)</li>
 <li class="list-group-item"> <a href="https://gbiomed.kuleuven.be/biostat/geertverbeke" target="_blank">Geert Verbeke</a> (<a href="https://ibiostat.be/online-resources" target="_blank">I-BioStat</a> and KU Leuven)</li>
 </ul>
 
