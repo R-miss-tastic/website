@@ -3,14 +3,14 @@ title: "How to impute missing values?"
 author: "Genevieve Robin, Imke Mayer, Aude Sportisse"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
-  pdf_document:
-    toc: yes
-    toc_depth: '3'
   html_document:
     number_sections: yes
     toc: yes
     toc_depth: 3
     toc_float: yes 
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
 linkcolor: blue
 link-citations: yess
 bibliography: bibliography.bib
@@ -81,7 +81,7 @@ XNA <- as.matrix(as.data.frame(XproduceNA$data.incomp))
 
 The [`softImpute` package](https://cran.r-project.org/web/packages/softImpute/index.html) can be used to impute quantitative data. It fits a low-rank matrix approximation to a matrix with missing values via nuclear-norm regularization. A [vignette is available online](https://web.stanford.edu/~hastie/swData/softImpute/vignette.html), as well as the original article [@hastie2015matrix].
 
-The **softImpute** function computes, based on an incomplete data set, a low-dimensional factorization which can be used to impute the missing values. The function is used as follows:
+The **softImpute** function computes, based on an incomplete dataset, a low-dimensional factorization which can be used to impute the missing values. The function is used as follows:
 
 ```{r softImpute}
 # perform softImpute
@@ -90,7 +90,7 @@ sft <- softImpute(x = XNA, rank.max = 2, lambda = 0, type = c("als", "svd"))
 
 The main arguments are the following (more details can be found on the help page).
 
-* `x`: the data set with missing values (matrix).
+* `x`: the dataset with missing values (matrix).
 
 * `rank.max`: the restricted rank of the solution, which should not be bigger than min(dim(x))-1.
 
@@ -98,7 +98,7 @@ The main arguments are the following (more details can be found on the help page
 
 * `type`: indicates the algorithm which should be used, among "svd" and "als". "svd" returns an exact solution, while "als" returns an approximate solution (in exchange for a faster computation time).
 
-To compute the imputed data set based on the softImpute results, one may use the following code:
+To compute the imputed dataset based on the softImpute results, one may use the following code:
 
 ```{r softImpute-impute}
 # compute the factorization
@@ -123,7 +123,7 @@ head(X.sft)
 
 The [`mice` package](https://CRAN.R-project.org/package=mice) implements a multiple imputation methods for multivariate missing data. It can impute mixes of continuous, binary, unordered categorical and ordered categorical data, as well as two-level data. The original article describing the software, as well as the source package [@mice] and example code are available online [here](https://github.com/stefvanbuuren/mice).
 
-The **mice** function computes, based on an incomplete data set, multiple imputations by chained equations and thus returns $m$ imputed data sets. 
+The **mice** function computes, based on an incomplete dataset, multiple imputations by chained equations and thus returns $m$ imputed datasets. 
 
 ```{r mice, results=FALSE}
 mice_mice <- mice(data = XNA, m = 5, method = "pmm") #contains m=5 completed datasets.
@@ -132,7 +132,7 @@ mice_mice <- mice(data = XNA, m = 5, method = "pmm") #contains m=5 completed dat
 
 The main arguments are the following (more details can be found on the help page).
 
-* `data`: the data set with missing values (matrix).
+* `data`: the dataset with missing values (matrix).
 
 * `m`: number of multiple imputations.
 
@@ -162,7 +162,7 @@ forest <- missForest(xmis = XNA, maxiter = 20, ntree = 100)
 
 The main arguments are the following (more details can be found on the help page).
 
-* `xmis`: the data set with missing values (matrix).
+* `xmis`: the dataset with missing values (matrix).
 
 * `maxiter`: maximum number of iterations to be performed given the stopping criterion is not met beforehand.
 
@@ -179,7 +179,7 @@ head(X.forest)
 
 The [`missMDA` package](https://cran.r-project.org/web/packages/missMDA/index.html) serves to impute mixed-type data (continuous or categorical data). 
 
-The **imputePCA** function imputes missing values applying by using principal component methods. The missing values are predicted using the iterative PCA algorithm for a predefined number of dimensions. Some informations are available in the original article [@missMDA] and some videos are online [here](https://www.youtube.com/watch?v=OOM8_FH6_8o) or [here (in french)](https://www.youtube.com/watch?v=bdD9P3fGb70). 
+The **imputePCA** function imputes missing values applying principal component methods. The missing values are predicted using the iterative PCA algorithm for a predefined number of dimensions. Some information are available in the original article [@missMDA] and some videos are online [here](https://www.youtube.com/watch?v=OOM8_FH6_8o) or [here (in french)](https://www.youtube.com/watch?v=bdD9P3fGb70). 
 
 ```{r imputePCA}
 pca <- imputePCA(X = XNA, ncp = 2, scale = TRUE, method = c("Regularized","EM"))
@@ -188,9 +188,9 @@ pca <- imputePCA(X = XNA, ncp = 2, scale = TRUE, method = c("Regularized","EM"))
 
 The main argument are the following (more details can be found on the help page).
 
-* `X`: the data set with missing values (matrix).
+* `X`: the dataset with missing values (matrix).
 
-* `ncp`: number of components used to to predict the missing entries.
+* `ncp`: number of components used to predict the missing entries.
 
 * `scale`: if TRUE, it implies that the same weight is given for each variable.
 
@@ -233,7 +233,7 @@ The function **HowToImpute** compares the methods above with the naive imputatio
 
 The arguments are the following. 
 
-* `X`: the complete data set where the missing values will be introduced (matrix).
+* `X`: the complete dataset where the missing values will be introduced (matrix).
 
 * `perc.list`: list containing the different percentage of missing values. 
 
@@ -350,7 +350,7 @@ ggplot(plotdf) + geom_point(aes(x = perc, y = mse, color = meth, shape = mecha),
 
 ## Real datasets
 
-We will now compare the methods on real complete data set taken from the UCI repository [@dua_graff_2019] in which we will introduce missing values.. In the present workflow, we propose a selection of several data sets (here, the data sets contain only quantitative variables) : 
+We will now compare the methods on real complete dataset taken from the UCI repository in which we will introduce missing values. In the present workflow, we propose a selection of several datasets (here, the datasets contain only quantitative variables) : 
 
 - Wine Quality - Red (1599x11)
 - Wine Quality - White (4898x11)
@@ -379,7 +379,7 @@ data(decathlon)
 decathlon <- decathlon[, 1:10]
 ```
 
-You can choose to scale data prior to running the experiments, which implies that the variable have the same weight in the analysis. Scaling data may be performed on complete data sets but is more difficult for incomplete data sets^[For MCAR values, the estimations of the standard deviation can be unbiased. However, for MNAR values, the estimators will suffer from biases.]. 
+You can choose to scale data prior to running the experiments, which implies that the variable have the same weight in the analysis. Scaling data may be performed on complete datasets but is more difficult for incomplete datasets^[For MCAR values, the estimations of the standard deviation can be unbiased. However, for MNAR values, the estimators will suffer from biases.]. 
 
 ```{r scale data}
 sc <- TRUE
@@ -396,7 +396,7 @@ We can then apply the **HowToImpute_real** function. It compares in terms of MSE
 
 The arguments are the following. 
 
-* `datasets_list`: dictionnary of complete datasets.
+* `datasets_list`: dictionary of complete datasets.
 
 * `perc`: percentage of missing values.
 
