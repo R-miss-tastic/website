@@ -18,9 +18,9 @@ For a straightforward application of some the most common methods we propose sev
 <br>
 <h3>How to (R notebook)...</h3>
 <ul class="list-group" id="workflows-list">
-<li class="list-group-item"> <a href="/how-to/generate/missSimul.html" target="_blank">... generate missing values?</a> (<a href="/how-to/generate/missSimul.pdf" target="_blank">PDF</a>, <a href="/how-to/generate/missSimul.Rmd" target="_blank">Rmd</a>,<a href="/how-to/generate/amputation.R" target="_blank">Ressource R</a>)</li>
-<li class="list-group-item"> <a href="/how-to/estimate/missEstim.html" target="_blank">... estimate parameters with missing values?</a> (<a href="/how-to/estimate/missEstim.pdf" target="_blank">PDF</a>)</li>
-<li class="list-group-item"> <a href="/how-to/impute/missImp.html" target="_blank">... impute missing values?</a> (<a href="/how-to/impute/missImp.pdf" target="_blank">PDF</a>)</li>
+<li class="list-group-item"> <a href="/how-to/generate/missSimul.html" target="_blank">... generate missing values?</a> (<a href="/how-to/generate/missSimul.pdf" target="_blank">PDF</a>, <a href="/how-to/generate/missSimul.Rmd" target="_blank">Rmd</a>, <a href="/how-to/generate/amputation.R" target="_blank">Ressource R</a>)</li>
+<li class="list-group-item"> <a href="/how-to/estimate/missEstim.html" target="_blank">... estimate some parameters with missing values?</a> (<a href="/how-to/estimate/missEstim.pdf" target="_blank">PDF</a>, <a href="/how-to/estimate/missEstim.Rmd" target="_blank">Rmd</a>)</li>
+<li class="list-group-item"> <a href="/how-to/impute/missImp.html" target="_blank">... impute missing values?</a> (<a href="/how-to/impute/missImp.pdf" target="_blank">PDF</a>, <a href="/how-to/impute/missImp.Rmd" target="_blank">Rmd</a>)</li>
 </ul>
 
 
