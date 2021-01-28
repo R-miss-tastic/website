@@ -24,6 +24,9 @@ paginate = 4
   name = "GitHub"
   url = "https://github.com/R-miss-tastic/website"
 
+  [[menu.sidebar]]
+    name = "Twitter paper bot MissCausal"
+    url = "https://twitter.com/CausalMiss?s=20"
 
 [[menu.sidebar]]
   name = "Events"
@@ -78,7 +81,7 @@ paginate = 4
     # Optional, used for attribution in Twitter cards (ideally not a person
     # for example: nytimes, flickr, NatGeo, etc).
     # See: https://dev.twitter.com/cards/types/summary-large-image
-    # twitter = "username"
+    twitter = "CausalMiss"
 
 # Default content language for Hugo 0.17's multilingual support (default is "en")
 # See: https://github.com/spf13/hugo/blob/master/docs/content/content/multilingual.md
