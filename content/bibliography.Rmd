@@ -373,6 +373,8 @@ create_ref_buttons(selected_refs, c(0,3,4), "ml_misc")
 
 <font size="+1"><b>Regression</b></font>
 
+<p align="justify">There is a vast literature on how to perform (linear) regression, possibly in high dimensional setting, in presence of missing values in the covariates. This can be seen as a particular case of supervised learning, which is presented below even if the focus is often more on estimating parameters or selecting relevant variables.</p>
+
 
 ```{r, regr_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 tags <- c("regression", "regressions")
@@ -526,7 +528,10 @@ create_ref_buttons(selected_refs, c(0,3,4), "mi_misc")
 <p align="justify">The field of machine learning being dependent on the availability of (good) training data, it is -- in most real-world applications -- necessarily facing the issue of missing data. Hence there has been an increasing attention to how to handle missing data, in the features and the output, in order to _learn_ accurately from the data.
 </p>
  
-<font size="+1"><b>Algorithms for supervised learning</b></font>
+<font size="+1"><b>Supervised learning</b></font>
+
+<p align="justify">Methods to deal with supervised learning (predict as well as possible an outcome) with missing values in the covariates are really different from methods for inference with missing values (estimating parameters).
+</p>
 
 
 </p>
@@ -559,8 +564,10 @@ create_ref_buttons(selected_refs, c(0,3,4), "algoml_misc")
 
 <br>
 
-<font size="+1"><b>Algorithms for unsupervised learning</b></font>
+<font size="+1"><b>Unsupervised learning</b></font>
 
+<p align="justify">Methods have been suggested to perform clustering with missing values (k-means, mixture models) as well as dimensionality reduction with missing values (PCA). 
+</p>
 
 </p>
 ```{r, clust_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
@@ -732,7 +739,6 @@ create_ref_buttons(selected_refs, c(0,3,4), "mnar_misc")
 	padding: 0;
 	margin-left: -15px;
 }
-
 .panel-default>.panel-heading {
   color: #333;
   background-color: #fff;
@@ -743,17 +749,14 @@ create_ref_buttons(selected_refs, c(0,3,4), "mnar_misc")
   -ms-user-select: none;
   user-select: none;
 }
-
 .panel-default>.panel-heading a {
   display: block;
   padding: 10px 15px;
 }
-
 .panel-collapse>.panel-body {
   padding: 20px 30px;
   margin-left: 30px;
 }
-
 .panel-default>.panel-heading a:after {
   content: "";
   position: relative;
@@ -768,30 +771,25 @@ create_ref_buttons(selected_refs, c(0,3,4), "mnar_misc")
   transition: transform .25s linear;
   -webkit-transition: -webkit-transform .25s linear;
 }
-
 .panel-default>.panel-heading a[aria-expanded="true"] {
   background-color: #eee;
 }
-
 .panel-default>.panel-heading a[aria-expanded="true"]:after {
   content: "\2212";
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
-
 .panel-default>.panel-heading a[aria-expanded="false"]:after {
   content: "\002b";
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
 }
-
 .accordion-option {
   width: 100%;
   float: left;
   clear: both;
   margin: 0px 0;
 }
-
 .accordion-option .title {
   font-size: 20px;
   font-weight: bold;
@@ -799,17 +797,14 @@ create_ref_buttons(selected_refs, c(0,3,4), "mnar_misc")
   padding: 0;
   margin: 0;
 }
-
 .accordion-option .toggle-accordion {
   float: right;
   font-size: 16px;
   color: #6a6c6f;
 }
-
 .accordion-option .toggle-accordion:before {
   content: "Collapse All";
 }
-
 .accordion-option .toggle-accordion.active:before {
   content: "Collapse All";
 }
@@ -823,7 +818,6 @@ $(document).ready(function() {
       numPanelOpen = $(accordionId + ' .collapse.in').length;
     
     $(this).toggleClass("active");
-
     if (numPanelOpen == 0) {
       openAllPanels(accordionId);
     } else {
@@ -840,4 +834,3 @@ $(document).ready(function() {
   };
 });
 ```
-
