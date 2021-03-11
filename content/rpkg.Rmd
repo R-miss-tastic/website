@@ -1,7 +1,7 @@
 ---
 output: md_document
 author: "Steffen Moritz & Nathalie Vialaneix"
-linktitle: R packages
+linktitle: Implementations
 menu: navbar
 name: "R packages on missing values"
 url: "/rpkg/"
@@ -26,7 +26,7 @@ pkg_category <- c("Time-Series Imputation, Visualisations for Missing Data",
 
 #### R Packages
 
-<p align="justify">This page provides introductions to popular missing data packages with small examples on how to use them. Thus the page gives more extensive information than the  <a href="https://CRAN.R-project.org/view=MissingData" target="_blank">CRAN Task View on Missing Data</a>, which is recommended to get a first overall overview about the CRAN missing data landscape.</p>
+<p align="justify">Here are some introductions to popular missing data packages with small examples on how to use them. It gives more extensive information than the  <a href="https://CRAN.R-project.org/view=MissingData" target="_blank">CRAN Task View on Missing Data</a>, which is recommended to get a first overall overview about the CRAN missing data landscape.</p>
 
 <p align="justify"><i>You can also contribute on your own to this page and provide a short introduction to a missing data package. Take a look at <a href="/packages/rpkg-listitem-template.md" target="_blank">this short description</a> on how to do this. We are very happy about all contributions.</i></p>
 
@@ -85,4 +85,20 @@ Your favorite package is missing? <a href="/packages/rpkg-listitem-template.md" 
 
 var userList = new List('users', options);
 </script>
+
+
+#### Python modules
+
+
+<p align="justify">Here are some links to modules or methods in Python to handle missing values.
+
+
+* [sklearn.impute](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.impute): module from sklearn for missing value imputation (simple imputation, conditional iterative imputer, k-Nearest Neighbors imputer).
+
+* [pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html): available methods in pandas to handle dataframes with missing values (fill the missing values by a constant, remove missing values).
+
+* [statsmodels.imputation](https://www.statsmodels.org/stable/imputation.html): module from statsmodels to handle missing values (multiple imputation, Bayesian imputation using a Gaussian model).
+
+</p>
+
 

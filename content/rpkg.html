@@ -1,7 +1,7 @@
 ---
 output: md_document
 author: "Steffen Moritz & Nathalie Vialaneix"
-linktitle: R packages
+linktitle: Implementations
 menu: navbar
 name: "R packages on missing values"
 url: "/rpkg/"
@@ -13,7 +13,7 @@ weight: 4
 <div id="r-packages" class="section level4">
 <h4>R Packages</h4>
 <p align="justify">
-This page provides introductions to popular missing data packages with small examples on how to use them. Thus the page gives more extensive information than the <a href="https://CRAN.R-project.org/view=MissingData" target="_blank">CRAN Task View on Missing Data</a>, which is recommended to get a first overall overview about the CRAN missing data landscape.
+Here are some introductions to popular missing data packages with small examples on how to use them. It gives more extensive information than the <a href="https://CRAN.R-project.org/view=MissingData" target="_blank">CRAN Task View on Missing Data</a>, which is recommended to get a first overall overview about the CRAN missing data landscape.
 </p>
 <p align="justify">
 <i>You can also contribute on your own to this page and provide a short introduction to a missing data package. Take a look at <a href="/packages/rpkg-listitem-template.md" target="_blank">this short description</a> on how to do this. We are very happy about all contributions.</i>
@@ -35,7 +35,7 @@ imputeTS
 <h6 class="Category">
 Category: Time-Series Imputation, Visualisations for Missing Data
 </h6>
-<i class="Description">Imputation (replacement) of missing values in univariate time series. Offers several imputation functions and missing data plots. Available imputation algorithms include: ‘Mean’, ‘LOCF’, ‘Interpolation’, ‘Moving Average’, ‘Seasonal Decomposition’, ‘Kalman Smoothing on Structural Time Series models’, ‘Kalman Smoothing on ARIMA models’. Published in Moritz and Bartz-Beielstein (2017) &lt;doi: 10.32614/RJ-2017-009&gt;.</i><br><img src="https://cranlogs.r-pkg.org/badges/imputeTS" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/imputeTS" alt="CRAN Release" /> <br><a href="/packages/imputeTS"> more.. </a>
+<i class="Description">Imputation (replacement) of missing values in univariate time series. Offers several imputation functions and missing data plots. Available imputation algorithms include: 'Mean', 'LOCF', 'Interpolation', 'Moving Average', 'Seasonal Decomposition', 'Kalman Smoothing on Structural Time Series models', 'Kalman Smoothing on ARIMA models'. Published in Moritz and Bartz-Beielstein (2017) &lt;doi: 10.32614/RJ-2017-009&gt;.</i><br><img src="https://cranlogs.r-pkg.org/badges/imputeTS" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/imputeTS" alt="CRAN Release" /> <br><a href="/packages/imputeTS"> more.. </a>
 </li>
 </br>
 <li style="margin: 0px;">
@@ -55,7 +55,7 @@ missForest
 <h6 class="Category">
 Category: Single Imputation
 </h6>
-<i class="Description">The function ‘missForest’ in this package is used to impute missing values particularly in the case of mixed-type data. It uses a random forest trained on the observed values of a data matrix to predict the missing values. It can be used to impute continuous and/or categorical data including complex interactions and non-linear relations. It yields an out-of-bag (OOB) imputation error estimate without the need of a test set or elaborate cross-validation. It can be run in parallel to save computation time.</i><br><img src="https://cranlogs.r-pkg.org/badges/missForest" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/missForest" alt="CRAN Release" /> <br><a href="/packages/missForest"> more.. </a>
+<i class="Description">The function 'missForest' in this package is used to impute missing values particularly in the case of mixed-type data. It uses a random forest trained on the observed values of a data matrix to predict the missing values. It can be used to impute continuous and/or categorical data including complex interactions and non-linear relations. It yields an out-of-bag (OOB) imputation error estimate without the need of a test set or elaborate cross-validation. It can be run in parallel to save computation time.</i><br><img src="https://cranlogs.r-pkg.org/badges/missForest" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/missForest" alt="CRAN Release" /> <br><a href="/packages/missForest"> more.. </a>
 </li>
 </br>
 <li style="margin: 0px;">
@@ -75,7 +75,7 @@ naniar
 <h6 class="Category">
 Category: Visualisations for Missing Data
 </h6>
-<i class="Description">Missing values are ubiquitous in data and need to be explored and handled in the initial stages of analysis. ‘naniar’ provides data structures and functions that facilitate the plotting of missing values and examination of imputations. This allows missing data dependencies to be explored with minimal deviation from the common work patterns of ‘ggplot2’ and tidy data. </i><br><img src="https://cranlogs.r-pkg.org/badges/naniar" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/naniar" alt="CRAN Release" /> <br><a href="/packages/naniar"> more.. </a>
+<i class="Description">Missing values are ubiquitous in data and need to be explored and handled in the initial stages of analysis. 'naniar' provides data structures and functions that facilitate the plotting of missing values and examination of imputations. This allows missing data dependencies to be explored with minimal deviation from the common work patterns of 'ggplot2' and tidy data. The work is fully discussed at Tierney &amp; Cook (2018) &lt;arXiv:1809.02264&gt;.</i><br><img src="https://cranlogs.r-pkg.org/badges/naniar" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/naniar" alt="CRAN Release" /> <br><a href="/packages/naniar"> more.. </a>
 </li>
 </br>
 <li style="margin: 0px;">
@@ -85,7 +85,7 @@ simputation
 <h6 class="Category">
 Category: Single Imputation, Meta-Package
 </h6>
-<i class="Description">Easy to use interfaces to a number of imputation methods that fit in the not-a-pipe operator of the ‘magrittr’ package.</i><br><img src="https://cranlogs.r-pkg.org/badges/simputation" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/simputation" alt="CRAN Release" /> <br><a href="/packages/simputation"> more.. </a>
+<i class="Description">Easy to use interfaces to a number of imputation methods that fit in the not-a-pipe operator of the 'magrittr' package.</i><br><img src="https://cranlogs.r-pkg.org/badges/simputation" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/simputation" alt="CRAN Release" /> <br><a href="/packages/simputation"> more.. </a>
 </li>
 </br>
 <li style="margin: 0px;">
@@ -109,4 +109,15 @@ Category: Single Imputation, Visualisations for Missing Data
 
 var userList = new List('users', options);
 </script>
+</div>
+<div id="python-modules" class="section level4">
+<h4>Python modules</h4>
+<p align="justify">
+<p>Here are some links to modules or methods in Python to handle missing values.</p>
+<ul>
+<li><p><a href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.impute">sklearn.impute</a>: module from sklearn for missing value imputation (simple imputation, conditional iterative imputer, k-Nearest Neighbors imputer).</p></li>
+<li><p><a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html">pandas</a>: available methods in pandas to handle dataframes with missing values (fill the missing values by a constant, remove missing values).</p></li>
+<li><p><a href="https://www.statsmodels.org/stable/imputation.html">statsmodels.imputation</a>: module from statsmodels to handle missing values (multiple imputation, Bayesian imputation using a Gaussian model).</p></li>
+</ul>
+</p>
 </div>
