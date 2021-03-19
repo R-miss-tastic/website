@@ -3,13 +3,15 @@ output: md_document
 author: "Steffen Moritz & Nathalie Vialaneix"
 linktitle: Implementations
 menu: navbar
-name: "R packages on missing values"
+name: "Implementations"
 url: "/rpkg/"
 weight: 4
 ---
 
 
 
+<p>We list some of the most popular R packages and Python libraries that allow to handle missing values.</p>
+<p><a href="#python_libraries">Click here to go directly to the list of Python libraries.</a></p>
 <div id="r-packages" class="section level4">
 <h4>R Packages</h4>
 <p align="justify">
@@ -19,23 +21,23 @@ Here are some introductions to popular missing data packages with small examples
 <i>You can also contribute on your own to this page and provide a short introduction to a missing data package. Take a look at <a href="/packages/rpkg-listitem-template.md" target="_blank">this short description</a> on how to do this. We are very happy about all contributions.</i>
 </p>
 <div id="users">
-<input class="search" placeholder="Search" />
+<p><input class="search" placeholder="Search" />
 <button class="sort" data-sort="name">
-<pre><code>Sort by name</code></pre>
+Sort by name
 </button>
 <button class="sort" data-sort="Category">
-<pre><code>Sort by Category</code></pre>
-</button>
+Sort by Category
+</button></p>
 <p>
 <ul class="list">
 <li style="margin: 0px;">
 <h3 class="name">
-imputeTS
+NA
 </h3>
 <h6 class="Category">
 Category: Time-Series Imputation, Visualisations for Missing Data
 </h6>
-<i class="Description">Imputation (replacement) of missing values in univariate time series. Offers several imputation functions and missing data plots. Available imputation algorithms include: 'Mean', 'LOCF', 'Interpolation', 'Moving Average', 'Seasonal Decomposition', 'Kalman Smoothing on Structural Time Series models', 'Kalman Smoothing on ARIMA models'. Published in Moritz and Bartz-Beielstein (2017) &lt;doi: 10.32614/RJ-2017-009&gt;.</i><br><img src="https://cranlogs.r-pkg.org/badges/imputeTS" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/imputeTS" alt="CRAN Release" /> <br><a href="/packages/imputeTS"> more.. </a>
+<i class="Description">NA</i><br><img src="https://cranlogs.r-pkg.org/badges/imputeTS" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/imputeTS" alt="CRAN Release" /> <br><a href="/packages/imputeTS"> more.. </a>
 </li>
 </br>
 <li style="margin: 0px;">
@@ -45,7 +47,17 @@ mice
 <h6 class="Category">
 Category: Multiple Imputation
 </h6>
-<i class="Description">Multiple imputation using Fully Conditional Specification (FCS) implemented by the MICE algorithm as described in Van Buuren and Groothuis-Oudshoorn (2011) <a href="doi:10.18637/jss.v045.i03" class="uri">doi:10.18637/jss.v045.i03</a>. Each variable has its own imputation model. Built-in imputation models are provided for continuous data (predictive mean matching, normal), binary data (logistic regression), unordered categorical data (polytomous logistic regression) and ordered categorical data (proportional odds). MICE can also impute continuous two-level data (normal model, pan, second-level variables). Passive imputation can be used to maintain consistency between variables. Various diagnostic plots are available to inspect the quality of the imputations.</i><br><img src="https://cranlogs.r-pkg.org/badges/mice" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/mice" alt="CRAN Release" /> <br><a href="/packages/mice"> more.. </a>
+<i class="Description">Multiple imputation using Fully Conditional Specification (FCS)
+implemented by the MICE algorithm as described in Van Buuren and
+Groothuis-Oudshoorn (2011) <a href="doi:10.18637/jss.v045.i03" class="uri">doi:10.18637/jss.v045.i03</a>. Each variable has
+its own imputation model. Built-in imputation models are provided for
+continuous data (predictive mean matching, normal), binary data (logistic
+regression), unordered categorical data (polytomous logistic regression)
+and ordered categorical data (proportional odds). MICE can also impute
+continuous two-level data (normal model, pan, second-level variables).
+Passive imputation can be used to maintain consistency between variables.
+Various diagnostic plots are available to inspect the quality of the
+imputations.</i><br><img src="https://cranlogs.r-pkg.org/badges/mice" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/mice" alt="CRAN Release" /> <br><a href="/packages/mice"> more.. </a>
 </li>
 </br>
 <li style="margin: 0px;">
@@ -55,7 +67,15 @@ missForest
 <h6 class="Category">
 Category: Single Imputation
 </h6>
-<i class="Description">The function 'missForest' in this package is used to impute missing values particularly in the case of mixed-type data. It uses a random forest trained on the observed values of a data matrix to predict the missing values. It can be used to impute continuous and/or categorical data including complex interactions and non-linear relations. It yields an out-of-bag (OOB) imputation error estimate without the need of a test set or elaborate cross-validation. It can be run in parallel to save computation time.</i><br><img src="https://cranlogs.r-pkg.org/badges/missForest" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/missForest" alt="CRAN Release" /> <br><a href="/packages/missForest"> more.. </a>
+<i class="Description">The function ‘missForest’ in this package is used to
+impute missing values particularly in the case of mixed-type
+data. It uses a random forest trained on the observed values of
+a data matrix to predict the missing values. It can be used to
+impute continuous and/or categorical data including complex
+interactions and non-linear relations. It yields an out-of-bag
+(OOB) imputation error estimate without the need of a test set
+or elaborate cross-validation. It can be run in parallel to
+save computation time.</i><br><img src="https://cranlogs.r-pkg.org/badges/missForest" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/missForest" alt="CRAN Release" /> <br><a href="/packages/missForest"> more.. </a>
 </li>
 </br>
 <li style="margin: 0px;">
@@ -75,17 +95,22 @@ naniar
 <h6 class="Category">
 Category: Visualisations for Missing Data
 </h6>
-<i class="Description">Missing values are ubiquitous in data and need to be explored and handled in the initial stages of analysis. 'naniar' provides data structures and functions that facilitate the plotting of missing values and examination of imputations. This allows missing data dependencies to be explored with minimal deviation from the common work patterns of 'ggplot2' and tidy data. The work is fully discussed at Tierney &amp; Cook (2018) &lt;arXiv:1809.02264&gt;.</i><br><img src="https://cranlogs.r-pkg.org/badges/naniar" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/naniar" alt="CRAN Release" /> <br><a href="/packages/naniar"> more.. </a>
+<i class="Description">Missing values are ubiquitous in data and need to be explored and
+handled in the initial stages of analysis. ‘naniar’ provides data structures
+and functions that facilitate the plotting of missing values and examination
+of imputations. This allows missing data dependencies to be explored with
+minimal deviation from the common work patterns of ‘ggplot2’ and tidy data.
+The work is fully discussed at Tierney &amp; Cook (2018) &lt;arXiv:1809.02264&gt;.</i><br><img src="https://cranlogs.r-pkg.org/badges/naniar" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/naniar" alt="CRAN Release" /> <br><a href="/packages/naniar"> more.. </a>
 </li>
 </br>
 <li style="margin: 0px;">
 <h3 class="name">
-simputation
+NA
 </h3>
 <h6 class="Category">
 Category: Single Imputation, Meta-Package
 </h6>
-<i class="Description">Easy to use interfaces to a number of imputation methods that fit in the not-a-pipe operator of the 'magrittr' package.</i><br><img src="https://cranlogs.r-pkg.org/badges/simputation" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/simputation" alt="CRAN Release" /> <br><a href="/packages/simputation"> more.. </a>
+<i class="Description">NA</i><br><img src="https://cranlogs.r-pkg.org/badges/simputation" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/simputation" alt="CRAN Release" /> <br><a href="/packages/simputation"> more.. </a>
 </li>
 </br>
 <li style="margin: 0px;">
@@ -95,7 +120,15 @@ VIM
 <h6 class="Category">
 Category: Single Imputation, Visualisations for Missing Data
 </h6>
-<i class="Description">New tools for the visualization of missing and/or imputed values are introduced, which can be used for exploring the data and the structure of the missing and/or imputed values. Depending on this structure of the missing values, the corresponding methods may help to identify the mechanism generating the missing values and allows to explore the data including missing values. In addition, the quality of imputation can be visually explored using various univariate, bivariate, multiple and multivariate plot methods. A graphical user interface available in the separate package VIMGUI allows an easy handling of the implemented plot methods.</i><br><img src="https://cranlogs.r-pkg.org/badges/VIM" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/VIM" alt="CRAN Release" /> <br><a href="/packages/VIM"> more.. </a>
+<i class="Description">New tools for the visualization of missing and/or imputed values
+are introduced, which can be used for exploring the data and the structure of
+the missing and/or imputed values. Depending on this structure of the missing
+values, the corresponding methods may help to identify the mechanism generating
+the missing values and allows to explore the data including missing values.
+In addition, the quality of imputation can be visually explored using various
+univariate, bivariate, multiple and multivariate plot methods. A graphical user
+interface available in the separate package VIMGUI allows an easy handling of
+the implemented plot methods.</i><br><img src="https://cranlogs.r-pkg.org/badges/VIM" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/VIM" alt="CRAN Release" /> <br><a href="/packages/VIM"> more.. </a>
 </li>
 </br>
 </ul>
@@ -110,7 +143,7 @@ Category: Single Imputation, Visualisations for Missing Data
 var userList = new List('users', options);
 </script>
 </div>
-<div id="python-modules" class="section level4">
+<div id="python_libraries" class="section level4">
 <h4>Python modules</h4>
 <p align="justify">
 <p>Here are some links to modules or methods in Python to handle missing values.</p>

@@ -3,7 +3,7 @@ output: md_document
 author: "Steffen Moritz & Nathalie Vialaneix"
 linktitle: Implementations
 menu: navbar
-name: "R packages on missing values"
+name: "Implementations"
 url: "/rpkg/"
 weight: 4
 ---
@@ -24,6 +24,12 @@ pkg_category <- c("Time-Series Imputation, Visualisations for Missing Data",
                   "Single Imputation, Visualisations for Missing Data")
 ```
 
+
+We list some of the most popular R packages and Python libraries that allow to handle missing values.
+
+<a href="#python_libraries">Click here to go directly to the list of Python libraries.</a>
+
+          
 #### R Packages
 
 <p align="justify">Here are some introductions to popular missing data packages with small examples on how to use them. It gives more extensive information than the  <a href="https://CRAN.R-project.org/view=MissingData" target="_blank">CRAN Task View on Missing Data</a>, which is recommended to get a first overall overview about the CRAN missing data landscape.</p>
@@ -87,7 +93,7 @@ var userList = new List('users', options);
 </script>
 
 
-#### Python modules
+#### Python modules {#python_libraries}
 
 
 <p align="justify">Here are some links to modules or methods in Python to handle missing values.

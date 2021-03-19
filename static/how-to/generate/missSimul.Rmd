@@ -13,7 +13,7 @@ output:
     toc_depth: '3'
 linkcolor: blue
 link-citations: yes
-bibliography: bibliography.bib
+bibliography: ../bibliography.bib
 ---
 
 
@@ -21,6 +21,7 @@ bibliography: bibliography.bib
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
 Missing values occur in many domains and most datasets contain missing values (due to non-responses, lost records, machine failures, dataset fusions, etc.). These missing values have to be considered before or during analyses of these datasets.
 
 Now, if you have a method that deals with missing values, for instance imputation or estimation with missing values, how can you assess the performance of your method on a given dataset? If the data already contains missing values, than this does not help you since you generally do not have a ground truth for these missing values. So you will have to simulate missing values, i.e. you remove values -- which you therefore know to be the ground truth -- to generate missing values. 
