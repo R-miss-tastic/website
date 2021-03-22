@@ -553,7 +553,6 @@ weight: 2
     <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
   </div> <!--class=accordion-option-->
 </div> <!--class=container-->
-</div>
 
 <style>
 .panel-group {
