@@ -38,7 +38,7 @@ weight: 2
                     </div>
                   </a>
                 </div> <!--card-header-->
-                <div id="davidian" class="collapse" data-parent="#accordion_general">  
+                <div id="davidian" class="collapse show" data-parent="#accordion_general">  
                   <div class="card-body">
                     <p align="justify" style="margin-left:15px;">This course provides an overview of modern statistical frameworks and methods for analysis in the presence of missing data. Both methodological developments and applications are emphasized. The course provides a foundation in the fundamentals of this area that will prepare to read the current literature and to have broad appreciation the implications of missing data for valid inference. <a href="https://www4.stat.ncsu.edu/~davidian/st790/index.html" target="_blank">Course page</a>.
                     </p>
@@ -189,7 +189,7 @@ weight: 2
                     </div>
                   </a>
                 </div>
-                <div id="erler" class="collapse" data-parent="#accordion_mi">  
+                <div id="erler" class="collapse show" data-parent="#accordion_mi">  
                   <div class="card-body">
                     <p align="justify" style="margin-left:15px;">This course is the second part of a <a href="https://www.nihes.com/course/ep16_missing_values_in_clinical_research/" target="_blank">NIHES course on Missing Values in Clinical Research</a> and it focuses on multiple imputation (MI), specifically the fully conditional specification (FCS, MICE), which is often considered the gold standard to handle missing data. A detailed discussion on what MI(CE) does, which assumptions need to be met in order for it to perform well, and alternative imputation approaches for settings where MICE is not optimal are given. The theoretic considerations will be accompanied by demonstrations and short practical sessions in R, and a workflow for doing MI using the R package mice will be proposed, illustrating how to perform (multiple) imputation for cross-sectional and longitudinal data in R.
                     </p>
@@ -249,7 +249,7 @@ weight: 2
                     </div>
                   </a>
                 </div>
-                <div id="josse" class="collapse" data-parent="#accordion_pc">  
+                <div id="josse" class="collapse show" data-parent="#accordion_pc">  
                   <div class="card-body">
                     <p align="justify" style="margin-left:15px;">This tutorial is part of a master course on statistics with R. It discusses different missing values problems and illustrates them on medical, industrial and ecologial data. It provides a detailed introduction to single and multiple imputation via principal component methods, both in theory and in practice. The practical part illustrates how to perform (multiple) imputation using the R package <code>missMDA</code>.
                     </p>
@@ -307,7 +307,7 @@ weight: 2
                 </div>
                 </a>
               </div>
-              <div id="ias2020" class="collapse" data-parent="#accordion_special">  
+              <div id="ias2020" class="collapse show" data-parent="#accordion_special">  
                 <div class="card-body">
                   <p align="justify" style="margin-left:15px;">This keynote talk gives an overview of different approaches for inference and prediction tasks. A striking result for the latter is that the widely-used method of imputing with the mean prior to learning can be consistent.
                   </p>
