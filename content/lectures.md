@@ -37,7 +37,7 @@ weight: 2
                       </small>
                     </div>
                   </a>
-                </div> <!--card-header-->
+                </div> <!--class=card-header-->
                 <div id="davidian" class="collapse show" data-parent="#accordion_general">  
                   <div class="card-body">
                     <p align="justify" style="margin-left:15px;">This course provides an overview of modern statistical frameworks and methods for analysis in the presence of missing data. Both methodological developments and applications are emphasized. The course provides a foundation in the fundamentals of this area that will prepare to read the current literature and to have broad appreciation the implications of missing data for valid inference. <a href="https://www4.stat.ncsu.edu/~davidian/st790/index.html" target="_blank">Course page</a>.
@@ -58,7 +58,7 @@ weight: 2
                     </ul>
                   </div> <!--card-body-->
                 </div> <!--id=davidian-->
-              </div> <!--card-->
+              </div> <!--class=card-->
               <div class="card">
                 <div class="card-header">
                   <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#josse_eth">
@@ -81,7 +81,7 @@ weight: 2
                     </ul>
                   </div> <!--card-body-->
                 </div> <!--id=josse_eth-->
-              </div> <!--card-->
+              </div> <!--class=card-->
               <div class="card">
                 <div class="card-header">
                   <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#kim">
@@ -107,7 +107,7 @@ weight: 2
                     </ul>
                   </div> <!--card-body-->
                 </div> <!--id=kim-->
-              </div> <!--card-->
+              </div> <!--class=card-->
               <div class="card">
                 <div class="card-header">
                   <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#sadinle">
@@ -150,7 +150,7 @@ weight: 2
                     </ul>
                   </div> <!--card-body-->
                 </div> <!--id=sadinle-->
-              </div> <!--card-->
+              </div> <!--class=card-->
               <div class="card">
                 <div class="card-header">
                   <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#little">
@@ -161,10 +161,10 @@ weight: 2
                     </div>
                   </a>
                 </div> <!--card-header-->
-              </div> <!--card-->
+              </div> <!--class=card-->
             </div> <!--id=accordion_general-->
             </br>
-          </div> <!--container-->
+          </div> <!--class=container-->
         </div> <!--class=panel-body-->
       </div> <!--id=general-->
     </div> <!--class=panel-->
@@ -174,7 +174,7 @@ weight: 2
         <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#mi" aria-expanded="false" aria-controls="mi">Multiple imputation</a>
         </h4>
-      </div>
+      </div> <!--class=panel-heading-->
       <div id="mi" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_mi">
         <div class="panel-body">
           <div class="container">
@@ -188,7 +188,7 @@ weight: 2
                     </small>
                     </div>
                   </a>
-                </div>
+                </div> <!--class=card-header-->
                 <div id="erler" class="collapse show" data-parent="#accordion_mi">  
                   <div class="card-body">
                     <p align="justify" style="margin-left:15px;">This course is the second part of a <a href="https://www.nihes.com/course/ep16_missing_values_in_clinical_research/" target="_blank">NIHES course on Missing Values in Clinical Research</a> and it focuses on multiple imputation (MI), specifically the fully conditional specification (FCS, MICE), which is often considered the gold standard to handle missing data. A detailed discussion on what MI(CE) does, which assumptions need to be met in order for it to perform well, and alternative imputation approaches for settings where MICE is not optimal are given. The theoretic considerations will be accompanied by demonstrations and short practical sessions in R, and a workflow for doing MI using the R package mice will be proposed, illustrating how to perform (multiple) imputation for cross-sectional and longitudinal data in R.
@@ -198,9 +198,9 @@ weight: 2
                       <li><a href="/tutorials/Erler_course_MultipleImputation_2018/Erler_Practical_MICE_2018.html" target="_blank">Multiple imputation using <code>mice</code> (practical)</a></li>
                       <li><a href="/tutorials/Erler_course_MultipleImputation_2018/Erler_Practical_MIadvanced_2018.html" target="_blank">Multiple imputation in complex settings using <code>mice</code>, <code>JointAI</code>, <code>smcfs</code>, <code>jomo</code> (practical)</a></li>
                     </ul>
-                  </div>
-                </div>
-              </div>
+                  </div> <!--class=card-body-->
+                </div> <!--id=erler-->
+              </div> <!--class=card-->
               <div class="card">
                 <div class="card-header">
                   <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#reiter">
@@ -210,7 +210,7 @@ weight: 2
                     </small>
                     </div>
                   </a>
-                </div>
+                </div> <!--class=card-header-->
                 <div id="reiter" class="collapse" data-parent="#accordion_mi">  
                   <div class="card-body">
                     <p align="justify" style="margin-left:15px;">This short course on multiple imputation gives an overview of missing data problems, various solutions to tackle them as well as their limitations. It introduces to MI inferences and provides details on implementation and application of MI.
@@ -219,14 +219,14 @@ weight: 2
                       <li><a href="/tutorials/Reiter_course_MultipleImputationOverview_2018/Reiter_slides_MultipleImputation_2018.pdf" target="_blank">Multiple Imputation</a></li>
                       <li><a href="/tutorials/Reiter_course_MultipleImputationOverview_2018/Reiter_script_MultipleImputationMICE_2018.html" target="_blank">Example using <code>mice</code></a></li>
                     </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </div> <!--class=card-body-->
+                </div> <!--id=reiter-->
+              </div> <!--class=card-->
+            </div> <!--class=container-->
             </br>
-          </div>
-        </div>
-      </div>
+          </div> <!--class=panel-body-->
+        </div> <!--id=mi-->
+      </div> <!--id=mi-->
     </div> <!--class=panel-->
     <!-- --------------------------------------------------------------------------------------------------------------------------- -->
     <div class="panel panel-default">
@@ -554,9 +554,10 @@ weight: 2
   </div> <!--class=accordion-option-->
 </div> <!--class=container-->
 
-
+</br>
 <p align="justify"><i>If you wish to contribute some of your own material to this platform, please feel free to <a href="/contact/">contact us </a></i>.</p>
 
+</div>
 
 <style>
 .panel-group {
