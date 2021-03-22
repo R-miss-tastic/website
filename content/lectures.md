@@ -8,13 +8,14 @@ url: "/lectures/"
 weight: 2
 ---
 
-<p align="justify">Below you will find a selection of high-quality lectures, tutorials and labs on different aspects of missing values.</p>
+
+<p align="justify">Below you will find a selection of high-quality lectures, tutorials and labs on different aspects of missing values. Note that some of these lectures are available with publicly available video recordings.</p>
 
 
 <div class="container">
   <div class="accordion-option">
     <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
-  </div>
+  </div> <!--class=accordion-option-->
   <div class="clearfix"></div>
   <div id="accordion" class="panel-group" role="tablist" aria-multiselectable="true">
     <div class="panel panel-default">
@@ -22,11 +23,22 @@ weight: 2
         <h4 class="panel-title">
           <a role="button" data-toggle="collapse" data-parent="#accordion" href="#general" aria-expanded="false" aria-controls="general">General lectures</a>
         </h4>
-      </div>
+      </div> <!--class=panel-heading-->
       <div id="general" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_general">
         <div class="panel-body">
           <div class="container">
             <div id="accordion_general">
+              <div class="card">
+                <div class="card-header">
+                  <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#little">
+                    <div class="col-12"><a href="https://www.ias.edu/video/MissingDataWS/2020/0908-RodLittle" target="_blank">Statistical modeling and missing data (video)</a><br>
+                      <small>
+                      <p>(Rod, keynote talk at virtual workshop on Missing Data Challenges in Computation Statistics and Applications, fall 2020)</p>
+                      </small>
+                    </div>
+                  </a>
+                </div> <!--card-header-->
+              </div> <!--card-->
               <div class="card">
                 <div class="card-header">
                   <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#davidian">
@@ -36,7 +48,7 @@ weight: 2
                       </small>
                     </div>
                   </a>
-                </div>
+                </div> <!--card-header-->
                 <div id="davidian" class="collapse" data-parent="#accordion_general">  
                   <div class="card-body">
                     <p align="justify" style="margin-left:15px;">This course provides an overview of modern statistical frameworks and methods for analysis in the presence of missing data. Both methodological developments and applications are emphasized. The course provides a foundation in the fundamentals of this area that will prepare to read the current literature and to have broad appreciation the implications of missing data for valid inference. <a href="https://www4.stat.ncsu.edu/~davidian/st790/index.html" target="_blank">Course page</a>.
@@ -55,9 +67,9 @@ weight: 2
                       <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_hwk4_2017.pdf" target="_blank">Homework 4</a></li>
                       <li><a href="/tutorials/Davidian_course_StatisticalMethodsMissingData_2017/Davidian_course_hwkData_2017.zip" target="_blank">Data for homeworks</a></li>
                     </ul>
-                  </div>
-                </div>
-              </div>
+                  </div> <!--card-body-->
+                </div> <!--id=davidian-->
+              </div> <!--card-->
               <div class="card">
                 <div class="card-header">
                   <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#josse_eth">
@@ -67,7 +79,7 @@ weight: 2
                     </small>
                     </div>
                   </a>
-                </div>
+                </div> <!--card-header-->
                 <div id="josse_eth" class="collapse" data-parent="#accordion_general">  
                   <div class="card-body">
                     <p align="justify" style="margin-left:15px;">The ability to easily collect and gather a large amount of data from different sources can be seen as an opportunity to better understand many processes. It has already led to breakthroughs in several application areas. However, due to the wide heterogeneity of measurements and objectives, these large databases often exhibit an extraordinary high number of missing values. Hence, in addition to scientific questions, such data also present some important methodological and technical challenges for data analysts. This tutorial gives an overview of the missing values literature as well as the recent improvements that caught the attention of the community due to their ability to handle large matrices with large amount of missing entries. The methods presented in this tutorial are illustrated on medical, environmental and survey data.
@@ -78,9 +90,9 @@ weight: 2
                       <li><a href="/tutorials/Josse_bookdown_DataAnalysisMissingR_2020.html" target="_blank">Tutorial</a></li>
                       <li><a href="/tutorials/Josse_tutorial_data.zip" target="_blank">Data used in tutorial.</a></li>
                     </ul>
-                  </div>
-                </div>
-              </div>
+                  </div> <!--card-body-->
+                </div> <!--id=josse_eth-->
+              </div> <!--card-->
               <div class="card">
                 <div class="card-header">
                   <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#kim">
@@ -90,7 +102,7 @@ weight: 2
                     </small>
                     </div>
                   </a>
-                </div>
+                </div> <!--card-header-->
                 <div id="kim" class="collapse" data-parent="#accordion_general">  
                   <div class="card-body">
                     <p align="justify" style="margin-left:15px;">This course focuses on the theory and methods for missing data analysis. Topics include maximum likelihood estimation under missing data, EM algorithm, Monte Carlo computation techniques, imputation, Bayesian approach, propensity scores, semi-parametric approach, and non-ignorable missing data.
@@ -104,9 +116,9 @@ weight: 2
                       <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch5.pdf" target="_blank">Propensity Score approach</a></li>
                       <li><a href="/tutorials/Kim_course_MissingDataAnalysis_2015/Stat522_Ch6.pdf" target="_blank">Nonignorable missing data</a></li>
                     </ul>
-                  </div>
-                </div>
-              </div>
+                  </div> <!--card-body-->
+                </div> <!--id=kim-->
+              </div> <!--card-->
               <div class="card">
                 <div class="card-header">
                   <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#sadinle">
@@ -116,7 +128,7 @@ weight: 2
                     </small>
                     </div>
                   </a>
-                </div>
+                </div> <!--card-header-->
                 <div id="sadinle" class="collapse" data-parent="#accordion_general">  
                   <div class="card-body">
                     <p align="justify" style="margin-left:15px;">This course formally introduces methodologies for handling missing data in statistical analyses. It covers naive methods, missing-data assumptions, likelihood-based approaches, Bayesian and multiple imputation approaches, inverse-probability weighting, pattern-mixture models, sensitivity analysis and approaches under nonignorable missingness. Computational tools such as the Expectation-Maximization algorithm and the Gibbs' sampler will be introduced. This course is intended for students who are interested in methodological research. <br><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Syllabus-BIOST531-Winter2019.pdf" target="_blank">Course syllabus</a>
@@ -147,15 +159,15 @@ weight: 2
                       <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture11HW3.pdf" target="_blank">Homework 3 (after Lecture 11)</a></li>
                       <li><a href="/tutorials/Sadinle_course_StatisticalMethodsMissingData_2019/Lecture14HW4.pdf" target="_blank">Homework 4 (after Lecture 14)</a></li>
                     </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </div> <!--card-body-->
+                </div> <!--id=sadinle-->
+              </div> <!--card-->
+            </div> <!--id=accordion_general-->
             </br>
-          </div>
-        </div>
-      </div>
-    </div>
+          </div> <!--container-->
+        </div> <!--class=panel-body-->
+      </div> <!--id=general-->
+    </div> <!--class=panel-->
     <!-- --------------------------------------------------------------------------------------------------------------------------- -->
     <div class="panel panel-default">
       <div id="h_mi" class="panel-heading" role="tab">
@@ -215,7 +227,7 @@ weight: 2
           </div>
         </div>
       </div>
-    </div>
+    </div> <!--class=panel-->
     <!-- --------------------------------------------------------------------------------------------------------------------------- -->
     <div class="panel panel-default">
       <div id="h_pc" class="panel-heading" role="tab">
@@ -273,7 +285,7 @@ weight: 2
           </div>
         </div>
       </div>
-    </div>
+    </div> <!--class=panel-->
     <!-- --------------------------------------------------------------------------------------------------------------------------- -->
     <div class="panel panel-default">
       <div id="h_special" class="panel-heading" role="tab">
@@ -285,6 +297,38 @@ weight: 2
         <div class="panel-body">
           <div class="container">
             <div id="accordion_special">
+            <div class="card">
+              <div class="card-header">
+                <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#ias2020">
+                  <div class="col-12">Virtual Workshop on Missing Data Challenges in Computation, Statistics and Applications (video recordings)<br>
+                  <small>
+                    <p>(organized by Laura Balzano (IAS/University of Michigan), Bianca Dumitrascu (IAS/ SAMSI), and Boaz Nadler (IAS/Weizmann Institute of Science), fall 2020)</p>
+                  </small>
+                </div>
+                </a>
+              </div>
+              <div id="ias2020" class="collapse" data-parent="#accordion_special">  
+                <div class="card-body">
+                  <p align="justify" style="margin-left:15px;">This keynote talk gives an overview of different approaches for inference and prediction tasks. A striking result for the latter is that the widely-used method of imputing with the mean prior to learning can be consistent.
+                  </p>
+                  <ul>
+                    <li><a href="https://www.ias.edu/video/MissingDataWS/2020/0908-RodLittle" target="_blank">Statistical modeling and missing data (video)</a> by Rod Little</li>
+                    <li><a href="https://www.ias.edu/video/MissingDataWS/2020/0908-JulieJosse" target="_blank">Supervised learning with missing values (video)</a> by Julie Josse</li>
+                    <li><a href="https://www.ias.edu/video/MissingDataWS/2020/0908-BarbaraEnglehardt" target="_blank">Missing data in single cell studies: augmentation, integration, and discovery (video)</a> by Barbara Englehardt</li>
+                    <li><a href="https://www.ias.edu/video/MissingDataWS/2020/0908-KosukeImai" target="_blank">Experimental Evaluation of Computer-Assisted Human Decision Making: A Missing Data Approach (video)</a> by Kosuke Imai</li>
+                    <li><a href="https://www.ias.edu/video/MissingDataWS/2020/0909-DavidDunson" target="_blank">Model-based clustering of high-dimensional data: Pitfalls & solutions (video)</a> by David Dunson</li>
+                    <li><a href="https://www.ias.edu/video/MissingDataWS/2020/0909-GraceYi" target="_blank">Causal inference with binary outcomes subject to both missingness and misclassification (video)</a> by Grace Yi</li>
+                    <li><a href="https://www.ias.edu/video/MissingDataWS/2020/0910-RafaelIrizarry" target="_blank">Statistical challenges with single cell RNA-Seq technologies (video)</a> by Rafael Irizarry</li>
+                    <li><a href="https://www.ias.edu/video/MissingDataWS/2020/0910-NancyZhang" target="_blank">Gene expression recovery in single cell transcriptomic data (video)</a> by Nancy Zhang</li>
+                    <li><a href="https://www.ias.edu/video/MissingDataWS/2020/0910-SanmiKoyejo" target="_blank">Synthesizing medical images using generative adversarial networks; applications, promises, and pitfalls (video)</a> by Sanmi Koyejo</li>
+                    <li><a href="https://www.ias.edu/video/MissingDataWS/2020/0910-AnruZhang" target="_blank">High-dimensional omics data analysis with missing values (video)</a> by Anru Zhang</li>
+                    <li><a href="https://www.ias.edu/video/MissingDataWS/2020/0911-AnnaGilbert" target="_blank">Metric and manifold repair for missing data (video)</a> by Anna Gilbert</li>
+                    <li><a href="https://www.ias.edu/video/MissingDataWS/2020/0911-MarkDavenport" target="_blank">Low-rank matrix recovery from quantized or count observations (video)</a> by Mark Davenport</li>
+                    <li><a href="https://www.ias.edu/video/MissingDataWS/2020/0911-LauraBalzano" target="_blank">Low Algebraic Dimension Matrix Completion (video)</a> by Laura Balzano</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
               <div class="card">
                 <div class="card-header">
                   <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#josse_user">
@@ -400,7 +444,7 @@ weight: 2
           </div>
         </div>
       </div>
-    </div>
+    </div> <!--class=panel-->
     <!-- --------------------------------------------------------------------------------------------------------------------------- -->
     <div class="panel panel-default">
       <div id="h_practical" class="panel-heading" role="tab">
@@ -503,13 +547,13 @@ weight: 2
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </div> <!--class=panel-->
+  </div> <!--class=panel-group-->
   <div class="accordion-option">
     <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
-  </div>
-</div>
-</div>
+  </div> <!--class=accordion-option-->
+</div> <!--class=container-->
+
 <style>
 .panel-group {
     padding: 0;
