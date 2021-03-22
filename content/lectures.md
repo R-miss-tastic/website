@@ -557,7 +557,7 @@ weight: 2
 </br>
 <p align="justify"><i>If you wish to contribute some of your own material to this platform, please feel free to <a href="/contact/">contact us </a></i>.</p>
 
-</div>
+</br>
 
 <style>
 .panel-group {
