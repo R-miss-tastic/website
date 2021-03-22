@@ -30,18 +30,7 @@ weight: 2
             <div id="accordion_general">
               <div class="card">
                 <div class="card-header">
-                  <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#little">
-                    <div class="col-12"><a href="https://www.ias.edu/video/MissingDataWS/2020/0908-RodLittle" target="_blank">Statistical modeling and missing data (video)</a><br>
-                      <small>
-                      <p>(Rod, keynote talk at virtual workshop on Missing Data Challenges in Computation Statistics and Applications, fall 2020)</p>
-                      </small>
-                    </div>
-                  </a>
-                </div> <!--card-header-->
-              </div> <!--card-->
-              <div class="card">
-                <div class="card-header">
-                  <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#davidian">
+                  <a class="card-block clearfix" data-toggle="collapse" data-target="#davidian">
                     <div class="col-12">Statistical Methods for Analysis With Missing Data<br>
                       <small>
                       <p>(Marie Davidian, course at NC State University, spring 2017)</p>
@@ -162,6 +151,17 @@ weight: 2
                   </div> <!--card-body-->
                 </div> <!--id=sadinle-->
               </div> <!--card-->
+              <div class="card">
+                <div class="card-header">
+                  <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#little">
+                    <div class="col-12"><a href="https://www.ias.edu/video/MissingDataWS/2020/0908-RodLittle" target="_blank">Statistical modeling and missing data (video)</a><br>
+                      <small>
+                      <p>(Rod, keynote talk at virtual workshop on Missing Data Challenges in Computation Statistics and Applications, fall 2020)</p>
+                      </small>
+                    </div>
+                  </a>
+                </div> <!--card-header-->
+              </div> <!--card-->
             </div> <!--id=accordion_general-->
             </br>
           </div> <!--container-->
@@ -181,7 +181,7 @@ weight: 2
             <div id="accordion_mi">
               <div class="card">
                 <div class="card-header">
-                  <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#erler">
+                  <a class="card-block clearfix" data-toggle="collapse" data-target="#erler">
                     <div class="col-12">Missing Values in Clinical Research - Multiple Imputation</br>
                     <small>
                       <p>(Nicole Erler, NIHES course Missing Values in Clinical Research (EP16), May 2018)</p>
@@ -241,7 +241,7 @@ weight: 2
             <div id="accordion_pc">
               <div class="card">
                 <div class="card-header">
-                  <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#josse">
+                  <a class="card-block clearfix" data-toggle="collapse" data-target="#josse">
                     <div class="col-12">Imputation using principal components</br>
                     <small>
                       <p>(Julie Josse, course at École Polytechnique, fall 2018)</p>
@@ -299,7 +299,7 @@ weight: 2
             <div id="accordion_special">
             <div class="card">
               <div class="card-header">
-                <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#ias2020">
+                <a class="card-block clearfix" data-toggle="collapse" data-target="#ias2020">
                   <div class="col-12">Virtual Workshop on Missing Data Challenges in Computation, Statistics and Applications (video recordings)<br>
                   <small>
                     <p>(organized by Laura Balzano (IAS/University of Michigan), Bianca Dumitrascu (IAS/ SAMSI), and Boaz Nadler (IAS/Weizmann Institute of Science), fall 2020)</p>
