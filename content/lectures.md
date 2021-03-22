@@ -234,7 +234,7 @@ weight: 2
         <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#pc" aria-expanded="false" aria-controls="pc">Missing values and principal component methods</a>
         </h4>
-      </div>
+      </div> <!--class=panel-heading-->
       <div id="pc" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_pc">
         <div class="panel-body">
           <div class="container">
@@ -258,7 +258,7 @@ weight: 2
                     </ul>
                   </div>
                 </div>
-              </div>
+              </div> <!--class=card-->
               <div class="card">
                 <div class="card-header">
                   <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#husson">
@@ -279,12 +279,12 @@ weight: 2
                     </ul>
                   </div>
                 </div>
-              </div>
-            </div>
+              </div> <!--class=card-->
+            </div> <!--id=accordion_pc-->
             </br>
-          </div>
-        </div>
-      </div>
+          </div> <!--class=container-->
+        </div> <!--class=panel-body-->
+      </div> <!--id=pc-->
     </div> <!--class=panel-->
     <!-- --------------------------------------------------------------------------------------------------------------------------- -->
     <div class="panel panel-default">
@@ -292,7 +292,7 @@ weight: 2
         <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#special" aria-expanded="false" aria-controls="special">Specific data or application types</a>
         </h4>
-      </div>
+      </div> <!--class=panel-heading-->
       <div id="special" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_special">
         <div class="panel-body">
           <div class="container">
@@ -442,8 +442,8 @@ weight: 2
             </div>
             </br>
           </div>
-        </div>
-      </div>
+        </div> <!--class=panel-body-->
+      </div> <!--id=special-->
     </div> <!--class=panel-->
     <!-- --------------------------------------------------------------------------------------------------------------------------- -->
     <div class="panel panel-default">
@@ -451,7 +451,7 @@ weight: 2
         <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#practical" aria-expanded="false" aria-controls="special">Implementation in R</a>
         </h4>
-      </div>
+      </div> <!--id=h_practical-->
       <div id="practical" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_practical">
         <div class="panel-body">
           <div class="container">
@@ -461,37 +461,37 @@ weight: 2
                   <a class="card-block clearfix" data-toggle="collapse" data-target="#visualize">
                     <div class="col-12">Missing data visualizations with <code>naniar</code></div>
                   </a>
-                </div>
+                </div> <!--class=card-header-->
                 <div id="visualize" class="collapse show" data-parent="#accordion_practical">  
                   <div class="card-body">
                     <ul>
                       <li><a href="https://cran.r-project.org/web/packages/naniar/vignettes/naniar-visualisation.html" target="_blank"><code>naniar</code> vignette: Missing data visualizations</a>
                     <small><p>(Nicholas Tierney, 2018)</p></small></li>
                     </ul>
-                  </div>
-                </div>
-              </div>
+                  </div> <!--class=card-body-->
+                </div> <!--id=visualize-->
+              </div> <!--class=card-->
               <div class="card">
                 <div class="card-header">
                   <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#data_types">
                     <div class="col-12">Handling different types of data with different R-packages</div>
                   </a>
-                </div>
+                </div> <!--class=card-header-->
                 <div id="data_types" class="collapse" data-parent="#accordion_practical">  
                   <div class="card-body">
                     <ul>
                       <li><a href="/tutorials/Josse_Tierney_bookdown_user2018tutorial_2018.html" target="_blank">useR! tutorial on handling missing values</a>
                         <small><p>(Julie Josse & Nicholas Tierney, 2018)</p></small></li>
                     </ul>
-                  </div>
-                </div>
-              </div>
+                  </div> <!--class=card-body-->
+                </div> <!--id=data_types-->
+              </div> <!--class=card-->
               <div class="card">
                 <div class="card-header">
                   <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#husson">
                     <div class="col-12">Handling missing values in PCA and MCA with <code>missMDA</code></div>
                   </a>
-                </div>
+                </div> <!--class=card-header-->
                 <div id="husson" class="collapse" data-parent="#accordion_practical">  
                   <div class="card-body">
                     <ul>
@@ -501,15 +501,15 @@ weight: 2
                   <small>
                     <p>(François Husson, video tutorial accompanying the R-package <code>missMDA</code>, 2016)</p>
                   </small>
-                  </div>
-                </div>
-              </div>
+                  </div> <!--class=card-body-->
+                </div> <!--id=husson-->
+              </div> <!--class=card-->
               <div class="card">
                 <div class="card-header">
                   <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#mice_etal">
                     <div class="col-12">Multiple imputation with <code>mice</code>, <code>JointAI</code>, <code>smcfs</code> and <code>jomo</code></div>
                   </a>
-                </div>
+                </div> <!--class=card-header-->
                 <div id="mice_etal" class="collapse" data-parent="#accordion_practical">  
                   <div class="card-body">
                     <ul>
@@ -524,35 +524,39 @@ weight: 2
                       <li><a href="/tutorials/Reiter_course_MultipleImputationOverview_2018/Reiter_script_MultipleImputationMICE_2018.html" target="_blank">Example using <code>mice</code></a>
                         <small><p>(Jerry Reiter, 2018)</p></small></li>
                     </ul>
-                  </div>
-                </div>
-              </div>
+                  </div> <!--class=card-body-->
+                </div> <!--id=mice_etal-->
+              </div> <!--class=card-->
               <div class="card">
                 <div class="card-header">
                   <a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#missforest">
                     <div class="col-12">Random trees and forests with <code>missForest</code></div>
                   </a>
-                </div>
+                </div> <!--class=card-header-->
                 <div id="missforest" class="collapse" data-parent="#accordion_practical">  
                   <div class="card-body">
                     <ul>
                       <li><a href="/tutorials/Stekhoven_vignette_missForest_2012.pdf" target="_blank"><code>missForest</code> vignette: Using the <code>missForest</code> Package</a>
                         <small><p>(Daniel J. Stekhoven, 2012)</p></small></li>
                     </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </div> <!--class=card-body-->
+                </div> <!--id=missforest-->
+              </div> <!--class=card-->
+            </div> <!--id=accordion_practical-->
             </br>
-          </div>
-        </div>
-      </div>
+          </div> <!--class=container-->
+        </div> <!--class=panel-body-->
+      </div> <!--id=practical-->
     </div> <!--class=panel-->
   </div> <!--class=panel-group-->
   <div class="accordion-option">
     <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
   </div> <!--class=accordion-option-->
 </div> <!--class=container-->
+
+
+<p align="justify"><i>If you wish to contribute some of your own material to this platform, please feel free to <a href="/contact/">contact us </a></i>.</p>
+
 
 <style>
 .panel-group {
@@ -736,7 +740,3 @@ $(document).ready(function() {
 </div>
 
  -->
-
-
-
-<p align="justify"><i>If you wish to contribute some of your own material to this platform, please feel free to <a href="/contact/">contact us </a></i>.</p>
