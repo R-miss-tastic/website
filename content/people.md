@@ -49,7 +49,7 @@ weight: 6
 </p>
 
 
-<style>
+<style type="text/css">
 #people-list
 {
 	padding: 0px;

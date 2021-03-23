@@ -35,7 +35,8 @@ weight: 1
 
 <h3>External notebooks</h3>
 
-The following notebooks have been developed by external contributors and reviewed by the R-miss-tastic committee. We recommend these notebooks as they provide useful and complementary guidance on how to predict with missing values and how to impute incomplete data.
+<p align="justify">The following notebooks have been developed by external contributors and reviewed by the R-miss-tastic committee. We recommend these notebooks as they provide useful and complementary guidance on how to predict with missing values and how to impute incomplete data.
+</p>
 
 <ul class="list-group" id="external-workflows-list">
 <li class="list-group-item"> <a href="/how-to/external/How_to_predict_in_R.html" target="_blank">How to predict with missing values in R?</a> (<a href="/how-to/external/How_to_predict_in_R.Rmd" target="_blank">R notebook .Rmd</a>) by Katarzyna Woźnica (Warsaw University of Technology)</li>
@@ -49,7 +50,7 @@ The following notebooks have been developed by external contributors and reviewe
 
 
 
-<style>
+<style type="text/css">
 .collapse-row.collapsed + tr {
      display: none;
 }
@@ -63,5 +64,4 @@ tr.border_bottom {
 table {
   font-size: small;
 }
-
 </style>

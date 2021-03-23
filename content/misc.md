@@ -72,7 +72,7 @@ We regularly update recently released R packages handling missing values. This i
 
 The forkme Github corner has been made from the work by Tim Holman at <a href="https://github.com/tholman/github-corners">this link</a>.
 
-<style>
+<style type="text/css">
 #up-events-list
 {
 	padding: 0px;

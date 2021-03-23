@@ -151,7 +151,7 @@ description: ''
   </div>
 </div>
 
-<style>
+<style type="text/css">
 .card>.card-header {
   bottom-margin: 50px;
 }
@@ -190,7 +190,7 @@ description: ''
 }
 </style>
 
-<script>
+<script type="text/javascript">
 function filterFunction() {
   var input, filter, cards, cardContainer, keep_card, card_titles,  i, j;
 
