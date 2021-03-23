@@ -16,7 +16,9 @@ weight: 2
   <div class="accordion-option">
     <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
   </div> <!--class=accordion-option-->
-  <div class="clearfix"></div>
+  <div class="clearfix">
+
+  </div><!--class=clearfix-->
   <div id="accordion" class="panel-group" role="tablist" aria-multiselectable="true">
     <div class="panel panel-default">
       <div id="h_general" class="panel-heading" role="tab">
@@ -553,7 +555,6 @@ weight: 2
     <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
   </div> <!--class=accordion-option-->
 </div> <!--class=container-->
-</div>
 </br>
 <p align="justify"><i>If you wish to contribute some of your own material to this platform, please feel free to <a href="/contact/">contact us </a></i>.</p>
 
@@ -639,6 +640,7 @@ $(document).ready(function() {
   $(".toggle-accordion").on("click", function() {
     var accordionId = $(this).attr("accordion-id"),
       numPanelOpen = $(accordionId + ' .collapse.in').length;
+
     $(this).toggleClass("active");
     if (numPanelOpen == 0) {
       openAllPanels(accordionId);
