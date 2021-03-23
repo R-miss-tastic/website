@@ -553,7 +553,7 @@ weight: 2
     <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
   </div> <!--class=accordion-option-->
 </div> <!--class=container-->
-
+</div>
 </br>
 <p align="justify"><i>If you wish to contribute some of your own material to this platform, please feel free to <a href="/contact/">contact us </a></i>.</p>
 
@@ -634,7 +634,7 @@ weight: 2
   content: "Collapse All";
 }
 </style>
-<script>
+<script type="text/javascript">
 $(document).ready(function() {
   $(".toggle-accordion").on("click", function() {
     var accordionId = $(this).attr("accordion-id"),

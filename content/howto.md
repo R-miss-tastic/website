@@ -22,16 +22,14 @@ weight: 1
 <li class="list-group-item"> <a href="/how-to/impute/missImp.html" target="_blank">... impute missing values?</a> (<a href="/how-to/impute/missImp.pdf" target="_blank">PDF</a>, <a href="/how-to/impute/missImp.Rmd" target="_blank">Rmd</a>, <a href="/how-to/impute/CrossValidation_softImpute.R" target="_blank">Resource R</a>)</li>
 </ul>
 
-
 <br>
 
 <h3>Python - How to ...  </h3>
-<p align="justify">
 <ul class="list-group" id="workflows-list_py">
 <li class="list-group-item"> <a href="/how-to/python/generate_html/How%20to%20generate%20missing%20values.html" target="_blank">... generate missing values?</a> (<a href="https://mybinder.org/v2/gh/R-miss-tastic/website/807208effeaa1f713b444d4bef62ccd2bd1ab8d6?filepath=static%2Fhow-to%2Fpython%2FHow%20to%20generate%20missing%20values.ipynb" target="_blank">Interactive notebook</a>)</li>
 <li class="list-group-item"> <a href="/how-to/python/Howtoimpute.html" target="_blank">... impute missing values?</a> (<a href="https://mybinder.org/v2/gh/R-miss-tastic/website/62e85606538ce6e7abe7b2ee2d4fe31bf59fcd4b?filepath=static%2Fhow-to%2Fpython%2FHowtoimpute.ipynb" target="_blank">Interactive notebook</a>)</li>
 <li class="list-group-item"> <a href="/how-to/python/predict_html/How%20to%20predict.html" target="_blank">... predict with missing values?</a> (<a href="https://notebooks.gesis.org/binder/v2/gh/R-miss-tastic/website/68603d054e4f5d316aefdcfc9165f524e07cf46f?filepath=static%2Fhow-to%2Fpython%2FHow%20to%20predict.ipynb" target="_blank">Interactive notebook</a>)</li>
-</p>
+
 
 </br>
 
