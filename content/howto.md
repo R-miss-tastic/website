@@ -15,7 +15,7 @@ weight: 1
 
 
 <br>
-<h3>How to (R notebook)...</h3>
+<h3>R - How to ...</h3>
 <ul class="list-group" id="workflows-list">
 <li class="list-group-item"> <a href="/how-to/generate/missSimul.html" target="_blank">... generate missing values?</a> (<a href="/how-to/generate/missSimul.pdf" target="_blank">PDF</a>, <a href="/how-to/generate/missSimul.Rmd" target="_blank">Rmd</a>, <a href="/how-to/generate/amputation.R" target="_blank">Resource R</a>)</li>
 <li class="list-group-item"> <a href="/how-to/estimate/missEstim.html" target="_blank">... estimate some parameters with missing values?</a> (<a href="/how-to/estimate/missEstim.pdf" target="_blank">PDF</a>, <a href="/how-to/estimate/missEstim.Rmd" target="_blank">Rmd</a>)</li>
@@ -23,8 +23,9 @@ weight: 1
 </ul>
 
 
+<br>
 
-<h3> How to (Python notebook) ...  </h3>
+<h3>Python - How to ...  </h3>
 <p align="justify">
 <ul class="list-group" id="workflows-list_py">
 <li class="list-group-item"> <a href="/how-to/python/generate_html/How%20to%20generate%20missing%20values.html" target="_blank">... generate missing values?</a> (<a href="https://mybinder.org/v2/gh/R-miss-tastic/website/807208effeaa1f713b444d4bef62ccd2bd1ab8d6?filepath=static%2Fhow-to%2Fpython%2FHow%20to%20generate%20missing%20values.ipynb" target="_blank">Interactive notebook</a>)</li>
@@ -32,16 +33,19 @@ weight: 1
 <li class="list-group-item"> <a href="/how-to/python/predict_html/How%20to%20predict.html" target="_blank">... predict with missing values?</a> (<a href="https://notebooks.gesis.org/binder/v2/gh/R-miss-tastic/website/68603d054e4f5d316aefdcfc9165f524e07cf46f?filepath=static%2Fhow-to%2Fpython%2FHow%20to%20predict.ipynb" target="_blank">Interactive notebook</a>)</li>
 </p>
 
+</br>
+
 <h3>External notebooks</h3>
 
 The following notebooks have been developed by external contributors and reviewed by the R-miss-tastic committee. We recommend these notebooks as they provide useful and complementary guidance on how to predict with missing values and how to impute incomplete data.
 
 <ul class="list-group" id="external-workflows-list">
-<li class="list-group-item"> <a href="/how-to/external/How_to_predict_in_R.html" target="_blank">How to predict with missing values in R?</a> (<a href="/how-to/external/How_to_predict_in_R.Rmd" target="_blank">R notebook (RMD)</a>) by Katarzyna Woźnica (Warsaw University of Technology)</li>
-<li class="list-group-item"> <a href="/how-to/external/Comparison_imputation_deep_classical.html" target="_blank">Comparison of classical and deep learning imputation methods (using Python and R)</a> (<a href="/how-to/external/Comparison_imputation_deep_classical.ipynb" target="_blank">Python notebook (IPYNB)</a>) by François Husson (Agrocampus Ouest)</li>
+<li class="list-group-item"> <a href="/how-to/external/How_to_predict_in_R.html" target="_blank">How to predict with missing values in R?</a> (<a href="/how-to/external/How_to_predict_in_R.Rmd" target="_blank">R notebook .Rmd</a>) by Katarzyna Woźnica (Warsaw University of Technology)</li>
+<li class="list-group-item"> <a href="/how-to/external/Comparison_imputation_deep_classical.html" target="_blank">Comparison of classical and deep learning imputation methods (using Python and R)</a> (<a href="/how-to/external/Comparison_imputation_deep_classical.ipynb" target="_blank">Python notebook .ipynb</a>) by François Husson (Agrocampus Ouest)</li>
 </ul>
 
 
+<br>
 
 <p align="justify"><i>If you have any suggestions please raise an issue on our <a href="https://github.com/R-miss-tastic/website" target="_blank">Github repository</a>.</i></p>
 
