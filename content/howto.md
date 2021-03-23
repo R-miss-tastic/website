@@ -32,6 +32,17 @@ weight: 1
 <li class="list-group-item"> <a href="/how-to/python/predict_html/How%20to%20predict.html" target="_blank">... predict with missing values?</a> (<a href="https://notebooks.gesis.org/binder/v2/gh/R-miss-tastic/website/68603d054e4f5d316aefdcfc9165f524e07cf46f?filepath=static%2Fhow-to%2Fpython%2FHow%20to%20predict.ipynb" target="_blank">Interactive notebook</a>)</li>
 </p>
 
+<h3>External notebooks</h3>
+
+The following notebooks have been developed by external contributors and reviewed by the R-miss-tastic committee. We recommend these notebooks as they provide useful and complementary guidance on how to predict with missing values and how to impute incomplete data.
+
+<ul class="list-group" id="external-workflows-list">
+<li class="list-group-item"> <a href="/how-to/external/How_to_predict_in_R.html" target="_blank">How to predict with missing values in R?</a> (<a href="/how-to/external/How_to_predict_in_R.Rmd" target="_blank">R notebook (RMD)</a>) by Katarzyna Woźnica (Warsaw University of Technology)</li>
+<li class="list-group-item"> <a href="/how-to/external/Comparison_imputation_deep_classical.html" target="_blank">Comparison of classical and deep learning imputation methods (using Python and R)</a> (<a href="/how-to/external/Comparison_imputation_deep_classical.ipynb" target="_blank">Python notebook (IPYNB)</a>) by François Husson (Agrocampus Ouest)</li>
+</ul>
+
+
+
 <p align="justify"><i>If you have any suggestions please raise an issue on our <a href="https://github.com/R-miss-tastic/website" target="_blank">Github repository</a>.</i></p>
 
 

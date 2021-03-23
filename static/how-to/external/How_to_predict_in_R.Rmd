@@ -1,0 +1,545 @@
+---
+title: "How to predict with missing values in R?"
+author: Katarzyna Woźnica
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_collapsed: true
+    toc_depth: 3
+    number_sections: true
+    theme: lumen
+---
+
+```{r setup, include=FALSE, message=FALSE, warnings = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message=FALSE, warnings = FALSE}
+library(OpenML)
+library(DT)
+library(mice)
+library(missForest)
+library(VIM)
+library(softImpute)
+library(ggplot2)
+library("factoextra")
+library("likert") 
+
+```
+
+# Example of imputation in R
+
+## Get your data
+
+As an example of incomplete data, we use real-world from OpenML. We download this data directly from the website using the package `OpenML`. We select binary classification task [ipums_la_99-small](https://www.openml.org/d/1018). It has $8844$ instances and $57$ features numeric and categorical. 
+
+An exemplary sample of data is presented below.
+
+```{r message=FALSE, warnings = FALSE}
+list_all_openml_dataset <- listOMLDataSets()
+
+openml_id <- 	1018L
+data_name <- list_all_openml_dataset[list_all_openml_dataset[,'data.id'] == openml_id,'name']
+
+dataset_openml <- getOMLDataSet(data.id = openml_id)
+dataset_raw <- dataset_openml$data
+target_column <- dataset_openml$target.features
+
+
+#Removing year column evary value the same 
+
+dataset <- dataset_raw[,-1]
+datatable(head(data.frame(dataset)))
+```
+
+### Train/test split
+
+To fit the classification model and, next, evaluate it, we split this data into train and test data. 
+
+```{r}
+train_percent_of_data <- 0.8
+
+ set.seed(123)
+ no_instances <- nrow(dataset)
+  
+ train_index <- sort(sample(1:no_instances, floor(train_percent_of_data * no_instances)))
+  
+  
+  
+  dataset_train_test_list<- list(data_train  = dataset[train_index,],
+                            data_test  = dataset[-train_index,],
+                            target_name = target_column)
+
+```
+
+## Imputation functions
+
+Available imputation methods have diverse interfaces. Below there are examples of usage of popular imputation methods: softImpute, mice, missForest and knn and hotdeck imputation from VIM package. There are also the implementation of random imputation and mean/mode imputation.
+
+If you would like to use unified interface for these imputation methods we recommend to use our [NADIA package](https://cran.r-project.org/web/packages/NADIA/index.html).
+
+### Random imputation
+
+```{r}
+random_replace_in_vector <- function(x){
+  x[is.na(x)] <- sample(unique(na.omit(x)), sum(is.na(x)), replace = TRUE)
+  return(x)
+}
+```
+
+
+### Mean imputation
+
+```{r}
+imputation_mode_mean <- function(df){
+  # browser()
+  Mode <- function(x) {
+    ux <- unique(na.omit(x))
+    ux[which.max(tabulate(match(x, ux)))]
+  }
+  
+  for (i in 1L:length(df)){
+    if (sum(is.na(df[,i])) > 0){
+      if (mode(df[,i]) == 'character' | is.factor(df[,i])){
+        to_imp <- Mode(df[,i])
+        df[,i][is.na(df[,i])] <- to_imp
+      }
+      else{
+        to_imp <- mean(df[,i], na.rm = TRUE) 
+        df[,i][is.na(df[,i])] <- to_imp
+      }
+    }
+  }
+  
+  return(df)
+}
+```
+
+
+### K nearest neighbours
+
+```{r}
+imputation_fun_vim <- function(df){
+  no_columns <- length(df)
+  imputed <- kNN(df)
+  imputed <- imputed[,1:no_columns]
+  return(imputed)
+}
+
+```
+
+### VIM hotdeck
+
+```{r}
+imputation_fun_vim_hotdeck <- function(df){
+  no_columns <- length(df)
+  imputed <- hotdeck(df)
+  imputed <- imputed[,1:no_columns]
+  return(imputed)
+}
+
+```
+
+### missForest
+
+```{r}
+imputation_fun_missForest <- function(df){
+  return(missForest(df)$ximp)
+}
+
+```
+
+
+### softimpute
+
+This method works only for numeric features. For nominal columns, we perform imputations with mode values.
+
+```{r}
+imputation_softimpute <- function(data){
+  # browser()
+  type_of_data <- sapply(data, class)
+  factor_columns <- colnames(data)[type_of_data=='factor']
+  cat_data <- data[,factor_columns]
+  cat_data_imputed <- imputation_mode_mean(cat_data)
+  
+  numeric_colnames <- setdiff(colnames(data), factor_columns)
+  
+  if(length(numeric_colnames)>0){
+  numeric_data <- as.matrix(data[, numeric_colnames])
+ 
+  imputer <- softImpute(numeric_data)
+ 
+
+  
+  numeric_data_imputed <- softImpute::complete(numeric_data, imputer)
+  
+  
+  all_data_imputed <- cbind(cat_data_imputed, numeric_data_imputed)[,colnames(data)]
+  }
+  else{
+    all_data_imputed <- cat_data_imputed[,colnames(data)]
+  }
+  all_data_imputed
+}
+
+```
+
+### mice 
+
+```{r}
+
+imputation_fun_mice <- function(df){
+  init <- mice(df, maxit=0, remove.collinear = FALSE, remove.constant = FALSE) 
+  meth <- init$method
+  predM <- init$predictorMatrix
+  imputed <- mice(df, method=meth, predictorMatrix=predM, m=5, nnet.MaxNWts = 5000, remove.collinear = FALSE, remove.constant = FALSE)
+  completed <- mice::complete(imputed)
+  return(completed)
+}
+
+```
+
+
+## Imputation of data
+
+We want to perform imputation separately on the train and test data set, excluding the target variable (to avoid data leakage). Below we propose a function that automates this step for any imputation methods in which the argument is incomplete data and returns completed data frame.
+
+```{r}
+get_imputed_data <- function(data,   imputed_function){
+
+  train <- data$data_train[, -c(which(colnames(data$data_train) ==data$target_name))]
+  test <- data$data_test[, -c(which(colnames(data$data_test) ==data$target_name))]
+  
+  expr_time <- system.time({
+    imputed_data <- lapply(list(train, test), imputed_function)
+    
+  })
+  names(imputed_data) <- c('data_train', 'data_test')
+  imputed_data$data_train <- cbind(imputed_data$data_train, data$data_train[, data$target_name] )
+  imputed_data$data_test <- cbind(imputed_data$data_test, data$data_test[, data$target_name] )
+  
+  colnames(imputed_data$data_train)[ncol(imputed_data$data_train)] <- data$target_name
+  colnames(imputed_data$data_test)[ncol(imputed_data$data_test)] <- data$target_name
+  
+  return(list(imputed_data = imputed_data, 
+              target_name = data$target_name,
+              time = expr_time))
+  
+  
+}
+```
+
+### Example of use
+
+
+
+```{r}
+softimpute_complete_data_train_test_list <- get_imputed_data(data = dataset_train_test_list, imputed_function = imputation_softimpute)
+datatable(head(softimpute_complete_data_train_test_list$imputed_data$data_train))
+```
+
+
+# Benchmark of imputation methods
+
+
+To compare imputation methods and their impact on the predictive quality of machine learning classification algorithm we perform a benchmark. 
+We select 7 imputation methods: random, mean, mice, softImpute, missForest and kknn and hotdeck from VIM package. We use the implemented function from the first part of this notebook.
+
+We test these imputation methods on selected real-world data sets. Each data frame is divided into train and test part and every imputation algorithm is performed separately on them.
+
+Next, 5 types of machine learning algorithms are fitted on every imputed train data: glmnet, rpart, ranger implementation of random forest, kknn and xgboost. Every trained model is evaluated on the test part of the considered data set, completed using the same imputation as applied on train part. To evaluation, we use two measure of performance: AUC and F1. 
+
+AUC is kind of assessment of the separability of predictions. It is area under ROC Curve - true positive rate against false positive rate for a series of different thresholds for probability predictions. AUC measure lies between 0 and 1. For simplification, we may assume that the closer AUC to 1, the better model we have.
+
+F1 measure is the harmonic mean of precision (the number of correctly identified positive results divided by the number of all positive results, including those not identified correctly) and recall (the number of correctly identified positive results divided by the number of all samples that should have been identified as positive). F1 takes values between 0 and 1.
+
+
+## Datasets summary
+
+We select 13 datasets with at least one column with missing values from OpenML. There are binary classification tasks. In the table below we present a summary of basic information about considered tasks.
+
+
+```{r echo = FALSE, message=FALSE, warnings = FALSE}
+library(jsonlite)
+library(xtable)
+library(dplyr)
+library(tidyr)
+
+json_list <- list.files('/home/kasia/Documents/PhDstudies/AutoImpute/EMMA/datasets/', recursive = TRUE, pattern = 'dataset.json', full.names = TRUE)
+
+json_list_file <- lapply(json_list, function(x) fromJSON(paste(readLines(x)), flatten=TRUE))
+json_list_file <- json_list_file[-10]
+
+
+dataset_list <- readRDS('/home/kasia/Documents/PhDstudies/AutoImpute/EMMA/dataset_raw.Rds')
+
+prc_missing_data <- sapply(dataset_list, function(x) mean(is.na(x$data)))
+prc_missing_data <- prc_missing_data[-10]   
+
+
+
+
+summary_datasets_table <- data.table::rbindlist(lapply(json_list_file,
+       function(x)  data.frame(x[c('id', 'data_name', 'number_of_instances', 'number_of_numeric_features', 'number_of_numeric_features_with_missings',
+                                   'number_of_categorical_features', 'number_of_categorical_features_with_missings')]))) 
+
+summary_datasets_table$prc_missings <- prc_missing_data
+
+summary_datasets_table <- summary_datasets_table %>% 
+  data.frame() %>% 
+  mutate(data_name = paste0(data_name, ' (', id, ')')) %>% 
+  select(-id) %>% 
+  select(data_name, number_of_instances, prc_missings, 
+         number_of_numeric_features, number_of_numeric_features_with_missings, 
+         number_of_categorical_features, number_of_categorical_features_with_missings) %>% 
+   mutate(prc_missings= paste0(round(as.numeric(prc_missings)*100, 1), '%')) %>% 
+  rename(`dataset(ID)`= data_name, `no instances` = number_of_instances, `no cont vars`=number_of_numeric_features,
+         `no cont vars missing`=number_of_numeric_features_with_missings,
+         `no cat vars`=number_of_categorical_features, 
+         `no cat vars missing`=number_of_categorical_features_with_missings)
+
+datatable(summary_datasets_table, 
+          options = list(pageLength = 13, autoWidth = TRUE),
+          colnames = c('Dataset(ID)',
+                       'No. of obs.',
+                       '% missing values',
+                       'No. numeric features',
+                       'No. numeric features with missings',
+                       'No. factor features',
+                       'No. factor features with missings')
+  )
+ 
+```
+
+## Collected results
+
+For every data set, imputation methods and machine learning algorithm we get 2 values of performance measure: F1 and AUC. So a total of  910 rows should be in the collected results. Unfortunately, some imputations fail on certain data sets.
+
+```{r}
+library("tidyr")
+
+tab <- read.table("/home/kasia/Documents/PhDstudies/AutoImpute/EMMA/metrics_results//metrics_df.csv", sep = ",", header = TRUE)[,-1]
+datatable(tab)
+```
+
+## Scatterplot for raw data
+
+There is a visualization of collected measures for every data set splitting with algorithm type.
+
+
+
+```{r fig.width=6, fig.height=12, warning = FALSE}
+tab %>% 
+  mutate(dataset = gsub('openml_dataset_','',dataset )) %>% 
+  ggplot( aes(imputation_method, metric_value, color = model)) +
+  geom_point() + 
+  facet_grid(dataset~metric) +
+  coord_flip() +
+  theme(legend.position = "bottom")
+```
+
+As we see  AUC and F1 are incomparable across data sets, so next to the comparison of values of metrics we create the ranking. For every task and every machine learning algorithms we rank imputation methods, scores can range from 1 to 7. The higher and better measure the lower rank obtain this imputation technique. Methods which did not work on specific task get the lowest score (7).
+
+```{r}
+# fill the NA data
+tab %>% 
+  tidyr::complete(dataset, model, imputation_method, metric, fill = list(metric_value = 0)) ->
+  tab_complete
+
+# calculate ranks
+tab_complete %>%
+  group_by(metric, model, dataset) %>%
+  mutate(metric_rank = rank(-metric_value, ties.method = "max")) -> tab_rank
+
+tab_complete %>%
+  filter(metric == "f1") %>%
+  pivot_wider(id_cols = c("dataset", "model"), 
+            names_from = "imputation_method",
+            values_from = "metric_value") -> tmp
+  
+```
+
+## Does exist the best universal imputation method?
+
+There are the distributions of ranks based on F1 and AUC measure. Bars describe how often a given method of imputation had the best results (rank 1, dark-green) or the worst results (rank 7, dark-orange) for a particular pair ML-model/dataset. The top ranking is based on F1 measure while the bottom one is based on AUC. The percentages on the right describe how often a method was in position 1 to 3. The percentages on the left describe how often a method was in position 5 to 7.
+
+If we assume that the best methods are to achieve rank 1 to 3 most frequently, then for both measures top positions are taken by simple methods as \textit{random}, \textit{mean} or \textit{kknn} from VIM package.
+
+```{r}
+library("tidyr")
+
+# change order
+tab_rank$metric_rank_likert <- factor(8-tab_rank$metric_rank)
+pivot_wider(tab_rank, 
+            id_cols = c("dataset", "model"), 
+            names_from = c("metric", "imputation_method"),
+            values_from = "metric_rank_likert") -> full_tab
+
+p <- likert(as.data.frame(full_tab[,c(3,5,7,9,11,13,15)])) 
+plot(p,  legend.position = "none") 
+```
+
+```{r}
+p <- likert(as.data.frame(full_tab[,1+c(3,5,7,9,11,13,15)])) 
+plot(p,  legend.position = "none") 
+```
+
+
+## Do simple methods work effectively on similar tasks and ML algorithms?
+
+We present the percentage of covered best results in rankings of F1 and AUC measure by single imputation methods and all pairs of them. The OX axis shows how often the indicated imputation method has the best results measured by the AUC. The OY axis shows how often the indicated imputation method has the best results measured by F1. The points marked A+B refer to the better of the two indicated methods (parallel max).
+
+
+Combinations of two methods  are able to cover above $50\%$ of best results. For F1 measure optimal pair is *missForest* and *random*. For AUC this is *mean* and *VIM\_kknn* imputation.
+
+
+```{r message=FALSE, warnings = FALSE, echo = FALSE}
+
+  remaining_methods_pair <- setdiff(as.character(unique(tab_rank$imputation_method)),c())
+
+  results_pairs_df <- data.frame()  
+  
+  min_rank_df <- tab_rank %>% 
+    ungroup() %>% 
+    filter(metric == 'auc') %>% 
+    group_by(dataset, model) %>% 
+    summarise(min_rank = min(metric_rank))
+  
+  min_rank_df_f1 <- tab_rank %>% 
+    filter(metric == 'f1') %>% 
+    group_by(dataset, model) %>% 
+    summarise(min_rank = min(metric_rank))
+  
+for(i in 1:(length(remaining_methods_pair)-1)){
+
+  sel_imputation <- remaining_methods_pair[i]
+  
+  # check whether this rank is the best for dataset and model
+
+     check_optimal <-  tab_rank %>% 
+                          group_by(dataset, model, metric) %>% 
+                          mutate(min_rank = min(metric_rank)) %>% 
+                          ungroup() %>% 
+                          filter(imputation_method %in% sel_imputation) %>% 
+                          group_by(metric, dataset, model, min_rank) %>% 
+                          summarise(opt_value = min(metric_rank)) %>% 
+                          mutate(prc_optimal = as.numeric(opt_value == min_rank)) %>% 
+       group_by(metric) %>% 
+       summarise(prc = mean(prc_optimal)) %>% 
+       mutate(imputation = paste0(sel_imputation, collapse = '+')) %>% 
+       select(imputation, metric, prc)
+
+  results_pairs_df <- rbind(results_pairs_df, check_optimal)
+  
+
+  for(j in (i+1):length(remaining_methods_pair)){
+
+   sel_imputation <- remaining_methods_pair[j]
+  
+  # check whether this rank is the best for dataset and model
+
+     check_optimal <-  tab_rank %>% 
+                          group_by(dataset, model, metric) %>% 
+                          mutate(min_rank = min(metric_rank)) %>% 
+                          ungroup() %>% 
+                          filter(imputation_method %in% sel_imputation) %>% 
+                          group_by(metric, dataset, model, min_rank) %>% 
+                          summarise(opt_value = min(metric_rank)) %>% 
+                          mutate(prc_optimal = as.numeric(opt_value == min_rank)) %>% 
+       group_by(metric) %>% 
+       summarise(prc = mean(prc_optimal)) %>% 
+       mutate(imputation = paste0(sel_imputation, collapse = '+')) %>% 
+       select(imputation, metric, prc)
+
+  results_pairs_df <- rbind(results_pairs_df, check_optimal)
+    
+
+     sel_imputation <- c(remaining_methods_pair[i], remaining_methods_pair[j])
+  
+  # check whether this rank is the best for dataset and model
+
+     check_optimal <-  tab_rank %>% 
+                          group_by(dataset, model, metric) %>% 
+                          mutate(min_rank = min(metric_rank)) %>% 
+                          ungroup() %>% 
+                          filter(imputation_method %in% sel_imputation) %>% 
+                          group_by(metric, dataset, model, min_rank) %>% 
+                          summarise(opt_value = min(metric_rank)) %>% 
+                          mutate(prc_optimal = as.numeric(opt_value == min_rank)) %>% 
+       group_by(metric) %>% 
+       summarise(prc = mean(prc_optimal)) %>% 
+       mutate(imputation = paste0(sel_imputation, collapse = '+')) %>% 
+       select(imputation, metric, prc)
+
+  results_pairs_df <- rbind(results_pairs_df, check_optimal)
+  }
+  
+}
+  results_pairs_df <-  results_pairs_df %>% 
+    unique()
+  
+pl_improvement_pairs <-   results_pairs_df %>% 
+    pivot_wider(id_cols = imputation, names_from = metric, values_from = prc) %>% 
+    ggplot(aes(x = auc, y = f1, label = imputation))+
+    geom_point()+
+    ggrepel::geom_text_repel()+
+  theme_light()
+
+pl_improvement_pairs
+
+```
+
+## What are the interactions between ML algorithms and imputation methods?
+
+Deeper insight into interaction of imputation and classifiers gives principal component analysis (PCA) performed on averaged rankings. The first PCA coordinate positively correlates with averaged ranking and the second coordinate reveals model preferences. 
+
+For F1 *mean*, *missForest* and *VIM\_kknn* methods cooperate with rpart and kknn while *mice* works with ranger and xgboost.
+
+
+```{r}
+tab_rank %>%
+  filter(metric == "f1") %>%
+  group_by(imputation_method, model) %>%
+  summarise(avg_metric_rank = mean(as.numeric(as.character(metric_rank)))) %>%
+  pivot_wider(id_cols = "imputation_method", 
+            names_from = "model",
+            values_from = "avg_metric_rank") -> avg_full_tab
+
+avg_full_tab <- as.data.frame(avg_full_tab)
+rownames(avg_full_tab) <- avg_full_tab[,1]
+colnames(avg_full_tab) <- substr(colnames(avg_full_tab), 9, 100)
+
+fit <- princomp(4 - avg_full_tab[,-1])
+pl <- fviz_pca_biplot(fit,  geom = c("arrow", "text"), geom.var = c("point","text"))
+pl
+
+```
+
+
+
+```{r}
+
+tab_rank %>%
+  filter(metric == "auc") %>%
+  group_by(imputation_method, model) %>%
+  summarise(avg_metric_rank = mean(as.numeric(as.character(metric_rank)))) %>%
+  pivot_wider(id_cols = "imputation_method", 
+            names_from = "model",
+            values_from = "avg_metric_rank") -> avg_full_tab
+avg_full_tab <- as.data.frame(avg_full_tab)
+rownames(avg_full_tab) <- avg_full_tab[,1]
+colnames(avg_full_tab) <- substr(colnames(avg_full_tab), 9, 100)
+
+fit <- princomp(4 - avg_full_tab[,-1])
+pl <- fviz_pca_biplot(fit,  geom = c("arrow", "text"), geom.var = c("point","text"))
+pl
+
+```
+
+
+# NADIA package
+
+If you want to test different imputation method in predictive modeling we recommend to install the [NADIA package](https://cran.r-project.org/web/packages/NADIA/index.html).  In addition to unified interface, this package provides advanced imputation methods as operation for mlr3 pipelines and  adjust some of them to use in the out-of-the-box approach. So far, NADIA include imputation methods from mice, Amelia, missMDA, VIM, SoftImpute, MissRanger and MissForest.
+
+More details you can find [here](https://medium.com/responsibleml/imputing-missing-data-with-emma-ed4cbc27510c) and [here](https://medium.com/responsibleml/missing-data-imputation-in-machine-learning-pipelines-214ef302889e)
