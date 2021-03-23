@@ -22,7 +22,7 @@ weight: 1
 <li class="list-group-item"> <a href="/how-to/impute/missImp.html" target="_blank">... impute missing values?</a> (<a href="/how-to/impute/missImp.pdf" target="_blank">PDF</a>, <a href="/how-to/impute/missImp.Rmd" target="_blank">Rmd</a>, <a href="/how-to/impute/CrossValidation_softImpute.R" target="_blank">Resource R</a>)</li>
 </ul>
 
-<br>
+</br>
 
 <h3>Python - How to ...  </h3>
 <ul class="list-group" id="workflows-list_py">
@@ -31,7 +31,7 @@ weight: 1
 <li class="list-group-item"> <a href="/how-to/python/predict_html/How%20to%20predict.html" target="_blank">... predict with missing values?</a> (<a href="https://notebooks.gesis.org/binder/v2/gh/R-miss-tastic/website/68603d054e4f5d316aefdcfc9165f524e07cf46f?filepath=static%2Fhow-to%2Fpython%2FHow%20to%20predict.ipynb" target="_blank">Interactive notebook</a>)</li>
 
 
-</br>
+<br>
 
 <h3>External notebooks</h3>
 
