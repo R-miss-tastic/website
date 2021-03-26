@@ -35,7 +35,7 @@ weight: 1
 
 <h3>External notebooks</h3>
 
-<p align="justify">The following notebooks have been developed by external contributors and reviewed by the R-miss-tastic committee. We recommend these notebooks as they provide useful and complementary guidance on how to predict with missing values and how to impute incomplete data.
+<p align="justify">The following notebooks have been developed by external contributors and reviewed by the R-miss-tastic committee. We recommend these notebooks as they provide useful and complementary guidance on how to predict with missing values, on how to impute incomplete data, and on how to handle incomplete data in treatment effect estimation.
 </p>
 
 <ul class="list-group" id="external-workflows-list">
