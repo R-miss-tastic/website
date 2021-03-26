@@ -41,6 +41,7 @@ weight: 1
 <ul class="list-group" id="external-workflows-list">
 <li class="list-group-item"> <a href="/how-to/external/How_to_predict_in_R.html" target="_blank">How to predict with missing values in R?</a> (<a href="/how-to/external/How_to_predict_in_R.Rmd" target="_blank">R notebook .Rmd</a>) by Katarzyna Woźnica (Warsaw University of Technology)</li>
 <li class="list-group-item"> <a href="/how-to/external/Comparison_imputation_deep_classical.html" target="_blank">Comparison of classical and deep learning imputation methods (using Python and R)</a> (<a href="/how-to/external/Comparison_imputation_deep_classical.ipynb" target="_blank">Python notebook .ipynb</a>) by François Husson (Agrocampus Ouest)</li>
+<li class="list-group-item"> <a href="/how-to/external/pipeline_causal_inference_with_missing_attributes.html" target="_blank">How to do causal inference with incomplete covariates/attributes in R?</a> (IPW and doubly robust estimation, <a href="https://github.com/imkemayer/causal-inference-missing/blob/master/pipeline_causal_inference_with_missing_attributes.Rmd" target="_blank">R notebook .Rmd</a>) by Imke Mayer (EHESS). Additional information about this pipeline can be found <a href="https://github.com/imkemayer/causal-inference-missing/blob/master/" target="_blank">here</a>.</li>
 </ul>
 
 
