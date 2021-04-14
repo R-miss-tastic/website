@@ -3,7 +3,8 @@ output: md_document
 author: "Steffen Moritz & Nathalie Vialaneix"
 linktitle: Implementations
 menu: navbar
-name: "R packages on missing values"
+title: Implementations
+name: "Implementations"
 url: "/rpkg/"
 weight: 4
 ---
@@ -23,6 +24,11 @@ pkg_category <- c("Time-Series Imputation, Visualisations for Missing Data",
                   "Single Imputation, Meta-Package",
                   "Single Imputation, Visualisations for Missing Data")
 ```
+
+
+We list some of the most popular R packages and Python libraries that allow to handle missing values.
+
+<a href="#python_libraries">Click here to go directly to the list of Python libraries.</a>
 
 #### R Packages
 
@@ -87,7 +93,7 @@ var userList = new List('users', options);
 </script>
 
 
-#### Python modules
+#### Python modules {#python_libraries}
 
 
 <p align="justify">Here are some links to modules or methods in Python to handle missing values.

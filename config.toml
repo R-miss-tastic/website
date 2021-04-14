@@ -8,7 +8,7 @@ languageCode = "en-us"
 title = "R-miss-tastic"
 theme = "hugo-theme-bootstrap4-blog"
 tags = ["missing values", "missing data", "imputation", "R", "incomplete data", "rmisstastic", "rmiss"]
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "\\.knit\\.md$", "\\.utf8\\.md$", "_cache$"]
 # number of posts to show on home/category/tag pages (Default: 10)
 paginate = 4
 # optionally override the site's footer with custom copyright text
@@ -57,8 +57,8 @@ paginate = 4
   # required for your site in the European Union. Set the parameter below to a
   # page where the user can get more information about cookies, either on your
   # site or externally, for example:
-  #cookie_consent_info_url = "/cookie-information/"
-  #cookie_consent_info_url = "http://cookiesandyou.com"
+  # cookie_consent_info_url = "/cookie-information/"
+  cookie_consent_info_url = "http://cookiesandyou.com"
 
   # show sharing icons on pages/posts (default: true)
   #sharingicons = true

@@ -41,18 +41,17 @@ weight: 6
 </br>
 
 
+</br>
+
+#### Main contributors to this platform
+
+<p align="justify">The main contributors of this platform are: <a href="http://juliejosse.com" target="_blank">Julie Josse</a>, <a href="http://www.imkemayer.com" target="_blank">Imke Mayer</a>, <a href="https://www.researchgate.net/profile/Steffen_Moritz2" target="_blank">Steffen Moritz</a>, <a href="https://audesportisse.github.io" target="_blank">Aude Sportisse</a>, <a href="https://www.njtierney.com" target="_blank">Nicholas Tierney</a> and <a href="http://www.nathalievialaneix.eu" target="_blank">Nathalie Vialaneix</a>.
+</p>
 
 
-
-<style>
+<style type="text/css">
 #people-list
 {
 	padding: 0px;
 }
 </style>
-
-</br>
-
-#### Main contributors to this platform
-
-<p align="justify">The main contributors of this platform are: <a href="http://juliejosse.com" target="_blank">Julie Josse</a>, <a href="http://www.imkemayer.com" target="_blank">Imke Mayer</a>, <a href="https://www.researchgate.net/profile/Steffen_Moritz2" target="_blank">Steffen Moritz</a>, <a href="https://audesportisse.github.io" target="_blank">Aude Sportisse</a>, <a href="https://www.njtierney.com" target="_blank">Nicholas Tierney</a> and <a href="http://www.nathalievialaneix.eu" target="_blank">Nathalie Vialaneix</a>.</p>

@@ -21,7 +21,7 @@ weight: 100
 - Improve this [website](https://github.com/R-miss-tastic/website).
 
 #### Contact
-<p align="justify">If you have comments, suggestions or questions about this platform or if you wish to submit some of your own material on missing values (references, tutorials, data sets, etc.) please feel free to either submit <a href="https://github.com/R-miss-tastic/website/issues" target="_blank">an issue on github</a>, or to contact us by using the form below (which will send us an e-mail at: r-miss-tastic [at] clementine [dot] wf).</p>
+<p align="justify">If you have comments, suggestions or questions about this platform or if you wish to submit some of your own material on missing values (references, tutorials, data sets, etc.) please feel free to either submit <a href="https://github.com/R-miss-tastic/website/issues" target="_blank">an issue on GitHub</a>, or to contact us by using the form below (which will send us an e-mail at: r-miss-tastic [at] clementine [dot] wf).</p>
 
 
 <form method="POST" action="https://formspree.io/r-miss-tastic@clementine.wf">
@@ -36,4 +36,4 @@ weight: 100
     <button type="submit" class="btn btn-primary">Send</button>
 </form>
 
-<br />
+<br>
