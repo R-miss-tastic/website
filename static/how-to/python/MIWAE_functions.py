@@ -91,7 +91,7 @@ def weights_init(layer):
   if type(layer) == nn.Linear: torch.nn.init.orthogonal_(layer.weight)
 
 
-def MIWAE(X_miss,h=128,d=1,K=20,bs=64,n_epochs=2002):
+def MIWAE(X_miss,h=128,d=1,K=1000,L=20,bs=64,n_epochs=201):
     mask = (1-np.isnan(X_miss).numpy()).astype(bool) 
     xhat_0 = np.where(np.isnan(X_miss),0,X_miss)
     n = np.shape(X_miss)[0]
@@ -133,7 +133,7 @@ def MIWAE(X_miss,h=128,d=1,K=20,bs=64,n_epochs=2002):
         loss.backward()
         optimizer.step()
         ### Imputation
-        xhat[~mask] = miwae_impute(iota_x = torch.from_numpy(xhat_0).float().cuda(),mask = torch.from_numpy(mask).float().cuda(),L=10,d=d,p_z=p_z,encoder=encoder,decoder=decoder).cpu().data.numpy()[~mask]
+        xhat[~mask] = miwae_impute(iota_x = torch.from_numpy(xhat_0).float().cuda(),mask = torch.from_numpy(mask).float().cuda(),L=L,d=d,p_z=p_z,encoder=encoder,decoder=decoder).cpu().data.numpy()[~mask]
     x_miwae = np.where(np.isnan(X_miss),xhat,X_miss)
     return(x_miwae)
 
