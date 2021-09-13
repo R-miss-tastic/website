@@ -2147,18 +2147,18 @@ If you find nothing nonsensical in this reviewer's comments, then the current ar
   Eventdate                = {26–28 Aug 2020},
   Abstract                 = {We consider building predictors when the data have missing values. We study the seemingly-simple case where the target to predict is a linear function of the fully-observed data and we show that, in the presence of missing values, the optimal predictor may not be linear. In the particular Gaussian case, it can be written as a linear function of multiway interactions between the observed data and the various missing-value indicators. Due to its intrinsic complexity, we study a simple approximation and prove generalization bounds with finite samples, highlighting regimes for which each method performs best. We then show that multilayer perceptrons with ReLU activation functions can be consistent, and can explore good trade-offs between the true model and approximations. Our study highlights the interesting family of models that are beneficial to fit with missing values depending on the amount of data available.},
   Archiveprefix            = {arXiv},
-  Url                      = {https://arxiv.org/abs/2002.00658},
-   Keywords                 = {supervised learning},  
+  Url                      = {http://proceedings.mlr.press/v108/morvan20a/morvan20a.pdf},
+  Keywords                 = {supervised learning},  
   Eprint                   = {2002.00658v2},
   Owner                    = {aude},
   Timestamp                = {2021.01.12},
-  Topics                   = {supervised learning; neural network}
+  Topics                   = {supervised learning}
 }
 
 
   @InProceedings{morvan_etal_2020_b,
   Title                    = {NeuMiss networks: differentiable programming for supervised learning with missing values.},
-  Author                   =  {Le Morvan, Marine and Josse, Julie and Moreau, Thomas and Scornet, Erwan and Varoquaux, Gael},
+  Author                   = {Le Morvan, Marine and Josse, Julie and Moreau, Thomas and Scornet, Erwan and Varoquaux, Gael},
   Booktitle                = {Advances in Neural Information Processing Systems, 33},
   Year                     = {2020},
   Editor                   = {-},
@@ -2166,13 +2166,25 @@ If you find nothing nonsensical in this reviewer's comments, then the current ar
   Eventdate                = {2020-12},
   Abstract                 = {The presence of missing values makes supervised learning much more challenging. Indeed, previous work has shown that even when the response is a linear function of the complete data, the optimal predictor is a complex function of the observed entries and the missingness indicator. As a result, the computational or sample complexities of consistent approaches depend on the number of missing patterns, which can be exponential in the number of dimensions. In this work, we derive the analytical form of the optimal predictor under a linearity assumption and various missing data mechanisms including Missing at Random (MAR) and self-masking (Missing Not At Random). Based on a Neumann-series approximation of the optimal predictor, we propose a new principled architecture, named NeuMiss networks. Their originality and strength come from the use of a new type of non-linearity: the multiplication by the missingness indicator. We provide an upper bound on the Bayes risk of NeuMiss networks, and show that they have good predictive accuracy with both a number of parameters and a computational complexity independent of the number of missing data patterns. As a result they scale well to problems with many features, and remain statistically efficient for medium-sized samples. Moreover, we show that, contrary to procedures using EM or imputation, they are robust to the missing data mechanism, including difficult MNAR settings such as self-masking.},
   Archiveprefix            = {arXiv},
-  Url                      = {https://arxiv.org/abs/2007.01627},
+  Url                      = {https://proceedings.neurips.cc/paper/2020/file/42ae1544956fbe6e09242e6cd752444c-Paper.pdf},
   Eprint                   = {2007.01627v4},
   
   Keywords                 = {supervised learning; informative missing values},  
   Owner                    = {aude},
   Timestamp                = {2021.01.12},
-  Topics                   = {supervised learning}}
+  Topics                   = {supervised learning; neural network}}
+
+
+@Unpublished{morvan_etal_2021,
+  title                   = {What's a good imputation to predict with missing values?}, 
+  author                  = {Le Morvan, Marine and Josse, Julie and Scornet, Erwan and Varoquaux, Gael},
+  year                    = {2021},
+  eprint                  = {2106.00311},
+  archivePrefix           = {arXiv},
+  url                     = {https://arxiv.org/pdf/2106.00311.pdf},
+  primaryClass            = {stat.ML},
+  Topics                  = {supervised learning}}
+  
 
 @Article{murray_reiter_2016,
   Author                   = {Murray, J. S. and Reiter, J. P.},
