@@ -471,7 +471,6 @@ create_ref_buttons(selected_refs, c(1), "mf_conf")
 create_ref_buttons(selected_refs, c(0,3,4), "mf_misc")
 ```
 
-
 <br>
 </div>
 </div>

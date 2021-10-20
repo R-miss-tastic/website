@@ -7,7 +7,6 @@ parent: "Bibliography"
 name: "Bibliography (complete)"
 ---
 
-
 ```{r, load_refs, echo=FALSE, message=FALSE, warning=FALSE}
   require(dplyr)
   require(RefManageR)
