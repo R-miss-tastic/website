@@ -9,11 +9,15 @@ weight: 7
 ---
 
 #### Recent R package releases
-<i>Last update: 2021-03-22</i>
+<i>Last update: 2021-11-12</i>
 
 We regularly update recently released R packages handling missing values. This is a non-exhaustive list, if you have suggestions feel free to <a href="/contact/">contact us</a>.
 
 <ul class="list-group" id="packages-list">
+<li class="list-group-item"><a href="https://cran.r-project.org/web/packages/NADIA/index.html" target="_blank"><code>Iscores</code>: Proper Scoring Rules for Missing Value Imputation</a> (Authors: Loris Michel, Meta-Lina Spohn, Jeffrey Naef; <a href="https://arxiv.org/abs/2106.03742" target="_blank">related article</a>)<br>
+    <img src="https://cranlogs.r-pkg.org/badges/Iscores" alt="CRAN Downloads">
+    <img src="https://www.r-pkg.org/badges/last-release/Iscores" alt="CRAN Release"> <br>
+	</li>
 <li class="list-group-item"><a href="https://cran.r-project.org/web/packages/NADIA/index.html" target="_blank"><code>NADIA</code>: NA Data Imputation Algorithms</a> (Authors: Jan Borowski, Piotr Fic, Katarzyna Woznica)<br>
     <img src="https://cranlogs.r-pkg.org/badges/NADIA" alt="CRAN Downloads">
     <img src="https://www.r-pkg.org/badges/last-release/NADIA" alt="CRAN Release"> <br>
