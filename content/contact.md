@@ -13,7 +13,7 @@ weight: 100
 #### Contribute
 <p align="justify">Here is some way to contribute to the project.</p>
 
-- Edit the <a href="https://github.com/R-miss-tastic/website/blob/master/resources/rmisstastic_biblio.bib" target="_blank">bibliography ressource</a>;
+- Edit the <a href="https://github.com/R-miss-tastic/website/blob/master/resources/rmisstastic_biblio.bib" target="_blank">bibliography resource</a>;
 - Review the <a href="/workflows/" target="_blank">Workflows</a> available and suggest comments or improvement (or do similar workflows in python);
 - Add data sets;
 - Suggest ideas to organize a data challenge;
@@ -26,12 +26,12 @@ weight: 100
 
 <form method="POST" action="https://formspree.io/f/r-miss-tastic@clementine.wf">
     <div class="form-group">
-        <label for="emailAddress">Email</label>
-        <input type="email" class="form-control" name="email" id="emailAddress" placeholder="Your email">
+      <label for="emailAddress">Email</label>
+      <input type="email" class="form-control" name="email" id="emailAddress" placeholder="Your email">
     </div>
     <div class="form-group">
-        <label for="message">Message</label>
-        <textarea class="form-control" name="message" id="message" placeholder="Your message" rows="5"></textarea>
+      <label for="message">Message</label>
+      <textarea class="form-control" name="message" id="message" placeholder="Your message" rows="5"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">Send</button>
 </form>
