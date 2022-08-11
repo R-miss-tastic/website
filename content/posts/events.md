@@ -17,12 +17,6 @@ description: ''
 <b>Upcoming events:</b>
 
 <ul class="list-group" id="up-events-list">
-
-<li class="list-group-item"> <a href="https://epiresearch.org/annual-meeting/2022-meeting/" target="_blank">Society for Epidemiologic Research Meeting</a> (June 14th - June 17th, 2022, Chicago, IL, USA)</li>
-<li class="list-group-item"> <a href="https://user2022.r-project.org/" target="_blank">useR! 2022</a> (June 20th - June 23rd, 2022, virtual)</li>
-<li class="list-group-item"> <a href="https://www.imsannualmeeting-london2022.com/" target="_blank">2022 IMS Annual Meeting</a> (June 27th - June 30th, 2022, London, UK) with an invited session on modern approaches to missing data</li>
-<li class="list-group-item"> <a href="https://www.ibc2022.org/home" target="_blank">31st International Biometric Conference</a> (July 10th - July 15th, 2022, Riga, Latvia)</li>
-<li class="list-group-item"> <a href="https://ww2.amstat.org/meetings/jsm/2022/" target="_blank">Joint Statistical Meetings 2022</a> (August 6th - August 11th, 2022, Washington, DC, USA)</li>
 <li class="list-group-item"> <a href="http://www.iscb2021.info/en" target="_blank">43nd Conference of the International Society for Clinical Biostatistics</a> (August 21st - August 25th, 2022, Newcastle upon Tyne, UK)</li>
 <li class="list-group-item"> <a href="http://www.compstat2022.org/" target="_blank">International Conference on Computational Statistics (COMPSTAT)</a> (August 23rd - August 26th, 2022, Bologna, Italy)</li>
 <li class="list-group-item"> <a href="https://sites.google.com/view/icsds2022" target="_blank">2022 IMS International Conference on Statistics and Data Science (ICSDS)</a> (December 13th - December 16th, 2022, Florence, Italy)</li>
@@ -33,6 +27,11 @@ description: ''
 <b>Past events:</b>
 
 <ul class="list-group" id="past-events-list">
+<li class="list-group-item"> <a href="https://ww2.amstat.org/meetings/jsm/2022/" target="_blank">Joint Statistical Meetings 2022</a> (August 6th - August 11th, 2022, Washington, DC, USA)</li>
+<li class="list-group-item"> <a href="https://www.ibc2022.org/home" target="_blank">31st International Biometric Conference</a> (July 10th - July 15th, 2022, Riga, Latvia)</li>
+<li class="list-group-item"> <a href="https://www.imsannualmeeting-london2022.com/" target="_blank">2022 IMS Annual Meeting</a> (June 27th - June 30th, 2022, London, UK) with an invited session on modern approaches to missing data</li>
+<li class="list-group-item"> <a href="https://user2022.r-project.org/" target="_blank">useR! 2022</a> (June 20th - June 23rd, 2022, virtual)</li>
+<li class="list-group-item"> <a href="https://epiresearch.org/annual-meeting/2022-meeting/" target="_blank">Society for Epidemiologic Research Meeting</a> (June 14th - June 17th, 2022, Chicago, IL, USA)</li>
 <li class="list-group-item"> <a href="https://mdsa2022.sciencesconf.org/" target="_blank">Workshop on Missing Data and Survival Analysis</a> (May 30th - June 1st, 2022, Angers, France)</li>
 <li class="list-group-item"> <a href="https://www.sfds.asso.fr/fr/group/activites_et_parrainages/540-journees_detude_en_statistique_jes/" target="_blank">Journées d’Étude en Statistique (JES) autour des données manquantes</a> (November 15th, 2021 - November 19th, 2021, Fréjus, France)</li>
 <li class="list-group-item"> <a href="https://bayesatcirm.github.io/" target="_blank">Summer school on End-to-End Bayesian Learning Methods</a> (October 25th, 2021 - October 29th, 2021, Marseille, France)</li>
