@@ -9,7 +9,7 @@ description: ''
 ---
 
 
-<p align="justify">Some upcoming and recent past events, mainly conferences, with special sessions or multiple contributions on handling missing values. (Last updated: 2022-05-06)</p>
+<p align="justify">Some upcoming and recent past events, mainly conferences, with special sessions or multiple contributions on handling missing values. (Last updated: 2022-08-11)</p>
 
 <!--more-->
 <br>
@@ -17,7 +17,7 @@ description: ''
 <b>Upcoming events:</b>
 
 <ul class="list-group" id="up-events-list">
-<li class="list-group-item"> <a href="https://mdsa2022.sciencesconf.org/" target="_blank">Workshop on Missing Data and Survival Analysis</a> (May 30th - June 1st, 2022, Angers, France)</li>
+
 <li class="list-group-item"> <a href="https://epiresearch.org/annual-meeting/2022-meeting/" target="_blank">Society for Epidemiologic Research Meeting</a> (June 14th - June 17th, 2022, Chicago, IL, USA)</li>
 <li class="list-group-item"> <a href="https://user2022.r-project.org/" target="_blank">useR! 2022</a> (June 20th - June 23rd, 2022, virtual)</li>
 <li class="list-group-item"> <a href="https://www.imsannualmeeting-london2022.com/" target="_blank">2022 IMS Annual Meeting</a> (June 27th - June 30th, 2022, London, UK) with an invited session on modern approaches to missing data</li>
@@ -33,6 +33,7 @@ description: ''
 <b>Past events:</b>
 
 <ul class="list-group" id="past-events-list">
+<li class="list-group-item"> <a href="https://mdsa2022.sciencesconf.org/" target="_blank">Workshop on Missing Data and Survival Analysis</a> (May 30th - June 1st, 2022, Angers, France)</li>
 <li class="list-group-item"> <a href="https://www.sfds.asso.fr/fr/group/activites_et_parrainages/540-journees_detude_en_statistique_jes/" target="_blank">Journées d’Étude en Statistique (JES) autour des données manquantes</a> (November 15th, 2021 - November 19th, 2021, Fréjus, France)</li>
 <li class="list-group-item"> <a href="https://bayesatcirm.github.io/" target="_blank">Summer school on End-to-End Bayesian Learning Methods</a> (October 25th, 2021 - October 29th, 2021, Marseille, France)</li>
 <li class="list-group-item"> <a href="http://www.compstat2021.org/" target="_blank">International Conference on Computational Statistics (COMPSTAT)</a> (August 29th - August 31st, 2021, Bologna, Italy)</li>
