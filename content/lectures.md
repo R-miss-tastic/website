@@ -94,7 +94,7 @@ weight: 2
                     </div>
                   </a>
                 </div> <!--card-header-->
-                <div id="josse_eth" class="collapse" data-parent="#accordion_general">  
+                <div id="josse_diablerets" class="collapse" data-parent="#accordion_general">  
                   <div class="card-body">
                     <p align="justify" style="margin-left:15px;">Missing values are ubiquitous in the practice of data analysis. In this series of lectures, we will start by presenting classical methods for handling missing data (simple imputation, multiple imputation, likelihood-based methods) developed in an inferential framework, where the objective is to best estimate parameters and their variance in the presence of missing data.We will emphasize very powerful methods of simple and multiple imputation based on low-rank approximations that can be applied to heterogeneous data (quantitative, categorical). We will then present recent results in a supervised learning framework. A striking result is that naive imputation strategies (such as mean imputation) can be optimal, as the supervised learning method does the hard work. The fact that such a simple approach can be relevant may have important consequences in practice. We will also discuss how missing value modeling can be easily incorporated into tree models, such as gradient boosted trees, resulting in a learner that has been shown to perform very well, including in challenging non-random missingness settings.Notebooks will be presented. Finally, we will briefly present how such results are useful in the context of causal inference with missing values in the covariates.
                     </p>
