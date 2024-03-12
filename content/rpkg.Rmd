@@ -78,6 +78,13 @@ for (ind in seq_along(pkg_list)) {
   cat(print_text)
 }
 ```
+<li style="margin: 40px;">
+  <h3 class="name">imputomics</h3>
+  <h6 class="Category">Category: Single and multiple imputation</h6> 
+  <i class="Description">A robust wrapper package containing a range of methods for simulating and imputing missing values in different types of omics data such as genomics, transcriptomics, proteomics, and metabolomics. Provides tools for comparing and evaluating the performance of imputation methods and a web server.</i> <br> 
+  <a href="/packages/imputomics"> more.. </a> 
+</li> 
+
   </ul>
 </p>
 </div>
@@ -106,5 +113,4 @@ var userList = new List('users', options);
 * [statsmodels.imputation](https://www.statsmodels.org/stable/imputation.html): module from statsmodels to handle missing values (multiple imputation, Bayesian imputation using a Gaussian model).
 
 </p>
-
 
