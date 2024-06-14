@@ -1,15 +1,15 @@
 name = "Hugo Bootstrap v4 Blog"
-license = "GPL-3.0"
-licenselink = "https://github.com/alanorth/hugo-theme-bootstrap4/blob/master/LICENSE.txt"
+license = "CC-BY-3.0"
+licenselink = "https://github.com/alanorth/hugo-theme-bootstrap4-blog/blob/master/LICENSE.txt"
 description = "A simple Hugo theme based on the Bootstrap v4 blog example."
-homepage = "https://github.com/alanorth/hugo-theme-bootstrap4"
+homepage = "https://github.com/alanorth/hugo-theme-bootstrap4-blog"
 tags = ["bootstrap", "blog", "font awesome"]
 features = ["responsive", "blog"]
-min_version = 0.25
+min_version = 0.55
 
 [author]
   name = "Alan Orth"
-  homepage = "https://englishbulgaria.net"
+  homepage = "https://picturingjordan.com"
 
 [original]
   author = "mdo"

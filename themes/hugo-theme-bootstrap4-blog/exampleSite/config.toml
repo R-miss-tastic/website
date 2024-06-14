@@ -6,13 +6,15 @@ title = "Hugo Bootstrap v4 Blog"
 theme = "hugo-theme-bootstrap4-blog"
 # number of posts to show on home/category/tag pages (Default: 10)
 paginate = 5
+# number of words to use for summary on home/category/tag pages (Default: 70)
+summaryLength = 50
 # optionally override the site's footer with custom copyright text
 # copyright = "Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/)."
 #googleAnalytics = "UA-123-45"
 #disqusShortname = "XYW"
 
 [permalinks]
-  post = "/:year/:month/:title/"
+  posts = "/:year/:month/:title/"
   page = "/:slug/"
 
 [[menu.sidebar]]
@@ -36,6 +38,9 @@ paginate = 5
 
   # Description/subtitle for homepage (can be Markdown)
   description = "A simple Hugo theme based on the Bootstrap v4 blog example."
+
+  # Show header (default: true)
+  #header_visible = true
 
   # Format dates with Go's time formatting
   date_format = "Mon Jan 02, 2006"
@@ -86,5 +91,7 @@ paginate = 5
 # Languages to render
 #[languages.en]
 #[languages.bg]
+  # Bulgarian date format is dd.mm.yyyy
+  #date_format = "02.01.2006"
 
 # vim: ts=2 sw=2 et

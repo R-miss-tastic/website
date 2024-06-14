@@ -2,17 +2,17 @@
   {{ if and (.Site.Params.sidebar) (isset .Site.Params.sidebar "about") }}
   <section class="sidebar-module sidebar-module-inset">
     <h4>{{ i18n "about" }}</h4>
-    <p>{{ .Site.Params.sidebar.about | markdownify }}</p>
+    <p dir="auto">{{ .Site.Params.sidebar.about | markdownify }}</p>
   </section>
   {{ end }}
 
-<!--  {{ if .Site.Params.sidebar }}
+  {{ if .Site.Params.sidebar }}
       {{ partialCached "recent.html" .}}
-  {{ end }}-->
+  {{ end }}
 
   {{ with .Site.Menus.sidebar }}
   <section class="sidebar-module">
-    <h4>Follow us!</h4>
+    <h4>{{ i18n "links" }}</h4>
     <ol class="list-unstyled">
       {{ range . }}
       <li><a href="{{ .URL | absURL }}">{{ .Name }}</a></li>

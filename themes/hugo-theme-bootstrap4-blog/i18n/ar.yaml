@@ -1,0 +1,47 @@
+- id: about
+  translation: "عن المُدَوَّنَة"
+
+- id: home
+  translation: "الصَّفْحَة الرَّئيسِيَّة"
+
+- id: recentPosts
+  translation: "المَنْشورات الأَخِيرَة"
+
+- id: readMore
+  translation: "قِرَاءَة المَزِيد ←"
+
+- id: translations
+  translation: "تَرْجَمَة"
+
+- id: share
+  translation: "شَارِك"
+
+- id: paginatorPrevious
+  translation: "الصَّفْحَة السَّابِقَة"
+
+- id: paginatorNext
+  translation: "الصَّفْحَة التَّالِيَة"
+
+- id: cookieMessage
+  translation: "هذا المَوْقِع يَسْتَخْدِم مَلَفَّات كُوكِيز"
+
+- id: cookieLink
+  translation: ".اعْرَف أَكْثَر"
+
+- id: cookieAccept
+  translation: "!أُوَافِق"
+
+- id: backToTop
+  translation: "العَوْدَة إِلَى الاَعْلَى"
+
+- id: links
+  translation: "الرَِّوَابِط"
+
+- id: authoredBy
+  translation: "الكاتب"
+
+- id: postedIn
+  translation: "في"
+
+- id: comma
+  translation: "،"
