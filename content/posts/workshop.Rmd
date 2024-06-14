@@ -1,4 +1,5 @@
 ---
+output: md_document
 date: 2020-04-10
 author: "R-miss-tastic"
 slug: workshop

@@ -1,4 +1,5 @@
 ---
+output: md_document
 date: 2022-05-06
 author: "R-miss-tastic"
 slug: events

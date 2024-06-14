@@ -11,15 +11,15 @@ weight: 4
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+#library(imputeTS)
 ```
 
 ```{r PkGList, echo=FALSE, message=FALSE, warning=FALSE}
-pkg_list <- c("imputeTS", "mice", "missForest", "missMDA", "naniar",
-              "simputation", "VIM")
+pkg_list <- c("imputeTS", "mice", "missForest", "missMDA", "naniar","simputation", "VIM")
 pkg_category <- c("Time-Series Imputation, Visualisations for Missing Data",
                   "Multiple Imputation",
                   "Single Imputation",
-                  "Single and multiple Imputation, Multivariate Data Analysis",
+                  "Single and Multiple Imputation, Multivariate Data Analysis",
                   "Visualisations for Missing Data",
                   "Single Imputation, Meta-Package",
                   "Single Imputation, Visualisations for Missing Data")
@@ -34,7 +34,7 @@ We list some of the most popular R packages and Python libraries that allow to h
 
 <p align="justify">Here are some introductions to popular missing data packages with small examples on how to use them. It gives more extensive information than the  <a href="https://CRAN.R-project.org/view=MissingData" target="_blank">CRAN Task View on Missing Data</a>, which is recommended to get a first overall overview about the CRAN missing data landscape.</p>
 
-<p align="justify"><i>You can also contribute on your own to this page and provide a short introduction to a missing data package. Take a look at <a href="/packages/rpkg-listitem-template.md" target="_blank">this short description</a> on how to do this. We are very happy about all contributions.</i></p>
+<p align="justify"><i>You can also contribute on your own to this page and provide a short introduction to a missing data package. Take a look at <a href="/packages/rpkg-listitem-template.md" target="_blank">this short description</a> on how to do this (<a href="/packages/rpkg-template.md" target="_blank">Template</a>). We are very happy about all contributions.</i></p>
 
 <div id="users">
   <input class="search" placeholder="Search" />
@@ -77,8 +77,11 @@ for (ind in seq_along(pkg_list)) {
                        '</li></br>')
   cat(print_text)
 }
+
+
 ```
-<li style="margin: 40px;">
+
+<li style="margin: 0px;">
   <h3 class="name">imputomics</h3>
   <h6 class="Category">Category: Single and multiple imputation</h6> 
   <i class="Description">A robust wrapper package containing a range of methods for simulating and imputing missing values in different types of omics data such as genomics, transcriptomics, proteomics, and metabolomics. Provides tools for comparing and evaluating the performance of imputation methods and a web server.</i> <br> 
@@ -88,8 +91,6 @@ for (ind in seq_along(pkg_list)) {
   </ul>
 </p>
 </div>
-
-Your favorite package is missing? <a href="/packages/rpkg-listitem-template.md" target="_blank">Here</a> is an explanation on how to make an entry for your package. <a href="/packages/rpkg-template.md" target="_blank">Template</a>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
 <script> var options = {

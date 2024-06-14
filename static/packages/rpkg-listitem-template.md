@@ -4,7 +4,7 @@
      2) Download the Template from the website (or get it from the GitHub repo)
      3) Copy the modified template 'pkg-template.md' (renamed to '<package name>.md') into the folder /content/packages/ -->
       
-<li style="margin: 40px;">
+<li style="margin: 0px;">
   <h3 class="name">name_of_package</h3> <!-- Replace <name_of_package> by the package name-->
   <h6 class="Category">Category: category</h6> <!-- Replace <category> by the package name-->
   <i class="Description">short description (<10 lines) </i> <br> <!-- Add short description -->

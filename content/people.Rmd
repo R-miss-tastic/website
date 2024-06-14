@@ -1,4 +1,5 @@
 ---
+output: md_document
 author: "Imke Mayer"
 date: 2018-10-30
 linktitle: People
