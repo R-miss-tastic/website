@@ -28,11 +28,20 @@
 - id: cookieLink
   translation: "Научете повече."
 
-- id: cookieDismiss
-  translation: "Разбрах!"
+- id: cookieAccept
+  translation: "Съгласен съм"
+
+- id: cookieDecline
+  translation: "Не съм съгласен"
 
 - id: backToTop
   translation: "Нагоре"
 
 - id: links
   translation: "Линкове"
+
+- id: authoredBy
+  translation: "от"
+
+- id: postedIn
+  translation: "в"

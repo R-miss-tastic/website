@@ -1,10 +1,10 @@
 language: node_js
 node_js:
-  - 6
-  - 8
-  - 9
+  - 10
+  - 12
+  - 13
+  - 14
 script: npm run build
-sudo: false
-dist: trusty
+dist: focal
 
 # vim: ts=2 sw=2 et
