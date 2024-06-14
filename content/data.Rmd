@@ -1,6 +1,6 @@
 ---
+output: md_document
 author: "Imke Mayer"
-date: 2018-12-18
 linktitle: Data
 menu: navbar
 name: "Data"
@@ -14,7 +14,9 @@ weight: 5
 <p align="justify"><i>If you have suggestions on other data sets which might be of interest to others, please feel free to contact us via the <a href="/contact/">Contact form</a>.</i></p>
 
 <br>
-## Complete data
+
+### Complete data
+
 <p align="justify">If you wish to evaluate a certain missing data method on real (or simulated) data it can be useful to first generate missing values in a complete dataset. This allows to control the response mechanism and evaluate the method for different response mechanisms. Some useful tools for this: </p>
 
 <ul>
@@ -24,9 +26,6 @@ weight: 5
 </ul>
 
 <br>
-## Incomplete data
-
-<p align="justify">The data sets listed below are either widely used in general in the missing data community or used for illustration of different methods handling missing values in the tutorials from the <a href="/workflows/" target="_blank">Tutorials</a> and <a href="/rpkg/" target="_blank">R packages</a> sections. This presentation scheme is inspired by the <a href="https://archive.ics.uci.edu/ml/index.php" target="_blank">UCI Machine Learning Repository</a>.</p>
 
 Click on a table entry to obtain further information about the data set.
 

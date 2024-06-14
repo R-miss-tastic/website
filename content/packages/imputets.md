@@ -21,7 +21,7 @@ Imputation for univariate time series, Imputation of Sensor data, Visualization 
 [![CRAN Downloads](https://cranlogs.r-pkg.org/badges/imputeTS)](https://cran.r-project.org/package=imputeTS)
 
 ##### Description:
- Imputation (replacement) of missing values in univariate time series. Offers several imputation functions and missing data plots. Available imputation algorithms include: 'Mean', 'LOCF', 'Interpolation', 'Moving Average', 'Seasonal Decomposition', 'Kalman Smoothing on Structural Time Series models', 'Kalman Smoothing on ARIMA models'.
+Imputation (replacement) of missing values in univariate time series. Offers several imputation functions and missing data plots. Available imputation algorithms include: 'Mean', 'LOCF', 'Interpolation', 'Moving Average', 'Seasonal Decomposition', 'Kalman Smoothing on Structural Time Series models', 'Kalman Smoothing on ARIMA models'.
 
 #### Last update:
 [![CRAN Release](https://www.r-pkg.org/badges/last-release/imputeTS
@@ -79,4 +79,3 @@ Here you can have a interactive look at the example:
 <iframe width='100%' height='800' src='https://rdrr.io/snippets/embed/?code=library(imputeTS)%0A%0Aprint(%22print%20time-series%20with%20NAs%22)%0Aprint(tsAirgap)%0A%0A%23perform%20the%20missing%20value%20replacement%0Aimp%20%3C-%20na.mean(tsAirgap)%20%0A%0Aprint(%22print%20the%20series%20with%20the%20imputations%22)%0Aprint(imp)%0A%0A%23Visualize%20the%20imputations%0AplotNA.imputations(imp%2C%20x.withNA%20%3D%20tsAirgap)' frameborder='0'></iframe>
 
  https://rdrr.io/snippets/embedding/ 
-

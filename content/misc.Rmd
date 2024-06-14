@@ -1,4 +1,5 @@
 ---
+output: md_document
 author: "Imke Mayer"
 date: 2019-01-11
 linktitle: News & links

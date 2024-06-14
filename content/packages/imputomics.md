@@ -11,7 +11,7 @@ description: ''
 imputomics
 
 ##### Category:
-Single and multiple Imputation
+Single and Multiple Imputation
 
 ##### Use-Cases:
 Imputation for 'omics' data, Imputation for left-censored data.
