@@ -27,6 +27,6 @@
     "rtlcss": "^2.6.1",
     "sass": "^1.29.0",
     "webpack": "^5.4.0",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^5.1.4"
   }
 }
