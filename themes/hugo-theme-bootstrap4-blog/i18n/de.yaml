@@ -28,11 +28,17 @@
 - id: cookieLink
   translation: "Weitere Informationen"
 
-- id: cookieDismiss
-  translation: "OK"
+- id: cookieDecline
+  translation: "Nicht zustimmen"
 
 - id: backToTop
   translation: "Zurück zum Anfang"
 
 - id: links
   translation: "Links"
+  
+- id: authoredBy
+  translation: "von"
+
+- id: postedIn
+  translation: "in"

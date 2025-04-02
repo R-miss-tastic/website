@@ -1,4 +1,4 @@
-# Hugo Bootstrap v4 Blog [![Build Status](https://travis-ci.org/alanorth/hugo-theme-bootstrap4-blog.svg?branch=master)](https://travis-ci.org/alanorth/hugo-theme-bootstrap4-blog)
+# Hugo Bootstrap v4 Blog [![Build Status](https://travis-ci.org/alanorth/hugo-theme-bootstrap4-blog.svg?branch=master)](https://travis-ci.org/alanorth/hugo-theme-bootstrap4-blog) [![builds.sr.ht status](https://builds.sr.ht/~alanorth/hugo-theme-bootstrap4-blog.svg)](https://builds.sr.ht/~alanorth/hugo-theme-bootstrap4-blog?)
 A simple but opinionated [Hugo](https://gohugo.io) theme geared towards blog-style content. Based on the older two-column [Bootstrap blog example](https://v4-alpha.getbootstrap.com/examples/blog/) that was used for several Bootstrap versions, but has now been retired in favor of a "snarky" (their words) new example as of version [4.0.0's final release](https://blog.getbootstrap.com/2018/01/18/bootstrap-4/).
 
 ![Screenshot](https://raw.githubusercontent.com/alanorth/hugo-theme-bootstrap4-blog/master/screenshot.png "Screenshot")
@@ -11,14 +11,14 @@ See [picturingjordan.com](https://picturingjordan.com) for an example of this th
 - Uses Bootstrap v4's [native system font stack](https://getbootstrap.com/docs/4.0/content/reboot/#native-font-stack) to load quickly and look good on all platforms
 - Excellent [structured data](https://developers.google.com/search/docs/guides/intro-structured-data) (JSON-LD), [OpenGraph](http://ogp.me), and [Twitter Card](https://dev.twitter.com/cards/types) metadata support
 - robots.txt linking to XML sitemap (disabled by default, see [Hugo docs](https://gohugo.io/extras/robots-txt/))
-- Basic support for [multi-lingual content](https://gohugo.io/content-management/multilingual/) (added in Hugo 0.17) and user interface translation (i18n)
+- Basic support for [multi-lingual content](https://gohugo.io/content-management/multilingual/) (added in Hugo 0.17) and user interface translation (i18n), including RTL languages like Arabic and Farsi
 - Supports Google, Bing, and Yandex site verification via meta tags
-- Supports Google Analytics (async version), see [Hugo docs](https://gohugo.io/extras/analytics/)
+- Supports GDPR-compliant Google Analytics (script is not even loaded until *after* the user agrees) with configurable consent banner, see [`exampleSite/config.toml`](https://github.com/alanorth/hugo-theme-bootstrap4-blog/blob/master/exampleSite/config.toml)
 - Supports Disqus comments, see [Hugo docs](https://gohugo.io/extras/comments/)
-- Can show a message about cookie usage to the user, see [`exampleSite/config.toml`](https://github.com/alanorth/hugo-theme-bootstrap4-blog/blob/master/exampleSite/config.toml)
-- Allow addition of custom `<head>` code in site's `layouts/partial/head-custom.html` (see [#17](https://github.com/alanorth/hugo-theme-bootstrap4-blog/pull/17))
+- Allow addition of custom `<head>` code in site's `layouts/partials/head-custom.html` (see [#17](https://github.com/alanorth/hugo-theme-bootstrap4-blog/pull/17))
 - Configurable display of summaries of content in list templates.
-- configurable keywords for every post
+- Configurable keywords for every post
+- Supports automatic generation of `<img>` srcsets for images in [page bundles](https://gohugo.io/content-management/page-bundles/) using a [new figure shortcode]https://cpbotha.net/2020/05/02/drop-in-replacement-for-hugo-figure-shortcode-with-responsive-img-srcset/) (falls back to default Hugo behavior of looking up images in the static directory)
 
 ## Usage
 Clone the repository to your site's `themes` directory. Refer to [`exampleSite/config.toml`](https://github.com/alanorth/hugo-theme-bootstrap4-blog/blob/master/exampleSite/config.toml) for recommended configuration values.
@@ -38,7 +38,7 @@ A few suggestions to help you get a good looking site quickly:
 See the source code and structure of [picturingjordan.com](https://github.com/alanorth/picturingjordan.com) to get more ideas.
 
 ## Building (For Developers)
-This theme uses the [Bootstrap](https://getbootstrap.com/) framework. A static version of this is already included, but if you want to bump the version, tweak the style, etc, you'll need to rebuild the assets. Make sure you have NodeJS >= v6 installed, and then run the following from inside the theme's directory:
+This theme uses the [Bootstrap](https://getbootstrap.com/) framework. A static version of this is already included, but if you want to bump the version, tweak the style, etc, you'll need to rebuild the assets. Make sure you have NodeJS >= v10 installed, and then run the following from inside the theme's directory:
 
 ```console
 $ npm install
@@ -53,6 +53,4 @@ There are several ways to help with the development of the theme:
 - Fork [the repository](https://github.com/alanorth/hugo-theme-bootstrap4-blog) on GitHub, add features on a "feature" branch like `update-bootstrap`, and then send a [pull request](https://github.com/alanorth/hugo-theme-bootstrap4-blog/compare) with your changes
 
 ## License
-This repository contains the code of [Bootstrap](http://getbootstrap.com), which is licensed under the [MIT license](https://tldrlegal.com/license/mit-license), and [Font Awesome](http://fontawesome.io/), which uses [various licenses](http://fontawesome.io/license/).
-
-Otherwise, the contents are [GPLv3](https://www.gnu.org/licenses/gpl-3.0.txt).
+This repository contains SASS and HTML code from the [Bootstrap](https://getbootstrap.com) project, which is licensed under the [MIT license](https://tldrlegal.com/license/mit-license) and [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/), and [Font Awesome](https://fontawesome.com/), which uses [various licenses](https://fontawesome.com/license/).

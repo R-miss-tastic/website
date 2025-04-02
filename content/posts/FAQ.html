@@ -1,0 +1,221 @@
+---
+output: md_document
+date: 2021-04-18
+author: "R-miss-tastic"
+slug: faq
+title: "FAQ"
+categories: []
+tags: []
+description: ''
+---
+
+
+
+<p align="justify">
+When it comes to analyses with missing values, some questions are raised regularely during classes or seminars. We try to list the most popular questions with some elements of response. If you have another question related to the handling of missing values, feel free to contact us via the <a href="/contact/">Contact form</a>.
+</p>
+<!--more-->
+<p align="justify">
+Click on a question to see the answer.
+</p>
+<div class="container card-group">
+<input class="form-control" id="accordion_search_bar" onkeyup="filterFunction()" type="text" placeholder="Keyword search.. (e.g. imputation)">
+</br>
+<div id="accordion" aria-multiselectable="true">
+<pre><code>&lt;div class=&quot;card mb-2&quot; id=&quot;faq01_container&quot;&gt;
+  &lt;div class=&quot;card-header bg-light text-dark&quot; role=&quot;tab&quot; id=&quot;h_faq01&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#faq01&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;faq01&quot;&gt;
+    &lt;i&gt;How to handle missing values in the validation or test set? Is it better to impute test and training set simultaneously, or separately?&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;faq01&quot; class=&quot;collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;faq01&quot; data-parent=&quot;#accordion&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;
+      &lt;p align=&quot;justify&quot; style=&quot;margin-left:15px;&quot;&gt;For prediction tasks, the same imputation model has to be used for training and test set. However this is not always possible when imputing with some blackbox imputation function that does not allow for specification of a given imputation model. (&lt;i&gt;JJ&lt;/i&gt;)&lt;/p&gt;
+      &lt;p align=&quot;justify&quot; style=&quot;margin-left:15px;&quot;&gt;See &lt;a href=&quot;https://arxiv.org/abs/1902.06931&quot; target=&quot;_blank&quot;&gt;this recent article&lt;/a&gt; for a discussion of this topic and &lt;a href=&quot;https://www.youtube.com/watch?v=z8IuuDe5oXs&amp;t=19s&quot; target=&quot;_blank&quot;&gt;this video&lt;/a&gt; of a keynote at the useR! 2019 conference on the same subject.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card mb-2&quot; id=&quot;faq02_container&quot;&gt;
+  &lt;div class=&quot;card-header bg-light text-dark&quot; role=&quot;tab&quot; id=&quot;h_faq02&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#faq02&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;faq02&quot;&gt;
+    &lt;i&gt;What percentage of missingness is large? Can we impute 90% of missingness using multiple imputation given that some thousands of imputed datasets are generated?&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;faq02&quot; class=&quot;collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;faq02&quot; data-parent=&quot;#accordion&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;
+      &lt;p align=&quot;justify&quot; style=&quot;margin-left:15px;&quot;&gt;The question of the percentage of missing data is one of the most frequent questions from users. We are often asked:&lt;i&gt;if I have 30% NA, is that too much? and 40%, etc.?&lt;/i&gt;&lt;/p&gt;
+      &lt;p align=&quot;justify&quot; style=&quot;margin-left:15px;&quot;&gt;It is not only the percentage of missing data that counts, but also the structure of the data. A simple example to understand this point is a data set with 100 variables that are all identical, so the correlation between these variables is 1. Even with 80% missing data, many imputation techniques will be able to perfectly predict the missing values. Therefore, the variability associated with the prediction will be zero. It is also possible to have a data set, where the information is very unstructured and therefore even a very small percentage of missing data can completely destroy the links between the variables.&lt;/p&gt;
+      &lt;p align=&quot;justify&quot; style=&quot;margin-left:15px;&quot;&gt;Of course, we do not know &lt;i&gt;a priori&lt;/i&gt; the structure of the data. This is why it is imperative, with missing data, to consider the notions of variability and confidence in the results. Multiple imputation, for example, reflects the prediction variance of missing data. A first way to assess the impact of missing data is to use visualization tools to visualize the different imputed values. Then, of course, the size of the confidence intervals will be a good indicator. (&lt;i&gt;JJ&lt;/i&gt;)&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card mb-2&quot; id=&quot;faq03_container&quot;&gt;
+  &lt;div class=&quot;card-header bg-light text-dark&quot; role=&quot;tab&quot; id=&quot;h_faq03&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#faq03&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;faq03&quot;&gt;
+    &lt;i&gt;K-NN is another method in estimating/imputing missing values; do you think this method can be used for every kind of data?&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;faq03&quot; class=&quot;collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;faq03&quot; data-parent=&quot;#accordion&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;
+      &lt;p align=&quot;justify&quot; style=&quot;margin-left:15px;&quot;&gt;The idea of imputing from a closer neighbour is a sensible strategy. The problem here is not only missing data but the problem of k-NN for large dimensional datasets with heterogeneous variables (quantitative, categorical, etc). It is necessary to have an appropriate distance to take into account the mixed nature of the data and possibly reduce the size before computing the distances, so for many data sets it is not immediate to apply a k-NN algorithm for imputation. (&lt;i&gt;JJ&lt;/i&gt;)&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card mb-2&quot; id=&quot;faq04_container&quot;&gt;
+  &lt;div class=&quot;card-header bg-light text-dark&quot; role=&quot;tab&quot; id=&quot;h_faq04&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#faq04&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;faq04&quot;&gt;
+    &lt;i&gt;Are there tools that help you in the decision making process which imputation method to use based on the structure of your data?&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;faq04&quot; class=&quot;collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;faq04&quot; data-parent=&quot;#accordion&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;
+      &lt;p align=&quot;justify&quot; style=&quot;margin-left:15px;&quot;&gt;It always depends on the objective: If we only want to impute and therefore best predict missing values, we can always do cross-validation (add missing cells to the data, predict with different techniques and select the method that gives the smallest prediction error). Afterwards you can also be guided through theoretical arguments. I impute a lot of my data with dimension reduction techniques (low-rank approximation), because it is quite plausible to think that a lot of data can be well approximated by matrices of low rank. (&lt;i&gt;JJ&lt;/i&gt;)&lt;/p&gt;
+      &lt;p align=&quot;justify&quot; style=&quot;margin-left:15px;&quot;&gt;Here is an interesting reference on this topic: &lt;a href=&quot;http://wiki.siam.org/siag-op/images/siag-op/b/bd/ViewsAndNews-27-1.pdf&quot; target=&quot;_blank&quot;&gt;Udell, M. (2019). Big Data is Low Rank. SIAG/OPT Views and News&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card mb-2&quot; id=&quot;faq05_container&quot;&gt;
+  &lt;div class=&quot;card-header bg-light text-dark&quot; role=&quot;tab&quot; id=&quot;h_faq05&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#faq05&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;faq05&quot;&gt;
+    &lt;i&gt;In business, it&#39;s &quot;time is money&quot;. Do you think the benefit of imputation is high enough to take the time consuming effort of imputing even in a one-time-analysis?&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;faq05&quot; class=&quot;collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;faq05&quot; data-parent=&quot;#accordion&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;
+      &lt;p align=&quot;justify&quot; style=&quot;margin-left:15px;&quot;&gt;Yes, definitely! The consequences of not taking into account the missing data can become dramatic very quickly. Even without mentioning underestimation of variance, there can be a significant bias! For example, at the moment I am working on estimating the effect of a treatment and if we do not take into account the missing data, we can say that the treatment kills when it saves. (&lt;i&gt;JJ&lt;/i&gt;)&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card mb-2&quot; id=&quot;faq06_container&quot;&gt;
+  &lt;div class=&quot;card-header bg-light text-dark&quot; role=&quot;tab&quot; id=&quot;h_faq06&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#faq06&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;faq06&quot;&gt;
+    &lt;i&gt;For non specialists, is there any function inside any package that just takes a dataset as argument, and returns the dataset with the best imputations/deletions?&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;faq06&quot; class=&quot;collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;faq06&quot; data-parent=&quot;#accordion&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;
+      &lt;p align=&quot;justify&quot; style=&quot;margin-left:15px;&quot;&gt;There are starting to be first R packages like, &lt;a href=&quot;https://cran.r-project.org/web/packages/missCompare/vignettes/misscompare.html&quot; target=&quot;_blank&quot;&gt;&lt;code&gt;missCompare&lt;/code&gt;&lt;/a&gt;, which allow to compare several imputation methods. There are still a lot of things to fix because all methods have many default settings, etc. But, on the R-miss-tastic platform we will try to put together some workflows that help the user to easily make this type of comparison. (&lt;i&gt;JJ&lt;/i&gt;)&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card mb-2&quot; id=&quot;faq07_container&quot;&gt;
+  &lt;div class=&quot;card-header bg-light text-dark&quot; role=&quot;tab&quot; id=&quot;h_faq07&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#faq07&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;faq07&quot;&gt;
+        &lt;i&gt;When a lot of complete data is still available, would you always suggest imputation considering that (poor) imputation might bias the results?&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;faq07&quot; class=&quot;collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;faq07&quot; data-parent=&quot;#accordion&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;
+      &lt;p align=&quot;justify&quot; style=&quot;margin-left:15px;&quot;&gt;If we have good reason to believe that the missing data are completely at random (MCAR), then yes, with a lot of data, we can work on the complete data because we will have samples that come from the joint distribution of the data. Otherwise, even if we have a lot of data, they represent a sample that is not representative of the population. The classic example is missing income data: if rich or poor people do not disclose their income, it is clear that there is a selection bias in the complete case (MNAR data). But even if it is the young or the elderly who do not give their income and that income and age are very linked, we have the same problem of selection bias (MAR data). (&lt;i&gt;JJ&lt;/i&gt;)&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card mb-2&quot; id=&quot;faq08_container&quot;&gt;
+  &lt;div class=&quot;card-header bg-light text-dark&quot; role=&quot;tab&quot; id=&quot;h_faq08&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#faq08&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;faq08&quot;&gt;
+    &lt;i&gt;If the missingness is informative, what to do if the fact that the variable is missing is more predictive of the outcome than the unobserved value?&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;faq08&quot; class=&quot;collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;faq08&quot; data-parent=&quot;#accordion&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;
+      &lt;p align=&quot;justify&quot; style=&quot;margin-left:15px;&quot;&gt;If having missing data is informative for prediction, we see that having an indicator in your dataset that codes for &lt;i&gt;missing&lt;/i&gt;/&lt;i&gt;not missing&lt;/i&gt; will help because it is seen as an explanatory variable. The &lt;a href=&quot;https://www.sciencedirect.com/science/article/abs/pii/S0167865508000305&quot; target=&quot;_blank&quot;&gt;MIA method (Twala et al. 2008)&lt;/a&gt; for regression trees/random forests allows this to be done. (&lt;i&gt;JJ&lt;/i&gt;)&lt;/p&gt;
+      &lt;p align=&quot;justify&quot; style=&quot;margin-left:15px;&quot;&gt;See also, &lt;a href=&quot;https://arxiv.org/pdf/1902.06931.pdf&quot; target=&quot;_blank&quot;&gt;Josse et al. (2019)&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card mb-2&quot; id=&quot;faq09_container&quot;&gt;
+  &lt;div class=&quot;card-header bg-light text-dark&quot; role=&quot;tab&quot; id=&quot;h_faq09&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#faq09&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;faq09&quot;&gt;
+    &lt;i&gt;What do you suggest doing if you suspect that data is actually missing not at random? Are there any available options or can&#39;t we run any analysis?&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;faq09&quot; class=&quot;collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;faq09&quot; data-parent=&quot;#accordion&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;
+      &lt;p align=&quot;justify&quot; style=&quot;margin-left:15px;&quot;&gt;Yes, there are solutions that consist in modelling the mechanism of missing data, often this requires having a fairly strong prior on the parametric form of the distribution of missing data. But the practical solutions are still quite limited. There is a series of new approaches based on graphical and causal models that can be used to address missing MNAR data without modeling the mechanism and that offer new solutions but the solutions are still limited to simple models such as the linear model. See for instance &lt;a href=&quot;https://ftp.cs.ucla.edu/pub/stat_ser/r473-L.pdf&quot; target=&quot;_blank&quot;&gt;Mohan and Pearl (2019)&lt;/a&gt;. (&lt;i&gt;JJ&lt;/i&gt;)&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card mb-2&quot; id=&quot;faq10_container&quot;&gt;
+  &lt;div class=&quot;card-header bg-light text-dark&quot; role=&quot;tab&quot; id=&quot;h_faq10&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#faq10&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;faq10&quot;&gt;
+    &lt;i&gt;Do we have widely accepted combination rules after multiple imputation for p-values?&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;faq10&quot; class=&quot;collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;faq10&quot; data-parent=&quot;#accordion&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;
+      &lt;p align=&quot;justify&quot; style=&quot;margin-left:15px;&quot;&gt;I would tend to say no, but that is to be checked. What is certain is that Rubin&#39;s aggregation rules are not suitable for many quantities and that there is still a lot of research to be done on the subject. (&lt;i&gt;JJ&lt;/i&gt;)&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card mb-2&quot; id=&quot;faq11_container&quot;&gt;
+  &lt;div class=&quot;card-header bg-light text-dark&quot; role=&quot;tab&quot; id=&quot;h_faq11&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#faq11&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;faq11&quot;&gt;
+    &lt;i&gt;How to avoid missing values in hierarchical features (for instance a series of interdependent questions in a survey)?&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;faq11&quot; class=&quot;collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;faq11&quot; data-parent=&quot;#accordion&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;
+      &lt;p align=&quot;justify&quot; style=&quot;margin-left:15px;&quot;&gt;You simply need to create a single variable with different categories, encoding the different series of possible answers.&lt;/p&gt;&lt;p style=&quot;margin-left:15px;&quot;&gt;For example, &lt;br&gt;&lt;p style=&quot;margin-left:25px;&quot;&gt;&lt;i&gt;(1) Do you have a bank account? Yes/No&lt;/i&gt;&lt;/p&gt;&lt;p style=&quot;margin-left:25px;&quot;&gt;&lt;i&gt;(2) If yes to (1): How many bank accounts do you have, &lt;5 or &gt;5?&lt;/i&gt;&lt;/p&gt;&lt;p style=&quot;margin-left:25px;&quot;&gt;&lt;i&gt;(3) If &gt;5: what is the total value? If &lt;5, what is the value of account 1 to 5?&lt;/i&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot; style=&quot;margin-left:15px;&quot;&gt;will be coded in &lt;b&gt;one&lt;/b&gt; variable with the following categories: &lt;i&gt;Yes &gt;5_1&lt;/i&gt;, &lt;i&gt;Yes &gt;5_2&lt;/i&gt;, &lt;i&gt;Yes &gt;5_3&lt;/i&gt;, &lt;i&gt;Yes &gt;5_4&lt;/i&gt;, &lt;i&gt;Yes &gt;5_5&lt;/i&gt;, &lt;i&gt;Yes &lt;5&lt;/i&gt; and &lt;i&gt;No&lt;/i&gt;. (&lt;i&gt;JJ&lt;/i&gt;)&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;card mb-2&quot; id=&quot;faq12_container&quot;&gt;
+  &lt;div class=&quot;card-header bg-light text-dark&quot; role=&quot;tab&quot; id=&quot;h_faq12&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#faq12&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;faq12&quot;&gt;
+    &lt;i&gt;If you have a learner powerful enough to recognise encoded missing values, shouldn&#39;t it be able to recognise NA without resorting to recoding?&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;faq12&quot; class=&quot;collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;faq12&quot; data-parent=&quot;#accordion&quot;&gt;
+    &lt;div class=&quot;card-body&quot;&gt;
+      &lt;p align=&quot;justify&quot; style=&quot;margin-left:15px;&quot;&gt;(Question relative to &lt;a href=&quot;https://arxiv.org/pdf/1902.06931.pdf&quot; target=&quot;_blank&quot;&gt;(Josse et al. 2019)&lt;/a&gt;)&lt;/p&gt;
+      &lt;p align=&quot;justify&quot; style=&quot;margin-left:15px;&quot;&gt;Yes, that&#39;s the point. We do a recoding, just because the implementations of most methods stop when they see the &lt;code&gt;NA&lt;/code&gt; symbol for missing. They don&#39;t take it as a code. (&lt;i&gt;JJ&lt;/i&gt;)&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+<style type="text/css">
+.card>.card-header {
+  bottom-margin: 50px;
+}
+
+.card>.card-header {
+  color: #333;
+  background-color: #fff;
+  border-color: #e4e5e7;
+  padding: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.card>.card-header {
+  display: block;
+  padding: 5px 5px;
+}
+.card>.card-body {
+  padding: 10px 10px;
+  margin-left: 0px;
+}
+.card>.card-header a:after {
+  content: "";
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  float: right;
+  transition: transform .25s linear;
+  -webkit-transition: -webkit-transform .25s linear;
+}
+</style>
+<script type="text/javascript">
+function filterFunction() {
+  var input, filter, cards, cardContainer, keep_card, card_titles,  i, j;
+
+  input = document.getElementById("accordion_search_bar");
+  filter = input.value.toUpperCase();
+  cardContainer = document.getElementById("accordion");
+  cards = cardContainer.getElementsByClassName("card");
+  for (i = 0; i < cards.length; i++) {
+    //We will switch keep_card to true if we find search text in badge or title
+    keep_card = false;
+    //querySelectorAll returns all elements of a.badge. querySelector returns only the first element
+    card_titles = cards[i].querySelectorAll(".card-header");
+
+    //You must loop through all card titles.
+    for(j = 0; j < card_titles.length; j++) {
+        if (card_titles[j].innerText.toUpperCase().indexOf(filter) > -1) {
+            //Found search text, now lets switch keep_card on
+            keep_card = true;
+            //No need for further looping, we found the card, there we break loop
+            break;
+        }
+    }
+    if(keep_card) {
+        cards[i].style.display = "";
+    } else {
+        cards[i].style.display = "none";
+    }
+  }
+}
+</script>

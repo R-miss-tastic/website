@@ -1,7 +1,7 @@
 ---
 author: Imke Mayer
 date: '2019-07-01'
-slug: missmda
+slug: missMDA
 categories: []
 tags: []
 description: ''
@@ -12,7 +12,7 @@ description: ''
 missMDA
 
 ##### Category:
-Single and multiple imputation
+Single and Multiple Imputation
 
 ##### Use-Cases:
 Imputation of incomplete continuous, categorical or mixed datasets, ...

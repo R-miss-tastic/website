@@ -10,7 +10,7 @@ theme = "hugo-theme-bootstrap4-blog"
 tags = ["missing values", "missing data", "imputation", "R", "incomplete data", "rmisstastic", "rmiss"]
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "\\.knit\\.md$", "\\.utf8\\.md$", "_cache$"]
 # number of posts to show on home/category/tag pages (Default: 10)
-paginate = 4
+paginate = 2
 # optionally override the site's footer with custom copyright text
 # copyright = "Except where otherwise noted, content on this site is licensed under a [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/)."
 
@@ -72,10 +72,10 @@ paginate = 4
 
   [params.sidebar]
     # Optional about block for sidebar (can be Markdown)
-     about = "This website is sponsored by R Consortium and maintained by [Julie Josse](http://juliejosse.com), [Imke Mayer](https://www.imkemayer.com), [Aude Sportisse](https://AudeSportisse.github.io/), [Nicholas Tierney](https://www.njtierney.com) and [Nathalie Vialaneix](http://www.nathalievialaneix.eu).<br><br>[Article on arXiv →](https://arxiv.org/abs/1908.04822)<br>[Read more →](/posts/intro/)<br>[FAQ →](/posts/faq/)"
+     about = "This website is sponsored by R Consortium and maintained by [Julie Josse](http://juliejosse.com), [Imke Mayer](https://www.imkemayer.com), [Aude Sportisse](https://AudeSportisse.github.io/), [Nicholas Tierney](https://www.njtierney.com) and [Nathalie Vialaneix](http://www.nathalievialaneix.eu).<br><br>[Article on HAL →](https://hal.science/hal-02879337v3)<br>[Read more →](/posts/intro/)<br>[FAQ →](/posts/faq/)"
 
     # How many posts to show on the sidebar (Default: 5)
-    # num_recent_posts = 3
+    # num_recent_posts = 5
 
   [params.social]
     # Optional, used for attribution in Twitter cards (ideally not a person
