@@ -1,6 +1,6 @@
 # Hugo variables
 #
-baseurl = "https://rmisstastic.netlify.app/"
+baseurl = "https://rmisstastic-dev.netlify.app/"
 
 googleAnalytics = "UA-146921644-1"
 
