@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased Changes
+### Updated
+- Bootstrap v4.6.0, webpack v5, haven 0.7.0, clean-css-cli, etc
+- Use Node.js 14 in CI, remove Node.js 12
+
+## Added
+- Support for Bootstrap table classes (#145)
+- i18n language keys for Danish (@schack, #146)
+
+## Fixed
+- Deprecations from Hugo (DisqusShortname and GoogleAnalytics)
+
 ## [[ 1.6.0 ]] - 2020-12-05
 ### Changed
 - Migrate to dart sass from node-sass (see [LibSass is Deprecated](https://sass-lang.com/blog/libsass-is-deprecated))
@@ -22,7 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [[1.5.0]] - 2020-05-17
 ### Updated
-- i18n language keys for German (#dermellor, #131)
+- i18n language keys for German (@dermellor, #131)
 - Boostrap v4.5.0
 - Minor version bump for webpack, node-sass, and fontawesome
 

@@ -1,4 +1,4 @@
-# Hugo Bootstrap v4 Blog [![Build Status](https://travis-ci.org/alanorth/hugo-theme-bootstrap4-blog.svg?branch=master)](https://travis-ci.org/alanorth/hugo-theme-bootstrap4-blog) [![builds.sr.ht status](https://builds.sr.ht/~alanorth/hugo-theme-bootstrap4-blog.svg)](https://builds.sr.ht/~alanorth/hugo-theme-bootstrap4-blog?)
+# Hugo Bootstrap v4 Blog [![Build Status](https://ci.mjanja.ch/api/badges/alanorth/hugo-theme-bootstrap4-blog/status.svg)](https://ci.mjanja.ch/alanorth/hugo-theme-bootstrap4-blog) [![builds.sr.ht status](https://builds.sr.ht/~alanorth/hugo-theme-bootstrap4-blog.svg)](https://builds.sr.ht/~alanorth/hugo-theme-bootstrap4-blog?)
 A simple but opinionated [Hugo](https://gohugo.io) theme geared towards blog-style content. Based on the older two-column [Bootstrap blog example](https://v4-alpha.getbootstrap.com/examples/blog/) that was used for several Bootstrap versions, but has now been retired in favor of a "snarky" (their words) new example as of version [4.0.0's final release](https://blog.getbootstrap.com/2018/01/18/bootstrap-4/).
 
 ![Screenshot](https://raw.githubusercontent.com/alanorth/hugo-theme-bootstrap4-blog/master/screenshot.png "Screenshot")
@@ -18,7 +18,7 @@ See [picturingjordan.com](https://picturingjordan.com) for an example of this th
 - Allow addition of custom `<head>` code in site's `layouts/partials/head-custom.html` (see [#17](https://github.com/alanorth/hugo-theme-bootstrap4-blog/pull/17))
 - Configurable display of summaries of content in list templates.
 - Configurable keywords for every post
-- Supports automatic generation of `<img>` srcsets for images in [page bundles](https://gohugo.io/content-management/page-bundles/) using a [new figure shortcode]https://cpbotha.net/2020/05/02/drop-in-replacement-for-hugo-figure-shortcode-with-responsive-img-srcset/) (falls back to default Hugo behavior of looking up images in the static directory)
+- Supports automatic generation of `<img>` srcsets for images in [page bundles](https://gohugo.io/content-management/page-bundles/) using a [new figure shortcode](https://cpbotha.net/2020/05/02/drop-in-replacement-for-hugo-figure-shortcode-with-responsive-img-srcset/) (falls back to default Hugo behavior of looking up images in the static directory)
 
 ## Usage
 Clone the repository to your site's `themes` directory. Refer to [`exampleSite/config.toml`](https://github.com/alanorth/hugo-theme-bootstrap4-blog/blob/master/exampleSite/config.toml) for recommended configuration values.
@@ -38,7 +38,7 @@ A few suggestions to help you get a good looking site quickly:
 See the source code and structure of [picturingjordan.com](https://github.com/alanorth/picturingjordan.com) to get more ideas.
 
 ## Building (For Developers)
-This theme uses the [Bootstrap](https://getbootstrap.com/) framework. A static version of this is already included, but if you want to bump the version, tweak the style, etc, you'll need to rebuild the assets. Make sure you have NodeJS >= v10 installed, and then run the following from inside the theme's directory:
+This theme uses the [Bootstrap](https://getbootstrap.com/) framework. A static version of this is already included, but if you want to bump the version, tweak the style, etc, you'll need to rebuild the assets. Make sure you have Node.js >= v14 installed, and then run the following from inside the theme's directory:
 
 ```console
 $ npm install

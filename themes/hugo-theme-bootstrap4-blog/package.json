@@ -7,8 +7,8 @@
     "url": "https://github.com/alanorth/hugo-theme-bootstrap4-blog.git"
   },
   "scripts": {
-    "build:css": "sass --style expanded source/scss/style.scss assets/css/style.css.tmp && cleancss --level 1 assets/css/style.css.tmp -o assets/css/style.css",
-    "build:rtlcss": "rtlcss -s assets/css/style.css.tmp assets/css/style.rtl.css.tmp && cleancss --level 1 assets/css/style.rtl.css.tmp -o assets/css/style.rtl.css",
+    "build:css": "sass --style expanded source/scss/style.scss assets/css/style.css.tmp && cleancss -O1 assets/css/style.css.tmp -o assets/css/style.css",
+    "build:rtlcss": "rtlcss -s assets/css/style.css.tmp assets/css/style.rtl.css.tmp && cleancss -O1 assets/css/style.rtl.css.tmp -o assets/css/style.rtl.css",
     "build:cookieconsent": "cp node_modules/@chiiya/haven/dist/haven.umd.min.js assets/js",
     "build:js": "webpack",
     "build": "npm run build:css && npm run build:rtlcss && npm run build:js && npm run build:cookieconsent && npm run clean",
@@ -18,15 +18,14 @@
   "author": "Alan Orth",
   "license": "CC-BY-3.0",
   "devDependencies": {
-    "@chiiya/haven": "^0.6.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.32",
-    "@fortawesome/free-brands-svg-icons": "^5.15.1",
-    "@fortawesome/free-solid-svg-icons": "^5.15.1",
-    "bootstrap": "^4.5.3",
-    "clean-css-cli": "^4.3.0",
-    "rtlcss": "^2.6.1",
-    "sass": "^1.29.0",
-    "webpack": "^5.4.0",
-    "webpack-cli": "^3.3.12"
+    "@chiiya/haven": "^0.7.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-brands-svg-icons": "^5.15.2",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "bootstrap": "^4.6.0",
+    "clean-css-cli": "^5.4.1",
+    "rtlcss": "^3.3.0",
+    "sass": "^1.43.2",
+    "webpack-cli": "^4.9.1"
   }
 }
