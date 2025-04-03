@@ -3,6 +3,5 @@
   command = "hugo --gc --minify"
 
 [build.environment]
-  HUGO_VERSION = "0.145.0"
   HUGO_THEME = "hugo-theme-bootstrap4-blog"
   HUGO_ENABLEGITINFO = "true"
