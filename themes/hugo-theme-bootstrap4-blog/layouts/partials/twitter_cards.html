@@ -32,10 +32,10 @@ See: https://github.com/gohugoio/hugo/issues/5078
 {{- end }}
 <meta name="twitter:title" content="{{ .Title }}"/>
 <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}"/>
-{{ with .Site.Social.twitter -}}
+{{ with .Site.Params.Social.twitter -}}
 <meta name="twitter:site" content="@{{ . }}"/>
 {{ end -}}
-{{ range .Site.Authors }}
+{{ range .Site.Params.Authors }}
 {{ with .twitter -}}
 <meta name="twitter:creator" content="@{{ . }}"/>
 {{ end -}}
