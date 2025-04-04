@@ -13,7 +13,7 @@ imputomics
 author: Michał Burdukiewicz, Krystyna Grzesiak, Jarosław Chilimoniuk, Jakub Kołodziejczyk, Dominik Nowakowski 
 
 ##### Category:
-Single and Multiple Imputation
+Single and Multiple Imputation, Metabolomics, Left-Censored Missing Data
 
 ##### Use-Cases:
 Imputation for 'omics' data, Imputation for left-censored data.
