@@ -1,13 +1,14 @@
 ---
 output: md_document
 author: "Imke Mayer"
-date: 2018-10-24
+date: 2025-04-04
 linktitle: Bibliography
-weight: 3
 menu: navbar
+title: Bibliography
 name: Bibliography
 identifier: "Bibliography"
 url: /bibliography/
+weight: 3
 ---
 
 
@@ -17,7 +18,7 @@ On this platform we attempt to give you an overview of main references on missin
 </p>
 <p><a href="/bibliography/biblio_complete/"><b>See here for a full (and uncommented) list of references.</b></a></p>
 <p align="justify">
-Inspired by <a href="https://cran.r-project.org/web/views/MissingData.html" target="_blank"><b>CRAN Task View on Missing Data</b></a> and a <a href="http://journal-sfds.fr/article/view/681" target="_blank">review</a> of Imbert &amp; Vialaneix on handling missing values (2018, written in French) we organized our selection of relevant references on missing values by different topics.
+Inspired by <a href="https://cran.r-project.org/web/views/MissingData.html" target="_blank"><b>CRAN Task View on Missing Data</b></a> and a <a href="https://hal.inrae.fr/hal-02618033v1/document" target="_blank">review</a> of Imbert &amp; Vialaneix on handling missing values (2020, written in French) we organized our selection of relevant references on missing values by different topics.
 </p>
 <div class="container">
 <div class="accordion-option">
@@ -26,7 +27,8 @@ Inspired by <a href="https://cran.r-project.org/web/views/MissingData.html" targ
 <div class="clearfix">
 
 </div>
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+<div id="accordion" class="panel-group" role="tablist" aria-multiselectable="true">
+<!------------------------- INTRODUCTION ------------------------->
 <div class="panel panel-default">
 <div id="h_notations" class="panel-heading" role="tab">
 <h4 class="panel-title">
@@ -57,9 +59,9 @@ The observed and missing parts of <span class="math inline">\(X\)</span> are den
 <br>
 </div>
 </div>
-</div>
-<!-- --------------------------------------------------------------------------------------------------------------------------- --></li>
+</div></li>
 </ul>
+<!------------------------- GENERAL REFERENCES and REVIEWS ------------------------->
 <div class="panel panel-default">
 <div id="h_general" class="panel-heading" role="tab">
 <h4 class="panel-title">
@@ -150,8 +152,7 @@ Conference papers (1)
 </div>
 </div>
 <!-- Reports, theses, etc. -->
-<br>
-<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<p><br></p>
 <p align="justify">
 If you are rather new to the subject and wish to start with less formal and more application-based introductions or if you look for general high-level advices on handling missing data we suggest the following publications:
 </p>
@@ -220,7 +221,7 @@ Furthermore you can have a look at the following statistical journals which regu
 </div>
 </div>
 </div>
-<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<!------------------------- WEIGHTING METHODS ------------------------->
 <div class="panel panel-default">
 <div id="h_weighting" class="panel-heading" role="tab">
 <h4 class="panel-title">
@@ -233,9 +234,7 @@ Furthermore you can have a look at the following statistical journals which regu
 The first intuitive and probably most applied solution in data analyses to deal with missing values is to delete the partial observations and to work excusively on the individuals with complete information. This has several drawbacks, among others it introduces an estimation bias in most cases (more precisely in cases where the missingness is not independent of the data). In order to reduce this bias one can reweight the complete observations to compensate for the deletion of incomplete individuals in the dataset. The weights are defined by inverse probabilities, for instance the inverse of the probability for each individual of being fully observed. This method is known as <em>inverse probability weighting</em> and is described in detail in the publications below. We split the references in two parts: handling missing values in survey data and performing causal inference in the presence of missing values, both requiring the use of weighting methods.
 </p>
 </br>
-<!-- --------------------------------------------------------------------------------------------------------------------------- -->
 <font size="+1"><b> For survey data analysis</b></font>
-<!-- --------------------------------------------------------------------------------------------------------------------------- -->
 <p align="justify">
 Such weighting methods are widely used on survey data in order to correct for unbalanced sampling fractions by balancing the empirical distributions of the observed covariates to recover the structure of the target population.
 </p>
@@ -289,9 +288,7 @@ Journal articles (9)
 <!-- Conference papers -->
 <!-- Reports, theses, etc. -->
 </br>
-<!-- --------------------------------------------------------------------------------------------------------------------------- -->
 <font size="+1"><b>Methods in common with causal inference</b></font>
-<!-- --------------------------------------------------------------------------------------------------------------------------- -->
 <p align="justify">
 Inverse probability weighting is also considered in causal inference: A bias is induced by the presence of confounders, i.e. variables which interact with both covariates and outcome. Hence, if the goal is to estimate causal relationships between covariates and outcome it is necessary to account for the potential effect of confounders – a selection bias – on the result of causal inference.
 </p>
@@ -365,15 +362,17 @@ Conference papers (1)
 </div>
 </div>
 </div>
-<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<!------------------------- IMPUTATION - ALL ------------------------->
 <div class="panel panel-default">
-<div id="h_knn" class="panel-heading" role="tab">
+<div id="h_imp" class="panel-heading" role="tab">
 <h4 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#knn" aria-expanded="false" aria-controls="knn">Hot-deck and kNN approaches</a>
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="#imp" aria-expanded="false" aria-controls="imp">Imputation</a>
 </h4>
 </div>
-<div id="knn" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_knn">
+<div id="imp" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_imp">
 <div class="panel-body">
+<!-- Hot deck and KNN-->
+<p><font size="+1"><b>Hot-deck and KNN approaches</b></font></p>
 <p align="justify">
 Let <span class="math inline">\(x_i\)</span> be an observation with missing values, e.g. each entry of <span class="math inline">\(x_i\)</span> could be the temperature at a certain day for one given place and unfortunately for some days the temperature was not measured. An intuitive idea to replace this missing information could be: take other observations <span class="math inline">\(\{x_j\}_j\)</span> which are similar to <span class="math inline">\(x_i\)</span> at the observed values and use this information to <em>fill in</em> the gaps. This idea of taking observed values from <em>neighbours</em> or <em>donors</em> based on some similarity measure is implemented in the so-called <em>hot-deck</em> and <em>k-nearest-neighbors</em> (kNN) approaches.
 </p>
@@ -419,208 +418,8 @@ Journal articles (7)
 <!-- Conference papers -->
 <!-- Reports, theses, etc. -->
 <p><br></p>
-</div>
-</div>
-</div>
-<!-- --------------------------------------------------------------------------------------------------------------------------- -->
-<div class="panel panel-default">
-<div id="h_ml" class="panel-heading" role="tab">
-<h4 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#ml" aria-expanded="false" aria-controls="ml">Inference with missing values</a>
-</h4>
-</div>
-<div id="ml" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_ml">
-<div class="panel-body">
-<p align="justify">
-The most popular approach to deal with missing values for statistical inference tasks is likelihood-based approaches that can deal with incomplete data. More precisely, if the missingness mechanism is ignorable (in a certain sense that is explained in the <em>Missing values mechanisms</em> section) then one can attempt to infer the model parameters by maximizing the likelihood on the observed values. When the mechanism cannot be ignored, then a specific model for it needs to be assumed.
-The main algorithm available for performing maximum likelihood estimation (ML) with missing values, is the <em>Expectation Maximization</em> (EM) algorithm. This algorithm requires the knowledge of the joint distribution of <span class="math inline">\(X = (X_{obs}, X_{mis})\)</span> and its implementation is not straightforward since it involves integrals which cannot always be computed easily. Once the model parameters are estimated, one can impute the missing values using this estimated information on the data model.
-</p>
-<p align="justify">
-And there exist also other methods that allow for statistical inference with missing values and that are not using likelihood maximization.
-</p>
-<!-- Books and book chapters -->
-<div class="container">
-<button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#ml_books">
-Books and book chapters (1)
-</button>
-<div id="ml_books" class="collapse">
-<ul>
-<li><pref><cite>McLachlan, G. J. and T. Krishnan. <em><font color="#428bca">The EM Algorithm and Extensions</font></em>. Wiley series in probability and statistics. Hoboken, NJ, USA: Wiley, 2008. ISBN: 9780471201700.</cite></pref></li>
-</ul>
-</div>
-</div>
-<!-- Journal articles -->
-<div class="container">
-<button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#ml_journals">
-Journal articles (23)
-</button>
-<div id="ml_journals" class="collapse">
-<ul>
-<li><pref><cite>Collins, L. M., J. L. Schafer, and K. Chi-Ming. <font color="#428bca">A comparison of inclusive and restrictive strategies in modern missing data procedures</font>. In: <em>Psychological Methods</em> 6.4 (2007), pp. 330-351.</cite></pref>
-<div>
-<a href="https://doi.org/10.1037/1082-989X.6.4.330" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Enders, C. K. <font color="#428bca">A primer on maximum likelihood algorithms available for use with missing data</font>. In: <em>Structural Equation Modeling</em> 8.1 (2001), pp. 128-141.</cite></pref>
-<div>
-<a href="https://doi.org/10.1207/S15328007SEM0801_7" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Finkbeiner, C. <font color="#428bca">Estimation for the multiple factor model when data are missing</font>. In: <em>Psychometrika</em> 44.4 (1979), pp. 409-420.</cite></pref>
-<div>
-<a href="https://doi.org/10.1007/BF02296204" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Golden, R. M., S. S. Henley, H. White, et al. <font color="#428bca">Consequences of model misspecification for maximum likelihood estimation with missing data</font>. In: <em>Econometrics</em> 7.3 (2019), p. 37.</cite></pref>
-<div>
-<a href="https://doi.org/10.3390/econometrics7030037" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Ibrahim, J. G., M. Chen, and S. R. Lipsitz. <font color="#428bca">Missing responses in generalised linear mixed models when the missing data mechanism is nonignorable</font>. In: <em>Biometrika</em> 88.2 (2001), pp. 551-564.</cite></pref>
-<div>
-<a href="https://doi.org/10.1093/biomet/88.2.551" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Ibrahim, J. G., S. R. Lipsitz, and M. Chen. <font color="#428bca">Missing Covariates in Generalized Linear Models When the Missing Data Mechanism is Non-Ignorable</font>. In: <em>Journal of the Royal Statistical Society</em>. Series B (Statistical Methodology) 61.1 (1999), pp. 173-190.</cite></pref>
-<div>
-<a href="https://doi.org/10.1111/1467-9868.00170" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a><a href="http://www.jstor.org/stable/2680744" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
-</div></li>
-<li><pref><cite>Jiang, W., J. Josse, and M. Lavielle. <font color="#428bca">Logistic Regression with Missing Covariates–Parameter Estimation, Model Selection and Prediction</font>. In: <em>arXiv preprint</em> (2018). arXiv: 1805.04602 [stat.ME].</cite></pref></li>
-<li><pref><cite>Jones, M. P. <font color="#428bca">Indicator and Stratification Methods for Missing Explanatory Variables in Multiple Linear Regression</font>. In: <em>Journal of the American Statistical Association</em> 91.433 (1996), pp. 222-230.</cite></pref>
-<div>
-<a href="https://doi.org/10.1080/01621459.1996.10476680" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Little, R. J. A. <font color="#428bca">Regression with missing X’s: a review</font>. In: <em>Journal of the American Statistical Association</em> 87.420 (1992), pp. 1227-1237.</cite></pref>
-<div>
-<a href="https://doi.org/10.2307/2290664" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Louis, T. A. <font color="#428bca">Finding the Observed Information Matrix when Using the EM Algorithm</font>. In: <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 44.2 (1982), pp. 226–233.</cite></pref>
-<div>
-<a href="http://www.jstor.org/stable/2345828" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
-</div></li>
-<li><pref><cite>Lüdtke, O., A. Robitzsch, and S. G. West. <font color="#428bca">Regression models involving nonlinear effects with missing data: A sequential modeling approach using Bayesian estimation.</font> In: <em>Psychological methods</em> (2019).</cite></pref>
-<div>
-<a href="https://doi.org/10.1037/met0000233" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Meng, S. L. and D. B. Rubin. <font color="#428bca">Maximum likelihood estimation via the ECM algorithm: a general framework</font>. In: <em>Biometrika</em> 80.2 (1993), pp. 267-278.</cite></pref>
-<div>
-<a href="https://doi.org/10.1093/biomet/80.2.267" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Meng, X. L. and D. B. Rubin. <font color="#428bca">Using EM to obtain asymptotic variance-covariance matrices: the SEM algorithm</font>. In: <em>Journal of the American Statistical Association</em> 86.416 (1991), pp. 899-909.</cite></pref>
-<div>
-<a href="https://doi.org/10.1080/01621459.1991.10475130" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Rosseel, Y. <font color="#428bca">lavaan: an R package for structural equation modeling</font>. In: <em>Journal of Statistical Software</em> 48.2 (2012).</cite></pref>
-<div>
-<a href="https://doi.org/10.18637/jss.v048.i02" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Rubin, D. B. <font color="#428bca">Inference and missing data</font>. In: <em>Biometrika</em> 63.3 (1976), pp. 581-592.</cite></pref>
-<div>
-<a href="https://doi.org/10.1093/biomet/63.3.581" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Stubbendick, A. L. and J. G. Ibrahim. <font color="#428bca">Maximum Likelihood Methods for Nonignorable Missing Responses and Covariates in Random Effects Models</font>. In: <em>Biometrics</em> 59.4 (2003), pp. 1140–1150.</cite></pref>
-<div>
-<a href="https://doi.org/10.1111/j.0006-341X.2003.00131.x" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Stubbendick, A. L. and J. G. Ibrahim. <font color="#428bca">Likelihood-based inference with nonignorable missing responses and covariates in models for discrete longitudinal data</font>. In: <em>Statistica Sinica</em> 16.4 (2006), pp. 1143–1167.</cite></pref>
-<div>
-<a href="https://www.jstor.org/stable/24307781" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
-</div></li>
-<li><pref><cite>Tabouy, T., P. Barbillon, and J. Chiquet. <font color="#428bca">Variational inference for stochastic block models from sampled data</font>. In: <em>Journal of the American Statistical Association</em> 115.529 (2020), pp. 455–466.</cite></pref>
-<div>
-<a href="https://doi.org/https://doi.org/10.1080/01621459.2018.1562934" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Tchetgen Tchetgen, E. J., L. Wang, and B. Sun. <font color="#428bca">Discrete choice models for nonmonotone nonignorable missing data: identification and inference</font>. In: <em>Statistica Sinica</em> 28.4 (2018), pp. 2069–2088.</cite></pref>
-<div>
-<a href="https://doi.org/10.5705/ss.202016.0325" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Xue, F. and A. Qu. <font color="#428bca">Integrating multi-source block-wise missing data in model selection</font>. In: <em>Journal of the American Statistical Association</em> (2020), pp. 1–36.</cite></pref>
-<div>
-<a href="https://doi.org/10.1080/01621459.2020.1751176" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Zhao, Y. <font color="#428bca">Statistical inference for missing data mechanisms</font>. In: <em>Statistics in Medicine</em> 39.28 (2020), pp. 4325–4333.</cite></pref>
-<div>
-<a href="https://doi.org/10.1002/sim.8727" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Zhao, J. and Y. Ma. <font color="#428bca">A versatile estimation procedure without estimating the nonignorable missingness mechanism</font>. In: <em>Journal of the American Statistical Association</em> (2021), pp. 1–15.</cite></pref>
-<div>
-<a href="https://doi.org/10.1080/01621459.2021.1893176" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Zhou, Y., R. J. A. Little, and J. D. Kalbfleisch. <font color="#428bca">Block-conditional missing at random models for missing data</font>. In: <em>Statistical Science</em> 25.4 (2010), pp. 517–532.</cite></pref>
-<div>
-<a href="https://doi.org/10.1214/10-STS344" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-</ul>
-</div>
-</div>
-<!-- Conference papers -->
-<!-- Reports, theses, etc. -->
-<div class="container">
-<button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#ml_misc">
-Reports, theses, etc. (1)
-</button>
-<div id="ml_misc" class="collapse">
-<ul>
-<li><pref><cite>Londschien, M., S. Kovács, and P. Bühlmann. <em><font color="#428bca">Change point detection for graphical models in presence of missing values</font></em>. 2019. arXiv: 1907.05409 [stat.ML].</cite></pref></li>
-</ul>
-</div>
-</div>
-<p><br></p>
-<p><font size="+1"><b>Regression</b></font></p>
-<p align="justify">
-There is a vast literature on how to perform (linear) regression, possibly in high dimensional setting, in presence of missing values in the covariates. This can be seen as a particular case of supervised learning, which is presented below even if the focus is often more on estimating parameters or selecting relevant variables.
-</p>
-<!-- Books and book chapters -->
-<!-- Journal articles -->
-<div class="container">
-<button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#regr_journals">
-Journal articles (5)
-</button>
-<div id="regr_journals" class="collapse">
-<ul>
-<li><pref><cite>Jiang, W., M. Bogdan, J. Josse, et al. <font color="#428bca">Adaptive Bayesian SLOPE–High-dimensional Model Selection with Missing Values</font>. In: <em>arXiv preprint</em> (2019).</cite></pref>
-<div>
-<a href="https://arxiv.org/abs/1907.10867" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
-</div></li>
-<li><pref><cite>Golden, R. M., S. S. Henley, H. White, et al. <font color="#428bca">Consequences of model misspecification for maximum likelihood estimation with missing data</font>. In: <em>Econometrics</em> 7.3 (2019), p. 37.</cite></pref>
-<div>
-<a href="https://doi.org/10.3390/econometrics7030037" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Jiang, W., J. Josse, and M. Lavielle. <font color="#428bca">Logistic Regression with Missing Covariates–Parameter Estimation, Model Selection and Prediction</font>. In: <em>arXiv preprint</em> (2018). arXiv: 1805.04602 [stat.ME].</cite></pref></li>
-<li><pref><cite>Jones, M. P. <font color="#428bca">Indicator and Stratification Methods for Missing Explanatory Variables in Multiple Linear Regression</font>. In: <em>Journal of the American Statistical Association</em> 91.433 (1996), pp. 222-230.</cite></pref>
-<div>
-<a href="https://doi.org/10.1080/01621459.1996.10476680" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Lüdtke, O., A. Robitzsch, and S. G. West. <font color="#428bca">Regression models involving nonlinear effects with missing data: A sequential modeling approach using Bayesian estimation.</font> In: <em>Psychological methods</em> (2019).</cite></pref>
-<div>
-<a href="https://doi.org/10.1037/met0000233" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-</ul>
-</div>
-</div>
-<!-- Conference papers -->
-<div class="container">
-<button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#regr_conf">
-Conference papers (1)
-</button>
-<div id="regr_conf" class="collapse">
-<ul>
-<li><pref><cite>Loh, P. and M. J. Wainwright. <font color="#428bca">High-dimensional regression with noisy and missing data: Provable guarantees with non-convexity</font>. In: <em>Advances in Neural Information Processing Systems</em>. Ed. by J. Shawe-Taylor, R. Zemel, P. Bartlett, F. Pereira and K. Q. Weinberger. Vol. 24. Curran Associates, Inc., 2011, pp. 2726–2734.</cite></pref>
-<div>
-<a href="https://proceedings.neurips.cc/paper/2011/file/ab541d874c7bc19ab77642849e02b89f-Paper.pdf" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
-</div></li>
-</ul>
-</div>
-</div>
-<!-- Reports, theses, etc. -->
-<p><br></p>
-</div>
-</div>
-</div>
-<!-- --------------------------------------------------------------------------------------------------------------------------- -->
-<div class="panel panel-default">
-<div id="h_imp" class="panel-heading" role="tab">
-<h4 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#imp" aria-expanded="false" aria-controls="imp">Single imputation</a>
-</h4>
-</div>
-<div id="imp" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_imp">
-<div class="panel-body">
+<!-- Hot deck and KNN-->
+<p><font size="+1"><b>Single-Imputation</b></font></p>
 <p align="justify">
 In the previously mentioned EM algorithm there is in fact an implicit step called <em>imputation</em>: imputing a missing value means replacing it with a <em>plausible</em> one. The definition of <em>plausibility</em> is not stated explicitly but can be deduced from the used method to <em>fill in</em> the gaps, for instance one could choose to replace all missing values of a certain variable <span class="math inline">\(X_j\)</span> by the average observed value <span class="math inline">\(\frac{1}{n_{obs,j}}\sum_{i} x_{ij}\mathbb{1}_{\{x_{ij} \, is\, observed\}}\)</span>, where <span class="math inline">\(n_{obs,j} = \sum_{i} \mathbb{1}_{\{x_{ij} \, is\, observed\}}\)</span>. The interest of imputation is manifold: (1) it allows to use all information in the sample (instead of deleting incomplete observations which leads to a decreasing power in the statistical analysis), (2) if there is sufficient data, i.e. sufficient observations, then the imputation can be very accurate and this assures good quality of future statistical analyses and (3) the imputed dataset is a complete dataset and one can apply standard statistical inference methods. The latter however has to be treated with caution since it implies that in the statistical analysis one does not make any distinction between observed values and imputed values anymore. We will come back to this issue in the next section on <em>multiple imputation</em>.
 </p>
@@ -833,18 +632,7 @@ Reports, theses, etc. (1)
 </div>
 </div>
 <p><br></p>
-</div>
-</div>
-</div>
-<!-- --------------------------------------------------------------------------------------------------------------------------- -->
-<div class="panel panel-default">
-<div id="h_mi" class="panel-heading" role="tab">
-<h4 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#mi" aria-expanded="false" aria-controls="mi">Multiple imputation</a>
-</h4>
-</div>
-<div id="mi" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_mi">
-<div class="panel-body">
+<p><font size="+1"><b>Multiple Imputation</b></font></p>
 <p align="justify">
 A major drawback of single imputation, i.e. where every missing value is replaced by a single most plausible value, consists in the underestimation of the overall variance of the data and inferred parameters. Indeed, by replacing every missing value by a given <em>plausible</em> one and by applying generic statistical methods on the completed dataset, one makes no difference between initially observed and unobserved data anymore. Therefore the variability due to the uncertainty of the missing values is not reflected in future statistical analyses which treat the dataset as if it had been fully observed from the beginning. A nice and conceptually simple workaround for this problem is <em>multiple imputation</em>: instead of generating a single complete dataset by a given imputation method one imputes every missing value by several possible values. Statistical analysis is then applied on each of the imputed datasets and the resulting estimations are aggregated and used to estimate the sample variance and the variance due to the uncertainty in the missing values.
 </p>
@@ -1017,15 +805,195 @@ Conference papers (2)
 </div>
 </div>
 </div>
-<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<!------------------------- (UN)SUPERVISED ------------------------->
 <div class="panel panel-default">
-<div id="h_tree_dl" class="panel-heading" role="tab">
+<div id="h_sup" class="panel-heading" role="tab">
 <h4 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#tree_dl" aria-expanded="false" aria-controls="tree_dl">Machine Learning</a>
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="#sup" aria-expanded="false" aria-controls="sup">Supervised Learning</a>
 </h4>
 </div>
-<div id="tree_dl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_tree_dl">
+<div id="sup" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_sup">
 <div class="panel-body">
+<p><font size="+1"><b>Inference with missing values</b></font></p>
+<p align="justify">
+The most popular approach to deal with missing values for statistical inference tasks is likelihood-based approaches that can deal with incomplete data. More precisely, if the missingness mechanism is ignorable (in a certain sense that is explained in the <em>Missing values mechanisms</em> section) then one can attempt to infer the model parameters by maximizing the likelihood on the observed values. When the mechanism cannot be ignored, then a specific model for it needs to be assumed.
+The main algorithm available for performing maximum likelihood estimation (ML) with missing values, is the <em>Expectation Maximization</em> (EM) algorithm. This algorithm requires the knowledge of the joint distribution of <span class="math inline">\(X = (X_{obs}, X_{mis})\)</span> and its implementation is not straightforward since it involves integrals which cannot always be computed easily. Once the model parameters are estimated, one can impute the missing values using this estimated information on the data model.
+</p>
+<p align="justify">
+And there exist also other methods that allow for statistical inference with missing values and that are not using likelihood maximization.
+</p>
+<!-- Books and book chapters -->
+<div class="container">
+<button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#ml_books">
+Books and book chapters (1)
+</button>
+<div id="ml_books" class="collapse">
+<ul>
+<li><pref><cite>McLachlan, G. J. and T. Krishnan. <em><font color="#428bca">The EM Algorithm and Extensions</font></em>. Wiley series in probability and statistics. Hoboken, NJ, USA: Wiley, 2008. ISBN: 9780471201700.</cite></pref></li>
+</ul>
+</div>
+</div>
+<!-- Journal articles -->
+<div class="container">
+<button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#ml_journals">
+Journal articles (23)
+</button>
+<div id="ml_journals" class="collapse">
+<ul>
+<li><pref><cite>Collins, L. M., J. L. Schafer, and K. Chi-Ming. <font color="#428bca">A comparison of inclusive and restrictive strategies in modern missing data procedures</font>. In: <em>Psychological Methods</em> 6.4 (2007), pp. 330-351.</cite></pref>
+<div>
+<a href="https://doi.org/10.1037/1082-989X.6.4.330" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Enders, C. K. <font color="#428bca">A primer on maximum likelihood algorithms available for use with missing data</font>. In: <em>Structural Equation Modeling</em> 8.1 (2001), pp. 128-141.</cite></pref>
+<div>
+<a href="https://doi.org/10.1207/S15328007SEM0801_7" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Finkbeiner, C. <font color="#428bca">Estimation for the multiple factor model when data are missing</font>. In: <em>Psychometrika</em> 44.4 (1979), pp. 409-420.</cite></pref>
+<div>
+<a href="https://doi.org/10.1007/BF02296204" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Golden, R. M., S. S. Henley, H. White, et al. <font color="#428bca">Consequences of model misspecification for maximum likelihood estimation with missing data</font>. In: <em>Econometrics</em> 7.3 (2019), p. 37.</cite></pref>
+<div>
+<a href="https://doi.org/10.3390/econometrics7030037" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Ibrahim, J. G., M. Chen, and S. R. Lipsitz. <font color="#428bca">Missing responses in generalised linear mixed models when the missing data mechanism is nonignorable</font>. In: <em>Biometrika</em> 88.2 (2001), pp. 551-564.</cite></pref>
+<div>
+<a href="https://doi.org/10.1093/biomet/88.2.551" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Ibrahim, J. G., S. R. Lipsitz, and M. Chen. <font color="#428bca">Missing Covariates in Generalized Linear Models When the Missing Data Mechanism is Non-Ignorable</font>. In: <em>Journal of the Royal Statistical Society</em>. Series B (Statistical Methodology) 61.1 (1999), pp. 173-190.</cite></pref>
+<div>
+<a href="https://doi.org/10.1111/1467-9868.00170" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a><a href="http://www.jstor.org/stable/2680744" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
+</div></li>
+<li><pref><cite>Jiang, W., J. Josse, and M. Lavielle. <font color="#428bca">Logistic Regression with Missing Covariates–Parameter Estimation, Model Selection and Prediction</font>. In: <em>arXiv preprint</em> (2018). arXiv: 1805.04602 [stat.ME].</cite></pref></li>
+<li><pref><cite>Jones, M. P. <font color="#428bca">Indicator and Stratification Methods for Missing Explanatory Variables in Multiple Linear Regression</font>. In: <em>Journal of the American Statistical Association</em> 91.433 (1996), pp. 222-230.</cite></pref>
+<div>
+<a href="https://doi.org/10.1080/01621459.1996.10476680" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Little, R. J. A. <font color="#428bca">Regression with missing X’s: a review</font>. In: <em>Journal of the American Statistical Association</em> 87.420 (1992), pp. 1227-1237.</cite></pref>
+<div>
+<a href="https://doi.org/10.2307/2290664" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Louis, T. A. <font color="#428bca">Finding the Observed Information Matrix when Using the EM Algorithm</font>. In: <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 44.2 (1982), pp. 226–233.</cite></pref>
+<div>
+<a href="http://www.jstor.org/stable/2345828" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
+</div></li>
+<li><pref><cite>Lüdtke, O., A. Robitzsch, and S. G. West. <font color="#428bca">Regression models involving nonlinear effects with missing data: A sequential modeling approach using Bayesian estimation.</font> In: <em>Psychological methods</em> (2019).</cite></pref>
+<div>
+<a href="https://doi.org/10.1037/met0000233" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Meng, S. L. and D. B. Rubin. <font color="#428bca">Maximum likelihood estimation via the ECM algorithm: a general framework</font>. In: <em>Biometrika</em> 80.2 (1993), pp. 267-278.</cite></pref>
+<div>
+<a href="https://doi.org/10.1093/biomet/80.2.267" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Meng, X. L. and D. B. Rubin. <font color="#428bca">Using EM to obtain asymptotic variance-covariance matrices: the SEM algorithm</font>. In: <em>Journal of the American Statistical Association</em> 86.416 (1991), pp. 899-909.</cite></pref>
+<div>
+<a href="https://doi.org/10.1080/01621459.1991.10475130" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Rosseel, Y. <font color="#428bca">lavaan: an R package for structural equation modeling</font>. In: <em>Journal of Statistical Software</em> 48.2 (2012).</cite></pref>
+<div>
+<a href="https://doi.org/10.18637/jss.v048.i02" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Rubin, D. B. <font color="#428bca">Inference and missing data</font>. In: <em>Biometrika</em> 63.3 (1976), pp. 581-592.</cite></pref>
+<div>
+<a href="https://doi.org/10.1093/biomet/63.3.581" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Stubbendick, A. L. and J. G. Ibrahim. <font color="#428bca">Maximum Likelihood Methods for Nonignorable Missing Responses and Covariates in Random Effects Models</font>. In: <em>Biometrics</em> 59.4 (2003), pp. 1140–1150.</cite></pref>
+<div>
+<a href="https://doi.org/10.1111/j.0006-341X.2003.00131.x" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Stubbendick, A. L. and J. G. Ibrahim. <font color="#428bca">Likelihood-based inference with nonignorable missing responses and covariates in models for discrete longitudinal data</font>. In: <em>Statistica Sinica</em> 16.4 (2006), pp. 1143–1167.</cite></pref>
+<div>
+<a href="https://www.jstor.org/stable/24307781" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
+</div></li>
+<li><pref><cite>Tabouy, T., P. Barbillon, and J. Chiquet. <font color="#428bca">Variational inference for stochastic block models from sampled data</font>. In: <em>Journal of the American Statistical Association</em> 115.529 (2020), pp. 455–466.</cite></pref>
+<div>
+<a href="https://doi.org/https://doi.org/10.1080/01621459.2018.1562934" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Tchetgen Tchetgen, E. J., L. Wang, and B. Sun. <font color="#428bca">Discrete choice models for nonmonotone nonignorable missing data: identification and inference</font>. In: <em>Statistica Sinica</em> 28.4 (2018), pp. 2069–2088.</cite></pref>
+<div>
+<a href="https://doi.org/10.5705/ss.202016.0325" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Xue, F. and A. Qu. <font color="#428bca">Integrating multi-source block-wise missing data in model selection</font>. In: <em>Journal of the American Statistical Association</em> (2020), pp. 1–36.</cite></pref>
+<div>
+<a href="https://doi.org/10.1080/01621459.2020.1751176" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Zhao, Y. <font color="#428bca">Statistical inference for missing data mechanisms</font>. In: <em>Statistics in Medicine</em> 39.28 (2020), pp. 4325–4333.</cite></pref>
+<div>
+<a href="https://doi.org/10.1002/sim.8727" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Zhao, J. and Y. Ma. <font color="#428bca">A versatile estimation procedure without estimating the nonignorable missingness mechanism</font>. In: <em>Journal of the American Statistical Association</em> (2021), pp. 1–15.</cite></pref>
+<div>
+<a href="https://doi.org/10.1080/01621459.2021.1893176" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Zhou, Y., R. J. A. Little, and J. D. Kalbfleisch. <font color="#428bca">Block-conditional missing at random models for missing data</font>. In: <em>Statistical Science</em> 25.4 (2010), pp. 517–532.</cite></pref>
+<div>
+<a href="https://doi.org/10.1214/10-STS344" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+</ul>
+</div>
+</div>
+<!-- Conference papers -->
+<!-- Reports, theses, etc. -->
+<div class="container">
+<button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#ml_misc">
+Reports, theses, etc. (1)
+</button>
+<div id="ml_misc" class="collapse">
+<ul>
+<li><pref><cite>Londschien, M., S. Kovács, and P. Bühlmann. <em><font color="#428bca">Change point detection for graphical models in presence of missing values</font></em>. 2019. arXiv: 1907.05409 [stat.ML].</cite></pref></li>
+</ul>
+</div>
+</div>
+<p><br></p>
+<p><font size="+1"><b>Regression</b></font></p>
+<p align="justify">
+There is a vast literature on how to perform (linear) regression, possibly in high dimensional setting, in presence of missing values in the covariates. This can be seen as a particular case of supervised learning, which is presented below even if the focus is often more on estimating parameters or selecting relevant variables.
+</p>
+<!-- Books and book chapters -->
+<!-- Journal articles -->
+<div class="container">
+<button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#regr_journals">
+Journal articles (5)
+</button>
+<div id="regr_journals" class="collapse">
+<ul>
+<li><pref><cite>Jiang, W., M. Bogdan, J. Josse, et al. <font color="#428bca">Adaptive Bayesian SLOPE–High-dimensional Model Selection with Missing Values</font>. In: <em>arXiv preprint</em> (2019).</cite></pref>
+<div>
+<a href="https://arxiv.org/abs/1907.10867" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
+</div></li>
+<li><pref><cite>Golden, R. M., S. S. Henley, H. White, et al. <font color="#428bca">Consequences of model misspecification for maximum likelihood estimation with missing data</font>. In: <em>Econometrics</em> 7.3 (2019), p. 37.</cite></pref>
+<div>
+<a href="https://doi.org/10.3390/econometrics7030037" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Jiang, W., J. Josse, and M. Lavielle. <font color="#428bca">Logistic Regression with Missing Covariates–Parameter Estimation, Model Selection and Prediction</font>. In: <em>arXiv preprint</em> (2018). arXiv: 1805.04602 [stat.ME].</cite></pref></li>
+<li><pref><cite>Jones, M. P. <font color="#428bca">Indicator and Stratification Methods for Missing Explanatory Variables in Multiple Linear Regression</font>. In: <em>Journal of the American Statistical Association</em> 91.433 (1996), pp. 222-230.</cite></pref>
+<div>
+<a href="https://doi.org/10.1080/01621459.1996.10476680" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Lüdtke, O., A. Robitzsch, and S. G. West. <font color="#428bca">Regression models involving nonlinear effects with missing data: A sequential modeling approach using Bayesian estimation.</font> In: <em>Psychological methods</em> (2019).</cite></pref>
+<div>
+<a href="https://doi.org/10.1037/met0000233" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+</ul>
+</div>
+</div>
+<!-- Conference papers -->
+<div class="container">
+<button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#regr_conf">
+Conference papers (1)
+</button>
+<div id="regr_conf" class="collapse">
+<ul>
+<li><pref><cite>Loh, P. and M. J. Wainwright. <font color="#428bca">High-dimensional regression with noisy and missing data: Provable guarantees with non-convexity</font>. In: <em>Advances in Neural Information Processing Systems</em>. Ed. by J. Shawe-Taylor, R. Zemel, P. Bartlett, F. Pereira and K. Q. Weinberger. Vol. 24. Curran Associates, Inc., 2011, pp. 2726–2734.</cite></pref>
+<div>
+<a href="https://proceedings.neurips.cc/paper/2011/file/ab541d874c7bc19ab77642849e02b89f-Paper.pdf" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
+</div></li>
+</ul>
+</div>
+</div>
+<!-- Reports, theses, etc. -->
+<p><br></p>
+<p><font size="+1"><b>Machine Learning</b></font></p>
 <p align="justify">
 The field of machine learning being dependent on the availability of (good) training data, it is – in most real-world applications – necessarily facing the issue of missing data. Hence there has been an increasing attention to how to handle missing data, in the features and the output, in order to <em>learn</em> accurately from the data.
 </p>
@@ -1265,7 +1233,7 @@ Conference papers (11)
 <div>
 <a href="http://papers.nips.cc/paper/1126-recurrent-neural-networks-for-missing-or-asynchronous-data.pdf" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
 </div></li>
-<li><pref><cite>Biessmann, F., D. Salinas, S. Schelter, et al. <font color="#428bca">“Deep” Learning for Missing Value Imputation in Tables with Non-Numerical Data</font>. In: <em>Proceedings of the 27th ACM International Conference on Information and Knowledge Management</em>. Ed. by -. CIKM ’18. Torino, Italy: ACM, 2018, pp. 2017–2025. ISBN: 978-1-4503-6014-2.</cite></pref>
+<li><pref><cite>Biessmann, F., D. Salinas, S. Schelter, et al. <font color="#428bca">Deep Learning for Missing Value Imputation in Tables with Non-Numerical Data</font>. In: <em>Proceedings of the 27th ACM International Conference on Information and Knowledge Management</em>. Ed. by -. CIKM ’18. Torino, Italy: ACM, 2018, pp. 2017–2025. ISBN: 978-1-4503-6014-2.</cite></pref>
 <div>
 <a href="https://doi.org/10.1145/3269206.3272005" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a><a href="http://doi.acm.org/10.1145/3269206.3272005" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
 </div></li>
@@ -1323,7 +1291,7 @@ Reports, theses, etc. (1)
 </div>
 </div>
 </div>
-<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<!------------------------- MECHANISMS AND IDENTIFIABILITY ------------------------->
 <div class="panel panel-default">
 <div id="h_mnar" class="panel-heading" role="tab">
 <h4 class="panel-title">
@@ -1496,8 +1464,8 @@ Journal articles (45)
 <div>
 <a href="https://doi.org/10.1109/ACCESS.2019.2891360" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
 </div></li>
-<li><pref><cite>Seaman, S., J. Galati, D. Jackson, et al. <font color="#428bca">What Is Meant by “Missing at Random”?</font> In: <em>Statistical Science</em> 28.2 (2013), pp. 257–268.</cite></pref> <pref><cite>— <font color="#428bca">What Is Meant by" Missing at Random"?</font> In: <em>Statistical Science</em> (2013), pp. 257–268.</cite></pref></li>
-<li><pref><cite>Seaman, S., J. Galati, D. Jackson, et al. <font color="#428bca">What Is Meant by “Missing at Random”?</font> In: <em>Statistical Science</em> 28.2 (2013), pp. 257–268.</cite></pref>
+<li><pref><cite>Seaman, S., J. Galati, D. Jackson, et al. <font color="#428bca">What Is Meant by "Missing at Random"?</font> In: <em>Statistical Science</em> 28.2 (2013), pp. 257–268.</cite></pref> <pref><cite>— <font color="#428bca">What Is Meant by" Missing at Random"?</font> In: <em>Statistical Science</em> (2013), pp. 257–268.</cite></pref></li>
+<li><pref><cite>Seaman, S., J. Galati, D. Jackson, et al. <font color="#428bca">What Is Meant by "Missing at Random"?</font> In: <em>Statistical Science</em> 28.2 (2013), pp. 257–268.</cite></pref>
 <div>
 <a href="https://doi.org/10.2307/43288491" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a><a href="http://www.jstor.org/stable/43288491" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
 </div></li>
@@ -1604,15 +1572,14 @@ Reports, theses, etc. (2)
 </div>
 </div>
 </div>
-</div>
 <div class="accordion-option">
 <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
 </div>
 </div>
 <style type="text/css">
 .panel-group {
-    padding: 0;
-    margin-left: -15px;
+	padding: 0;
+	margin-left: -15px;
 }
 .panel-default>.panel-heading {
   color: #333;
@@ -1684,7 +1651,7 @@ Reports, theses, etc. (2)
   content: "Collapse All";
 }
 </style>
-<script type="text/javascript">
+<script>
 $(document).ready(function() {
   $(".toggle-accordion").on("click", function() {
     var accordionId = $(this).attr("accordion-id"),
@@ -1707,3 +1674,4 @@ $(document).ready(function() {
   };
 });
 </script>
+
