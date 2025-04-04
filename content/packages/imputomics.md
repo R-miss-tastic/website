@@ -1,6 +1,5 @@
 ---
-author: Michał Burdukiewicz, Krystyna Grzesiak, Jarosław Chilimoniuk, Jakub Kołodziejczyk, Dominik Nowakowski
-date: '2024-03-12'
+author: Krystyna Grzesiak
 slug: imputomics
 categories: []
 tags: []
@@ -9,6 +8,9 @@ description: ''
 
 ##### Package: 
 imputomics
+
+##### Authors:
+author: Michał Burdukiewicz, Krystyna Grzesiak, Jarosław Chilimoniuk, Jakub Kołodziejczyk, Dominik Nowakowski 
 
 ##### Category:
 Single and Multiple Imputation

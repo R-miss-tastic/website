@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r PkGList, echo=FALSE, message=FALSE, warning=FALSE}
-pkg_list <- c("imputeTS", "mice", "missForest", "missMDA", "naniar","simputation", "VIM", "Hmisc")
+pkg_list <- c("imputeTS", "mice", "missForest", "missMDA", "naniar","simputation", "VIM", "Hmisc", "imputeLCMD")
 pkg_category <- c("Time-Series Imputation, Visualisations for Missing Data",
                   "Multiple Imputation",
                   "Single Imputation",
@@ -23,7 +23,10 @@ pkg_category <- c("Time-Series Imputation, Visualisations for Missing Data",
                   "Visualisations for Missing Data",
                   "Single Imputation, Meta-Package",
                   "Single Imputation, Visualisations for Missing Data",
-                  "Single and Multiple Imputation, Data Processing")
+                  "Single and Multiple Imputation, Data Processing",
+                  "Left-Censored Missing Data")
+
+
 ```
 
 
@@ -72,7 +75,7 @@ for (ind in seq_along(pkg_list)) {
                        '" alt="CRAN Release" /> <br>',
                        
                        '<a href="/packages/',
-                       pkg_list[ind],
+                       tolower(pkg_list[ind]), 
                        '"> more.. </a>',
                        
                        '</li></br>')

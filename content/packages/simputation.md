@@ -11,6 +11,9 @@ description: ''
 ##### Package: 
 simputation
 
+##### Authors:
+Mark van der Loo [aut, cre]
+
 ##### Category:
 Single Imputation, Meta-Package
 

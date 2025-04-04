@@ -11,6 +11,9 @@ description: ''
 ##### Package: 
 VIM
 
+##### Authors:
+Matthias Templ [aut, cre], Alexander Kowarik ORCID iD [aut], Andreas Alfons [aut], Gregor de Cillia [aut], Bernd Prantner [ctb], Wolfgang Rannetbauer [aut]
+
 ##### Category:
 Single Imputation, Visualisations for Missing Data
 
