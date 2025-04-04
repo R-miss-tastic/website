@@ -167,6 +167,29 @@ Category: Left-Censored Missing Data
 </h6>
 <i class="Description">A collection of functions for left-censored missing data imputation. Left-censoring is a special case of missing not at random (MNAR) mechanism that generates non-responses in proteomics experiments. The package also contains functions to artificially generate peptide/protein expression data (log-transformed) as random draws from a multivariate Gaussian distribution as well as a function to generate missing data (both randomly and non-randomly). For comparison reasons, the package also contains several wrapper functions for the imputation of non-responses that are missing at random. * New functionality has been added: a hybrid method that allows the imputation of missing values in a more complex scenario where the missing data are both MAR and MNAR.</i><br><img src="https://cranlogs.r-pkg.org/badges/imputeLCMD" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/imputeLCMD" alt="CRAN Release" /> <br><a href="/packages/imputelcmd"> more.. </a>
 </li>
+</br>
+<li style="margin: 0px;">
+<h3 class="name">
+missCompare
+</h3>
+<h6 class="Category">
+Category: Single and Multiple Imputation
+</h6>
+<i class="Description">Offers a convenient pipeline to test and compare various missing data
+imputation algorithms on simulated and real data. These include simpler methods, such as mean and median
+imputation and random replacement, but also include more sophisticated algorithms already implemented in popular
+R packages, such as ‘mi’, described by Su et al. (2011) <a href="doi:10.18637/jss.v045.i02" class="uri">doi:10.18637/jss.v045.i02</a>; ‘mice’, described by van Buuren
+and Groothuis-Oudshoorn (2011) <a href="doi:10.18637/jss.v045.i03" class="uri">doi:10.18637/jss.v045.i03</a>; ‘missForest’, described by Stekhoven and Buhlmann (2012)
+<a href="doi:10.1093/bioinformatics/btr597" class="uri">doi:10.1093/bioinformatics/btr597</a>; ‘missMDA’, described by Josse and Husson (2016) <a href="doi:10.18637/jss.v070.i01" class="uri">doi:10.18637/jss.v070.i01</a>; and
+‘pcaMethods’, described by Stacklies et al. (2007) <a href="doi:10.1093/bioinformatics/btm069" class="uri">doi:10.1093/bioinformatics/btm069</a>. The central assumption behind
+‘missCompare’ is that structurally different datasets (e.g. larger datasets with a large number of correlated variables
+vs. smaller datasets with non correlated variables) will benefit differently from different missing data imputation
+algorithms. ‘missCompare’ takes measurements of your dataset and sets up a sandbox to try a curated list of standard and
+sophisticated missing data imputation algorithms and compares them assuming custom missingness patterns.
+‘missCompare’ will also impute your real-life dataset for you after the selection of the best performing algorithm
+in the simulations. The package also provides various post-imputation diagnostics and visualizations to help you
+assess imputation performance. </i><br><img src="https://cranlogs.r-pkg.org/badges/missCompare" alt="CRAN Downloads" /><img src="https://www.r-pkg.org/badges/last-release/missCompare" alt="CRAN Release" /> <br><a href="/packages/misscompare"> more.. </a>
+</li>
 <p></br></p>
 <li style="margin: 0px;">
 <h3 class="name">
