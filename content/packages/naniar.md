@@ -12,7 +12,7 @@ description: ''
 naniar
 
 ##### Authors:
-Nicholas Tierney ORCID iD [aut, cre], Di Cook ORCID iD [aut], Miles McBain ORCID iD [aut], Colin Fay ORCID iD [aut], Mitchell O'Hara-Wild [ctb], Jim Hester [ctb], Luke Smith [ctb], Andrew Heiss ORCID iD [ctb]
+Nicholas Tierney [aut, cre], Di Cook [aut], Miles McBain [aut], Colin Fay [aut], Mitchell O'Hara-Wild [ctb], Jim Hester [ctb], Luke Smith [ctb], Andrew Heiss [ctb]
 
 ##### Category:
 Data Structures, Summaries, and Visualisations for Missing Data
