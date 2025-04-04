@@ -56,6 +56,8 @@ We list some of the most popular R packages and Python libraries that allow to h
 <p>
   <ul class="list">
 ```{r loopRpkG, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+################# cran packages here
+
 for (ind in seq_along(pkg_list)) {
     
   print_text <- paste0('<li style="margin: 0px;">',
@@ -88,6 +90,46 @@ for (ind in seq_along(pkg_list)) {
 
 
 ```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+###### biocinductor packages here
+
+pkg_list <- c("pcaMethods")
+
+pkg_category <- c("Single Imputation")
+
+for (ind in seq_along(pkg_list)) {
+  
+  pkg <- pkg_list[ind]
+  
+  print_text <- paste0('<li style="margin: 0px;">',
+                       '<h3 class="name">',
+                       packageDescription(pkg, fields = "Package"),
+                       '</h3>',
+
+                       '<h6 class="Category">Category: ',
+                       pkg_category[ind],
+                       '</h6>',
+                       
+                       '<i class="Description">',
+                       packageDescription(pkg, fields = "Description"),
+                       '</i><br>',
+
+                       '<img src="https://bioconductor.org/shields/years-in-bioc/',
+                       pkg, '.svg" alt="Bioconductor Build Status" /> <br>',
+                       
+                       '<a href="/packages/',
+                       tolower(pkg_list[ind]), 
+                       '"> more.. </a>',
+                       
+                       '</li></br>')
+  
+  cat(print_text)
+}
+```
+
+
 
 <li style="margin: 0px;">
   <h3 class="name">imputomics</h3>
