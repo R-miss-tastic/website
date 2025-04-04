@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r PkGList, echo=FALSE, message=FALSE, warning=FALSE}
 pkg_list <- c("imputeTS", "mice", "missForest", "missMDA", "naniar", 
               "simputation", "VIM", "Hmisc", "imputeLCMD", "missCompare", 
-              "Amelia", "rrcovNA")  
+              "Amelia", "rrcovNA", "mixgb")  
 pkg_category <- c("Time-Series Imputation, Visualisations for Missing Data",
                   "Multiple Imputation",
                   "Single Imputation",
@@ -29,7 +29,8 @@ pkg_category <- c("Time-Series Imputation, Visualisations for Missing Data",
                   "Left-Censored Missing Data",
                   "Single and Multiple Imputation",
                   "Multiple Imputation",
-                  "Single Imputation, Analysis for Incomplete Data")
+                  "Single Imputation, Analysis for Incomplete Data",
+                  "Multiple Imputation")
 
 ```
 
