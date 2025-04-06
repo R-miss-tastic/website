@@ -270,7 +270,7 @@ create_ref_buttons(selected_refs, c(1), "weight_conf")
 create_ref_buttons(selected_refs, c(0,3,4), "weight_misc")
 ```
 </br>
-<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+
 <font size="+1"><b>Methods in common with causal inference</b></font>
 <!-- --------------------------------------------------------------------------------------------------------------------------- -->
 <p align="justify">Inverse probability weighting is also considered in causal inference: A bias is induced by the presence of confounders, i.e. variables which interact with both covariates and outcome. Hence, if the goal is to estimate causal relationships between covariates and outcome it is necessary to account for the potential effect of confounders -- a selection bias -- on the result of causal inference. 
@@ -701,12 +701,12 @@ create_ref_buttons(selected_refs, c(0,3,4), "dl_misc")
 <div class="panel panel-default">
 <div class="panel-heading" role="tab" id="h_graphical">
 <h4 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#graphical" aria-expanded="false" aria-controls="graphical">Missing Graph Graphical Models</a>
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="#graphical" aria-expanded="false" aria-controls="graphical">Graphical Models for Missing Data</a>
 </h4>
 </div>
 <div id="graphical" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_graphical">
 <div class="panel-body">
-<p align="justify">To be written
+<p align="justify">Graphical models, particularly Directed Acyclic Graphs (DAGs), are used to represent causal relationships and conditional independencies in data. In the context of missing data, missingness graphs (m-graphs) extend these models to incorporate missingness mechanisms explicitly. This allows for the representation of how missingness arises in different variables and how these mechanisms may interact. M-graphs provide a structured framework for understanding and analyzing the dependencies between observed and missing data, offering a formal approach to diagnosing and addressing missing data issues in a variety of applications.
 </p>
 
 ```{r, graphical_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
