@@ -27,7 +27,7 @@ soon on CRAN
 This package contains miceDRF imputation method and tools for measuring imputation performance.
 
 ##### Algorithms:
-- impute_mice_drf(): mice + Distributional Random Forest imputation
+- `impute_mice_drf()` : mice + Distributional Random Forest imputation
 
 ##### Datasets:
 none

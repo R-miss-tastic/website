@@ -31,55 +31,55 @@ Multiple imputation using Fully Conditional Specification (FCS) implemented by t
 )](https://cran.r-project.org/package=mice)
 
 ##### Algorithms:
-- pmm	Predictive mean matching
-- midastouch	Weighted predictive mean matching
-- sample	Random sample from observed values
-- cart	Classification and regression trees
-- rf	Random forest imputations
-- mean	Unconditional mean imputation
-- norm	Bayesian linear regression
-- norm.nob	Linear regression ignoring model error
-- norm.boot	Linear regression using bootstrap
-- norm.predict	Linear regression, predicted values
-- quadratic	Imputation of quadratic terms
-- ri	Random indicator for nonignorable data
-- logreg	Logistic regression
-- logreg.boot	Logistic regression with bootstrap
-- polr	Proportional odds model
-- polyreg	Polytomous logistic regression
-- lda	Linear discriminant analysis
-- 2l.norm	Level-1 normal heteroscedastic
-- 2l.lmer	Level-1 normal homoscedastic, lmer
-- 2l.pan	Level-1 normal homoscedastic, pan
-- 2l.bin	Level-1 logistic, glmer
-- 2lonly.mean	Level-2 class mean
-- 2lonly.norm	Level-2 class normal
-- 2lonly.pmm	Level-2 class predictive mean matching
+- `pmm`	Predictive mean matching
+- `midastouch`	Weighted predictive mean matching
+- `sample`	Random sample from observed values
+- `cart`	Classification and regression trees
+- `rf`	Random forest imputations
+- `mean`	Unconditional mean imputation
+- `norm`	Bayesian linear regression
+- `norm.nob`	Linear regression ignoring model error
+- `norm.boot`	Linear regression using bootstrap
+- `norm.predict`	Linear regression, predicted values
+- `quadratic`	Imputation of quadratic terms
+- `ri`	Random indicator for nonignorable data
+- `logreg`	Logistic regression
+- `logreg.boot`	Logistic regression with bootstrap
+- `polr`	Proportional odds model
+- `polyreg`	Polytomous logistic regression
+- `lda`	Linear discriminant analysis
+- `2l.norm`	Level-1 normal heteroscedastic
+- `2l.lmer`	Level-1 normal homoscedastic, lmer
+- `2l.pan`	Level-1 normal homoscedastic, pan
+- `2l.bin`	Level-1 logistic, glmer
+- `2lonly.mean`	Level-2 class mean
+- `2lonly.norm`	Level-2 class normal
+- `2lonly.pmm`	Level-2 class predictive mean matching
 
 
 ##### Datasets:
-- boys	(Growth of Dutch boys)
-- brandsma (Brandsma school data, Snijders and Bosker, 2012)
-- employee (Employee selection data)
-- fdd	(SE Fireworks disaster data)
-- fdgs	(Fifth Dutch growth study,2009)
-- leiden85	(Leiden 85+ study)
-- mammalsleep	(Mammal sleep data)
-- mgg	(Self-reported and measured BMI)
-- nhanes (NHANES example - all variables numerical)
-- pattern	(Datasets with various missing data patterns)
-- pattern1	(Datasets with various missing data patterns)
-- pattern2	(Datasets with various missing data patterns)
-- pattern3	(Datasets with various missing data patterns)
-- pattern4	(Datasets with various missing data patterns)
-- popmis	(Hox pupil popularity data with missing popularity scores)
-- pops	(Project on preterm and small for gestational age infants)
-- potthoffroy	(Potthoff-Roy data)
-- selfreport	(Self-reported and measured BMI)
-- sleep	Mammal (sleep data)
-- tbc	Terneuzen (birth cohort)
-- walking	Walking (disability data)
-- windspeed	(Subset of Irish wind speed data)
+- `boys`	(Growth of Dutch boys)
+- `brandsma` (Brandsma school data, Snijders and Bosker, 2012)
+- `employee` (Employee selection data)
+- `fdd`	(SE Fireworks disaster data)
+- `fdgs`	(Fifth Dutch growth study,2009)
+- `leiden85`	(Leiden 85+ study)
+- `mammalsleep`	(Mammal sleep data)
+- `mgg`	(Self-reported and measured BMI)
+- `nhanes` (NHANES example - all variables numerical)
+- `pattern`	(Datasets with various missing data patterns)
+- `pattern1`	(Datasets with various missing data patterns)
+- `pattern2`	(Datasets with various missing data patterns)
+- `pattern3`	(Datasets with various missing data patterns)
+- `pattern4`	(Datasets with various missing data patterns)
+- `popmis`	(Hox pupil popularity data with missing popularity scores)
+- `pops`	(Project on preterm and small for gestational age infants)
+- `potthoffroy`	(Potthoff-Roy data)
+- `selfreport`	(Self-reported and measured BMI)
+- `sleep Mammal` (sleep data)
+- `tbc	Terneuzen` (birth cohort)
+- `walking` (disability data)
+- `windspeed`	(Subset of Irish wind speed data)
 
 ##### Further Information:
 - van Buuren, S., Groothuis-Oudshoorn, K. (2011). mice: Multivariate Imputation by Chained Equations in R. Journal of Statistical Software, 45(3), 1–67.
