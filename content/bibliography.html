@@ -18,7 +18,7 @@ On this platform we attempt to give you an overview of main references on missin
 </p>
 <p><a href="/bibliography/biblio_complete/"><b>See here for a full (and uncommented) list of references.</b></a></p>
 <p align="justify">
-Inspired by <a href="https://cran.r-project.org/web/views/MissingData.html" target="_blank"><b>CRAN Task View on Missing Data</b></a> and a <a href="http://journal-sfds.fr/article/view/681" target="_blank">review</a> of Imbert &amp; Vialaneix on handling missing values (2018, written in French) we organized our selection of relevant references on missing values by different topics.
+Inspired by <a href="https://cran.r-project.org/web/views/MissingData.html" target="_blank"><b>CRAN Task View on Missing Data</b></a> and a <a href="https://hal.inrae.fr/hal-02618033" target="_blank">review</a> of Imbert &amp; Vialaneix on handling missing values (2018, written in French) we organized our selection of relevant references on missing values by different topics.
 </p>
 <div class="container">
 <div class="accordion-option">
@@ -1011,7 +1011,7 @@ Conference papers (2)
 <div class="panel panel-default">
 <div id="h_tree_dl" class="panel-heading" role="tab">
 <h4 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#tree_dl" aria-expanded="false" aria-controls="tree_dl">Dowstream tasks</a>
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="#tree_dl" aria-expanded="false" aria-controls="tree_dl">Machine Learning</a>
 </h4>
 </div>
 <div id="tree_dl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_tree_dl">
@@ -1209,46 +1209,25 @@ Reports, theses, etc. (1)
 </div>
 </div>
 <p><br></p>
-<p><font size="+1"><b>Classification</b></font></p>
+<p><font size="+1"><b>Logistic Regression</b></font></p>
 <p align="justify">
-TO BE WRITTEN.
+Logistic regression is a core method in supervised learning, widely used not only for classification but also for estimating class probabilities. This probabilistic output is especially important in applications like medicine, where decisions depend on risk estimates rather than hard class labels. However, the presence of missing values in the covariates poses significant challenges. Unlike linear regression, where missing data techniques are more mature, handling missingness in logistic regression is still a relatively new and active area of research.
 </p>
 <!-- Books and book chapters -->
 <!-- Journal articles -->
 <div class="container">
 <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#algoml_journals">
-Journal articles (4)
+Journal articles (3)
 </button>
 <div id="algoml_journals" class="collapse">
 <ul>
 <li><pref><cite>Verchand, K. A. and A. Montanari. <font color="#428bca">High-dimensional logistic regression with missing data: Imputation, regularization, and universality</font>. In: <em>arXiv preprint arXiv:2410.01093</em> (2024).</cite></pref></li>
 <li><pref><cite>Lobo, A. D. R., A. Ayme, C. Boyer, et al. <font color="#428bca">A primer on linear classification with missing data</font>. In: <em>arXiv preprint arXiv:2405.09196</em> (2024).</cite></pref></li>
-<li><pref><cite>Brinis, S., C. Traina, and A. J. Traina. <font color="#428bca">Hollow-tree: a metric access method for data with missing values</font>. In: <em>Journal of Intelligent Information Systems</em> (2019), pp. 1–28.</cite></pref>
-<div>
-<a href="https://doi.org/10.1007/s10844-019-00567-8" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
 <li><pref><cite>Jiang, W., J. Josse, and M. Lavielle. <font color="#428bca">Logistic Regression with Missing Covariates–Parameter Estimation, Model Selection and Prediction</font>. In: <em>arXiv preprint</em> (2018). arXiv: 1805.04602 [stat.ME].</cite></pref></li>
 </ul>
 </div>
 </div>
 <!-- Conference papers -->
-<div class="container">
-<button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#classification_conf">
-Conference papers (2)
-</button>
-<div id="classification_conf" class="collapse">
-<ul>
-<li><pref><cite>Goodfellow, I., M. Mirza, A. Courville, et al. <font color="#428bca">Multi-Prediction Deep Boltzmann Machines</font>. In: <em>Proceedings of the 26th International Conference on Neural Information Processing Systems</em>. (Dec. 05, 2013-Dec. 10, 2013). Ed. by C. Burges, L. Bottou, M. Welling, Z. Ghahramani and K. Weinberger. Advances in Neural Information Processing Systems 26. Curran Associates, Inc., 2013, pp. 548–556.</cite></pref>
-<div>
-<a href="http://papers.nips.cc/paper/5024-multi-prediction-deep-boltzmann-machines.pdf" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
-</div></li>
-<li><pref><cite>Nowicki, R. K., R. Scherer, and L. Rutkowski. <font color="#428bca">Novel rough neural network for classification with missing data</font>. In: <em>21st International Conference on Methods and Models in Automation and Robotics (MMAR)</em>. (Sep. 29, 2016-Sep. 01, 2016). Ed. by -. IEEE, 2016, pp. 820–825.</cite></pref>
-<div>
-<a href="https://doi.org/10.1109/MMAR.2016.7575243" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-</ul>
-</div>
-</div>
 <!-- Reports, theses, etc. -->
 <p><br></p>
 <p><font size="+1"><b>Deep Learning</b></font></p>
@@ -1779,4 +1758,3 @@ $(document).ready(function() {
   };
 });
 </script>
-
