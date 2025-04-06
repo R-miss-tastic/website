@@ -644,7 +644,7 @@ selected_refs <- select_refs(refs,tags)
 
 <!-- Books and book chapters -->
 ```{r, classification_print_books, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-create_ref_buttons(selected_refs, c(5,6), "algoml_books")
+create_ref_buttons(selected_refs, c(5,6), "classification_books")
 ```
 
 <!-- Journal articles -->
@@ -654,12 +654,12 @@ create_ref_buttons(selected_refs, c(2), "algoml_journals")
 
 <!-- Conference papers -->
 ```{r, classification_print_conf, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-create_ref_buttons(selected_refs, c(1), "algoml_conf")
+create_ref_buttons(selected_refs, c(1), "classification_conf")
 ```
 
 <!-- Reports, theses, etc. -->
 ```{r, classification_print_misc, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-create_ref_buttons(selected_refs, c(0,3,4), "algoml_misc")
+create_ref_buttons(selected_refs, c(0,3,4), "classification_misc")
 ```
 
 <br>
@@ -692,6 +692,46 @@ create_ref_buttons(selected_refs, c(1), "dl_conf")
 <!-- Reports, theses, etc. -->
 ```{r, dl_print_misc, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 create_ref_buttons(selected_refs, c(0,3,4), "dl_misc")
+```
+<br>
+</div>
+</div>
+</div>
+
+<!------------------------- Missing Graph Graphical Models ------------------------->
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="h_graphical">
+<h4 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="#graphical" aria-expanded="false" aria-controls="graphical">Missing Graph Graphical Models</a>
+</h4>
+</div>
+<div id="graphical" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_graphical">
+<div class="panel-body">
+<p align="justify">To be written
+</p>
+```{r, graphical_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+tags <- c("graphical_models")
+selected_refs <- select_refs(refs,tags)
+```
+
+<!-- Books and book chapters -->
+```{r, graphical_print_books, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(5,6), "graphical_books")
+```
+
+<!-- Journal articles -->
+```{r, graphical_print_journal, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(2), "graphical_journals")
+```
+
+<!-- Conference papers -->
+```{r, graphical_print_conf, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(1), "graphical_conf")
+```
+
+<!-- Reports, theses, etc. -->
+```{r, graphical_print_misc, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(0,3,4), "graphical_misc")
 ```
 <br>
 </div>
