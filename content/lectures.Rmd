@@ -35,14 +35,35 @@ weight: 2
 <div class="card">
 <div class="card-header">
 <a class="card-block clearfix" data-toggle="collapse" data-target="#davidian">
-<div class="col-12">Statistical Methods for Analysis With Missing Data<br>-
+<div class="col-12">Going beyond the fear of emptyness to gain consistency.<br>
+<small>
+<p>(Erwan Scornet, 2025)</p>
+</small>
+</div>
+</a>
+</div> <!--class=card-header-->
+<div id="davidian" class="collapse" data-parent="#accordion_general">  
+<div class="card-body">
+<p align="justify" style="margin-left:15px;">This talk explores two common strategies for handling missing data in predictive modeling: "Impute-then-regress" and "Pattern-by-pattern." The "Impute-then-regress" approach imputes missing values before learning from the imputed dataset, offering computational efficiency but potentially inconsistent results, though it can be consistent with non-parametric algorithms. In contrast, the "Pattern-by-pattern" strategy uses a separate predictor for each missing data pattern, ensuring consistency by design, but it is often computationally intractable for large datasets. The talk also examines the behavior of linear models under these strategies, noting their consistency rates and challenges, such as the zero imputation inconsistency and the different convergence rates in high-dimensional settings.
+</p>
+<ul>
+<li><a href="/tutorials/Going_beyond_erwan scornet.pdf"
+target="_blank">Slides</a></li>
+</ul>
+</div> <!--card-body-->
+</div> <!--id=davidian-->
+</div> <!--class=card-->
+<div class="card">
+<div class="card-header">
+<a class="card-block clearfix" data-toggle="collapse" data-target="#davidian">
+<div class="col-12">Statistical Methods for Analysis With Missing Data<br>
 <small>
 <p>(Marie Davidian, course at NC State University, spring 2017)</p>
 </small>
 </div>
 </a>
 </div> <!--class=card-header-->
-<div id="davidian" class="collapse show" data-parent="#accordion_general">  
+<div id="davidian" class="collapse" data-parent="#accordion_general">  
 <div class="card-body">
 <p align="justify" style="margin-left:15px;">This course provides an overview of modern statistical frameworks and methods for analysis in the presence of missing data. Both methodological developments and applications are emphasized. The course provides a foundation in the fundamentals of this area that will prepare to read the current literature and to have broad appreciation the implications of missing data for valid inference. <a href="https://www4.stat.ncsu.edu/~davidian/st790/index.html" target="_blank">Course page</a>.
 </p>
@@ -213,7 +234,7 @@ weight: 2
 </div>
 </a>
 </div> <!--class=card-header-->
-<div id="erler" class="collapse show" data-parent="#accordion_mi">  
+<div id="erler" class="collapse" data-parent="#accordion_mi">  
 <div class="card-body">
 <p align="justify" style="margin-left:15px;">This course is the second part of a <a href="https://www.nihes.com/course/ep16_missing_values_in_clinical_research/" target="_blank">NIHES course on Missing Values in Clinical Research</a> and it focuses on multiple imputation (MI), specifically the fully conditional specification (FCS, MICE), which is often considered the gold standard to handle missing data. A detailed discussion on what MI(CE) does, which assumptions need to be met in order for it to perform well, and alternative imputation approaches for settings where MICE is not optimal are given. The theoretic considerations will be accompanied by demonstrations and short practical sessions in R, and a workflow for doing MI using the R package mice will be proposed, illustrating how to perform (multiple) imputation for cross-sectional and longitudinal data in R.
 </p>
@@ -273,7 +294,7 @@ weight: 2
 </div>
 </a>
 </div>
-<div id="josse" class="collapse show" data-parent="#accordion_pc">  
+<div id="josse" class="collapse" data-parent="#accordion_pc">  
 <div class="card-body">
 <p align="justify" style="margin-left:15px;">This tutorial is part of a master course on statistics with R. It discusses different missing values problems and illustrates them on medical, industrial and ecologial data. It provides a detailed introduction to single and multiple imputation via principal component methods, both in theory and in practice. The practical part illustrates how to perform (multiple) imputation using the R package <code>missMDA</code>.
 </p>
@@ -331,7 +352,7 @@ weight: 2
 </div>
 </a>
 </div>
-<div id="ias2020" class="collapse show" data-parent="#accordion_special">  
+<div id="ias2020" class="collapse" data-parent="#accordion_special">  
 <div class="card-body">
 <p align="justify" style="margin-left:15px;">This keynote talk gives an overview of different approaches for inference and prediction tasks. A striking result for the latter is that the widely-used method of imputing with the mean prior to learning can be consistent.
 </p>
@@ -486,7 +507,7 @@ weight: 2
 <div class="col-12">Missing data visualizations with <code>naniar</code></div>
 </a>
 </div> <!--class=card-header-->
-<div id="visualize" class="collapse show" data-parent="#accordion_practical">  
+<div id="visualize" class="collapse" data-parent="#accordion_practical">  
 <div class="card-body">
 <ul>
 <li><a href="https://cran.r-project.org/web/packages/naniar/vignettes/naniar-visualisation.html" target="_blank"><code>naniar</code> vignette: Missing data visualizations</a>
