@@ -1,29 +1,29 @@
 ---
 output: md_document
 author: "Imke Mayer"
-date: 2025-04-04
+date: 2018-10-24
 linktitle: Bibliography
 menu: navbar
-title: Bibliography
 name: Bibliography
 identifier: "Bibliography"
 url: /bibliography/
 weight: 3
 ---
 
+
 <p align="justify">On this platform we attempt to give you an overview of main references on missing values. We do not claim to gather all available references on the subject but rather to offer a peak into different fields of active research on handling missing values, allowing for an introductory reading as well as a starting point for further bibliographical research.</p>
 
 <a href="/bibliography/biblio_complete/"><b>See here for a full (and uncommented) list of references.</b></a>
 
-<p align="justify"> Inspired by <a href="https://cran.r-project.org/web/views/MissingData.html" target="_blank"><b>CRAN Task View on Missing Data</b></a> and a [review](https://hal.inrae.fr/hal-02618033v1/document){target="_blank"} of Imbert & Vialaneix on handling missing values (2020, written in French) we organized our selection of relevant references on missing values by different topics.
+<p align="justify"> Inspired by <a href="https://cran.r-project.org/web/views/MissingData.html" target="_blank"><b>CRAN Task View on Missing Data</b></a> and a [review](http://journal-sfds.fr/article/view/681){target="_blank"} of Imbert & Vialaneix on handling missing values (2018, written in French) we organized our selection of relevant references on missing values by different topics.
 </p>
+
+
 
 <div class="container">
 <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a></div>
 <div class="clearfix"></div>
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-<!------------------------- INTRODUCTION ------------------------->
 <div class="panel panel-default">
 <div class="panel-heading" role="tab" id="h_notations">
 <h4 class="panel-title">
@@ -44,7 +44,7 @@ weight: 3
 </div>
 </div>
 </div>
-
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
 ```{r, load_refs, echo=FALSE, message=FALSE, warning = FALSE}
   require(dplyr)
   require(RefManageR)
@@ -158,7 +158,6 @@ weight: 3
   }
     
 ```
-<!------------------------- GENERAL REFERENCES and REVIEWS ------------------------->
 <div class="panel panel-default">
 <div class="panel-heading" role="tab" id="h_general">
 <h4 class="panel-title">
@@ -190,7 +189,7 @@ create_ref_buttons(selected_refs, c(1), "gen_conf")
 create_ref_buttons(selected_refs, c(0,3,4), "gen_misc")
 ```
 <br>
-
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
 <p align="justify">If you are rather new to the subject and wish to start with less formal and more application-based introductions or if you look for general high-level advices on handling missing data we suggest the following publications:
 </p>
 ```{r, gen2_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
@@ -229,7 +228,7 @@ create_ref_buttons(selected_refs, c(0,3,4), "gen2_misc")
 </div>
 </div>
 </div>
-<!------------------------- WEIGHTING METHODS ------------------------->
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
 <div class="panel panel-default">
 <div class="panel-heading" role="tab" id="h_weighting">
 <h4 class="panel-title">
@@ -241,7 +240,9 @@ create_ref_buttons(selected_refs, c(0,3,4), "gen2_misc")
 <p align="justify">The first intuitive and probably most applied solution in data analyses to deal with missing values is to delete the partial observations and to work excusively on the individuals with complete information. This has several drawbacks, among others it introduces an estimation bias in most cases (more precisely in cases where the missingness is not independent of the data). In order to reduce this bias one can reweight the complete observations to compensate for the deletion of incomplete individuals in the dataset. The weights are defined by inverse probabilities, for instance the inverse of the probability for each individual of being fully observed. This method is known as _inverse probability weighting_ and is described in detail in the publications below. We split the references in two parts: handling missing values in survey data and performing causal inference in the presence of missing values, both requiring the use of weighting methods.
 </p>
 </br>
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
 <font size="+1"><b> For survey data analysis</b></font>
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
 <p align="justify">Such weighting methods are widely used on survey data in order to correct for unbalanced sampling fractions by balancing the empirical distributions of the observed covariates to recover the structure of the target population.
 </p>
 ```{r, weight_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
@@ -265,7 +266,9 @@ create_ref_buttons(selected_refs, c(1), "weight_conf")
 create_ref_buttons(selected_refs, c(0,3,4), "weight_misc")
 ```
 </br>
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
 <font size="+1"><b>Methods in common with causal inference</b></font>
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
 <p align="justify">Inverse probability weighting is also considered in causal inference: A bias is induced by the presence of confounders, i.e. variables which interact with both covariates and outcome. Hence, if the goal is to estimate causal relationships between covariates and outcome it is necessary to account for the potential effect of confounders -- a selection bias -- on the result of causal inference. 
 </p>
 ```{r, weight2_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
@@ -293,19 +296,15 @@ create_ref_buttons(selected_refs, c(0,3,4), "weight2_misc")
 </div>
 </div>
 
-<!------------------------- IMPUTATION - ALL ------------------------->
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
 <div class="panel panel-default">
-<div class="panel-heading" role="tab" id="h_imp">
+<div class="panel-heading" role="tab" id="h_knn">
 <h4 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#imp" aria-expanded="false" aria-controls="imp">Imputation</a>
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="#knn" aria-expanded="false" aria-controls="knn">Hot-deck and kNN approaches</a>
 </h4>
 </div>
-<div id="imp" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_imp">
+<div id="knn" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_knn">
 <div class="panel-body">
-
-<!-- Hot deck and KNN-->
-<font size="+1"><b>Hot-deck and KNN approaches</b></font>
-
 <p align="justify">Let $x_i$ be an observation with missing values, e.g. each entry of $x_i$ could be the temperature at a certain day for one given place and unfortunately for some days the temperature was not measured. An intuitive idea to replace this missing information could be: take other observations $\{x_j\}_j$ which are similar to $x_i$ at the observed values and use this information to _fill in_ the gaps. This idea of taking observed values from _neighbours_ or _donors_ based on some similarity measure is implemented in the so-called _hot-deck_ and _k-nearest-neighbors_ (kNN) approaches.
 </p>
 ```{r, hot_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
@@ -329,112 +328,18 @@ create_ref_buttons(selected_refs, c(1), "hot_conf")
 create_ref_buttons(selected_refs, c(0,3,4), "hot_misc")
 ```
 <br>
-
-<!-- Hot deck and KNN-->
-<font size="+1"><b>Single-Imputation</b></font>
-
-<p align="justify">In the previously mentioned EM algorithm there is in fact an implicit step called _imputation_: imputing a missing value means replacing it with a _plausible_ one. The definition of _plausibility_ is not stated explicitly but can be deduced from the used method to _fill in_ the gaps, for instance one could choose to replace all missing values of a certain variable $X_j$ by the average observed value $\frac{1}{n_{obs,j}}\sum_{i} x_{ij}\mathbb{1}_{\{x_{ij} \, is\, observed\}}$, where $n_{obs,j} = \sum_{i} \mathbb{1}_{\{x_{ij} \, is\, observed\}}$. The interest of imputation is manifold: (1) it allows to use all information in the sample (instead of deleting incomplete observations which leads to a decreasing power in the statistical analysis), (2) if there is sufficient data, i.e. sufficient observations, then the imputation can be very accurate and this assures good quality of future statistical analyses and (3) the imputed dataset is a complete dataset and one can apply standard statistical inference methods. The latter however has to be treated with caution since it implies that in the statistical analysis one does not make any distinction between observed values and imputed values anymore. We will come back to this issue in the next section on _multiple imputation_.
-</p>
-```{r, imp_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-tags <- c("imputation")
-selected_refs <- select_refs(refs,tags)
-```
-
-```{r, imp_print_books, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-create_ref_buttons(selected_refs, c(5,6), "imp_books")
-```
-
-```{r, imp_print_journal, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-create_ref_buttons(selected_refs, c(2), "imp_journals")
-```
-
-```{r, imp_print_conf, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-create_ref_buttons(selected_refs, c(1), "imp_conf")
-```
-
-```{r, imp_print_misc, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-create_ref_buttons(selected_refs, c(0,3,4), "imp_misc")
-```
-<br>
-
-<font size="+1"><b>Matrix factorization</b></font>
-<p align="justify">A special case of imputation is matrix completion that exploits structural assumptions about the row and column spaces to impute the missing values.
-</p>
-
-```{r, mf_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-tags <- c("matrix completion", "matrix factorization")
-selected_refs <- select_refs(refs,tags)
-```
-
-
-<!-- Books and book chapters -->
-```{r, mf_print_books, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-create_ref_buttons(selected_refs, c(5,6), "mf_books")
-```
-
-<!-- Journal articles -->
-```{r, mf_print_journal, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-create_ref_buttons(selected_refs, c(2), "mf_journals")
-```
-
-<!-- Conference papers -->
-```{r, mf_print_conf, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-create_ref_buttons(selected_refs, c(1), "mf_conf")
-```
-
-<!-- Reports, theses, etc. -->
-```{r, mf_print_misc, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-create_ref_buttons(selected_refs, c(0,3,4), "mf_misc")
-```
-
-<br>
-
-<font size="+1"><b>Multiple Imputation</b></font>
-
-<p align="justify">A major drawback of single imputation, i.e. where every missing value is replaced by a single most plausible value, consists in the underestimation of the overall variance of the data and inferred parameters. Indeed, by replacing every missing value by a given _plausible_ one and by applying generic statistical methods on the completed dataset, one makes no difference between initially observed and unobserved data anymore. Therefore the variability due to the uncertainty of the missing values is not reflected in future statistical analyses which treat the dataset as if it had been fully observed from the beginning. A nice and conceptually simple workaround for this problem is _multiple imputation_: instead of generating a single complete dataset by a given imputation method one imputes every missing value by several possible values. Statistical analysis is then applied on each of the imputed datasets and the resulting estimations are aggregated and used to estimate the sample variance and the variance due to the uncertainty in the missing values.
-</p>
-```{r, mi_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-tags <- c("multiple imputation", "mi")
-selected_refs <- select_refs(refs,tags)
-```
-
-<!-- Books and book chapters -->
-```{r, mi_print_books, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-create_ref_buttons(selected_refs, c(5,6), "mi_books")
-```
-
-<!-- Journal articles -->
-```{r, mi_print_journal, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-create_ref_buttons(selected_refs, c(2), "mi_journals")
-```
-
-<!-- Conference papers -->
-```{r, mi_print_conf, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-create_ref_buttons(selected_refs, c(1), "mi_conf")
-```
-
-<!-- Reports, theses, etc. -->
-```{r, mi_print_misc, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-create_ref_buttons(selected_refs, c(0,3,4), "mi_misc")
-```
-<br>
-
 </div>
 </div>
 </div>
-
-<!------------------------- (UN)SUPERVISED ------------------------->
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
 <div class="panel panel-default">
-<div class="panel-heading" role="tab" id="h_sup">
+<div class="panel-heading" role="tab" id="h_ml">
 <h4 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#sup" aria-expanded="false" aria-controls="sup">Supervised Learning</a>
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="#ml" aria-expanded="false" aria-controls="ml">Inference with missing values</a>
 </h4>
 </div>
-<div id="sup" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_sup">
+<div id="ml" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_ml">
 <div class="panel-body">
-
-<font size="+1"><b>Inference with missing values</b></font>
-
 <p align="justify">The most popular approach to deal with missing values for statistical inference tasks is likelihood-based approaches that can deal with incomplete data. More precisely, if the missingness mechanism is ignorable (in a certain sense that is explained in the _Missing values mechanisms_ section) then one can attempt to infer the model parameters by maximizing the likelihood on the observed values. When the mechanism cannot be ignored, then a specific model for it needs to be assumed.
 The main algorithm available for performing maximum likelihood estimation (ML) with missing values, is the _Expectation Maximization_ (EM) algorithm. This algorithm requires the knowledge of the joint distribution of $X = (X_{obs}, X_{mis})$ and its implementation is not straightforward since it involves integrals which cannot always be computed easily. Once the model parameters are estimated, one can impute the missing values using this estimated information on the data model.
 </p>
@@ -497,10 +402,129 @@ create_ref_buttons(selected_refs, c(1), "regr_conf")
 ```{r, regr_print_misc, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 create_ref_buttons(selected_refs, c(0,3,4), "regr_misc")
 ```
+
+
 <br>
 
-<font size="+1"><b>Machine Learning</b></font>
+</div>
+</div>
+</div>
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="h_imp">
+<h4 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="#imp" aria-expanded="false" aria-controls="imp">Single imputation</a>
+</h4>
+</div>
+<div id="imp" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_imp">
+<div class="panel-body">
+<p align="justify">In the previously mentioned EM algorithm there is in fact an implicit step called _imputation_: imputing a missing value means replacing it with a _plausible_ one. The definition of _plausibility_ is not stated explicitly but can be deduced from the used method to _fill in_ the gaps, for instance one could choose to replace all missing values of a certain variable $X_j$ by the average observed value $\frac{1}{n_{obs,j}}\sum_{i} x_{ij}\mathbb{1}_{\{x_{ij} \, is\, observed\}}$, where $n_{obs,j} = \sum_{i} \mathbb{1}_{\{x_{ij} \, is\, observed\}}$. The interest of imputation is manifold: (1) it allows to use all information in the sample (instead of deleting incomplete observations which leads to a decreasing power in the statistical analysis), (2) if there is sufficient data, i.e. sufficient observations, then the imputation can be very accurate and this assures good quality of future statistical analyses and (3) the imputed dataset is a complete dataset and one can apply standard statistical inference methods. The latter however has to be treated with caution since it implies that in the statistical analysis one does not make any distinction between observed values and imputed values anymore. We will come back to this issue in the next section on _multiple imputation_.
+</p>
+```{r, imp_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+tags <- c("imputation")
+selected_refs <- select_refs(refs,tags)
+```
 
+```{r, imp_print_books, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(5,6), "imp_books")
+```
+
+```{r, imp_print_journal, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(2), "imp_journals")
+```
+
+```{r, imp_print_conf, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(1), "imp_conf")
+```
+
+```{r, imp_print_misc, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(0,3,4), "imp_misc")
+```
+<br>
+
+<font size="+1"><b>Matrix factorization</b></font>
+<p align="justify">A special case of imputation is matrix completion that exploits structural assumptions about the row and column spaces to impute the missing values.
+</p>
+
+```{r, mf_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+tags <- c("matrix completion", "matrix factorization")
+selected_refs <- select_refs(refs,tags)
+```
+
+
+<!-- Books and book chapters -->
+```{r, mf_print_books, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(5,6), "mf_books")
+```
+
+<!-- Journal articles -->
+```{r, mf_print_journal, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(2), "mf_journals")
+```
+
+<!-- Conference papers -->
+```{r, mf_print_conf, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(1), "mf_conf")
+```
+
+<!-- Reports, theses, etc. -->
+```{r, mf_print_misc, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(0,3,4), "mf_misc")
+```
+
+<br>
+</div>
+</div>
+</div>
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="h_mi">
+<h4 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="#mi" aria-expanded="false" aria-controls="mi">Multiple imputation</a>
+</h4>
+</div>
+<div id="mi" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_mi">
+<div class="panel-body">
+<p align="justify">A major drawback of single imputation, i.e. where every missing value is replaced by a single most plausible value, consists in the underestimation of the overall variance of the data and inferred parameters. Indeed, by replacing every missing value by a given _plausible_ one and by applying generic statistical methods on the completed dataset, one makes no difference between initially observed and unobserved data anymore. Therefore the variability due to the uncertainty of the missing values is not reflected in future statistical analyses which treat the dataset as if it had been fully observed from the beginning. A nice and conceptually simple workaround for this problem is _multiple imputation_: instead of generating a single complete dataset by a given imputation method one imputes every missing value by several possible values. Statistical analysis is then applied on each of the imputed datasets and the resulting estimations are aggregated and used to estimate the sample variance and the variance due to the uncertainty in the missing values.
+</p>
+```{r, mi_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+tags <- c("multiple imputation", "mi")
+selected_refs <- select_refs(refs,tags)
+```
+
+<!-- Books and book chapters -->
+```{r, mi_print_books, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(5,6), "mi_books")
+```
+
+<!-- Journal articles -->
+```{r, mi_print_journal, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(2), "mi_journals")
+```
+
+<!-- Conference papers -->
+```{r, mi_print_conf, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(1), "mi_conf")
+```
+
+<!-- Reports, theses, etc. -->
+```{r, mi_print_misc, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(0,3,4), "mi_misc")
+```
+<br>
+</div>
+</div>
+</div>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="h_tree_dl">
+<h4 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="#tree_dl" aria-expanded="false" aria-controls="tree_dl">Machine Learning</a>
+</h4>
+</div>
+<div id="tree_dl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_tree_dl">
+<div class="panel-body">
 <p align="justify">The field of machine learning being dependent on the availability of (good) training data, it is -- in most real-world applications -- necessarily facing the issue of missing data. Hence there has been an increasing attention to how to handle missing data, in the features and the output, in order to _learn_ accurately from the data.
 </p>
  
@@ -636,13 +660,10 @@ create_ref_buttons(selected_refs, c(1), "dl_conf")
 create_ref_buttons(selected_refs, c(0,3,4), "dl_misc")
 ```
 <br>
-
 </div>
 </div>
 </div>
-
-
-<!------------------------- MECHANISMS AND IDENTIFIABILITY ------------------------->
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
 <div class="panel panel-default">
 <div class="panel-heading" role="tab" id="h_mnar">
 <h4 class="panel-title">
@@ -708,7 +729,7 @@ create_ref_buttons(selected_refs, c(0,3,4), "mnar_misc")
 </div>
 </div>
 </div>
-
+</div>
 <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a></div>
 </div>
 
