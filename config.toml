@@ -69,7 +69,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "\\.knit\\.md$", "\\.utf8\\.md$", "_c
 
   [params.sidebar]
     # Optional about block for sidebar (can be Markdown)
-     about = "This website is sponsored by R Consortium and maintained by [Julie Josse](http://juliejosse.com), [Imke Mayer](https://www.imkemayer.com), [Aude Sportisse](https://AudeSportisse.github.io/), [Krystyna Grzesiak](https://github.com/KrystynaGrzesiak) and [Christophe Muller](https://www.linkedin.com/in/christophe-muller/).<br><br>[Article on HAL →](https://hal.science/hal-02879337v3)<br>[Read more →](/posts/intro/)<br>[FAQ →](/posts/faq/)"
+     about = "This website is sponsored by R Consortium and maintained by [Julie Josse](http://juliejosse.com), [Aude Sportisse](https://AudeSportisse.github.io/), [Nathalie Vialaneix](http://www.nathalievialaneix.eu), [Krystyna Grzesiak](https://github.com/KrystynaGrzesiak) and [Christophe Muller](https://www.linkedin.com/in/christophe-muller/).<br><br>[Article on HAL →](https://hal.science/hal-02879337v3)<br>[Read more →](/posts/intro/)<br>[FAQ →](/posts/faq/)"
 
     # How many posts to show on the sidebar (Default: 5)
     # num_recent_posts = 5

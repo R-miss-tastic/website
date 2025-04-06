@@ -53,14 +53,15 @@ Our vision is to:
 This website is proudly sponsored by the **R Consortium** and maintained by:
 
 - <a href="http://juliejosse.com" target="_blank">Julie Josse</a>
-- <a href="https://www.imkemayer.com" target="_blank">Imke Mayer</a>
 - <a href="https://audesportisse.github.io" target="_blank">Aude Sportisse</a>
+- <a href="http://www.nathalievialaneix.eu" target="_blank">Nathalie Vialaneix</a>
 - <a href="https://www.linkedin.com/in/christophe-muller/" target="_blank">Christophe Muller</a>
 - <a href="https://github.com/KrystynaGrzesiak" target="_blank">Krystyna Grzesiak</a>
 
 Former maintainers:
 
 - <a href="https://www.njtierney.com" target="_blank">Nicholas Tierney</a>
-- <a href="http://www.nathalievialaneix.eu" target="_blank">Nathalie Vialaneix</a>
+- <a href="https://www.imkemayer.com" target="_blank">Imke Mayer</a>
+
 
 ---
