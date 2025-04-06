@@ -1,10 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Buttons Example</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+
+        /* --- Share Button Alignment --- */
+        .sharing-icons {
+            display: flex; /* Treat the nav container as a flexbox */
+            align-items: center; /* Vertically align all items (the <a> tags) in the center */
+            gap: 0.8em; /* Add some space between the icons (adjust value as needed) */
+            padding-left: 0; /* Remove default padding from nav/list elements */
+            list-style: none; /* Remove list bullets if nav were a ul/ol */
+            margin: 0; /* Remove default margin */
+        }
+
+        /* Optional: Ensure consistent size/alignment within the links themselves */
+        .sharing-icons .nav-item {
+            display: inline-flex; /* Make the link itself a flex container */
+            align-items: center; /* Vertically center the icon within the link */
+            justify-content: center; /* Horizontally center the icon within the link */
+            line-height: 1; /* Helps prevent extra space due to line height */
+            text-decoration: none; /* Optional: remove underline from links */
+            color: #007bff; /* Example color, change as needed */
+        }
+
+        .sharing-icons .nav-item:hover {
+            color: #0056b3; /* Example hover color */
+        }
+
+
+        /* Ensure the image aligns correctly within the flex context */
+        .sharing-icons .nav-item img {
+            /* Let flexbox handle alignment */
+            vertical-align: middle; /* Good default for images within flex */
+             /* Keep the height or adjust as needed */
+            height: 2em; /* Or adjust to match fa-2x visually */
+            max-height: 2em; /* Prevent it getting too large */
+        }
+
+        /* You might need slight adjustments for the Font Awesome icons too */
+        .sharing-icons .nav-item .fab {
+            line-height: 1; /* Ensure icon font aligns well */
+            /* fa-2x already sets font-size */
+        }
+
+    </style>
+</head>
+<body>
+
   <section>
     <h4>{{ i18n "share" }}</h4>
     <nav class="nav sharing-icons">
-      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" title="Share on Facebook"><span class="fab fa-facebook-f fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ .Permalink }}" title="Share on LinkedIn"><span class="fab fa-linkedin-in fa-2x" aria-hidden="true"></span></a>
-      <a class="nav-item" href="https://twitter.com/intent/tweet?url={{ .Permalink }}&amp;text={{ .Title }}" title="Tweet this"><span class="fab fa-twitter fa-2x"></span></a>
+      
+      <a class="nav-item" href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | urlquery }}" title="Share on Facebook" target = "_blank">
+        <span class="fab fa-facebook-f fa-2x" aria-hidden="true"></span>
+      </a>
+      
+      <a class="nav-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ .Permalink | urlquery }}&amp;title={{ .Title | urlquery }}" title="Share on LinkedIn" target = "_blank">
+        <span class="fab fa-linkedin-in fa-2x" aria-hidden="true"></span>
+      </a>
+      
+      <a class="nav-item" href="https://twitter.com/intent/tweet?url={{ .Permalink | urlquery }}&amp;text={{ .Title | urlquery }}" target = "_blank" title="Tweet this">
+        <span class="fab fa-twitter fa-2x"></span>
+      </a>
+      
+      <a class="nav-item" href="https://bsky.app/intent/compose?text={{ .Title | urlquery }}%0A{{ .Permalink | urlquery }}" title="Share on Bluesky" target="_blank" rel="noopener">
+        <img src="/images/bluesky-brands.svg" alt="Bluesky logo" style="height: 2em; vertical-align: middle;" />
+        </a>
+        
     </nav>
   </section>
+  
+  {{- /* vim: set ts=2 sw=2 et: */}}
 
-{{- /* vim: set ts=2 sw=2 et: */}}
+</body>
+</html>
