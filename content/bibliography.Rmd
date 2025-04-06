@@ -596,7 +596,6 @@ create_ref_buttons(selected_refs, c(1), "clust_conf")
 create_ref_buttons(selected_refs, c(0,3,4), "clust_misc")
 ```
 
-
 <br>
 
 <font size="+1"><b>Trees and forests</b></font>
@@ -709,6 +708,7 @@ create_ref_buttons(selected_refs, c(0,3,4), "dl_misc")
 <div class="panel-body">
 <p align="justify">To be written
 </p>
+
 ```{r, graphical_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 tags <- c("graphical_models")
 selected_refs <- select_refs(refs,tags)
@@ -777,7 +777,7 @@ To understand this definition, take the example of alcohol consumption: alcoholi
 </p>
 
 ```{r, mnar_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-tags <- c("mnar","mar", "diagnosis", "design")
+tags <- c("mnar","mar", "diagnosis", "design", "mechanism", "mcar")
 selected_refs <- select_refs(refs,tags)
 ```
 
@@ -807,7 +807,6 @@ create_ref_buttons(selected_refs, c(0,3,4), "mnar_misc")
 </div>
 <div class="accordion-option"><a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a></div>
 </div>
-
 
 ```{css, echo=FALSE}
 .panel-group {
