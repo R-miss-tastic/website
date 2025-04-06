@@ -15,15 +15,25 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r PkGList, echo=FALSE, message=FALSE, warning=FALSE}
-pkg_list <- c("imputeTS", "mice", "missForest", "missMDA", "naniar","simputation", "VIM", "Hmisc")
-pkg_category <- c("Time-Series Imputation, Visualisations for Missing Data",
+pkg_list <- c("mice", "miceDRF", "missForest", "missMDA", "Hmisc", "naniar", 
+              "simputation", "VIM", "imputeLCMD", "missCompare", 
+              "Amelia", "mixgb", "CALIBERrfimpute", "imputeTS")  
+pkg_category <- c("Multiple Imputation",
                   "Multiple Imputation",
                   "Single Imputation",
                   "Single and Multiple Imputation, Multivariate Data Analysis",
+                  "Single and Multiple Imputation, Data Processing",
                   "Visualisations for Missing Data",
                   "Single Imputation, Meta-Package",
                   "Single Imputation, Visualisations for Missing Data",
-                  "Single and Multiple Imputation, Data Processing")
+                  "Left-Censored Missing Data",
+                  "Single and Multiple Imputation",
+                  "Multiple Imputation",
+                  "Multiple Imputation", 
+                  "Multiple Imputtaion",
+                  "Time-Series Imputation, Visualisations for Missing Data"
+                  )
+
 ```
 
 
@@ -49,6 +59,8 @@ We list some of the most popular R packages and Python libraries that allow to h
 <p>
   <ul class="list">
 ```{r loopRpkG, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+################# cran packages here
+
 for (ind in seq_along(pkg_list)) {
     
   print_text <- paste0('<li style="margin: 0px;">',
@@ -72,7 +84,7 @@ for (ind in seq_along(pkg_list)) {
                        '" alt="CRAN Release" /> <br>',
                        
                        '<a href="/packages/',
-                       pkg_list[ind],
+                       tolower(pkg_list[ind]), 
                        '"> more.. </a>',
                        
                        '</li></br>')
@@ -82,11 +94,59 @@ for (ind in seq_along(pkg_list)) {
 
 ```
 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+###### biocinductor packages here
+
+pkg_list <- c("pcaMethods")
+
+pkg_category <- c("Single Imputation")
+
+for (ind in seq_along(pkg_list)) {
+  
+  pkg <- pkg_list[ind]
+  
+  print_text <- paste0('<li style="margin: 0px;">',
+                       '<h3 class="name">',
+                       packageDescription(pkg, fields = "Package"),
+                       '</h3>',
+
+                       '<h6 class="Category">Category: ',
+                       pkg_category[ind],
+                       '</h6>',
+                       
+                       '<i class="Description">',
+                       packageDescription(pkg, fields = "Description"),
+                       '</i><br>',
+
+                       '<img src="https://bioconductor.org/shields/years-in-bioc/',
+                       pkg, '.svg" alt="Bioconductor Build Status" /> <br>',
+                       
+                       '<a href="/packages/',
+                       tolower(pkg_list[ind]), 
+                       '"> more.. </a>',
+                       
+                       '</li></br>')
+  
+  cat(print_text)
+}
+```
+
+
+
 <li style="margin: 0px;">
   <h3 class="name">imputomics</h3>
-  <h6 class="Category">Category: Single and multiple imputation</h6> 
+  <h6 class="Category">Category: Single and multiple imputation, Metabolomics, Left-Censored Missing Data</h6> 
   <i class="Description">A robust wrapper package containing a range of methods for simulating and imputing missing values in different types of omics data such as genomics, transcriptomics, proteomics, and metabolomics. Provides tools for comparing and evaluating the performance of imputation methods and a web server.</i> <br> 
   <a href="/packages/imputomics"> more.. </a> 
+</li> </br>
+
+
+<li style="margin: 0px;">
+  <h3 class="name">MetabImpute</h3>
+  <h6 class="Category">Category: Single imputation, Metabolomics, Imputation with Biological Replicates, Left-Censored Missing Data</h6> 
+  <i class="Description">A package to evaluate missing data, simulate data matrices and missingness, evaluate multiple imputation methods and return statistics on these and finally methods to impute utilizing multiple standard imputation approaches. Novel imputation methodologies which utilize an imputation approach with data that uses biological or technical replication are also included. ICC evaluation methods are included specifically included to suit researchers working with data with biological or technical replicates. Source code was written by the authors with code copied and modified from the following GitHub packages: https://github.com/Tirgit/missCompare, https://github.com/WandeRum/GSimp (Wei, R., Wang, J., Jia, E., Chen, T., Ni, Y., & Jia, W. (2017). GSimp: A Gibbs sampler based left-censored missing value imputation approach for metabolomics studies. PLOS Computational Biology) https://github.com/juuussi/impute-metabo Kokla, M., Virtanen, J., Kolehmainen, M. et al. Random forest-based imputation outperforms other methods for imputing LC-MS metabolomics data: a comparative study. BMC Bioinformatics 20, 492 (2019). https://doi.org/10.1186/s12859-019-3110-0</i> <br> 
+  <a href="/packages/metabimpute"> more.. </a> 
 </li> 
 
   </ul>

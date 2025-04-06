@@ -1,6 +1,7 @@
 ---
-author: Harrell Miscellaneous, Charles Dupont
+author: Krystyna Grzesiak
 slug: Hmisc
+date: '2025-04-04'
 categories: []
 tags: []
 description: ''
@@ -9,11 +10,17 @@ description: ''
 ##### Package: 
 Hmisc
 
+##### Authors: 
+Harrell Miscellaneous, Charles Dupont
+
 ##### Category:
 Single and Multiple Imputation
 
 ##### Use-Cases:
 Data summarization and exploration, handling missing data and imputation, regression modeling and splines, correlation analysis and statistical tests, data visualization, variable labeling and metadata management, data manipulation and transformation.
+
+##### Popularity:
+[![CRAN Downloads](https://cranlogs.r-pkg.org/badges/Hmisc)](https://cran.r-project.org/package=Hmisc)
 
 ##### Description:
 Contains many functions useful for data analysis, high-level graphics, utility operations, functions for computing sample size and power, simulation, importing and annotating datasets, imputing missing values, advanced table making, variable clustering, character string manipulation, conversion of R objects to LaTeX and html code, recoding variables, caching, simplified parallel computing, encrypting and decrypting data using a safe workflow, general moving window statistical estimation, and assistance in interpreting principal component analysis.

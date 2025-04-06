@@ -1,13 +1,14 @@
 ---
 output: md_document
 author: "Imke Mayer"
-date: 2018-10-24
+date: 2025-04-04
 linktitle: Bibliography
-weight: 3
 menu: navbar
+title: Bibliography
 name: Bibliography
 identifier: "Bibliography"
 url: /bibliography/
+weight: 3
 ---
 
 
@@ -17,7 +18,7 @@ On this platform we attempt to give you an overview of main references on missin
 </p>
 <p><a href="/bibliography/biblio_complete/"><b>See here for a full (and uncommented) list of references.</b></a></p>
 <p align="justify">
-Inspired by <a href="https://cran.r-project.org/web/views/MissingData.html" target="_blank"><b>CRAN Task View on Missing Data</b></a> and a <a href="http://journal-sfds.fr/article/view/681" target="_blank">review</a> of Imbert &amp; Vialaneix on handling missing values (2018, written in French) we organized our selection of relevant references on missing values by different topics.
+Inspired by <a href="https://cran.r-project.org/web/views/MissingData.html" target="_blank"><b>CRAN Task View on Missing Data</b></a> and a <a href="https://hal.inrae.fr/hal-02618033" target="_blank">review</a> of Imbert &amp; Vialaneix on handling missing values (2018, written in French) we organized our selection of relevant references on missing values by different topics.
 </p>
 <div class="container">
 <div class="accordion-option">
@@ -26,7 +27,8 @@ Inspired by <a href="https://cran.r-project.org/web/views/MissingData.html" targ
 <div class="clearfix">
 
 </div>
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+<div id="accordion" class="panel-group" role="tablist" aria-multiselectable="true">
+<!------------------------- INTRODUCTION ------------------------->
 <div class="panel panel-default">
 <div id="h_notations" class="panel-heading" role="tab">
 <h4 class="panel-title">
@@ -57,9 +59,9 @@ The observed and missing parts of <span class="math inline">\(X\)</span> are den
 <br>
 </div>
 </div>
-</div>
-<!-- --------------------------------------------------------------------------------------------------------------------------- --></li>
+</div></li>
 </ul>
+<!------------------------- General references ------------------------->
 <div class="panel panel-default">
 <div id="h_general" class="panel-heading" role="tab">
 <h4 class="panel-title">
@@ -78,6 +80,7 @@ Books and book chapters (10)
 </button>
 <div id="gen_books" class="collapse">
 <ul>
+<li><pref><cite>Little, R. J. and D. B. Rubin. <em><font color="#428bca">Statistical analysis with missing data</font></em>. John Wiley &amp; Sons, 2019.</cite></pref></li>
 <li><pref><cite>Allison, P. D. <em><font color="#428bca">Missing Data</font></em>. Quantitative Applications in the Social Sciences. Thousand Oaks, CA, USA: Sage Publications, 2001. ISBN: 9780761916727.</cite></pref>
 <div>
 <a href="https://doi.org/10.1136/bmj.38977.682025.2C" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
@@ -88,10 +91,6 @@ Books and book chapters (10)
 </div></li>
 <li><pref><cite>Enders, C. K. <em><font color="#428bca">Applied Missing Data Analysis</font></em>. Guilford Press, 2010, p. 401. ISBN: 9781606236390.</cite></pref></li>
 <li><pref><cite>Kim, J. K. and J. Shao. <em><font color="#428bca">Statistical Methods for Handling Incomplete Data</font></em>. Boca Raton, FL, USA: Chapman and Hall/CRC, 2013. ISBN: 9781482205077.</cite></pref></li>
-<li><pref><cite>Little, R. J. A. and D. B. Rubin. <em><font color="#428bca">Statistical Analysis with Missing Data</font></em>. Wiley, 2002, p. 408. ISBN: 0471183865.</cite></pref>
-<div>
-<a href="https://doi.org/10.2307/1533221" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
 <li><pref><cite>Molenberghs, G., G. Fitzmaurice, M. G. Kenward, et al. <em><font color="#428bca">Handbook of Missing Data Methodology</font></em>. Chapman &amp; Hall/CRC Handbooks of Modern Statistical Methods. New York, NY, USA: Chapman and Hall/CRC, 2014. ISBN: 9781439854624.</cite></pref></li>
 <li><pref><cite>Molenberghs, G. and M. G. Kenward. <em><font color="#428bca">Missing Data in Clinical Studies</font></em>. Chichester, West Sussex, UK: Wiley, 2007. ISBN: 9780470849811.</cite></pref>
 <div>
@@ -220,7 +219,7 @@ Furthermore you can have a look at the following statistical journals which regu
 </div>
 </div>
 </div>
-<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<!------------------------- Weighting methods ------------------------->
 <div class="panel panel-default">
 <div id="h_weighting" class="panel-heading" role="tab">
 <h4 class="panel-title">
@@ -288,8 +287,7 @@ Journal articles (9)
 </div>
 <!-- Conference papers -->
 <!-- Reports, theses, etc. -->
-</br>
-<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<p></br></p>
 <font size="+1"><b>Methods in common with causal inference</b></font>
 <!-- --------------------------------------------------------------------------------------------------------------------------- -->
 <p align="justify">
@@ -365,64 +363,7 @@ Conference papers (1)
 </div>
 </div>
 </div>
-<!-- --------------------------------------------------------------------------------------------------------------------------- -->
-<div class="panel panel-default">
-<div id="h_knn" class="panel-heading" role="tab">
-<h4 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#knn" aria-expanded="false" aria-controls="knn">Hot-deck and kNN approaches</a>
-</h4>
-</div>
-<div id="knn" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_knn">
-<div class="panel-body">
-<p align="justify">
-Let <span class="math inline">\(x_i\)</span> be an observation with missing values, e.g. each entry of <span class="math inline">\(x_i\)</span> could be the temperature at a certain day for one given place and unfortunately for some days the temperature was not measured. An intuitive idea to replace this missing information could be: take other observations <span class="math inline">\(\{x_j\}_j\)</span> which are similar to <span class="math inline">\(x_i\)</span> at the observed values and use this information to <em>fill in</em> the gaps. This idea of taking observed values from <em>neighbours</em> or <em>donors</em> based on some similarity measure is implemented in the so-called <em>hot-deck</em> and <em>k-nearest-neighbors</em> (kNN) approaches.
-</p>
-<!-- Books and book chapters -->
-<!-- Journal articles -->
-<div class="container">
-<button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#hot_journals">
-Journal articles (7)
-</button>
-<div id="hot_journals" class="collapse">
-<ul>
-<li><pref><cite>Andridge, R. and R. J. A. Little. <font color="#428bca">A review of hot deck imputation for survey non-response</font>. In: <em>International Statistical Review</em> 78.1 (2010), pp. 40-64.</cite></pref>
-<div>
-<a href="https://doi.org/10.1111/j.1751-5823.2010.00103.x" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Huisman, M. <font color="#428bca">Imputation of missing item responses: some simple techniques</font>. In: <em>Quality &amp; Quantity</em> 34.4 (2000), pp. 331-351.</cite></pref>
-<div>
-<a href="https://doi.org/10.1023/A:1004782230065" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Imbert, A., A. Valsesia, C. Le Gall, et al. <font color="#428bca">Multiple hot-deck imputation for network inference from RNA sequencing data</font>. In: <em>Bioinformatics</em> 34.10 (2018), pp. 1726-1732.</cite></pref>
-<div>
-<a href="https://doi.org/10.1093/bioinformatics/btx819" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Joenssen, D. W. and U. Bankhofer. <font color="#428bca">Donor limited hot deck imputation: effect on parameter estimation</font>. In: <em>Journal of Theoretical and Applied Computer Science</em> 6.3 (2012), pp. 58-70.</cite></pref>
-<div>
-<a href="http://www.jtacs.org/archive/2012/3/6" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
-</div></li>
-<li><pref><cite>Rao, J. N. K. and J. Shao. <font color="#428bca">Jackknife variance estimation with survey data under hot deck imputation</font>. In: <em>Biometrika</em> 79.4 (1992), pp. 811-822.</cite></pref>
-<div>
-<a href="https://doi.org/10.2307/2337236" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Reilly, M. and M. Pepe. <font color="#428bca">The relationship between hot-deck multiple imputation and weighted likelihood</font>. In: <em>Statistics in Medecine</em> 16.1-3 (1997), pp. 5-19.</cite></pref>
-<div>
-<a href="https://doi.org/10.1002/(SICI)1097-0258(19970115)16:1%3C5::AID-SIM469%3E3.0.CO;2-8" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Voillet, V., P. Besse, L. Liaubet, et al. <font color="#428bca">Handling missing rows in multi-omics data integration: multiple imputation in multiple factor analysis framework</font>. In: <em>BMC Bioinformatics</em> 17.402 (2016). Forthcoming.</cite></pref>
-<div>
-<a href="https://doi.org/10.1186/s12859-016-1273-5" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-</ul>
-</div>
-</div>
-<!-- Conference papers -->
-<!-- Reports, theses, etc. -->
-<p><br></p>
-</div>
-</div>
-</div>
-<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<!------------------------- Inference ------------------------->
 <div class="panel panel-default">
 <div id="h_ml" class="panel-heading" role="tab">
 <h4 class="panel-title">
@@ -612,7 +553,7 @@ Conference papers (1)
 </div>
 </div>
 </div>
-<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<!------------------------- Single Imputation ------------------------->
 <div class="panel panel-default">
 <div id="h_imp" class="panel-heading" role="tab">
 <h4 class="panel-title">
@@ -769,6 +710,54 @@ Reports, theses, etc. (1)
 </div>
 </div>
 <p><br></p>
+<!-- Hot deck and KNN-->
+<p><font size="+1"><b>Hot-deck and KNN approaches</b></font></p>
+<p align="justify">
+Let <span class="math inline">\(x_i\)</span> be an observation with missing values, e.g. each entry of <span class="math inline">\(x_i\)</span> could be the temperature at a certain day for one given place and unfortunately for some days the temperature was not measured. An intuitive idea to replace this missing information could be: take other observations <span class="math inline">\(\{x_j\}_j\)</span> which are similar to <span class="math inline">\(x_i\)</span> at the observed values and use this information to <em>fill in</em> the gaps. This idea of taking observed values from <em>neighbours</em> or <em>donors</em> based on some similarity measure is implemented in the so-called <em>hot-deck</em> and <em>k-nearest-neighbors</em> (kNN) approaches.
+</p>
+<!-- Books and book chapters -->
+<!-- Journal articles -->
+<div class="container">
+<button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#hot_journals">
+Journal articles (7)
+</button>
+<div id="hot_journals" class="collapse">
+<ul>
+<li><pref><cite>Andridge, R. and R. J. A. Little. <font color="#428bca">A review of hot deck imputation for survey non-response</font>. In: <em>International Statistical Review</em> 78.1 (2010), pp. 40-64.</cite></pref>
+<div>
+<a href="https://doi.org/10.1111/j.1751-5823.2010.00103.x" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Huisman, M. <font color="#428bca">Imputation of missing item responses: some simple techniques</font>. In: <em>Quality &amp; Quantity</em> 34.4 (2000), pp. 331-351.</cite></pref>
+<div>
+<a href="https://doi.org/10.1023/A:1004782230065" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Imbert, A., A. Valsesia, C. Le Gall, et al. <font color="#428bca">Multiple hot-deck imputation for network inference from RNA sequencing data</font>. In: <em>Bioinformatics</em> 34.10 (2018), pp. 1726-1732.</cite></pref>
+<div>
+<a href="https://doi.org/10.1093/bioinformatics/btx819" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Joenssen, D. W. and U. Bankhofer. <font color="#428bca">Donor limited hot deck imputation: effect on parameter estimation</font>. In: <em>Journal of Theoretical and Applied Computer Science</em> 6.3 (2012), pp. 58-70.</cite></pref>
+<div>
+<a href="http://www.jtacs.org/archive/2012/3/6" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
+</div></li>
+<li><pref><cite>Rao, J. N. K. and J. Shao. <font color="#428bca">Jackknife variance estimation with survey data under hot deck imputation</font>. In: <em>Biometrika</em> 79.4 (1992), pp. 811-822.</cite></pref>
+<div>
+<a href="https://doi.org/10.2307/2337236" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Reilly, M. and M. Pepe. <font color="#428bca">The relationship between hot-deck multiple imputation and weighted likelihood</font>. In: <em>Statistics in Medecine</em> 16.1-3 (1997), pp. 5-19.</cite></pref>
+<div>
+<a href="https://doi.org/10.1002/(SICI)1097-0258(19970115)16:1%3C5::AID-SIM469%3E3.0.CO;2-8" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Voillet, V., P. Besse, L. Liaubet, et al. <font color="#428bca">Handling missing rows in multi-omics data integration: multiple imputation in multiple factor analysis framework</font>. In: <em>BMC Bioinformatics</em> 17.402 (2016). Forthcoming.</cite></pref>
+<div>
+<a href="https://doi.org/10.1186/s12859-016-1273-5" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+</ul>
+</div>
+</div>
+<!-- Conference papers -->
+<!-- Reports, theses, etc. -->
+<p><br></p>
+<!-- Matrix factorization -->
 <font size="+1"><b>Matrix factorization</b></font>
 <p align="justify">
 A special case of imputation is matrix completion that exploits structural assumptions about the row and column spaces to impute the missing values.
@@ -836,7 +825,7 @@ Reports, theses, etc. (1)
 </div>
 </div>
 </div>
-<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<!------------------------- Multiple imputation ------------------------->
 <div class="panel panel-default">
 <div id="h_mi" class="panel-heading" role="tab">
 <h4 class="panel-title">
@@ -1017,7 +1006,7 @@ Conference papers (2)
 </div>
 </div>
 </div>
-<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<!------------------------- Downstream tasks ------------------------->
 <div class="panel panel-default">
 <div id="h_tree_dl" class="panel-heading" role="tab">
 <h4 class="panel-title">
@@ -1038,10 +1027,15 @@ Methods to deal with supervised learning (predict as well as possible an outcome
 <!-- Journal articles -->
 <div class="container">
 <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#algoml_journals">
-Journal articles (1)
+Journal articles (3)
 </button>
 <div id="algoml_journals" class="collapse">
 <ul>
+<li><pref><cite>Morvan, M. L. and G. Varoquaux. <font color="#428bca">Imputation for prediction: beware of diminishing returns</font>. In: <em>arXiv preprint arXiv:2407.19804</em> (2024).</cite></pref></li>
+<li><pref><cite>Josse, J., N. Prost, E. Scornet, et al. <font color="#428bca">On the consistency of supervised learning with missing values</font>. In: <em>arXiv preprint</em> (2019). arXiv: 1902.06931 [stat.ML].</cite></pref>
+<div>
+<a href="https://arxiv.org/abs/1902.06931" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
+</div></li>
 <li><pref><cite>Ma, A. and D. Needell. <font color="#428bca">Stochastic Gradient Descent for Linear Systems with Missing Data</font>. In: <em>Numerical Mathematics: Theory, Methods and Applications</em> 12.1 (2017), pp. 1-20.</cite></pref>
 <div>
 <a href="https://doi.org/10.4208/nmtma.OA-2018-0066" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
@@ -1052,10 +1046,12 @@ Journal articles (1)
 <!-- Conference papers -->
 <div class="container">
 <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#algoml_conf">
-Conference papers (4)
+Conference papers (6)
 </button>
 <div id="algoml_conf" class="collapse">
 <ul>
+<li><pref><cite>Ayme, A., C. Boyer, A. Dieuleveut, et al. <font color="#428bca">Near-optimal rate of consistency for linear models with missing values</font>. In: <em>International Conference on Machine Learning</em>. PMLR. 2022, pp. 1211–1243.</cite></pref></li>
+<li><pref><cite>Ayme, A., C. Boyer, A. Dieuleveut, et al. <font color="#428bca">Random features models: a way to study the success of naive imputation</font>. In: <em>Proceedings of the 41st International Conference on Machine Learning</em>. ICML’24. Vienna, Austria: JMLR.org, 2024.</cite></pref></li>
 <li><pref><cite>Ipsen, N. B., P. Mattei, and J. Frellsen. <font color="#428bca">not-MIWAE: Deep generative modelling with missing not at random data</font>. In: <em>arXiv preprint</em> (2020).</cite></pref> <pref><cite>Ipsen, N., P. Mattei, and J. Frellsen. <font color="#428bca">How to deal with missing data in supervised deep learning?</font> In: <em>ICML Workshop on the Art of Learning with Missing Values (Artemiss)</em>. 2020.</cite></pref>
 <div>
 <a href="https://hal.inria.fr/hal-03044144/" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
@@ -1093,7 +1089,6 @@ Reports, theses, etc. (1)
 <p><font size="+1"><b>Unsupervised learning</b></font></p>
 <p align="justify">
 Methods have been suggested to perform clustering with missing values (k-means, mixture models) as well as dimensionality reduction with missing values (PCA).
-</p>
 </p>
 <!-- Books and book chapters -->
 <!-- Journal articles -->
@@ -1215,6 +1210,26 @@ Reports, theses, etc. (1)
 </div>
 </div>
 <p><br></p>
+<p><font size="+1"><b>Logistic Regression</b></font></p>
+<p align="justify">
+Logistic regression is a core method in supervised learning, widely used not only for classification but also for estimating class probabilities. This probabilistic output is especially important in applications like medicine, where decisions depend on risk estimates rather than hard class labels. However, the presence of missing values in the covariates poses significant challenges. Unlike linear regression, where missing data techniques are more mature, handling missingness in logistic regression is still a relatively new and active area of research.
+</p>
+<!-- Books and book chapters -->
+<!-- Journal articles -->
+<div class="container">
+<button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#algoml_journals">
+Journal articles (2)
+</button>
+<div id="algoml_journals" class="collapse">
+<ul>
+<li><pref><cite>Verchand, K. A. and A. Montanari. <font color="#428bca">High-dimensional logistic regression with missing data: Imputation, regularization, and universality</font>. In: <em>arXiv preprint arXiv:2410.01093</em> (2024).</cite></pref></li>
+<li><pref><cite>Lobo, A. D. R., A. Ayme, C. Boyer, et al. <font color="#428bca">A primer on linear classification with missing data</font>. In: <em>arXiv preprint arXiv:2405.09196</em> (2024).</cite></pref></li>
+</ul>
+</div>
+</div>
+<!-- Conference papers -->
+<!-- Reports, theses, etc. -->
+<p><br></p>
 <p><font size="+1"><b>Deep Learning</b></font></p>
 <p align="justify">
 The advance and success of <em>(deep) neural networks</em> in many research and application areas such as computer vision and natural language processing has also re-discovered the problem of handling missing values. Indeed the question of training neural networks on incomplete data has been considered even before the latest rise of deep learning and is considered to be essential due to the impact of missingness on the feasibility and quality of various learning problems.
@@ -1223,10 +1238,12 @@ The advance and success of <em>(deep) neural networks</em> in many research and 
 <!-- Journal articles -->
 <div class="container">
 <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#dl_journals">
-Journal articles (6)
+Journal articles (8)
 </button>
 <div id="dl_journals" class="collapse">
 <ul>
+<li><pref><cite>Deng, G., C. Han, and D. S. Matteson. <font color="#428bca">Extended missing data imputation via GANs for ranking applications</font>. In: <em>Data Mining and Knowledge Discovery</em> 36.4 (2022), pp. 1498–1520.</cite></pref></li>
+<li><pref><cite>Fang, F. and S. Bao. <font color="#428bca">FragmGAN: generative adversarial nets for fragmentary data imputation and prediction</font>. In: <em>Statistical Theory and Related Fields</em> 8.1 (2024), pp. 15–28.</cite></pref></li>
 <li><pref><cite>Bianchi, F. M., L. Livi, K. Ø. Mikalsen, et al. <font color="#428bca">Learning representations of multivariate time series with missing data</font>. In: <em>Pattern Recognition</em> 96 (2019), p. 106973.</cite></pref>
 <div>
 <a href="https://doi.org/10.1016/j.patcog.2019.106973" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
@@ -1265,7 +1282,7 @@ Conference papers (11)
 <div>
 <a href="http://papers.nips.cc/paper/1126-recurrent-neural-networks-for-missing-or-asynchronous-data.pdf" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
 </div></li>
-<li><pref><cite>Biessmann, F., D. Salinas, S. Schelter, et al. <font color="#428bca">“Deep” Learning for Missing Value Imputation in Tables with Non-Numerical Data</font>. In: <em>Proceedings of the 27th ACM International Conference on Information and Knowledge Management</em>. Ed. by -. CIKM ’18. Torino, Italy: ACM, 2018, pp. 2017–2025. ISBN: 978-1-4503-6014-2.</cite></pref>
+<li><pref><cite>Biessmann, F., D. Salinas, S. Schelter, et al. <font color="#428bca">Deep" Learning for Missing Value Imputation in Tables with Non-Numerical Data</font>. In: <em>Proceedings of the 27th ACM International Conference on Information and Knowledge Management</em>. Ed. by -. CIKM ’18. Torino, Italy: ACM, 2018, pp. 2017–2025. ISBN: 978-1-4503-6014-2.</cite></pref>
 <div>
 <a href="https://doi.org/10.1145/3269206.3272005" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a><a href="http://doi.acm.org/10.1145/3269206.3272005" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
 </div></li>
@@ -1323,7 +1340,48 @@ Reports, theses, etc. (1)
 </div>
 </div>
 </div>
-<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+<!------------------------- Missing Graph Graphical Models ------------------------->
+<div class="panel panel-default">
+<div id="h_graphical" class="panel-heading" role="tab">
+<h4 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="#graphical" aria-expanded="false" aria-controls="graphical">Graphical Models for Missing Data</a>
+</h4>
+</div>
+<div id="graphical" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_graphical">
+<div class="panel-body">
+<p align="justify">
+Graphical models, particularly Directed Acyclic Graphs (DAGs), are used to represent causal relationships and conditional independencies in data. In the context of missing data, missingness graphs (m-graphs) extend these models to incorporate missingness mechanisms explicitly. This allows for the representation of how missingness arises in different variables and how these mechanisms may interact. M-graphs provide a structured framework for understanding and analyzing the dependencies between observed and missing data, offering a formal approach to diagnosing and addressing missing data issues in a variety of applications.
+</p>
+<!-- Books and book chapters -->
+<div class="container">
+<button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#graphical_books">
+Books and book chapters (1)
+</button>
+<div id="graphical_books" class="collapse">
+<ul>
+<li><pref><cite>Mohan, K. and J. Pearl. <font color="#428bca">Graphical models for recovering probabilistic and causal queries from missing data</font>. In: <em><font color="#428bca">Probabilistic and Causal Inference: the Works of Judea Pearl</font></em>. 2022, pp. 413–432.</cite></pref></li>
+</ul>
+</div>
+</div>
+<!-- Journal articles -->
+<div class="container">
+<button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#graphical_journals">
+Journal articles (2)
+</button>
+<div id="graphical_journals" class="collapse">
+<ul>
+<li><pref><cite>Mohan, K., J. Pearl, and J. Tian. <font color="#428bca">Graphical models for inference with missing data</font>. In: <em>Advances in neural information processing systems</em> 26 (2013).</cite></pref></li>
+<li><pref><cite>Mohan, K. and J. Pearl. <font color="#428bca">Graphical models for processing missing data</font>. In: <em>Journal of the American Statistical Association</em> 116.534 (2021), pp. 1023–1037.</cite></pref></li>
+</ul>
+</div>
+</div>
+<!-- Conference papers -->
+<!-- Reports, theses, etc. -->
+<p><br></p>
+</div>
+</div>
+</div>
+<!------------------------- MECHANISMS AND IDENTIFIABILITY ------------------------->
 <div class="panel panel-default">
 <div id="h_mnar" class="panel-heading" role="tab">
 <h4 class="panel-title">
@@ -1379,10 +1437,14 @@ Books and book chapters (1)
 <!-- Journal articles -->
 <div class="container">
 <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#mnar_journals">
-Journal articles (45)
+Journal articles (49)
 </button>
 <div id="mnar_journals" class="collapse">
 <ul>
+<li><pref><cite>Berrett, T. B. and R. J. Samworth. <font color="#428bca">Optimal nonparametric testing of missing completely at random and its connections to compatibility</font>. In: <em>The Annals of Statistics</em> 51.5 (2023), pp. 2170–2193.</cite></pref></li>
+<li><pref><cite>Molenberghs, G., C. Beunckens, C. Sotto, et al. <font color="#428bca">Every missingness not at random model has a missingness at random counterpart with equal fit</font>. In: <em>Journal of the Royal Statistical Society Series B: Statistical Methodology</em> 70.2 (2008), pp. 371–388.</cite></pref></li>
+<li><pref><cite>Näf, J., E. Scornet, and J. Josse. <font color="#428bca">What Is a Good Imputation Under MAR Missingness?</font> In: <em>arXiv preprint arXiv:2403.19196</em> (2024).</cite></pref></li>
+<li><pref><cite>Spohn, M., J. Näf, L. Michel, et al. <font color="#428bca">PKLM: A flexible MCAR test using Classification</font>. In: <em>Psychometrika</em> (2025), pp. 1–24.</cite></pref></li>
 <li><pref><cite>Albert, P. S. and D. A. Follmann. <font color="#428bca">Modeling repeated count data subject to informative dropout</font>. In: <em>Biometrics</em> 56.3 (2000), pp. 667-677.</cite></pref>
 <div>
 <a href="https://doi.org/10.1111/j.0006-341X.2000.00667.x" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
@@ -1496,8 +1558,8 @@ Journal articles (45)
 <div>
 <a href="https://doi.org/10.1109/ACCESS.2019.2891360" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
 </div></li>
-<li><pref><cite>Seaman, S., J. Galati, D. Jackson, et al. <font color="#428bca">What Is Meant by “Missing at Random”?</font> In: <em>Statistical Science</em> 28.2 (2013), pp. 257–268.</cite></pref> <pref><cite>— <font color="#428bca">What Is Meant by" Missing at Random"?</font> In: <em>Statistical Science</em> (2013), pp. 257–268.</cite></pref></li>
-<li><pref><cite>Seaman, S., J. Galati, D. Jackson, et al. <font color="#428bca">What Is Meant by “Missing at Random”?</font> In: <em>Statistical Science</em> 28.2 (2013), pp. 257–268.</cite></pref>
+<li><pref><cite>Seaman, S., J. Galati, D. Jackson, et al. <font color="#428bca">What Is Meant by "Missing at Random"?</font> In: <em>Statistical Science</em> 28.2 (2013), pp. 257–268.</cite></pref> <pref><cite>— <font color="#428bca">What Is Meant by" Missing at Random"?</font> In: <em>Statistical Science</em> (2013), pp. 257–268.</cite></pref></li>
+<li><pref><cite>Seaman, S., J. Galati, D. Jackson, et al. <font color="#428bca">What Is Meant by "Missing at Random"?</font> In: <em>Statistical Science</em> 28.2 (2013), pp. 257–268.</cite></pref>
 <div>
 <a href="https://doi.org/10.2307/43288491" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a><a href="http://www.jstor.org/stable/43288491" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
 </div></li>
@@ -1611,8 +1673,8 @@ Reports, theses, etc. (2)
 </div>
 <style type="text/css">
 .panel-group {
-    padding: 0;
-    margin-left: -15px;
+	padding: 0;
+	margin-left: -15px;
 }
 .panel-default>.panel-heading {
   color: #333;
@@ -1684,7 +1746,7 @@ Reports, theses, etc. (2)
   content: "Collapse All";
 }
 </style>
-<script type="text/javascript">
+<script>
 $(document).ready(function() {
   $(".toggle-accordion").on("click", function() {
     var accordionId = $(this).attr("accordion-id"),

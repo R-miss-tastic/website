@@ -11,6 +11,9 @@ description: ''
 ##### Package: 
 missForest
 
+##### Authors:
+Daniel J. Stekhoven
+
 ##### Category:
 Single Imputation
 

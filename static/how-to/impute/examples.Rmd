@@ -1,0 +1,169 @@
+---
+title: "Hands-On Part"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The following real data example is adapted to a large extend from the guidance on [Rmisstastic_descriptive_statistics_with_missing_values](https://rmisstastic.netlify.app/tutorials/josse_bookdown_dataanalysismissingr_2020#11)
+
+
+# Air Quality Data
+
+Air pollution is currently one of the most serious public health worries worldwide. Many epidemiological studies have proved the influence that some chemical compounds, such as sulphur dioxide ($SO_2$), nitrogen dioxide ($NO_2$), ozone ($O_3$) can have on our health. Associations set up to monitor air quality are active all over the world to measure the concentration of these pollutants.
+
+
+The data set we use here is a small subset of a cleaned version of air pollution measurements in the US. For more details, I refer to the Appendix C of  [the following paper](https://jmlr.org/papers/v23/21-0585.html). In this example, I actually induced missing values here, so that we have full control over the missing mechanism and access to the true data.
+
+We first load a real (prepared) data set:
+
+```{r, warning=FALSE, message=FALSE}
+library(mice)
+
+# Naniar provides principled, tidy ways to summarise, visualise, and manipulate 
+# missing data with minimal deviations from the workflows in ggplot2 and tidy 
+# data.
+library(naniar)
+library(VIM)
+library(FactoMineR)
+
+X <- read.csv("data.csv", header = T, row.names = 1)
+Xstar<- read.csv("fulldata.csv", header = T, row.names = 1)
+
+head(X)
+head(Xstar)
+
+summary(X)
+```
+
+
+## 1) Descriptive statistics with missing values
+
+We start by inspecting various plots for the missing values:
+
+
+```{r, fig.align='center', fig.height=4}
+res <- summary(aggr(X, sortVar = TRUE))$combinations
+
+res[rev(order(res[, 2])), ]
+```
+
+Creating the res variable renders a nice plot, showing the percentage of missing values for each variable. Moreover the next command nicely shows the patterns ($M$), as well as their frequency of occurring in the data set. In particular, we can further visualize the pattern using the matrixplot function:
+
+```{r,  fig.align='center', fig.height=4}
+matrixplot(X, sortby = 3)
+```
+
+The **VIM** function `marginplot` creates a scatterplot with additional information on the missing values. If you plot the variables $(x,y)$, the points with no missing values are represented as in a standard scatterplot. The points for which $x$ (resp. $y$) is missing are represented in red along the $y$ (resp. $x$) axis. In addition, boxplots of the x and y variables are represented along the axes with and without missing values (in red all variables $x$ where $y$ is missing, in blue all variables x where y is observed).
+
+```{r  fig.align='center', fig.height=4}
+marginplot(X[,2:3])
+```
+
+
+This plot can be used to check whether MCAR might hold. Under MCAR, the distribution of a variable when another variable is missing should always be the same. Under MAR this can be violated as we have seen (distribution shifts!). This plotting is a convenient way to check this a bit.
+
+There are many more plotting possibilities with VIM, as demonstrated e.g., in 2012ADAC.pdf (tuwien.ac.at).
+
+## 2) Imputation
+
+We now finally use the **mice** package for imputation. 
+
+```{r}
+library(mice)
+```
+
+We consider several methods and then start by choosing the best one according to the new I-Score. I-Score is contained in **miceDRF** package. In can be installed with
+
+```{r, eval = FALSE}
+devtools::install_github("KrystynaGrzesiak/miceDRF")
+```
+
+As the best version of the score not only scores one imputation but an imputation method itself for this dataset, we need to define a function for each:
+
+
+```{r, eval = FALSE}
+library(miceDRF)
+
+X <- as.matrix(X)
+
+methods <- c("pmm",      # mice-pmm
+             "cart",     # mice-cart
+             "sample",   # mice-sample
+             "norm.nob", # Gaussian Imputation
+             "DRF")      # mice-DRF
+
+
+# Creating a list of impuattion functions
+imputation_list <- create_mice_imputations(methods)
+
+# Calculatiung the scores
+scores <- Iscores_compare(X = X, N = 30, 
+                          imputation_list = imputation_list,
+                          methods = methods)
+
+scores
+
+```
+The score considers mice-cart to to be the best method. As a side note however, mice-rf is deemed second best and might have better properties for uncertainty estimation and multiple imputation, thus both should be considered. Here, we go with mice-cart:
+
+
+```{r}
+imp.mice <- mice(X, m = 10, method = "cart", printFlag = F)
+```
+
+Since we have the true data in this case, we analyze the imputation method a bit closer:
+
+```{r, fig.align='center', fig.height=4}
+## This here is not possible without the fully observed data ###
+Ximp <- mice::complete(imp.mice)
+
+index1 <- 1
+index2 <- 2
+
+par(mfrow = c(1, 2))
+plot(Xstar[is.na(X[, index1]) | is.na(X[, index2]), c(index1, index2)])
+plot(Ximp[is.na(X[, index1]) | is.na(X[, index2]), c(index1, index2)])
+
+
+# Replicating first and second moments
+colMeans(Xstar) - colMeans(Ximp)
+norm(cov(Xstar) - cov(Ximp)) / norm(cov(Xstar))
+```
+
+## 3) Analyse
+
+```{r}
+# Apply a regression to the multiple imputation
+lm.mice.out <- with(imp.mice, lm(max_O3 ~ max_PM2.5 + Longitude + Latitude + Elevation + Land.Use_AGRICULTURAL + Land.Use_COMMERCIAL + Land.Use_INDUSTRIAL + Location.Setting_RURAL + Location.Setting_SUBURBAN))
+
+# Use Rubins Rules to aggregate the estimates
+res <- pool(lm.mice.out)
+summary(res)
+```
+
+Importantly, this works here because we have all the ingredients for the `pool` function, which are (according to `?pool`):
+
+- the estimates of the model;
+
+- the standard error of each estimate;
+
+- the residual degrees of freedom of the model.
+
+Just to double check, we also perform the regression on $X^*$:
+
+```{r}
+## This here is not possible without the fully observed data ###
+res.not.attainable <- lm(max_O3 ~ max_PM2.5 + Longitude + Latitude + Elevation + Land.Use_AGRICULTURAL + Land.Use_COMMERCIAL + Land.Use_INDUSTRIAL + Location.Setting_RURAL + Location.Setting_SUBURBAN, data = as.data.frame(Xstar))
+
+summary(res.not.attainable)
+
+cbind(round((res$pooled$estimate - res.not.attainable$coefficients) / res.not.attainable$coefficients, 3))
+```
+
+
+Of course there are many more challenges, especially also for data that may be partly dependent (for instance repeat measurement or panel data). Most importantly, mice-cart is awesome, but it does not model the uncertainty of the missing imputation itself. As such it is technically not a proper imputation method, as one part of the uncertainty is missing. This could be an issue for confidence intervals and p-values especially in smaller samples. We also refer to the provided links for more information. In particular also the task view on [missing data](https://cran.r-project.org/web/views/MissingData.html).
+
+

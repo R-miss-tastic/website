@@ -23,8 +23,7 @@ library(blogdown)
 3. and install hugo using blogdown
 
 ```r
-install_hugo(version = "v0.124.0")
-options(blogdown.hugo.version = "0.124.0")
+install_hugo()
 ```
 
 4. To use the website, open the R project that you have just cloned from github and start

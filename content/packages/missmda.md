@@ -11,6 +11,9 @@ description: ''
 ##### Package: 
 missMDA
 
+##### Authors:
+Francois Husson, Julie Josse
+
 ##### Category:
 Single and Multiple Imputation
 

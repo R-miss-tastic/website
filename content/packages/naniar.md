@@ -11,6 +11,9 @@ description: ''
 ##### Package: 
 naniar
 
+##### Authors:
+Nicholas Tierney [aut, cre], Di Cook [aut], Miles McBain [aut], Colin Fay [aut], Mitchell O'Hara-Wild [ctb], Jim Hester [ctb], Luke Smith [ctb], Andrew Heiss [ctb]
+
 ##### Category:
 Data Structures, Summaries, and Visualisations for Missing Data
 

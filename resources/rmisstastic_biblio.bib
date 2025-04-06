@@ -1,4 +1,179 @@
 % Encoding: UTF-8
+
+@inproceedings{ayme2022near,
+  title={Near-optimal rate of consistency for linear models with missing values},
+  author={Ayme, Alexis and Boyer, Claire and Dieuleveut, Aymeric and Scornet, Erwan},
+  booktitle={International Conference on Machine Learning},
+  pages={1211--1243},
+  year={2022},
+  organization={PMLR},
+  Topics={supervised learning}
+}
+
+@article{mohan2013graphical,
+  title={Graphical models for inference with missing data},
+  author={Mohan, Karthika and Pearl, Judea and Tian, Jin},
+  journal={Advances in neural information processing systems},
+  volume={26},
+  year={2013},
+  Topics={graphical_models}
+}
+
+@incollection{mohan2022graphical,
+  title={Graphical models for recovering probabilistic and causal queries from missing data},
+  author={Mohan, Karthika and Pearl, Judea},
+  booktitle={Probabilistic and Causal Inference: the Works of Judea Pearl},
+  pages={413--432},
+  year={2022},
+  Topics={graphical_models}
+}
+
+
+@article{berrett2023optimal,
+  title                    = {Optimal nonparametric testing of missing completely at random and its connections to compatibility},
+  author                   ={Berrett, Thomas B and Samworth, Richard J},
+  journal={The Annals of Statistics},
+  volume={51},
+  number={5},
+  pages={2170--2193},
+  year={2023},
+  publisher={Institute of Mathematical Statistics},
+  Topics = {mcar; mechanism; design}
+}
+
+@book{little2019statistical,
+  title                    = {Statistical analysis with missing data},
+  author                   = {Little, Roderick JA and Rubin, Donald B},
+  year                     = {2019},
+  publisher                = {John Wiley \& Sons},
+  Topics                   = {general}
+}
+
+
+@article{verchand2024high,
+  title={High-dimensional logistic regression with missing data: Imputation, regularization, and universality},
+  author={Verchand, Kabir Aladin and Montanari, Andrea},
+  journal={arXiv preprint arXiv:2410.01093},
+  year={2024},
+  Topics={logistic; classification; high-dim}
+}
+
+@inproceedings{ayme2024random,
+author = {Ayme, Alexis and Boyer, Claire and Dieuleveut, Aymeric and Scornet, Erwan},
+title = {Random features models: a way to study the success of naive imputation},
+year = {2024},
+publisher = {JMLR.org},
+abstract = {Constant (naive) imputation is still widely used in practice as this is a first easy-to-use technique to deal with missing data. Yet, this simple method could be expected to induce a large bias for prediction purposes, as the imputed input may strongly differ from the true underlying data. However, recent works suggest that this bias is low in the context of high-dimensional linear predictors when data is supposed to be missing completely at random (MCAR). This paper completes the picture for linear predictors by confirming the intuition that the bias is negligible and that surprisingly naive imputation also remains relevant in very low dimension. To this aim, we consider a unique underlying random features model, which offers a rigorous framework for studying predictive performances, whilst the dimension of the observed features varies. Building on these theoretical results, we establish finite-sample bounds on stochastic gradient (SGD) predictors applied to zero-imputed data, a strategy particularly well suited for large-scale learning. If the MCAR assumption appears to be strong, we show that similar favorable behaviors occur for more complex missing data scenarios.},
+booktitle = {Proceedings of the 41st International Conference on Machine Learning},
+articleno = {84},
+numpages = {27},
+location = {Vienna, Austria},
+series = {ICML'24},
+Topics = {supervised learning}
+}
+
+@article{lobo2024primer,
+  title={A primer on linear classification with missing data},
+  author={Lobo, Angel D Reyero and Ayme, Alexis and Boyer, Claire and Scornet, Erwan},
+  journal={arXiv preprint arXiv:2405.09196},
+  year={2024},
+  Topics={classification; logistic}
+}
+
+@article{mohan2021graphical,
+  title={Graphical models for processing missing data},
+  author={Mohan, Karthika and Pearl, Judea},
+  journal={Journal of the American Statistical Association},
+  volume={116},
+  number={534},
+  pages={1023--1037},
+  year={2021},
+  publisher={Taylor \& Francis},
+  Topics={graphical_models}
+}
+
+@inproceedings{ayme2023naive,
+  title={Naive imputation implicitly regularizes high-dimensional linear models},
+  author={Ayme, Alexis and Boyer, Claire and Dieuleveut, Aymeric and Scornet, Erwan},
+  booktitle={International Conference on Machine Learning},
+  pages={1320--1340},
+  year={2023},
+  organization={PMLR},
+  Topics={supervised learning, high-dim}
+}
+
+@article{morvan2024imputation,
+  title={Imputation for prediction: beware of diminishing returns},
+  author={Morvan, Marine Le and Varoquaux, Ga{\"e}l},
+  journal={arXiv preprint arXiv:2407.19804},
+  year={2024},
+  Topics={supervised learning}
+}
+
+@inproceedings{zaffran2023conformal,
+  title={Conformal prediction with missing values},
+  author={Zaffran, Margaux and Dieuleveut, Aymeric and Josse, Julie and Romano, Yaniv},
+  booktitle={International Conference on Machine Learning},
+  pages={40578--40604},
+  year={2023},
+  organization={PMLR},
+  Topics={conformal prediction, supervised learning}
+}
+
+@article{molenberghs2008every,
+  title={Every missingness not at random model has a missingness at random counterpart with equal fit},
+  author={Molenberghs, Geert and Beunckens, Caroline and Sotto, Cristina and Kenward, Michael G},
+  journal={Journal of the Royal Statistical Society Series B: Statistical Methodology},
+  volume={70},
+  number={2},
+  pages={371--388},
+  year={2008},
+  publisher={Oxford University Press},
+  Topics={mnar; mechanism}
+}
+
+@article{naf2024good,
+  title={What Is a Good Imputation Under MAR Missingness?},
+  author={N{\"a}f, Jeffrey and Scornet, Erwan and Josse, Julie},
+  journal={arXiv preprint arXiv:2403.19196},
+  year={2024},
+  Topics={mar; mechanism}
+}
+
+@article{spohn2021pklm,
+  title={PKLM: A flexible MCAR test using Classification},
+  author={Spohn, Meta-Lina and N{\"a}f, Jeffrey and Michel, Loris and Meinshausen, Nicolai},
+  journal={Psychometrika},
+  pages={1--24},
+  year={2025},
+  publisher={Cambridge University Press},
+  Topics={mcar; mechanism}
+}
+
+@article{deng2022extended,
+  title={Extended missing data imputation via GANs for ranking applications},
+  author={Deng, Grace and Han, Cuize and Matteson, David S},
+  journal={Data Mining and Knowledge Discovery},
+  volume={36},
+  number={4},
+  pages={1498--1520},
+  year={2022},
+  publisher={Springer},
+  Topics={deep learning; gan}
+}
+
+@article{fang2024fragmgan,
+  title={FragmGAN: generative adversarial nets for fragmentary data imputation and prediction},
+  author={Fang, Fang and Bao, Shenliao},
+  journal={Statistical Theory and Related Fields},
+  volume={8},
+  number={1},
+  pages={15--28},
+  year={2024},
+  publisher={Taylor \& Francis},
+  Topics={deep learning; gan}
+}
+
 @Article{abayomi_etal_JRSSC2008,
   Title                    = {Diagnostics for multivariate imputations},
   Author                   = {Abayomi, K. and Gelman, A. and Levy, M.},
@@ -1360,7 +1535,7 @@ missing data; nonignorable; sandwich estimator; specification analysis},
   Keywords                 = {incomplete data; observed likelihood; variable selection; major trauma; public health},
   Owner                    = {imke},
   Timestamp                = {2019.03.31},
-  Topics                   = {ml; regression}
+  Topics                   = {ml; regression; classification; logistic, inference}
 }
 
 @Article{joenssen_bankhofer_JTACS2012,
@@ -1429,7 +1604,7 @@ missing data; nonignorable; sandwich estimator; specification analysis},
   Keywords                 = {Imputation; decision trees; expectation maximization},
   Owner                    = {imke},
   Timestamp                = {2019.03.17},
-  Topics                   = {random trees; random forests}
+  Topics                   = {random trees; random forests; supervised learning}
 }
 
 @Article{josse_etal_ADAC2011,
@@ -1786,8 +1961,7 @@ missing data; nonignorable; sandwich estimator; specification analysis},
   Owner                    = {alyssa},
   Pages                    = {408},
   Pmid                     = {10403256},
-  Timestamp                = {2016.09.27},
-  Topics                   = {general}
+  Timestamp                = {2016.09.27}
 }
 
 @Inproceedings{loh_etal_2011,
@@ -2838,7 +3012,7 @@ work and, therefore, should be the focus of future work in the field.},
   Abstract = {The concept of missing at random is central in the literature on statistical analysis with missing data. In general, inference using incomplete data should be based not only on observed data values but should also take account of the pattern of missing values. However, it is often said that if data are missing at random, valid inference using likelihood approaches (including Bayesian) can be obtained ignoring the missingness mechanism. Unfortunately, the term "missing at random" has been used inconsistently and not always clearly; there has also been a lack of clarity around the meaning of "valid inference using likelihood". These issues have created potential for confusion about the exact conditions under which the missingness mechanism can be ignored, and perhaps fed confusion around the meaning of "analysis ignoring the missingness mechanism". Here we provide standardised precise definitions of "missing at random" and "missing completely at random", in order to promote unification of the theory. Using these definitions we clarify the conditions that suffice for "valid inference" to be obtained under a variety of inferential paradigms.},
   Keywords = {mcar; ignorability; frequentist inference},
   Topics = {mar},
-   Owner                    = {aude},
+  Owner                    = {aude},
   Timestamp                = {2021.01.20}
 }
 

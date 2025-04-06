@@ -11,6 +11,9 @@ description: ''
 ##### Package: 
 imputeTS
 
+##### Authors:
+Steffen Moritz, Sebastian Gatscha, Earo Wang, Ron Hause
+
 ##### Category:
 Time-Series Imputation, Visualisations for Missing Data
 
