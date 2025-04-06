@@ -1,9 +1,10 @@
 ---
 output: md_document
 author: "Imke Mayer"
-date: 2018-10-24
+date: 2025-04-04
 linktitle: Bibliography
 menu: navbar
+title: Bibliography
 name: Bibliography
 identifier: "Bibliography"
 url: /bibliography/
@@ -363,63 +364,6 @@ Conference papers (1)
 </div>
 </div>
 </div>
-<!------------------------- Hot-deck and KNN ------------------------->
-<div class="panel panel-default">
-<div id="h_knn" class="panel-heading" role="tab">
-<h4 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#knn" aria-expanded="false" aria-controls="knn">Hot-deck and kNN approaches</a>
-</h4>
-</div>
-<div id="knn" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_knn">
-<div class="panel-body">
-<p align="justify">
-Let <span class="math inline">\(x_i\)</span> be an observation with missing values, e.g. each entry of <span class="math inline">\(x_i\)</span> could be the temperature at a certain day for one given place and unfortunately for some days the temperature was not measured. An intuitive idea to replace this missing information could be: take other observations <span class="math inline">\(\{x_j\}_j\)</span> which are similar to <span class="math inline">\(x_i\)</span> at the observed values and use this information to <em>fill in</em> the gaps. This idea of taking observed values from <em>neighbours</em> or <em>donors</em> based on some similarity measure is implemented in the so-called <em>hot-deck</em> and <em>k-nearest-neighbors</em> (kNN) approaches.
-</p>
-<!-- Books and book chapters -->
-<!-- Journal articles -->
-<div class="container">
-<button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#hot_journals">
-Journal articles (7)
-</button>
-<div id="hot_journals" class="collapse">
-<ul>
-<li><pref><cite>Andridge, R. and R. J. A. Little. <font color="#428bca">A review of hot deck imputation for survey non-response</font>. In: <em>International Statistical Review</em> 78.1 (2010), pp. 40-64.</cite></pref>
-<div>
-<a href="https://doi.org/10.1111/j.1751-5823.2010.00103.x" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Huisman, M. <font color="#428bca">Imputation of missing item responses: some simple techniques</font>. In: <em>Quality &amp; Quantity</em> 34.4 (2000), pp. 331-351.</cite></pref>
-<div>
-<a href="https://doi.org/10.1023/A:1004782230065" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Imbert, A., A. Valsesia, C. Le Gall, et al. <font color="#428bca">Multiple hot-deck imputation for network inference from RNA sequencing data</font>. In: <em>Bioinformatics</em> 34.10 (2018), pp. 1726-1732.</cite></pref>
-<div>
-<a href="https://doi.org/10.1093/bioinformatics/btx819" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Joenssen, D. W. and U. Bankhofer. <font color="#428bca">Donor limited hot deck imputation: effect on parameter estimation</font>. In: <em>Journal of Theoretical and Applied Computer Science</em> 6.3 (2012), pp. 58-70.</cite></pref>
-<div>
-<a href="http://www.jtacs.org/archive/2012/3/6" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
-</div></li>
-<li><pref><cite>Rao, J. N. K. and J. Shao. <font color="#428bca">Jackknife variance estimation with survey data under hot deck imputation</font>. In: <em>Biometrika</em> 79.4 (1992), pp. 811-822.</cite></pref>
-<div>
-<a href="https://doi.org/10.2307/2337236" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Reilly, M. and M. Pepe. <font color="#428bca">The relationship between hot-deck multiple imputation and weighted likelihood</font>. In: <em>Statistics in Medecine</em> 16.1-3 (1997), pp. 5-19.</cite></pref>
-<div>
-<a href="https://doi.org/10.1002/(SICI)1097-0258(19970115)16:1%3C5::AID-SIM469%3E3.0.CO;2-8" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-<li><pref><cite>Voillet, V., P. Besse, L. Liaubet, et al. <font color="#428bca">Handling missing rows in multi-omics data integration: multiple imputation in multiple factor analysis framework</font>. In: <em>BMC Bioinformatics</em> 17.402 (2016). Forthcoming.</cite></pref>
-<div>
-<a href="https://doi.org/10.1186/s12859-016-1273-5" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
-</div></li>
-</ul>
-</div>
-</div>
-<!-- Conference papers -->
-<!-- Reports, theses, etc. -->
-<p><br></p>
-</div>
-</div>
-</div>
 <!------------------------- Inference ------------------------->
 <div class="panel panel-default">
 <div id="h_ml" class="panel-heading" role="tab">
@@ -767,6 +711,54 @@ Reports, theses, etc. (1)
 </div>
 </div>
 <p><br></p>
+<!-- Hot deck and KNN-->
+<p><font size="+1"><b>Hot-deck and KNN approaches</b></font></p>
+<p align="justify">
+Let <span class="math inline">\(x_i\)</span> be an observation with missing values, e.g. each entry of <span class="math inline">\(x_i\)</span> could be the temperature at a certain day for one given place and unfortunately for some days the temperature was not measured. An intuitive idea to replace this missing information could be: take other observations <span class="math inline">\(\{x_j\}_j\)</span> which are similar to <span class="math inline">\(x_i\)</span> at the observed values and use this information to <em>fill in</em> the gaps. This idea of taking observed values from <em>neighbours</em> or <em>donors</em> based on some similarity measure is implemented in the so-called <em>hot-deck</em> and <em>k-nearest-neighbors</em> (kNN) approaches.
+</p>
+<!-- Books and book chapters -->
+<!-- Journal articles -->
+<div class="container">
+<button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#hot_journals">
+Journal articles (7)
+</button>
+<div id="hot_journals" class="collapse">
+<ul>
+<li><pref><cite>Andridge, R. and R. J. A. Little. <font color="#428bca">A review of hot deck imputation for survey non-response</font>. In: <em>International Statistical Review</em> 78.1 (2010), pp. 40-64.</cite></pref>
+<div>
+<a href="https://doi.org/10.1111/j.1751-5823.2010.00103.x" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Huisman, M. <font color="#428bca">Imputation of missing item responses: some simple techniques</font>. In: <em>Quality &amp; Quantity</em> 34.4 (2000), pp. 331-351.</cite></pref>
+<div>
+<a href="https://doi.org/10.1023/A:1004782230065" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Imbert, A., A. Valsesia, C. Le Gall, et al. <font color="#428bca">Multiple hot-deck imputation for network inference from RNA sequencing data</font>. In: <em>Bioinformatics</em> 34.10 (2018), pp. 1726-1732.</cite></pref>
+<div>
+<a href="https://doi.org/10.1093/bioinformatics/btx819" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Joenssen, D. W. and U. Bankhofer. <font color="#428bca">Donor limited hot deck imputation: effect on parameter estimation</font>. In: <em>Journal of Theoretical and Applied Computer Science</em> 6.3 (2012), pp. 58-70.</cite></pref>
+<div>
+<a href="http://www.jtacs.org/archive/2012/3/6" target="_blank" role="button" class="btn btn-outline-secondary btn-sm" >URL</a>
+</div></li>
+<li><pref><cite>Rao, J. N. K. and J. Shao. <font color="#428bca">Jackknife variance estimation with survey data under hot deck imputation</font>. In: <em>Biometrika</em> 79.4 (1992), pp. 811-822.</cite></pref>
+<div>
+<a href="https://doi.org/10.2307/2337236" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Reilly, M. and M. Pepe. <font color="#428bca">The relationship between hot-deck multiple imputation and weighted likelihood</font>. In: <em>Statistics in Medecine</em> 16.1-3 (1997), pp. 5-19.</cite></pref>
+<div>
+<a href="https://doi.org/10.1002/(SICI)1097-0258(19970115)16:1%3C5::AID-SIM469%3E3.0.CO;2-8" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+<li><pref><cite>Voillet, V., P. Besse, L. Liaubet, et al. <font color="#428bca">Handling missing rows in multi-omics data integration: multiple imputation in multiple factor analysis framework</font>. In: <em>BMC Bioinformatics</em> 17.402 (2016). Forthcoming.</cite></pref>
+<div>
+<a href="https://doi.org/10.1186/s12859-016-1273-5" target="blank" role="button" class="btn btn-outline-secondary btn-sm" >DOI</a>
+</div></li>
+</ul>
+</div>
+</div>
+<!-- Conference papers -->
+<!-- Reports, theses, etc. -->
+<p><br></p>
+<!-- Matrix factorization -->
 <font size="+1"><b>Matrix factorization</b></font>
 <p align="justify">
 A special case of imputation is matrix completion that exploits structural assumptions about the row and column spaces to impute the missing values.

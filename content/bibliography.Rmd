@@ -1,9 +1,10 @@
 ---
 output: md_document
 author: "Imke Mayer"
-date: 2018-10-24
+date: 2025-04-04
 linktitle: Bibliography
 menu: navbar
+title: Bibliography
 name: Bibliography
 identifier: "Bibliography"
 url: /bibliography/
@@ -299,41 +300,6 @@ create_ref_buttons(selected_refs, c(0,3,4), "weight2_misc")
 </div>
 </div>
 
-<!------------------------- Hot-deck and KNN ------------------------->
-<div class="panel panel-default">
-<div class="panel-heading" role="tab" id="h_knn">
-<h4 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#knn" aria-expanded="false" aria-controls="knn">Hot-deck and kNN approaches</a>
-</h4>
-</div>
-<div id="knn" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_knn">
-<div class="panel-body">
-<p align="justify">Let $x_i$ be an observation with missing values, e.g. each entry of $x_i$ could be the temperature at a certain day for one given place and unfortunately for some days the temperature was not measured. An intuitive idea to replace this missing information could be: take other observations $\{x_j\}_j$ which are similar to $x_i$ at the observed values and use this information to _fill in_ the gaps. This idea of taking observed values from _neighbours_ or _donors_ based on some similarity measure is implemented in the so-called _hot-deck_ and _k-nearest-neighbors_ (kNN) approaches.
-</p>
-```{r, hot_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-tags <- c("hot-deck")
-selected_refs <- select_refs(refs,tags)
-```
-<!-- Books and book chapters -->
-```{r, hot_print_books, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-create_ref_buttons(selected_refs, c(5,6), "hot_books")
-```
-<!-- Journal articles -->
-```{r, hot_print_journal, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-create_ref_buttons(selected_refs, c(2), "hot_journals")
-```
-<!-- Conference papers -->
-```{r, hot_print_conf, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-create_ref_buttons(selected_refs, c(1), "hot_conf")
-```
-<!-- Reports, theses, etc. -->
-```{r, hot_print_misc, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
-create_ref_buttons(selected_refs, c(0,3,4), "hot_misc")
-```
-<br>
-</div>
-</div>
-</div>
 
 <!------------------------- Inference ------------------------->
 <div class="panel panel-default">
@@ -447,6 +413,34 @@ create_ref_buttons(selected_refs, c(0,3,4), "imp_misc")
 ```
 <br>
 
+<!-- Hot deck and KNN-->
+<font size="+1"><b>Hot-deck and KNN approaches</b></font>
+
+<p align="justify">Let $x_i$ be an observation with missing values, e.g. each entry of $x_i$ could be the temperature at a certain day for one given place and unfortunately for some days the temperature was not measured. An intuitive idea to replace this missing information could be: take other observations $\{x_j\}_j$ which are similar to $x_i$ at the observed values and use this information to _fill in_ the gaps. This idea of taking observed values from _neighbours_ or _donors_ based on some similarity measure is implemented in the so-called _hot-deck_ and _k-nearest-neighbors_ (kNN) approaches.
+</p>
+```{r, hot_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+tags <- c("hot-deck")
+selected_refs <- select_refs(refs,tags)
+```
+<!-- Books and book chapters -->
+```{r, hot_print_books, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(5,6), "hot_books")
+```
+<!-- Journal articles -->
+```{r, hot_print_journal, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(2), "hot_journals")
+```
+<!-- Conference papers -->
+```{r, hot_print_conf, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(1), "hot_conf")
+```
+<!-- Reports, theses, etc. -->
+```{r, hot_print_misc, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(0,3,4), "hot_misc")
+```
+<br>
+
+<!-- Matrix factorization -->
 <font size="+1"><b>Matrix factorization</b></font>
 <p align="justify">A special case of imputation is matrix completion that exploits structural assumptions about the row and column spaces to impute the missing values.
 </p>
