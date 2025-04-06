@@ -516,11 +516,11 @@ create_ref_buttons(selected_refs, c(0,3,4), "mi_misc")
 </div>
 </div>
 
-<!------------------------- Machine Learning ------------------------->
+<!------------------------- Downstream tasks ------------------------->
 <div class="panel panel-default">
 <div class="panel-heading" role="tab" id="h_tree_dl">
 <h4 class="panel-title">
-<a role="button" data-toggle="collapse" data-parent="#accordion" href="#tree_dl" aria-expanded="false" aria-controls="tree_dl">Machine Learning</a>
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="#tree_dl" aria-expanded="false" aria-controls="tree_dl">Dowstream tasks</a>
 </h4>
 </div>
 <div id="tree_dl" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="h_tree_dl">
@@ -569,7 +569,7 @@ create_ref_buttons(selected_refs, c(0,3,4), "algoml_misc")
 <p align="justify">Methods have been suggested to perform clustering with missing values (k-means, mixture models) as well as dimensionality reduction with missing values (PCA). 
 </p>
 
-</p>
+
 ```{r, clust_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 tags <- c("unsupervised learning", "clustering")
 selected_refs <- select_refs(refs,tags)
@@ -626,6 +626,40 @@ create_ref_buttons(selected_refs, c(1), "tree_conf")
 <!-- Reports, theses, etc. -->
 ```{r, tree_print_misc, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 create_ref_buttons(selected_refs, c(0,3,4), "tree_misc")
+```
+
+<br>
+
+<font size="+1"><b>Classification</b></font>
+
+<p align="justify">TO BE WRITTEN.
+</p>
+
+
+```{r, classification_print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+tags <- c("classification")
+selected_refs <- select_refs(refs,tags)
+```
+
+
+<!-- Books and book chapters -->
+```{r, classification_print_books, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(5,6), "algoml_books")
+```
+
+<!-- Journal articles -->
+```{r, classification_print_journal, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(2), "algoml_journals")
+```
+
+<!-- Conference papers -->
+```{r, classification_print_conf, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(1), "algoml_conf")
+```
+
+<!-- Reports, theses, etc. -->
+```{r, classification_print_misc, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+create_ref_buttons(selected_refs, c(0,3,4), "algoml_misc")
 ```
 
 <br>
