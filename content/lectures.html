@@ -1,7 +1,7 @@
 ---
 output: md_document
 author: "Nathalie Vialaneix"
-date: 2025-04-06
+date: 2025-04-22
 linktitle: Lectures
 menu: navbar
 name: Lectures
@@ -38,7 +38,38 @@ Below you will find a selection of high-quality lectures, tutorials and labs on 
 <div id="accordion_general">
 <div class="card">
 <div class="card-header">
-<a class="card-block clearfix" data-toggle="collapse" data-target="#davidian">
+<a class="collapsed card-block clearfix" data-toggle="collapse" data-target="#julie-jeff">
+<div class="col-12">
+Statistical Learning with Missing Values<br>
+<small>
+<p>
+(Julie Josse, Jeffrey Näf, StatML &amp; Bocconi Spring School 2025)
+</p>
+<p></small></p>
+</div>
+<p></a></p>
+</div>
+<!--class=card-header-->
+<div id="julie-jeff" class="collapse" data-parent="#accordion_general">
+<div class="card-body">
+<p align="justify" style="margin-left:15px;">
+This presentation provides an overview of methods for handling missing data in the context of statistical and distributional learning. It discusses, among other things, how imputation methods should be evaluated and highlights the value of using distribution-based metrics that capture how well the underlying data structure is preserved when compared to traditional predictive measures like RMSE. The slides also introduce the intuition behind multiple imputation and explore strategies for supervised learning with incomplete data. Developed as part of a course module, the presentation offers a foundation for principled and effective approaches to missing values in data analysis. <a href="https://statml.io/index.php/statml-bocconi-spring-school-2025-uk-edition/" target="_blank"> Event page</a>.
+</p>
+<ul>
+<li>
+<a href="/tutorials/Cumberlodge.pdf"
+target="_blank">Slides</a>
+</li>
+</ul>
+</div>
+<p><!--card-body--></p>
+</div>
+<p><!--id=davidian--></p>
+</div>
+<!--class=card-->
+<div class="card">
+<div class="card-header">
+<a class="card-block clearfix" data-toggle="collapse" data-target="#erwan">
 <div class="col-12">
 Going beyond the fear of emptyness to gain consistency.<br>
 <small>
@@ -50,7 +81,7 @@ Going beyond the fear of emptyness to gain consistency.<br>
 <p></a></p>
 </div>
 <!--class=card-header-->
-<div id="davidian" class="collapse" data-parent="#accordion_general">
+<div id="erwan" class="collapse" data-parent="#accordion_general">
 <div class="card-body">
 <p align="justify" style="margin-left:15px;">
 This talk explores two common strategies for handling missing data in predictive modeling: “Impute-then-regress” and “Pattern-by-pattern.” The “Impute-then-regress” approach imputes missing values before learning from the imputed dataset, offering computational efficiency but potentially inconsistent results, though it can be consistent with non-parametric algorithms. In contrast, the “Pattern-by-pattern” strategy uses a separate predictor for each missing data pattern, ensuring consistency by design, but it is often computationally intractable for large datasets. The talk also examines the behavior of linear models under these strategies, noting their consistency rates and challenges, such as the zero imputation inconsistency and the different convergence rates in high-dimensional settings.
