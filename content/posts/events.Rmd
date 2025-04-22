@@ -20,7 +20,7 @@ description: ''
 <ul class="list-group" id="up-events-list">
 
 </ul>
-<li class="list-group-item"> At the moment, we are not aware of any upcoming events. If you know of one related to missing data, let us know!</li>
+<li class="list-group-item"> <a href="https://sites.google.com/view/ims-icsds2025/" target="_blank">IMS International Conference on Statistics and Data Science (ICSDS)</a> (December 15-18, 2025, Seville, Spain) </li>
 </br>
 
 <b>Past events:</b>
