@@ -16,6 +16,7 @@ weight: 6
 <p align="justify"><i>If you think you or your research group should also figure on the list below feel free to contact us via the <a href="/contact/">Contact form</a>.</i></p>
 
 <ul class="list-group" id="people-list">
+<li class="list-group-item"> <a href="https://jeffnaef.github.io/" target="_blank">Jeffrey Näf</a> (Geneva School of Economics and Management)</li>
 <li class="list-group-item"> <a href="https://thomasberrett.github.io/" target="_blank">Thomas Berrett</a> (University of Warwick)</li>
 <li class="list-group-item"> <a href="https://rohit-bhattacharya.com/" target="_blank">Rohit Bhattacharya</a> (Williams College)</li>
 <li class="list-group-item"> <a href="http://www.mattblackwell.org" target="_blank">Matthew Blackwell</a> (Harvard University)</li>
