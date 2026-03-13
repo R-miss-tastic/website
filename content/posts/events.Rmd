@@ -10,7 +10,7 @@ description: ''
 ---
 
 
-<p align="justify">Some upcoming and recent past events, mainly conferences, with special sessions or multiple contributions on handling missing values. (Last updated: 2025-04-22)</p>
+<p align="justify">Some upcoming and recent past events, mainly conferences, with special sessions or multiple contributions on handling missing values. (Last updated: 2026-03-13)</p>
 
 <!--more-->
 <br>
@@ -20,12 +20,13 @@ description: ''
 <ul class="list-group" id="up-events-list">
 
 </ul>
-<li class="list-group-item"> <a href="https://sites.google.com/view/ims-icsds2025/" target="_blank">IMS International Conference on Statistics and Data Science (ICSDS)</a> (December 15-18, 2025, Seville, Spain) </li>
+<li class="list-group-item"> <a href="https://www.ems26.org/" target="_blank">European Meeting of Statisticians (EMS)</a> (August 24 - 28, 2026, Lugano, Switzerland) </li>
 </br>
 
 <b>Past events:</b>
 
 <ul class="list-group" id="past-events-list">
+<li class="list-group-item"> <a href="https://sites.google.com/view/ims-icsds2025/" target="_blank">IMS International Conference on Statistics and Data Science (ICSDS)</a> (December 15-18, 2025, Seville, Spain) </li>
 <li class="list-group-item"> <a href="https://statml.io/index.php/statml-bocconi-spring-school-2025-uk-edition/" target="_blank">EPSRC StatML and Bocconi Spring School on Computational Optimal Transport and Statistical Learning with Missing Values</a> (7th April - 11th April, 2025, Windsor, UK)</li>
 <li class="list-group-item"> <a href="http://www.compstat2022.org/" target="_blank">International Conference on Computational Statistics (COMPSTAT)</a> (August 23rd - August 26th, 2022, Bologna, Italy)</li>
 <li class="list-group-item"> <a href="http://www.iscb2021.info/en" target="_blank">43nd Conference of the International Society for Clinical Biostatistics</a> (August 21st - August 25th, 2022, Newcastle upon Tyne, UK)</li>
