@@ -27,33 +27,33 @@ Left-censored data imputation, gene expression data generation
  
 ##### Algorithms for imputation:
 
-- impute.MAR() – Imputation under MAR/MCAR assumption,  
-- impute.MAR.MNAR() – Imputation under combined MCAR and MNAR assumption,  
-- impute.MinDet() – Imputation with minimum detection value,  
-- impute.MinProb() – Imputation using random draws from a left-censored distribution,  
-- impute.QRILC() – Imputation based on quantile regression for left-censored data,  
-- impute.wrapper.KNN() – Imputation using k-nearest neighbors,  
-- impute.wrapper.MLE() – Imputation using the EM algorithm (Maximum Likelihood Estimation),  
-- impute.wrapper.SVD() – Imputation based on Singular Value Decomposition,  
-- impute.ZERO() – Imputation by zero.  
+- `impute.MAR()` – Imputation under MAR/MCAR assumption,  
+- `impute.MAR.MNAR()` – Imputation under combined MCAR and MNAR assumption,  
+- `impute.MinDet()` – Imputation with minimum detection value,  
+- `impute.MinProb()` – Imputation using random draws from a left-censored distribution,  
+- `impute.QRILC()` – Imputation based on quantile regression for left-censored data,  
+- `impute.wrapper.KNN()` – Imputation using k-nearest neighbors,  
+- `impute.wrapper.MLE()` – Imputation using the EM algorithm (Maximum Likelihood Estimation),  
+- `impute.wrapper.SVD()` – Imputation based on Singular Value Decomposition,  
+- `impute.ZERO()` – Imputation by zero.  
 
 ##### Algorithms for amputation:
 
-- insertMVs() – Generate missing values in the dataset.
+- `insertMVs()` – Generate missing values in the dataset.
 
 ##### Datasets:
 
 The artificial data can be generated using:
 
-- generate.ExpressionData() -	Generate expression data,
-- generate.RollUpMap() – Generate roll-up map.
+- `generate.ExpressionData()` -	Generate expression data,
+- `generate.RollUpMap()` – Generate roll-up map.
 
 The datasets can be loaded using functions:
 
-- intensity_PXD000022() – Load dataset PXD000022 from ProteomeXchange,  
-- intensity_PXD000052() – Load dataset PXD000052 from ProteomeXchange,  
-- intensity_PXD000438() – Load dataset PXD000438 from ProteomeXchange,  
-- intensity_PXD000501() – Load dataset PXD000501 from ProteomeXchange.
+- `intensity_PXD000022()` – Load dataset PXD000022 from ProteomeXchange,  
+- `intensity_PXD000052()` – Load dataset PXD000052 from ProteomeXchange,  
+- `intensity_PXD000438()` – Load dataset PXD000438 from ProteomeXchange,  
+- `intensity_PXD000501()` – Load dataset PXD000501 from ProteomeXchange.
 
 ##### Further Information:
 

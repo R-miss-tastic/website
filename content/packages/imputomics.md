@@ -22,49 +22,49 @@ Imputation for 'omics' data, Imputation for left-censored data.
 A robust wrapper package containing a range of methods for simulating and imputing missing values in different types of omics data such as genomics, transcriptomics, proteomics, and metabolomics. Provides tools for comparing and evaluating the performance of imputation methods and a web server.
 
 ##### Algorithms:
- - impute_amelia: Amelia:  bootstrap EM
- - impute_areg: multiple imputation additive regression
- - impute_bayesmetab: BayesMetab
- - impute_bpca: Bayesian Principal Component Analysis
- - impute_metabimpute_bpca: Bayesian Principal Component Analysis
- - impute_mice_cart: Classification And Regression Trees
- - impute_cm: compound minimium
- - impute_halfmin: half-minimum imputation
- - impute_metabimpute_halfmin: half-minimum imputation
- - impute_imputation_knn: k-nearest neighbors
- - impute_knn: k-nearest neighbors
- - impute_vim_knn: k-nearest neighbors
- - impute_corknn: k-nearest neighbors correlation
- - impute_eucknn: k-nearest neighbors euclidean
- - impute_tknn: K-nearest neighbor truncation
- - impute_mean: mean imputation
- - impute_metabimpute_mean: mean imputation
- - impute_median: median imputation
- - impute_metabimpute_median: median imputation
- - impute_mice_mixed: Multiple Imputation by Chained Equations Mixed
- - impute_metabimpute_min: minimum imputation
- - impute_min: minimum imputation
- - impute_mnmf: Non-negative Matrix Factorization
- - impute_nipals: Non-Linear Iterative Partial Least Squares
- - impute_missmda_em: iterative PCA
- - impute_pemm: Penalized Expectation Maximization
- - impute_mice_pmm: Predictive Mean Matching
- - impute_ppca: Probabilistic Principal Component Analysis
- - impute_qrilc: quantile regression approach for the imputation of left-censored
- - impute_metabimpute_qrilc: quantile regression approach for the imputation of left-censored
- - impute_random: Random imputation
- - impute_metabimpute_rf: Random Forest
- - impute_mice_rf: Random Forest
- - impute_missforest: Random Forest
- - impute_regimpute: glmnet ridge regression
- - impute_softimpute: Iterative Soft-Thresholded SVD
- - impute_bcv_svd: Singular Value Decomposition
- - impute_svd: Singular Value Decomposition
- - impute_metabimpute_zero: zero imputation
- - impute_zero: zero imputation
- - impute_gsimp: Gibbs Sampler imputation
- - impute_mai: Mechanism Aware Imputation
- - impute_metabimpute_gsimp: Gibbs Sampler imputation
+ - `impute_amelia`: Amelia:  bootstrap EM
+ - `impute_areg`: multiple imputation additive regression
+ - `impute_bayesmetab`: BayesMetab
+ - `impute_bpca`: Bayesian Principal Component Analysis
+ - `impute_metabimpute_bpca`: Bayesian Principal Component Analysis
+ - `impute_mice_cart`: Classification And Regression Trees
+ - `impute_cm`: compound minimium
+ - `impute_halfmin`: half-minimum imputation
+ - `impute_metabimpute_halfmin`: half-minimum imputation
+ - `impute_imputation_knn`: k-nearest neighbors
+ - `impute_knn`: k-nearest neighbors
+ - `impute_vim_knn`: k-nearest neighbors
+ - `impute_corknn`: k-nearest neighbors correlation
+ - `impute_eucknn`: k-nearest neighbors euclidean
+ - `impute_tknn`: K-nearest neighbor truncation
+ - `impute_mean`: mean imputation
+ - `impute_metabimpute_mean`: mean imputation
+ - `impute_median`: median imputation
+ - `impute_metabimpute_median`: median imputation
+ - `impute_mice_mixed`: Multiple Imputation by Chained Equations Mixed
+ - `impute_metabimpute_min`: minimum imputation
+ - `impute_min`: minimum imputation
+ - `impute_mnmf`: Non-negative Matrix Factorization
+ - `impute_nipals`: Non-Linear Iterative Partial Least Squares
+ - `impute_missmda_em`: iterative PCA
+ - `impute_pemm`: Penalized Expectation Maximization
+ - `impute_mice_pmm`: Predictive Mean Matching
+ - `impute_ppca`: Probabilistic Principal Component Analysis
+ - `impute_qrilc`: quantile regression approach for the imputation of left-censored
+ - `impute_metabimpute_qrilc`: quantile regression approach for the imputation of left-censored
+ - `impute_random`: Random imputation
+ - `impute_metabimpute_rf`: Random Forest
+ - `impute_mice_rf`: Random Forest
+ - `impute_missforest`: Random Forest
+ - `impute_regimpute`: glmnet ridge regression
+ - `impute_softimpute`: Iterative Soft-Thresholded SVD
+ - `impute_bcv_svd`: Singular Value Decomposition
+ - `impute_svd`: Singular Value Decomposition
+ - `impute_metabimpute_zero`: zero imputation
+ - `impute_zero`: zero imputation
+ - `impute_gsimp`: Gibbs Sampler imputation
+ - `impute_mai`: Mechanism Aware Imputation
+ - `impute_metabimpute_gsimp`: Gibbs Sampler imputation
 
 The references to the methods cn be found in the documentation: https://biogenies.info/imputomics/
 
